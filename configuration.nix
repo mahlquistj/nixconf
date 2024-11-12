@@ -88,6 +88,7 @@
     cinnamon.nemo
     vscode
     nixd
+    firefox
   ];
 
   # Hint electron apps to use wayland
