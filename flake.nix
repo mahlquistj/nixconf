@@ -10,8 +10,10 @@
   };
 
   outputs = { self, nixpkgs, ... }@inputs:
-    let inherit (self) outputs;
-
+    let
+      inherit (self) outputs;
+      system = "x86_64-linux";
+      pkgs = import nixpkgs { inherit system; };
     in {
       nixosConfigurations = {
         work = nixpkgs.lib.nixosSystem {
@@ -19,19 +21,22 @@
           modules = [ inputs.home-manager.nixosModule ];
         };
         home = nixpkgs.lib.nixosSystem {
+          specialArgs = { inherit inputs outputs; };
           modules = [ inputs.home-manager.nixosModule ];
         };
       };
 
       homeConfigurations = {
-        work = nixpkgs.lib.nixosSystem {
-
+        work = inputs.home-manager.homeManagerConfiguration {
+          pkgs = nixpkgs;
+          extraSpecialArgs = { inherit inputs outputs self; };
+          modules = [ ./home-manager/namish/home.nix ];
         };
 
-        home = nixpkgs.lib.nixosSystem {
-          modules = [
-
-          ];
+        home = inputs.home-manager.homeManagerConfiguration {
+          pkgs = nixpkgs;
+          extraSpecialArgs = { inherit inputs outputs self; };
+          modules = [ ./home-manager/namish/home.nix ];
         };
       };
 

@@ -8,9 +8,6 @@
   imports = [
     # Include the results of the hardware scan.
     ./hardware-configuration.nix
-
-    # Include home-manager configuration
-    ./home-manager.nix
   ];
 
   ## System configuration ##
@@ -27,9 +24,6 @@
   boot = {
     loader.systemd-boot.enable = true;
     loader.efi.canTouchEfiVariables = true;
-    # Disk encryption
-    initrd.luks.devices."luks-058dec93-cc6c-4357-9bbf-e1843b3dafe4".device =
-      "/dev/disk/by-uuid/058dec93-cc6c-4357-9bbf-e1843b3dafe4";
   };
 
   # Timezone
@@ -76,7 +70,6 @@
       openssl
       bash
     ];
-    variables = { EDITOR = "vim"; };
   };
 
   programs = { bash.enable = true; };
