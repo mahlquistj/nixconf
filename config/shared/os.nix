@@ -1,16 +1,10 @@
-# Edit this configuration file to define what should be installed on
-# your system.  Help is available in the configuration.nix(5) man page
-# and in the NixOS manual (accessible by running ‘nixos-help’).
-
 { config, pkgs, ... }:
 
 {
   imports = [
     # Include the results of the hardware scan.
-    ./hardware-configuration.nix
+    ../hardware-configuration.nix
   ];
-
-  ## System configuration ##
 
   # This value determines the NixOS release from which the default
   # settings for stateful data, like file locations and database versions
@@ -21,13 +15,16 @@
   system.stateVersion = "24.05"; # Did you read the comment?
 
   # Bootloader
-  boot = {
-    loader.systemd-boot.enable = true;
-    loader.efi.canTouchEfiVariables = true;
+  boot.loader = {
+    systemd-boot.enable = true;
+    efi.canTouchEfiVariables = true;
   };
 
   # Timezone
   time.timeZone = "Europe/Copenhagen";
+
+  # Location
+  location.provider = "geoclue2";
 
   # Locale
   i18n = {
@@ -45,6 +42,9 @@
     };
   };
 
+  # Configure console keymap
+  console.keyMap = "dk-latin1";
+
   # Enable networking
   networking.networkmanager.enable = true;
 
@@ -55,45 +55,6 @@
     extraGroups = [ "networkmanager" "wheel" ];
   };
 
-  # Configure console keymap
-  console.keyMap = "dk-latin1";
-
-  # System packages
-  environment = {
-    systemPackages = with pkgs; [
-      # Essentials
-      vim
-      wget
-      git
-      curl
-      nixd
-      openssl
-      bash
-    ];
-  };
-
-  programs = { bash.enable = true; };
-
-  services = {
-    # OpenSSH
-    openssh.enable = true;
-
-    # Xserver
-    xserver = {
-      enable = true;
-      xkb = {
-        layout = "dk";
-        variant = "";
-      };
-    };
-
-    displayManager.sddm = {
-      enable = true;
-      wayland.enable = true;
-    };
-  };
-
-  ## Nix Configuration ##
   # Enable flakes
   nix.settings.experimental-features = [ "nix-command" "flakes" ];
 

@@ -7,6 +7,7 @@
       url = "github:nix-community/home-manager";
       inputs.nixpkgs.follows = "nixpkgs";
     };
+
   };
 
   outputs = { self, nixpkgs, ... }@inputs:
@@ -18,11 +19,11 @@
       nixosConfigurations = {
         work = nixpkgs.lib.nixosSystem {
           specialArgs = { inherit inputs outputs; };
-          modules = [ inputs.home-manager.nixosModule ];
+          modules = [ inputs.home-manager.nixosModule ./config/work.nix ];
         };
         home = nixpkgs.lib.nixosSystem {
           specialArgs = { inherit inputs outputs; };
-          modules = [ inputs.home-manager.nixosModule ];
+          modules = [ inputs.home-manager.nixosModule ./config/home.nix ];
         };
       };
 
@@ -30,13 +31,13 @@
         work = inputs.home-manager.homeManagerConfiguration {
           pkgs = nixpkgs;
           extraSpecialArgs = { inherit inputs outputs self; };
-          modules = [ ./home-manager/namish/home.nix ];
+          modules = [ ./home/work.nix ];
         };
 
         home = inputs.home-manager.homeManagerConfiguration {
           pkgs = nixpkgs;
           extraSpecialArgs = { inherit inputs outputs self; };
-          modules = [ ./home-manager/namish/home.nix ];
+          modules = [ ./home/home.nix ];
         };
       };
 
