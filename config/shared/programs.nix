@@ -24,6 +24,7 @@
 
       # Other
       hyprpaper
+      sddm-astronaut
     ];
   };
 
