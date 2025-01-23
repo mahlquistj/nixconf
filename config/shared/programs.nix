@@ -16,7 +16,8 @@
       curl
       nixd
       openssl
-      home-manager
+      home-manage
+      wofi
     ];
   };
 
