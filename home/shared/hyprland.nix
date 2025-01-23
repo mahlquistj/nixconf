@@ -2,6 +2,8 @@
 
 {
   wayland.windowManager.hyprland = {
+    enable = true;
+
     plugins = {
 
     };
