@@ -45,7 +45,8 @@
         resize_on_border = true;
       };
       decoration = {
-        rounding = 4;
+        rounding = 5;
+        rounding_power = 2.5;
 
         inactive_opacity = 0.8;
         dim_inactive = true;
