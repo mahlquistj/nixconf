@@ -42,7 +42,7 @@
       }
 
       window#waybar {
-        opacity: 0;
+        background-color: rgba(0,0,0,0);
       }
 
       #workspaces {
