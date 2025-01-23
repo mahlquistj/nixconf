@@ -19,14 +19,12 @@ window#waybar {
 
 #workspaces button {
     background-color: var(--background);
-    min-height: 1rem;
+    min-height: 10px;
     min-width: 1rem;
     border-radius: 10px;
     transition: 0.5s ease;
     margin-right: 4px;
     margin-left: 4px;
-    margin-top: 8px;
-    margin-bottom: 8px;
 }
 
 #workspaces button.active {
