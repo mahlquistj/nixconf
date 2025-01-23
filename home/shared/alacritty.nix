@@ -4,13 +4,13 @@
     settings = {
       env = { "TERM" = "xterm-256color"; };
 
-      background_opacity = 0.95;
-
       window = {
         padding = {
           x = 10;
           y = 10;
         };
+
+        opacity = 0.95;
 
         decorations = "buttonless";
       };
