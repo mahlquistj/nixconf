@@ -30,7 +30,7 @@
 
       smallspacer = { "format" = " "; };
 
-      "hyprland/workspaces" = { format = "{name}"; };
+      "hyprland/workspaces" = { format = ""; };
 
     }];
 
@@ -56,7 +56,7 @@
 
 
       #workspaces button {
-        color: #${colors.color1};
+        background-color: #${colors.background};
         min-height: 1rem;
         min-width: 1rem;
         border-radius: 10px;
@@ -66,7 +66,7 @@
       }
 
       #workspaces button.active {
-        color: #${colors.background};
+        background-color: #${colors.color1};
         transition: all 0.5s ease;
         min-width: 5rem;
       }
