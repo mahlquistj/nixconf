@@ -1,6 +1,9 @@
 { config, pkgs, ... }:
-
-{
+let
+  sddm-astronaut = pkgs.sddm-astronaut.override {
+    themeConfig = { ConfigFile = "Themes/pixel_sakura.conf"; };
+  };
+in {
   # Hyprland service needed directly in the config 
   # for the home-manager module to work
   programs.hyprland = {
@@ -45,14 +48,7 @@
       wayland.enable = true;
       theme = "sddm-astronaut-theme";
       package = pkgs.kdePackages.sddm;
-      extraPackages = with pkgs; [
-        kdePackages.qtsvg
-        kdePackages.qtmultimedia
-        kdePackages.qtvirtualkeyboard
-        (callPackage ../../derivs/sddm-astronaut-theme.nix {
-          theme = "pixel_sakura";
-        })
-      ];
+      extraPackages = [ sddm-astronaut ];
     };
 
     redshift = {
