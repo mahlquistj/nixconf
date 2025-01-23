@@ -31,10 +31,10 @@
       smallspacer = { "format" = " "; };
 
       "hyprland/workspaces" = {
-        format = "{icon}";
+        format = "<div id='icon'>{icon}</div><div id='name'>{name}</div>";
         format-icons = {
           default = "";
-          active = " {name}";
+          active = "";
         };
       };
 
@@ -44,7 +44,7 @@
       * {
         font-family: "SauceCodePro Nerd Font";
         font-weight: bold; 
-        font-size: 15px;
+        font-size: 10px;
       }
 
       window#waybar {
@@ -52,11 +52,8 @@
       }
 
       #workspaces {
-        background: #${colors.background};
-        color: #${colors.foreground};
         box-shadow: none;
         text-shadow: none;
-        border-radius: 9px;
         transition: 0.2s ease;
         padding-left: 4px;
         padding-right: 4px;
@@ -70,16 +67,28 @@
         box-shadow: none;
         text-shadow: none;
         border-radius: 9px;
-        transition: 0.2s ease;
+        transition: 0.3s ease;
         padding-left: 4px;
         padding-right: 4px;
       }
 
+      #workspaces button #name {
+        display: None;
+      }
+
       #workspaces button.active {
-        color: #${colors.color1};   
+        background: #${colors.color1};
+        color: #${colors.background};
         transition: all 0.3s ease;
         padding-left: 4px;
         padding-right: 4px;
+        border-radius: 9px;
+        transition: 0.2s ease;
+      }
+
+      #workspaces button.active #icon {
+        color: #${colors.background};
+        margin-right: 5px;
       }
 
       #workspaces button:hover {
