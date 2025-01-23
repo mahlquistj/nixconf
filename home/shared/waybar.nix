@@ -1,8 +1,37 @@
-{ colors, has_battery, ... }:
+{ colors, lib, has_battery, ... }:
 
-{
+let
+  # The colors object
+  colors = {
+    A = "#ff0000";
+    background = "#ffffff";
+    foreground = "#000000";
+  };
+
+  # Function to dynamically transform CSS
+  importCss = file: let
+    # Read the CSS file as a string
+    cssContent = lib.fileContents file;
+
+    # Replace `var(--<name>)` dynamically with escaped `${}` syntax
+    dynamicReplace = str:
+      lib.replaceStringsByRegex
+        "var\\(--([a-zA-Z0-9_-]+)\\)"
+        str
+        (match: ''
+          ${lib.getAttrFromPath (lib.splitString "." match.[1]) colors or "var(--${match.[1]})"}
+        '');
+  in
+    dynamicReplace cssContent;
+
+  # Example usage
+  myCss = importCss ./styles.css;
+
+in {
   programs.waybar = {
     enable = true;
+
+    style = "${waybarStyling}";
 
     settings = [{
       position = "top";
@@ -29,14 +58,5 @@
       "hyprland/workspaces" = { format = ""; };
 
     }];
-
-    style = ''
-      :root {
-        --background: ${colors.background};
-        --color1: ${colors.color1};
-      }
-
-      ${builtins.readFile ./waybar.css}
-    '';
   };
 }
