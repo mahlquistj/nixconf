@@ -1,13 +1,6 @@
 { colors, lib, has_battery, ... }:
 
 let
-  # The colors object
-  colors = {
-    A = "#ff0000";
-    background = "#ffffff";
-    foreground = "#000000";
-  };
-
   # Function to dynamically replace CSS variables
   importCss = file:
     let
