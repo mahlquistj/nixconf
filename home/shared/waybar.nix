@@ -68,7 +68,7 @@
       #workspaces button.active {
         color: #${colors.background};
         transition: all 0.5s ease;
-        width: 5rem
+        width: 5rem;
       }
 
       #workspaces button:hover {
