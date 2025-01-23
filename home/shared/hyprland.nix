@@ -37,10 +37,16 @@
         "$mod, W, exec, firefox"
 
         # Moving windows
+        ## Arrow keys
         "$mod, left, movefocus, l"
         "$mod, right, movefocus, r"
         "$mod, up, movefocus, u"
         "$mod, down, movefocus, d"
+        ## Vim keys
+        "$mod, H, movefocus, l"
+        "$mod, L, movefocus, r"
+        "$mod, K, movefocus, u"
+        "$mod, J, movefocus, d"
 
         # Window control
         "$modshift, V, togglefloating"
