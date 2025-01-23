@@ -18,6 +18,7 @@
       openssl
       home-manager
       wofi
+      wev # Keyboard debugging
     ];
   };
 

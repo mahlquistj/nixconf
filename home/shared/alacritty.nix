@@ -30,8 +30,8 @@
 
       colors = {
         primary = {
-          background = "${colors.background}";
-          foreground = "${colors.foreground}";
+          background = "#${colors.background}";
+          foreground = "#${colors.foreground}";
         };
       };
     };
