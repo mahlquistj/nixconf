@@ -45,8 +45,7 @@
       wayland.enable = true;
       theme = "sddm-astronaut-theme";
       package = pkgs.kdePackages.sddm;
-      extraPackages = with pkgs;
-        [ (callPackage ../../derivs/sddm-astronaut-theme.nix { }) ];
+      extraPackages = with pkgs; [ sddm-astronaut ];
     };
 
     redshift = {
