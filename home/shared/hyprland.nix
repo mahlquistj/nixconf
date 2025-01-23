@@ -4,8 +4,8 @@
   services.hyprpaper = {
     enable = true;
     settings = {
-      preload = "/home/maj/.wallpapers/${wallpaper}.png";
-      wallpaper = ", /home/maj/.wallpapers/${wallpaper}.png";
+      preload = [ "/home/maj/.wallpapers/${wallpaper}.png" ];
+      wallpaper = [ ", /home/maj/.wallpapers/${wallpaper}.png" ];
     };
   };
   wayland.windowManager.hyprland = {
