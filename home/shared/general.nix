@@ -18,6 +18,16 @@
 
     # Hint electron apps to use wayland
     sessionVariables.NIXOS_OZONE_WL = "1";
+
+    # Cursor icons
+    home.pointerCursor.hyprcursor = {
+      enable = true;
+      name = "phinger-cursors-light";
+    };
+    file.".icons/" = {
+      source = "../../media/cursor/";
+      recursive = true;
+    };
   };
 
   programs.home-manager.enable = true;
