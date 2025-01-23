@@ -26,6 +26,8 @@
         "col.inactive_border" = "rgba(${colors.color0}aa)";
       };
 
+      input = { kb_layout = "da"; };
+
       bind = [
         # Important controls
         "$modshift, ESC, exit"
