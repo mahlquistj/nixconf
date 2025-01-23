@@ -23,7 +23,7 @@ let
 
               # Check if the variable exists in `colors` and replace it, otherwise keep it as-is
               replacement = if lib.hasAttr varName colors then
-                "${colors.${varName}}"
+                "#${colors.${varName}}"
               else
                 "var(--${varName})";
               # Combine the replacement with the remaining part of the string
