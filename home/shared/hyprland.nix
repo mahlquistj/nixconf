@@ -8,7 +8,7 @@
 
     settings = {
       "$mod" = "SUPER";
-      "$modshift" = "$mod SHIFT";
+      "$modshift" = "SUPER_SHIFT";
 
       "$terminal" = "alacritty";
       "$fileManager" = "nemo";
@@ -30,10 +30,10 @@
 
       bind = [
         # Important controls
-        "$modshift, ESC, exit"
+        "$modshift, ESCAPE, exit"
 
         # Spawners
-        "$mod, ENTER, exec, $terminal"
+        "$mod, Return, exec, $terminal"
         "$mod, W, exec, firefox"
 
         # Moving windows
