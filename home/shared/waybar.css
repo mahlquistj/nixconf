@@ -21,6 +21,7 @@ window#waybar {
 }
 
 #workspaces button {
+    all:unset;
     background-color: var(--background);
     border-radius: 25px;
     min-height: 0px;
