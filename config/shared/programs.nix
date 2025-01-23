@@ -24,6 +24,7 @@
 
       # Other
       hyprpaper
+      sddm-astronaut
     ];
   };
 
@@ -43,6 +44,7 @@
     displayManager.sddm = {
       enable = true;
       wayland.enable = true;
+      theme = "sddm-astronaut-theme";
     };
 
     redshift = {
