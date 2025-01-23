@@ -1,0 +1,42 @@
+* {
+    font-family: "SauceCodePro Nerd Font";
+    font-weight: bold; 
+    font-size: 10px;
+}
+
+window#waybar {
+    all:unset;
+}
+
+#workspaces {
+    box-shadow: none;
+    text-shadow: none;
+    transition: 0.2s ease;
+    padding-left: 4px;
+    padding-right: 4px;
+    padding-top: 1px;
+}
+
+
+#workspaces button {
+    background-color: var(--background);
+    min-height: 1rem;
+    min-width: 1rem;
+    border-radius: 10px;
+    transition: 0.5s ease;
+    padding-left: 4px;
+    padding-right: 4px;
+}
+
+#workspaces button.active {
+    background-color: var(--color1);
+    transition: all 0.5s ease;
+    min-width: 5rem;
+}
+
+#workspaces button:hover {
+    background: none;
+    color: #72D792;
+    animation: ws_hover 20s ease-in-out 1;
+    transition: all 0.5s cubic-bezier(.55,-0.68,.48,1.682);
+}

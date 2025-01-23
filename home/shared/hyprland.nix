@@ -1,4 +1,4 @@
-{ inputs, config, lib, pkgs, colors, wallpaper, ... }:
+{ colors, wallpaper, ... }:
 
 {
   services.hyprpaper = {

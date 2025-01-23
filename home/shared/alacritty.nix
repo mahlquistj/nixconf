@@ -1,4 +1,4 @@
-{ config, lib, pkgs, colors, ... }: {
+{ colors, ... }: {
   programs.alacritty = {
     enable = true;
     settings = {

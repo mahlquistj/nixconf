@@ -7,7 +7,6 @@
       url = "github:nix-community/home-manager/release-24.11";
       inputs.nixpkgs.follows = "nixpkgs";
     };
-
   };
 
   outputs = { self, nixpkgs, ... }@inputs:
@@ -19,22 +18,22 @@
       nixosConfigurations = {
         work = nixpkgs.lib.nixosSystem {
           specialArgs = { inherit inputs outputs; };
-          modules = [ inputs.home-manager.nixosModule ./config/work.nix ];
+          modules = [ inputs.home-manager.nixosModule ./config/work ];
         };
-        home = nixpkgs.lib.nixosSystem {
+        desktop = nixpkgs.lib.nixosSystem {
           specialArgs = { inherit inputs outputs; };
-          modules = [ inputs.home-manager.nixosModule ./config/home.nix ];
+          modules = [ inputs.home-manager.nixosModule ./config/desktop ];
         };
       };
 
       homeConfigurations = {
-        work = inputs.home-manager.lib.homeManagerConfiguration {
+        maj-work = inputs.home-manager.lib.homeManagerConfiguration {
           pkgs = pkgs;
           extraSpecialArgs = { inherit inputs outputs self; };
           modules = [ ./home/work.nix ];
         };
 
-        home = inputs.home-manager.lib.homeManagerConfiguration {
+        maj-dekstop = inputs.home-manager.lib.homeManagerConfiguration {
           pkgs = pkgs;
           extraSpecialArgs = { inherit inputs outputs self; };
           modules = [ ./home/home.nix ];

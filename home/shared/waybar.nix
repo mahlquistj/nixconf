@@ -1,4 +1,4 @@
-{ inputs, config, lib, pkgs, colors, has_battery, ... }:
+{ colors, has_battery, ... }:
 
 {
   programs.waybar = {
@@ -35,48 +35,12 @@
     }];
 
     style = ''
-      * {
-        font-family: "SauceCodePro Nerd Font";
-        font-weight: bold; 
-        font-size: 10px;
+      :root {
+        --background: ${colors.background};
+        --color1: ${colors.color1};
       }
 
-      window#waybar {
-        all:unset;
-      }
-
-      #workspaces {
-        box-shadow: none;
-        text-shadow: none;
-        transition: 0.2s ease;
-        padding-left: 4px;
-        padding-right: 4px;
-        padding-top: 1px;
-      }
-
-
-      #workspaces button {
-        background-color: #${colors.background};
-        min-height: 1rem;
-        min-width: 1rem;
-        border-radius: 10px;
-        transition: 0.5s ease;
-        padding-left: 4px;
-        padding-right: 4px;
-      }
-
-      #workspaces button.active {
-        background-color: #${colors.color1};
-        transition: all 0.5s ease;
-        min-width: 5rem;
-      }
-
-      #workspaces button:hover {
-        background: none;
-        color: #72D792;
-        animation: ws_hover 20s ease-in-out 1;
-        transition: all 0.5s cubic-bezier(.55,-0.68,.48,1.682);
-      }
+      ${builtins.readFile ./waybar.css}
     '';
   };
 }
