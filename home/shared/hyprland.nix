@@ -10,7 +10,6 @@
   };
   wayland.windowManager.hyprland = {
     enable = true;
-    systemd.enable = true;
 
     plugins = [ ];
 
@@ -26,7 +25,7 @@
       "$browser" = "firefox";
 
       # Startup
-      exec-once = "$terminal";
+      exec-once = [ "waybar" "$terminal" ];
 
       # Env variables
       env = {
