@@ -56,7 +56,7 @@
 
 
       #workspaces button {
-        color: #${colors.color1};7
+        color: #${colors.color1};
         height: 1rem;
         width: 1rem;
         border-radius: 10px;
