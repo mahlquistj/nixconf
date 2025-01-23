@@ -2,8 +2,8 @@
 
 {
   home = {
-    username = "namish";
-    homeDirectory = "/home/namish";
+    username = "maj";
+    homeDirectory = "/home/maj";
     stateVersion = "24.05";
 
     packages = with pkgs; [
