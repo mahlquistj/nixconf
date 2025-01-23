@@ -29,13 +29,13 @@
 
       homeConfigurations = {
         work = inputs.home-manager.lib.homeManagerConfiguration {
-          pkgs = nixpkgs;
+          pkgs = pkgs;
           extraSpecialArgs = { inherit inputs outputs self; };
           modules = [ ./home/work.nix ];
         };
 
         home = inputs.home-manager.lib.homeManagerConfiguration {
-          pkgs = nixpkgs;
+          pkgs = pkgs;
           extraSpecialArgs = { inherit inputs outputs self; };
           modules = [ ./home/home.nix ];
         };
