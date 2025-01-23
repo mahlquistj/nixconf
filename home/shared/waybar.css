@@ -25,7 +25,8 @@ window#waybar {
 #workspaces button {
     background-color: var(--background);
     border-radius: 20px;
-    min-height: 5px;
+    min-height: 3px;
+    min-width: 3px;
     transition: 0.5s ease;
     margin-right: 4px;
     margin-left: 4px;
@@ -34,7 +35,7 @@ window#waybar {
 #workspaces button.active {
     background-color: var(--color1);
     transition: all 0.5s ease;
-    min-width: 5rem;
+    min-width: 3rem;
 }
 
 #workspaces button:hover {
