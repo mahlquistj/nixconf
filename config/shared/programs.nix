@@ -22,14 +22,6 @@
       wofi
       wev # Keyboard debugging
 
-      # sddm related
-      kdePackages.qtsvg
-      kdePackages.qtmultimedia
-      kdePackages.qtvirtualkeyboard
-      (callPackage ../../derivs/sddm-astronaut-theme.nix {
-        theme = "pixel_sakura";
-      })
-
       # Other
       hyprpaper
     ];
@@ -53,6 +45,12 @@
       wayland.enable = true;
       theme = "sddm-astronaut-theme";
       package = pkgs.kdePackages.sddm;
+      extraPackages = with pkgs;
+        [
+          (callPackage ../../derivs/sddm-astronaut-theme.nix {
+            theme = "pixel_sakura";
+          })
+        ];
     };
 
     redshift = {
