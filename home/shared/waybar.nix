@@ -30,7 +30,7 @@
 
       smallspacer = { "format" = " "; };
 
-      "hyprland/workspaces" = { format = ""; };
+      "hyprland/workspaces" = { format = "{name}"; };
 
     }];
 
