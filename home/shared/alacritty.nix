@@ -30,9 +30,10 @@
       };
 
       cursor = {
-        style = "Beam";
-        blinking = "On";
-
+        style = {
+          shape = "Beam";
+          blinking = "On";
+        };
       };
       mouse.hide_when_typing = true;
 
