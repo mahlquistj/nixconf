@@ -46,8 +46,8 @@
         resize_on_border = true;
       };
       decoration = {
-        rounding = 5;
-        rounding_power = 2.5;
+        rounding = 10;
+        #rounding_power = 2.5; #TODO: Why doesn't this work?
 
         inactive_opacity = 0.8;
         dim_inactive = true;
