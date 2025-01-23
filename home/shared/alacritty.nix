@@ -17,7 +17,6 @@
 
       font = {
         size = 12.0;
-        use_thin_strokes = true;
 
         normal.family = "SauceCodePro Nerd Font";
         bold.family = "SauceCodePro Nerd Font";
