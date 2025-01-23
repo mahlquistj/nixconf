@@ -47,8 +47,9 @@
       decoration = {
         rounding = 4;
 
-        inactive_opacity = 0.9;
+        inactive_opacity = 0.8;
         dim_inactive = true;
+        dim_strength = 0.8;
       };
       input = { kb_layout = "dk"; };
       gestures = {
