@@ -46,7 +46,7 @@
       theme = "sddm-astronaut-theme";
       package = pkgs.kdePackages.sddm;
       extraPackages = with pkgs;
-        [ (callPackage ../../derivs/sddm-astronaut-theme.nix) ];
+        [ (callPackage ../../derivs/sddm-astronaut-theme.nix { }) ];
     };
 
     redshift = {
