@@ -25,6 +25,7 @@ window#waybar {
 #workspaces button {
     background-color: var(--background);
     border-radius: 20px;
+    max-height: 10px;
     transition: 0.5s ease;
     margin-right: 4px;
     margin-left: 4px;
