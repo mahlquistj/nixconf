@@ -30,13 +30,7 @@
 
       smallspacer = { "format" = " "; };
 
-      "hyprland/workspaces" = {
-        format = "{icon} {name}";
-        format-icons = {
-          default = "";
-          active = "";
-        };
-      };
+      "hyprland/workspaces" = { format = ""; };
 
     }];
 
@@ -48,7 +42,7 @@
       }
 
       window#waybar {
-        /* Transparent */
+        opacity: 0;
       }
 
       #workspaces {
@@ -62,33 +56,19 @@
 
 
       #workspaces button {
-        background: #${colors.background};
-        color: #${colors.color1};
-        box-shadow: none;
-        text-shadow: none;
-        border-radius: 9px;
-        transition: 0.3s ease;
+        color: #${colors.color1};7
+        height: 1rem;
+        width: 1rem;
+        border-radius: 10px;
+        transition: 0.5s ease;
         padding-left: 4px;
         padding-right: 4px;
-      }
-
-      #workspaces button #name {
-        /* display: None; */
       }
 
       #workspaces button.active {
-        background: #${colors.color1};
         color: #${colors.background};
-        transition: all 0.3s ease;
-        padding-left: 4px;
-        padding-right: 4px;
-        border-radius: 9px;
-        transition: 0.2s ease;
-      }
-
-      #workspaces button.active #icon {
-        color: #${colors.background};
-        margin-right: 5px;
+        transition: all 0.5s ease;
+        width: 5rem
       }
 
       #workspaces button:hover {
