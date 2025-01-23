@@ -8,24 +8,28 @@ let
     foreground = "#000000";
   };
 
-  # Function to dynamically transform CSS
-  importCss = file: let
-    # Read the CSS file as a string
-    cssContent = lib.fileContents file;
+  # Function to dynamically replace CSS variables
+  importCss = file:
+    let
+      # Read the CSS file as a string
+      cssContent = lib.fileContents file;
 
-    # Replace `var(--<name>)` dynamically with escaped `${}` syntax
-    dynamicReplace = str:
-      lib.replaceStringsByRegex
-        "var\\(--([a-zA-Z0-9_-]+)\\)"
-        str
-        (match: ''
-          ${lib.getAttrFromPath (lib.splitString "." match.[1]) colors or "var(--${match.[1]})"}
-        '');
-  in
-    dynamicReplace cssContent;
+      # Replace `var(--<name>)` dynamically
+      dynamicReplace = str:
+        lib.replaceStringsByRegex "var\\(--([a-zA-Z0-9_-]+)\\)" str (match:
+          let
+            varName = (builtins.elemAt match
+              1); # Extract variable name (e.g., "foreground")
+            # Check if the variable exists in `colors` and replace it, otherwise keep it as-is
+          in lib.optionalString (lib.hasAttr varName colors)
+          "${colors.${varName}}" // "var(--${varName})");
+
+      # Apply the replacement
+      transformedCss = dynamicReplace cssContent;
+    in transformedCss;
 
   # Example usage
-  myCss = importCss ./styles.css;
+  waybarStyling = importCss ./styles.css;
 
 in {
   programs.waybar = {
