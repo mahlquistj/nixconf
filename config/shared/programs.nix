@@ -45,6 +45,7 @@
       enable = true;
       wayland.enable = true;
       theme = "sddm-astronaut-theme";
+      extraPackages = with pkgs; [ sddm-astronaut ];
     };
 
     redshift = {
