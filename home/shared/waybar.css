@@ -23,8 +23,8 @@ window#waybar {
 #workspaces button {
     all:unset;
     background-color: var(--background);
-    border-radius: 25px;
-    min-width: 15px;
+    border-radius: 20px;
+    min-width: 10px;
     transition: 0.5s ease;
     margin-right: 4px;
     margin-left: 4px;
