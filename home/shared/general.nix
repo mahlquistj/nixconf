@@ -20,7 +20,7 @@
     sessionVariables.NIXOS_OZONE_WL = "1";
 
     # Cursor icons
-    home.pointerCursor.hyprcursor = {
+    pointerCursor.hyprcursor = {
       enable = true;
       name = "phinger-cursors-light";
     };
