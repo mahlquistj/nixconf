@@ -9,7 +9,7 @@ window#waybar {
 }
 
 .modules-left {
-    background-color: rgba(0, 0, 0, 0.1);
+    background-color: var(--background)33; /* Added hex alpha value */
     border-radius: 15px;
 }
 
