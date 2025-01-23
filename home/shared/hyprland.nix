@@ -10,6 +10,7 @@
   };
   wayland.windowManager.hyprland = {
     enable = true;
+    systemd.enable = true;
 
     plugins = [ ];
 
@@ -67,6 +68,10 @@
           "fade, 1, 7, default"
           "workspaces, 1, 6, default"
         ];
+      };
+      misc = {
+        disable_hyprland_logo = true;
+        disable_splash_rendering = true;
       };
 
       # Bindings

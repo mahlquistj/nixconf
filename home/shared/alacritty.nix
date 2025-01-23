@@ -10,7 +10,7 @@
           y = 10;
         };
 
-        opacity = 0.95;
+        opacity = 0.9;
 
         decorations = "buttonless";
       };
@@ -23,9 +23,20 @@
         italic.family = "SauceCodePro Nerd Font";
       };
 
-      cursor.style = "Beam";
+      bell = {
+        animation = "Ease";
+        duration = 10;
+        color = "#${colors.color1}";
+      };
 
-      terminal = { shell = { program = "fish"; }; };
+      cursor = {
+        style = "Beam";
+        blinking = "On";
+
+      };
+      mouse.hide_when_typing = true;
+
+      terminal.shell = "fish";
 
       colors = {
         primary = {
