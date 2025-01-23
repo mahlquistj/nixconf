@@ -22,6 +22,14 @@
       wofi
       wev # Keyboard debugging
 
+      # sddm related
+      kdePackages.qtsvg
+      kdePackages.qtmultimedia
+      kdePackages.qtvirtualkeyboard
+      (callPackage ../../derivs/sddm-astronaut-theme.nix {
+        theme = "japanese_aesthetic";
+      })
+
       # Other
       hyprpaper
     ];
@@ -46,16 +54,6 @@
       theme = "sddm-astronaut-theme";
       package = pkgs.kdePackages.sddm;
     };
-
-    environment.systemPackages = [
-      # sddm related
-      pkgs.kdePackages.qtsvg
-      pkgs.kdePackages.qtmultimedia
-      pkgs.kdePackages.qtvirtualkeyboard
-      (pkgs.callPackage ../../derivs/sddm-astronaut-theme.nix {
-        theme = "japanese_aesthetic";
-      })
-    ];
 
     redshift = {
       enable = true;
