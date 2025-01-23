@@ -34,7 +34,7 @@
         format = "{icon}";
         format-icons = {
           default = "";
-          active = "";
+          active = " {name}";
         };
       };
 
@@ -48,9 +48,7 @@
       }
 
       window#waybar {
-        background: #${colors.background}; 
-        border: 3px solid #${colors.foreground};
-        border-radius: 10px;
+        /* Transparent */
       }
 
       #workspaces {
