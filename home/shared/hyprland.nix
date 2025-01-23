@@ -20,6 +20,11 @@
       # Startup
       exec-once = "$terminal";
 
+      # Env variables
+      env = {
+
+      };
+
       # Setttings and styling
       general = {
         gaps_in = 5;
@@ -33,7 +38,7 @@
         resize_on_border = true;
       };
       decoration = {
-        rounding = 2;
+        rounding = 4;
 
         inactive_opacity = 0.9;
         dim_inactive = true;
@@ -97,5 +102,11 @@
             }" # Move window to workspace
           ]) 9));
     };
+
+    extraConfig = ''
+      # Hyprcursor theme
+      env = HYPRCURSOR_THEME,phinger-cursors-light
+      env = HYPRCURSOR_SIZE,24
+    '';
   };
 }
