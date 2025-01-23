@@ -28,7 +28,7 @@
       };
 
       homeConfigurations = {
-        work = inputs.home-manager.homeManagerConfiguration {
+        maj = inputs.home-manager.homeManagerConfiguration {
           pkgs = nixpkgs;
           extraSpecialArgs = { inherit inputs outputs self; };
           modules = [ ./home/work.nix ];
