@@ -24,7 +24,6 @@
 
       # Other
       hyprpaper
-      sddm-astronaut
     ];
   };
 
@@ -46,8 +45,17 @@
       wayland.enable = true;
       theme = "sddm-astronaut-theme";
       package = pkgs.kdePackages.sddm;
-      extraPackages = with pkgs; [ sddm-astronaut ];
     };
+
+    environment.systemPackages = [
+      # sddm related
+      pkgs.kdePackages.qtsvg
+      pkgs.kdePackages.qtmultimedia
+      pkgs.kdePackages.qtvirtualkeyboard
+      (pkgs.callPackage ../../derivs/sddm-astronaut-theme.nix {
+        theme = "japanese_aesthetic";
+      })
+    ];
 
     redshift = {
       enable = true;
