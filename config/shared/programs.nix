@@ -45,12 +45,14 @@
       wayland.enable = true;
       theme = "sddm-astronaut-theme";
       package = pkgs.kdePackages.sddm;
-      extraPackages = with pkgs;
-        [
-          (callPackage ../../derivs/sddm-astronaut-theme.nix {
-            theme = "pixel_sakura";
-          })
-        ];
+      extraPackages = with pkgs; [
+        kdePackages.qtsvg
+        kdePackages.qtmultimedia
+        kdePackages.qtvirtualkeyboard
+        (callPackage ../../derivs/sddm-astronaut-theme.nix {
+          theme = "pixel_sakura";
+        })
+      ];
     };
 
     redshift = {
