@@ -16,6 +16,7 @@
       curl
       nixd
       openssl
+      home-manager
     ];
   };
 
