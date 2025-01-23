@@ -2,9 +2,9 @@
   description = "My NixOS configurations";
 
   inputs = {
-    nixpkgs.url = "github:nixos/nixpkgs?ref=24.11";
+    nixpkgs.url = "github:nixos/nixpkgs/release-24.11";
     home-manager = {
-      url = "github:nix-community/home-manager?ref=24.11";
+      url = "github:nix-community/home-manager/release-24.11";
       inputs.nixpkgs.follows = "nixpkgs";
     };
 
