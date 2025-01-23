@@ -27,13 +27,13 @@
       };
 
       homeConfigurations = {
-        maj-work = inputs.home-manager.lib.homeManagerConfiguration {
+        work = inputs.home-manager.lib.homeManagerConfiguration {
           pkgs = pkgs;
           extraSpecialArgs = { inherit inputs outputs self; };
           modules = [ ./home/work.nix ];
         };
 
-        maj-dekstop = inputs.home-manager.lib.homeManagerConfiguration {
+        desktop = inputs.home-manager.lib.homeManagerConfiguration {
           pkgs = pkgs;
           extraSpecialArgs = { inherit inputs outputs self; };
           modules = [ ./home/home.nix ];
