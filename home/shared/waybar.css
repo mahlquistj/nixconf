@@ -24,8 +24,7 @@ window#waybar {
     all:unset;
     background-color: var(--background);
     border-radius: 25px;
-    min-height: 0px;
-    min-width: 0px;
+    min-width: 1px;
     transition: 0.5s ease;
     margin-right: 4px;
     margin-left: 4px;
