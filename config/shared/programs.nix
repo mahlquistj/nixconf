@@ -27,7 +27,7 @@
       kdePackages.qtmultimedia
       kdePackages.qtvirtualkeyboard
       (callPackage ../../derivs/sddm-astronaut-theme.nix {
-        theme = "japanese_aesthetic";
+        theme = "pixel_sakura";
       })
 
       # Other
