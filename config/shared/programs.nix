@@ -19,6 +19,9 @@
       home-manager
       wofi
       wev # Keyboard debugging
+
+      # Other
+      hyprcursor
     ];
   };
 

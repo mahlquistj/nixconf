@@ -13,17 +13,18 @@
 
       # Management
       nemo # File manager
-
     ];
 
-    # Hint electron apps to use wayland
-    sessionVariables.NIXOS_OZONE_WL = "1";
+    sessionVariables = {
+      # Hint electron apps to use wayland
+      NIXOS_OZONE_WL = "1";
+
+      # Hyprcursor theme
+      HYPRCURSOR_THEME = "phinger-cursors-light";
+      HYPRCURSOR_SIZE = "24";
+    };
 
     # Cursor icons
-    pointerCursor = {
-      hyprcursor.enable = true;
-      name = "phinger-cursors-light";
-    };
     file.".icons/" = {
       source = "../../media/cursor/";
       recursive = true;
