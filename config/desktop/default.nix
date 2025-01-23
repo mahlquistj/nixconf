@@ -1,6 +1,6 @@
 { ... }:
 
 {
-  imports = [ ./shared ];
+  imports = [ ../shared ];
   networking.hostName = "desktop";
 }

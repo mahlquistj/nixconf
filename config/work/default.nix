@@ -1,7 +1,7 @@
 { ... }:
 
 {
-  imports = [ ./shared ./hardware-configuration.nix ];
+  imports = [ ../shared ./hardware-configuration.nix ];
 
   networking.hostName = "work";
 
