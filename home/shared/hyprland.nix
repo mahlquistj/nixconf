@@ -25,6 +25,9 @@
       };
 
       bind = [
+        # Important controls
+        "$modshift, ESC, exit"
+
         # Spawners
         "$mod, ENTER, exec, $terminal"
         "$mod, W, exec, firefox"
