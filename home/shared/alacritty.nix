@@ -25,7 +25,7 @@
 
       cursor.style = "Beam";
 
-      shell = { program = "fish"; };
+      terminal = { shell = { program = "fish"; }; };
 
       colors = {
         primary = {
