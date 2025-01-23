@@ -31,7 +31,7 @@
       smallspacer = { "format" = " "; };
 
       "hyprland/workspaces" = {
-        format = "<div id='icon'>{icon}</div><div id='name'>{name}</div>";
+        format = "{icon} {name}";
         format-icons = {
           default = "";
           active = "";
@@ -73,7 +73,7 @@
       }
 
       #workspaces button #name {
-        display: None;
+        /* display: None; */
       }
 
       #workspaces button.active {
