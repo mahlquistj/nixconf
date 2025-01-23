@@ -26,7 +26,7 @@
 
     # Cursor icons
     file.".icons/" = {
-      source = "../../media/cursor/";
+      source = ../../media/cursor/;
       recursive = true;
     };
   };
