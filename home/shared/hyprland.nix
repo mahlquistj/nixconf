@@ -49,7 +49,7 @@
 
         inactive_opacity = 0.8;
         dim_inactive = true;
-        dim_strength = 0.8;
+        dim_strength = 0.2;
       };
       input = { kb_layout = "dk"; };
       gestures = {
