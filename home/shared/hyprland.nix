@@ -7,8 +7,8 @@
     plugins = [ ];
 
     settings = {
-      "$mod" = "SUPER";
-      "$modshift" = "$mod SHIFT";
+      "$mod" = "code:133";
+      "$modshift" = "code:50";
 
       "$terminal" = "alacritty";
       "$fileManager" = "nemo";
