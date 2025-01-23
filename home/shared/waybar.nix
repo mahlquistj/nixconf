@@ -57,8 +57,8 @@
 
       #workspaces button {
         color: #${colors.color1};
-        height: 1rem;
-        width: 1rem;
+        min-height: 1rem;
+        min-width: 1rem;
         border-radius: 10px;
         transition: 0.5s ease;
         padding-left: 4px;
@@ -68,7 +68,7 @@
       #workspaces button.active {
         color: #${colors.background};
         transition: all 0.5s ease;
-        width: 5rem;
+        min-width: 5rem;
       }
 
       #workspaces button:hover {
