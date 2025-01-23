@@ -14,6 +14,8 @@
       "$fileManager" = "nemo";
       "$menu" = "wofi --show drun";
 
+      exec-once = "$terminal";
+
       general = {
         gaps_in = 5;
         gaps_out = 20;
