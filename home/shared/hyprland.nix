@@ -7,8 +7,8 @@
     plugins = [ ];
 
     settings = {
-      "$mod" = "code:133";
-      "$modshift" = "code:50";
+      "$mod" = "SUPER";
+      "$modshift" = "$mod SHIFT";
 
       "$terminal" = "alacritty";
       "$fileManager" = "nemo";
@@ -26,7 +26,7 @@
         "col.inactive_border" = "rgba(${colors.color0}aa)";
       };
 
-      input = { kb_layout = "da"; };
+      input = { kb_layout = "dk"; };
 
       bind = [
         # Important controls
