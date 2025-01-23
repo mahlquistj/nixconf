@@ -19,8 +19,6 @@ window#waybar {
 
 #workspaces button {
     background-color: var(--background);
-    min-height: 10px;
-    min-width: 1rem;
     border-radius: 10px;
     transition: 0.5s ease;
     margin-right: 4px;
