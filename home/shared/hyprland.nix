@@ -31,7 +31,7 @@
 
         # Moving windows
         "$mod, left, movefocus, l"
-        "$mod, right, movefocu, r"
+        "$mod, right, movefocus, r"
         "$mod, up, movefocus, u"
         "$mod, down, movefocus, d"
 
