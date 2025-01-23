@@ -21,7 +21,7 @@
       wev # Keyboard debugging
 
       # Other
-      hyprcursor
+      hyprpaper
     ];
   };
 

@@ -1,6 +1,13 @@
-{ inputs, config, lib, pkgs, colors, ... }:
+{ inputs, config, lib, pkgs, colors, wallpaper, ... }:
 
 {
+  services.hyprpaper = {
+    enable = true;
+    settings = {
+      preload = "/home/maj/.wallpapers/${wallpaper}.png";
+      wallpaper = ", /home/maj/.wallpapers/${wallpaper}.png";
+    };
+  };
   wayland.windowManager.hyprland = {
     enable = true;
 
