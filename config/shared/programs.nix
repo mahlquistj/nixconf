@@ -24,7 +24,7 @@
 
       # Other
       hyprpaper
-
+      firefox
     ];
   };
 
