@@ -1,6 +1,9 @@
 { config, pkgs, ... }:
-
-{
+let
+  custom-astronaut = pkgs.sddm-astronaut.override {
+    themeConfig = { Background = "~/.wallpapers/normal.png"; };
+  };
+in {
   # Hyprland service needed directly in the config 
   # for the home-manager module to work
   programs.hyprland = {
@@ -24,7 +27,7 @@
 
       # Other
       hyprpaper
-      sddm-astronaut
+      custom-astronaut
     ];
   };
 
@@ -46,7 +49,7 @@
       wayland.enable = true;
       theme = "sddm-astronaut-theme";
       package = pkgs.kdePackages.sddm;
-      extraPackages = with pkgs; [ sddm-astronaut ];
+      extraPackages = [ custom-astronaut ];
     };
 
     redshift = {
