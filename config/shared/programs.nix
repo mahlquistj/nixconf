@@ -28,6 +28,7 @@
   systemd.services.hyprpaper = {
     description = "Hyprpaper";
     serviceConfig = {
+      User = "maj";
       ExecStart = "hyprpaper";
       ExecStop = "pkill hyprpaper";
       Restart = "on-failure";
