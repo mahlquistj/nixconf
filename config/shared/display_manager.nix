@@ -13,6 +13,8 @@
     })
   ];
 
+  environment.variables.QT_QPA_PLATFORM = "wayland";
+
   services.displayManager.sddm = {
     enable = true;
     wayland.enable = true;
