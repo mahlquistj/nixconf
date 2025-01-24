@@ -46,7 +46,12 @@ in {
       wayland.enable = true;
       theme = "sddm-astronaut-theme";
       package = pkgs.kdePackages.sddm;
-      extraPackages = [ custom-astronaut ];
+      extraPackages = [
+        pkgs.kdePackages.qtsvg
+        pkgs.kdePackages.qtmultimedia
+        pkgs.kdePackages.qtvirtualkeyboard
+        custom-astronaut
+      ];
     };
 
     redshift = {
