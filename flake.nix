@@ -14,7 +14,7 @@
       inherit (self) outputs;
       system = "x86_64-linux";
       pkgs = import nixpkgs { inherit system; };
-      wallpapers = "${self}/.media/wallpapers";
+      wallpapers = "${self}/media/wallpapers";
       colors = import ./colors.nix { };
     in {
       nixosConfigurations = {
