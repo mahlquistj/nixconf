@@ -6,6 +6,8 @@
     xwayland.enable = true;
   };
 
+  qt.enable = true;
+
   # System packages
   environment = {
     systemPackages = with pkgs; [
