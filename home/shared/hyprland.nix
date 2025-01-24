@@ -25,7 +25,7 @@
       "$browser" = "firefox";
 
       # Startup
-      exec-once = [ "waybar" "hyprpaper" "$terminal" ];
+      exec-once = [ "waybar" "hyprpaper &" "$terminal" ];
 
       # Env variables
       env = {
