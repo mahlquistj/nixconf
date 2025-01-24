@@ -25,7 +25,7 @@
     ];
   };
 
-  systemd.user.services.hyprpaper = {
+  systemd.services.hyprpaper = {
     description = "Hyprpaper";
     serviceConfig = {
       ExecStart = "hyprpaper";
