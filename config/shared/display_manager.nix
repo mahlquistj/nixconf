@@ -6,7 +6,7 @@
         backgroundMode = "fill";
 
         passwordMask = true;
-        passwordInputBackground = "${colors.background}";
+        passwordInputBackground = "#${colors.background}33";
         passwordInputRadius = 8;
         passwordInputVisibleCursor = true;
       };
