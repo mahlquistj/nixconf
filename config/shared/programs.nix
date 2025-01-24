@@ -25,6 +25,16 @@
     ];
   };
 
+  systemd.user.services.hyprpaper = {
+    description = "Hyprpaper";
+    serviceConfig = {
+      ExecStart = "hyprpaper";
+      ExecStop = "pkill hyprpaper";
+      Restart = "on-failure";
+    };
+    wantedBy = [ "default.target" ];
+  };
+
   services = {
     # OpenSSH
     openssh.enable = true;
