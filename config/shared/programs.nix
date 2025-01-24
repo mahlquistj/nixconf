@@ -1,6 +1,4 @@
-{ config, pkgs, ... }:
-let custom-astronaut = (pkgs.callPackage ../../derivs/sddm-astronaut.nix { });
-in {
+{ config, pkgs, ... }: {
   # Hyprland service needed directly in the config 
   # for the home-manager module to work
   programs.hyprland = {
@@ -24,11 +22,6 @@ in {
 
       # Other
       hyprpaper
-
-      kdePackages.qtsvg
-      kdePackages.qtmultimedia
-      kdePackages.qtvirtualkeyboard
-      custom-astronaut
     ];
   };
 
