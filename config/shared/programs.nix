@@ -43,7 +43,7 @@
         enable = true;
         user = "maj";
       };
-      defaultSession = "hyperpaper &; hyprland";
+      defaultSession = "hyprland";
     };
 
     redshift = {
