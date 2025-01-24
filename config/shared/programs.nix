@@ -45,18 +45,7 @@ in {
       };
     };
 
-    displayManager.sddm = {
-      enable = true;
-      wayland.enable = true;
-      theme = "sddm-astronaut-theme";
-      package = pkgs.kdePackages.sddm;
-      extraPackages = [
-        pkgs.kdePackages.qtsvg
-        pkgs.kdePackages.qtmultimedia
-        pkgs.kdePackages.qtvirtualkeyboard
-        custom-astronaut
-      ];
-    };
+    displayManager.defaultSession = "hyprland";
 
     redshift = {
       enable = true;
