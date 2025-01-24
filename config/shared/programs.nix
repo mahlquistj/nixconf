@@ -1,7 +1,5 @@
 { config, pkgs, ... }:
-let
-  custom-astronaut =
-    (pkgs.callPackage ../../derivs/sddm-astronaut-theme.nix { });
+let custom-astronaut = (pkgs.callPackage ../../derivs/sddm-astronaut.nix { });
 in {
   # Hyprland service needed directly in the config 
   # for the home-manager module to work
