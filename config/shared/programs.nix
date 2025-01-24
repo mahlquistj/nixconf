@@ -1,7 +1,7 @@
 { config, pkgs, ... }:
 let
   custom-astronaut = pkgs.sddm-astronaut.override {
-    themeConfig = { Background = "~/.wallpapers/normal.png"; };
+    themeConfig = { Background = "/home/maj/.wallpapers/normal.png"; };
   };
 in {
   # Hyprland service needed directly in the config 
