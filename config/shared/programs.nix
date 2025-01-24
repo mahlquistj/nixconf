@@ -43,7 +43,6 @@
       enable = true;
       wayland.enable = true;
       theme = "where-is-my-sddm";
-      package = pkgs.kdePackages.sddm;
     };
 
     redshift = {
