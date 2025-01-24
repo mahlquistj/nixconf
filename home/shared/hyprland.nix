@@ -1,11 +1,11 @@
-{ colors, wallpaper, ... }:
+{ colors, wallpaper, wallpapers, ... }:
 
 {
   services.hyprpaper = {
     enable = true;
     settings = {
-      preload = [ "/home/maj/.wallpapers/${wallpaper}.png" ];
-      wallpaper = [ ", /home/maj/.wallpapers/${wallpaper}.png" ];
+      preload = [ "${wallpapers}/${wallpaper}.png" ];
+      wallpaper = [ ", ${wallpapers}/${wallpaper}.png" ];
     };
   };
   wayland.windowManager.hyprland = {

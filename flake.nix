@@ -14,7 +14,7 @@
       inherit (self) outputs;
       system = "x86_64-linux";
       pkgs = import nixpkgs { inherit system; };
-      wallpapers = "${self}/media/wallpapers";
+      wallpapers = "${self}/media/wallpaper";
       colors = import ./colors.nix { };
     in {
       nixosConfigurations = {
@@ -31,13 +31,13 @@
       homeConfigurations = {
         work = inputs.home-manager.lib.homeManagerConfiguration {
           pkgs = pkgs;
-          extraSpecialArgs = { inherit inputs outputs self colors; };
+          extraSpecialArgs = { inherit inputs outputs self wallpapers colors; };
           modules = [ ./home/work.nix ];
         };
 
         desktop = inputs.home-manager.lib.homeManagerConfiguration {
           pkgs = pkgs;
-          extraSpecialArgs = { inherit inputs outputs self colors; };
+          extraSpecialArgs = { inherit inputs outputs self wallpapers colors; };
           modules = [ ./home/home.nix ];
         };
       };
