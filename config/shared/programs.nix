@@ -38,7 +38,13 @@
       };
     };
 
-    displayManager.defaultSession = "hyprland";
+    displayManager = {
+      autoLogin = {
+        enable = true;
+        user = "maj";
+      };
+      defaultSession = "hyprland";
+    };
 
     redshift = {
       enable = true;
