@@ -22,18 +22,8 @@
 
       # Other
       hyprpaper
-    ];
-  };
 
-  systemd.services.hyprpaper = {
-    description = "Hyprpaper";
-    serviceConfig = {
-      User = "maj";
-      ExecStart = "hyprpaper";
-      ExecStop = "pkill hyprpaper";
-      Restart = "on-failure";
-    };
-    wantedBy = [ "default.target" ];
+    ];
   };
 
   services = {
@@ -49,12 +39,11 @@
       };
     };
 
-    displayManager = {
-      autoLogin = {
-        enable = true;
-        user = "maj";
-      };
-      defaultSession = "hyprland";
+    displayManager.sddm = {
+      enable = true;
+      wayland.enable = true;
+      theme = "where-is-my-sddm";
+      package = pkgs.kdePackages.sddm;
     };
 
     redshift = {

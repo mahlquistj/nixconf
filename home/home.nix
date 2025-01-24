@@ -1,12 +1,5 @@
-{ inputs, pkgs, lib, config, ... }:
+{ inputs, pkgs, lib, config, colors, ... }:
 let
-  colors = import ../colors.nix { };
   wallpaper = "ultrawide";
   has_battery = false;
-in {
-  imports = [
-    (import ./shared {
-      inherit inputs pkgs lib config colors wallpaper has_battery;
-    })
-  ];
-}
+in { imports = [ (import ./shared { inherit wallpaper has_battery; }) ]; }
