@@ -1,8 +1,7 @@
 { config, pkgs, ... }:
 let
-  custom-astronaut = pkgs.sddm-astronaut.override {
-    themeConfig = { Background = "/home/maj/.wallpapers/normal.png"; };
-  };
+  custom-astronaut =
+    (pkgs.callPackage ../../derivs/sddm-astronaut-theme.nix { });
 in {
   # Hyprland service needed directly in the config 
   # for the home-manager module to work
