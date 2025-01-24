@@ -39,12 +39,6 @@
       };
     };
 
-    displayManager.sddm = {
-      enable = true;
-      wayland.enable = true;
-      theme = "where-is-my-sddm";
-    };
-
     redshift = {
       enable = true;
       brightness = {
