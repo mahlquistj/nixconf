@@ -1,4 +1,4 @@
-{ ... }:
+{ sysOptions, ... }:
 
 {
   # This value determines the NixOS release from which the default
@@ -55,4 +55,14 @@
 
   # Allow unfree packages
   nixpkgs.config.allowUnfree = true;
+
+  environment.etc = {
+    "xdg/gtk-3.0/settings.ini" = {
+      text = ''
+        [Settings]
+        gtk-cursor-theme-size=${builtins.toString sysOptions.cursorSize}
+      '';
+      mode = "444";
+    };
+  };
 }

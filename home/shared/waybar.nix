@@ -71,6 +71,7 @@ in {
       "hyprland/window" = {
         format = "{title}";
         icon = true;
+        icon_size = 10;
       };
 
     }];
