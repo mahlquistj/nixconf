@@ -37,7 +37,8 @@ let
 
   waybarStyling = importCss ./waybar.css;
 
-  bluetooth = if osConfig.hardware.bluetooth.enable then "bluetooth" else "";
+  # TODO: This resolves to null??? Possibly because of osConfig.hardware?
+  bluetooth = if osConfig?hardware?bluetooth?enable then "bluetooth" else "";
   battery = if has_battery then "battery" else "";
 in {
   programs.waybar = {
