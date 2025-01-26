@@ -8,9 +8,9 @@ window#waybar {
     all:unset;
 }
 
-.modules-left {
+.modules-left .modules-center .modules-right {
     background-color: rgba(0, 0, 0, 0.2);
-    border-radius: 15px;
+    border-radius: 30px;
 }
 
 #workspaces {
