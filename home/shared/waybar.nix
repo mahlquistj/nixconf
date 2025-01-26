@@ -36,10 +36,6 @@ let
     in transformedCss;
 
   waybarStyling = importCss ./waybar.css;
-
-  m_right = [ "cpu" "disk" "memory" "network" "clock" ]
-    ++ (if osConfig.hardware.bluetooth.enable then [ "bluetooth" ] else [ ])
-    ++ (if has_battery then [ "battery" ] else [ ]);
 in {
   programs.waybar = {
     enable = true;
@@ -63,7 +59,15 @@ in {
 
       modules-left = [ "hyprland/workspaces" ];
       modules-center = [ "hyprland/window" ];
-      modules-right = m_right;
+      modules-right = [
+        "cpu"
+        "disk"
+        "memory"
+        "network"
+        "clock"
+        (if osConfig.hardware.bluetooth.enable then "bluetooth" else "")
+        (if has_battery then "battery" else "")
+      ];
 
       smallspacer = { "format" = " "; };
 
