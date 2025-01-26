@@ -62,7 +62,7 @@ in {
 
       modules-left = [ "hyprland/workspaces" ];
       modules-center = [ "hyprland/window" ];
-      modules-right = [ "cpu" "disk" "memory" "network" "clock" ];
+      modules-right = [ "cpu" "disk" "memory" "network" "clock" battery ];
 
       smallspacer = { "format" = " "; };
 
