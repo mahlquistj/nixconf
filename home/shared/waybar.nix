@@ -69,8 +69,7 @@ in {
 
       "hyprland/workspaces" = { format = ""; };
       "hyprland/window" = {
-        format = "{icon} {title}";
-        icon = true;
+        format = "{title}";
       };
 
     }];
