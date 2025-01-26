@@ -1,4 +1,4 @@
-{ colors, lib, has_battery, ... }:
+{ osConfig, colors, lib, has_battery, ... }:
 
 let
   # Function to dynamically replace CSS variables
@@ -52,17 +52,18 @@ in {
 
       margin-left = 10;
       margin-right = 10;
-      margin-top = 7;
+      margin-top = 5;
       margin-bottom = 0;
       exclusive = true;
       passthrough = false;
       gtk-layer-shell = true;
       reload_style_on_change = true;
 
-      modules-left =
-        [ "custom/smallspacer" "hyprland/workspaces" "custom/spacer" "mpris" ];
-      modules-center = [ ];
-      modules-right = [ ];
+      modules-left = [ "hyprland/workspaces" ];
+      modules-center = [ "hyprland/window" ];
+      modules-right = [ "clock" ]
+        ++ (if osConfig.hardware.bluetooth.enable then [ "bluetooth" ] else [ ])
+        ++ (if has_battery then [ "battery" ] else [ ]);
 
       smallspacer = { "format" = " "; };
 
