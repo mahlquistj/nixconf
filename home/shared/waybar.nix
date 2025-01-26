@@ -69,7 +69,7 @@ in {
 
       "hyprland/workspaces" = { format = ""; };
       "hyprland/window" = {
-        format = "{title}";
+        format = "{icon} {title}";
       };
 
     }];
