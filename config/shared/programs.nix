@@ -33,15 +33,6 @@
     # OpenSSH
     openssh.enable = true;
 
-    # Xserver
-    xserver = {
-      enable = true;
-      xkb = {
-        layout = "dk";
-        variant = "";
-      };
-    };
-
     redshift = {
       enable = true;
       brightness = {
