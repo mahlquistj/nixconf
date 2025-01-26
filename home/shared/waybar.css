@@ -1,1 +1,65 @@
-@import url("./waybar-css/");
+* {
+    font-family: "SauceCodePro Nerd Font";
+    font-weight: bold; 
+    font-size: 10px;
+}
+
+window#waybar {
+    all:unset;
+}
+
+.modules-left {
+    background-color: rgba(0, 0, 0, 0.2);
+    border-radius: 30px;
+}
+
+.modules-center {
+    background-color: rgba(0, 0, 0, 0.2);
+    border-radius: 30px;
+}
+
+.modules-right {
+    background-color: rgba(0, 0, 0, 0.2);
+    border-radius: 30px;
+}
+
+
+/* WORKSPACES */
+#workspaces {
+    box-shadow: none;
+    text-shadow: none;
+    transition: 0.2s ease;
+    padding: 10px;
+}
+
+#workspaces button {
+    all:unset;
+    background-color: var(--background);
+    border-radius: 30px;
+    min-width: 13px;
+    transition: 0.5s ease;
+    margin-right: 4px;
+    margin-left: 4px;
+}
+
+#workspaces button.active {
+    background-color: var(--color1);
+    transition: all 0.5s ease;
+    min-width: 3rem;
+}
+
+#workspaces button:hover {
+    background: none;
+    color: #72D792;
+    animation: ws_hover 20s ease-in-out 1;
+    transition: all 0.5s cubic-bezier(.55,-0.68,.48,1.682);
+}
+
+/* WINDOW */
+#window {
+
+}
+
+window#waybar.empty #window {
+    background-color: transparent;
+}
