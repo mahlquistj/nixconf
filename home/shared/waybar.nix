@@ -68,6 +68,10 @@ in {
       smallspacer = { "format" = " "; };
 
       "hyprland/workspaces" = { format = ""; };
+      "hyprland/window" = {
+        format = "{icon} {title}";
+        icon = true;
+      };
 
     }];
   };

@@ -1,0 +1,7 @@
+#window {
+
+}
+
+window#waybar.empty #window {
+    background-color: transparent;
+}
