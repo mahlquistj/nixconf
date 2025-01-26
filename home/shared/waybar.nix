@@ -35,9 +35,11 @@ let
       transformedCss = dynamicReplace cssContent;
     in transformedCss;
 
-  # Example usage
   waybarStyling = importCss ./waybar.css;
 
+  m_right = [ "cpu" "disk" "memory" "network" "clock" ]
+    ++ (if osConfig.hardware.bluetooth.enable then [ "bluetooth" ] else [ ])
+    ++ (if has_battery then [ "battery" ] else [ ]);
 in {
   programs.waybar = {
     enable = true;
@@ -61,9 +63,7 @@ in {
 
       modules-left = [ "hyprland/workspaces" ];
       modules-center = [ "hyprland/window" ];
-      modules-right = [ "cpu" "disk" "memory" "network" "clock" ]
-        ++ (if osConfig.hardware.bluetooth.enable then [ "bluetooth" ] else [ ])
-        ++ (if has_battery then [ "battery" ] else [ ]);
+      modules-right = m_right;
 
       smallspacer = { "format" = " "; };
 
