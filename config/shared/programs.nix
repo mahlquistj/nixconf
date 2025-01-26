@@ -25,6 +25,7 @@
       # Other
       hyprpaper
       firefox
+      phinger-cursors
     ];
   };
 
