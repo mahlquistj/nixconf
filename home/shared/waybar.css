@@ -8,7 +8,17 @@ window#waybar {
     all:unset;
 }
 
-.modules-left .modules-center .modules-right {
+.modules-left {
+    background-color: rgba(0, 0, 0, 0.2);
+    border-radius: 30px;
+}
+
+.modules-center {
+    background-color: rgba(0, 0, 0, 0.2);
+    border-radius: 30px;
+}
+
+.modules-right {
     background-color: rgba(0, 0, 0, 0.2);
     border-radius: 30px;
 }
