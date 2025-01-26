@@ -1,4 +1,4 @@
-{ pkgs, wallpapers, colors, ... }: {
+{ pkgs, sysOptions, wallpapers, colors, ... }: {
   environment.systemPackages = [
     (pkgs.where-is-my-sddm-theme.override {
       themeConfig.General = {
@@ -20,6 +20,11 @@
     wayland.enable = true;
     package = pkgs.kdePackages.sddm;
     theme = "where_is_my_sddm_theme";
-    settings = { Theme = { CursorTheme = "phinger-cursors-light"; }; };
+    settings = {
+      Theme = {
+        CursorTheme = "phinger-cursors-light";
+        CursorSize = sysOptions.cursorSize;
+      };
+    };
   };
 }

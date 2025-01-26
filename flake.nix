@@ -16,15 +16,17 @@
       pkgs = import nixpkgs { inherit system; };
       wallpapers = "${self}/media/wallpaper";
       colors = import ./colors.nix { };
-      system_vars =
-        { # TODO: How can we make this better, so that we don't have to merge it into specialArgs?
+      system_options =
+        { # TODO: How can we make this better, so that we don't have to *merge* it into specialArgs every time we run the flake?
           work = {
             has_battery = true;
             wallpaper = "normal";
+            cursorSize = 20;
           };
           desktop = {
             has_battery = false;
             wallpaper = "ultrawide";
+            cursorSize = 24;
           };
         };
     in {
@@ -32,13 +34,17 @@
         work = nixpkgs.lib.nixosSystem {
           specialArgs = {
             inherit inputs outputs self wallpapers colors;
-          } // system_vars.work;
+          } // {
+            sysOptions = system_options.work;
+          };
           modules = [ inputs.home-manager.nixosModule ./config/work ];
         };
         desktop = nixpkgs.lib.nixosSystem {
           specialArgs = {
             inherit inputs outputs self wallpapers colors;
-          } // system_vars.desktop;
+          } // {
+            sysOptions = system_options.desktop;
+          };
           modules = [ inputs.home-manager.nixosModule ./config/desktop ];
         };
       };
@@ -48,7 +54,9 @@
           pkgs = pkgs;
           extraSpecialArgs = {
             inherit inputs outputs self wallpapers colors;
-          } // system_vars.work;
+          } // {
+            sysOptions = system_options.work;
+          };
           modules = [ ./home/work.nix ];
         };
 
@@ -56,7 +64,9 @@
           pkgs = pkgs;
           extraSpecialArgs = {
             inherit inputs outputs self wallpapers colors;
-          } // system_vars.desktop;
+          } // {
+            sysOptions = system_options.desktop;
+          };
           modules = [ ./home/home.nix ];
         };
       };

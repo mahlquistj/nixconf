@@ -1,11 +1,11 @@
-{ colors, wallpaper, wallpapers, ... }:
+{ colors, sysOptions, wallpapers, ... }:
 
 {
   services.hyprpaper = {
     enable = true;
     settings = {
-      preload = [ "${wallpapers}/${wallpaper}.png" ];
-      wallpaper = [ ", ${wallpapers}/${wallpaper}.png" ];
+      preload = [ "${wallpapers}/${sysOptions.wallpaper}.png" ];
+      wallpaper = [ ", ${wallpapers}/${sysOptions.wallpaper}.png" ];
     };
   };
   wayland.windowManager.hyprland = {
@@ -119,7 +119,7 @@
     extraConfig = ''
       # Hyprcursor theme
       env = HYPRCURSOR_THEME,phinger-cursors-light
-      env = HYPRCURSOR_SIZE,24
+      env = HYPRCURSOR_SIZE,${sysOptions.cursorSize}
     '';
   };
 }
