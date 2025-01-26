@@ -24,7 +24,7 @@
     file = {
       # Cursors
       ".icons/" = {
-        source = ../../media/cursor;
+        source = ../../media/.icons;
         recursive = true;
       };
       # Wallpapers
@@ -33,7 +33,13 @@
         recursive = true;
       };
     };
-  };
 
+    pointerCursor = {
+      gtk.enable = true;
+      x11.enable = true;
+      name = "phinger-cursors-light";
+      package = pkgs.phinger-cursors;
+    };
+  };
   programs.home-manager.enable = true;
 }
