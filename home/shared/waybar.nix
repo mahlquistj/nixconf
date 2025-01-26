@@ -61,7 +61,7 @@ in {
 
       modules-left = [ "hyprland/workspaces" ];
       modules-center = [ "hyprland/window" ];
-      modules-right = [ "clock" ]
+      modules-right = [ "cpu" "disk" "memory" "network" "clock" ]
         ++ (if osConfig.hardware.bluetooth.enable then [ "bluetooth" ] else [ ])
         ++ (if has_battery then [ "battery" ] else [ ]);
 
