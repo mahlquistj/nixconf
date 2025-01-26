@@ -1,1 +1,1 @@
-{ config, lib, pkgs, colors, ... }: { programs.wofi.enable = true; }
+{ ... }: { programs.wofi.enable = true; }
