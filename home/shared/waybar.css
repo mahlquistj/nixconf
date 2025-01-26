@@ -14,6 +14,7 @@ window#waybar {
 }
 
 .modules-center {
+    min-width: 10rem;
     background-color: rgba(0, 0, 0, 0.2);
     border-radius: 30px;
 }
