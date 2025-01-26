@@ -119,7 +119,7 @@
     extraConfig = ''
       # Hyprcursor theme
       env = HYPRCURSOR_THEME,phinger-cursors-light
-      env = HYPRCURSOR_SIZE,${sysOptions.cursorSize}
+      env = HYPRCURSOR_SIZE,${builtins.toString sysOptions.cursorSize}
     '';
   };
 }
