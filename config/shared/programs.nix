@@ -26,6 +26,7 @@
       hyprpaper
       firefox
       phinger-cursors
+      btop
     ];
   };
 
