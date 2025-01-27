@@ -39,8 +39,8 @@
 
         border_size = 1;
 
-        "col.active_border" = "rgba(${colors.color1}ee)";
-        "col.inactive_border" = "rgba(${colors.color0}aa)";
+        "col.active_border" = "rgba(${colors.primary}ee)";
+        "col.inactive_border" = "rgba(${colors.background}aa)";
 
         resize_on_border = true;
       };

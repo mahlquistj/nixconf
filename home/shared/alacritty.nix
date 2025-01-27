@@ -26,7 +26,7 @@
       bell = {
         animation = "Ease";
         duration = 10;
-        color = "#${colors.color1}";
+        color = "#${colors.primary}";
       };
 
       cursor = {

@@ -1,14 +1,19 @@
 { }: {
+  foreground = "e4e5e7"; # TODO
+  background = "363537";
+  darker = "1F1E1F";
 
-  # LEGACY:
-  foreground = "e4e5e7";
-  background = "17181C";
-  darker = "101013";
-  mbg = "1E1F24";
+  cursorColor = "e4e5e7"; # TODO
+  comment = "8f9093"; # TODO
+  accent = "FA3867"; # TODO
 
-  cursorColor = "e4e5e7";
-  comment = "8f9093";
-  accent = "FA3867";
+  primary = "ED7D3A";
+  secondary = "DA9EF8";
+
+  success = "B5DD3E";
+  caution = "F0D93E";
+  danger = "F63150";
+  info = "2EBDE7";
 
   color0 = "26272B";
   color8 = "333438";
@@ -33,5 +38,4 @@
 
   color7 = "CBCCCE";
   color15 = "CBCCCE";
-  name = "vixima";
 }
