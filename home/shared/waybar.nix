@@ -65,13 +65,24 @@ in {
       modules-center = [ "hyprland/window" ];
       modules-right = [ "cpu" "disk" "memory" "network" "clock" bluetooth battery ];
 
-      smallspacer = { "format" = " "; };
+      #smallspacer = { "format" = " "; };
 
       "hyprland/workspaces" = { format = ""; };
       "hyprland/window" = {
         format = "{title}";
         icon = true;
         icon_size = 10;
+      };
+
+      battery = {
+        format = "{icon} {capacity}%";
+
+        states = {
+          warning = "40";
+          critical = "20";
+        };
+
+        format-icons = [ "󰂃" "󰁽" "󰁿" "󰂁" "󱟢"];
       };
 
     }];
