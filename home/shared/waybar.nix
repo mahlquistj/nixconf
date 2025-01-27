@@ -94,7 +94,7 @@ in {
       };
 
       clock = {
-        format = "{:%H:%M}"; #{:%a} {:%b} {:%d} {:%Y}
+        format = "{:%H:%M} {:%a}"; # {:%b} {:%d} {:%Y}
       };
 
       battery = {
