@@ -36,11 +36,13 @@ window#waybar {
     border: 1px solid var(--primary);
     min-width: 15px;
     transition: 0.5s ease;
-    margin-right: 4px;
-    margin-left: 4px;
     font-size: 12px;
     font-weight: normal;
     border-radius: 30px;
+}
+
+#workspaces button + button {
+    margin-right: 5px;
 }
 
 #workspaces button.active {
