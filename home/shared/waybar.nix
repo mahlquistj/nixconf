@@ -71,7 +71,7 @@ in {
       "hyprland/window" = {
         format = "{title}";
         icon = true;
-        icon_size = 10;
+        icon_size = 5;
       };
 
       battery = {
