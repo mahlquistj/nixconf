@@ -33,6 +33,7 @@ window#waybar {
 
 #workspaces button {
     all:unset;
+    font-size: 5px;
     background-color: var(--background);
     border-radius: 15px;
     border-color: var(--primary);
