@@ -43,7 +43,7 @@ window#waybar {
 }
 
 #workspaces button:last-child {
-    margin-right: auto;
+    margin-right: 0px;
 }
 
 #workspaces button.active {
