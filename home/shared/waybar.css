@@ -19,6 +19,7 @@ window#waybar {
 
 .module {
     all: unset;
+    margin: 3px 3px 0px 0px;
     padding-left: 5px;
     padding-right: 5px;
     border-radius: 30px;
@@ -73,40 +74,40 @@ window#waybar.empty .modules-center {
 }
 
 @keyframes critical_charging {
-    0% {
+    25% {
         background-color: var(--danger); 
     }
     50% {
         background-color: var(--caution);
         color: var(--background);
     }
-    100% {
+    75% {
         background-color: var(--danger); 
     }
 }
 
 @keyframes warning_charging {
-    0% {
+    25% {
         background-color: var(--caution); 
     }
     50% {
         background-color: var(--success);
     }
-    100% {
+    75% {
         background-color: var(--caution); 
     }
 }
 
 @keyframes good_charging {
-    0% {
+    25% {
         background-color: var(--success); 
     }
     50% {
         background-color: transparent;
         color: var(--success);
     }
-    100% {
-        background-color: var(--success);
+    75% {
+        background-color: var(--success); 
     }
 }
 
