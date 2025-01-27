@@ -21,12 +21,16 @@ window#waybar {
     margin-left: 5px;
 }
 
+.modules-right .module:last-child {
+    margin-left: 0px;
+}
+
 .module {
     all: unset;
     padding-left: 5px;
     padding-right: 5px;
     border-radius: 30px;
-    background-color: green;
+    background-color: green; /* Debug */
 }
 
 /* WORKSPACES */
