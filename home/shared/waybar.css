@@ -36,8 +36,8 @@ window#waybar {
     font-size: 5px;
     min-height: 5px;
     background-color: var(--background);
-    border: 30px solid var(--primary);
-    border-width: 1px;
+    border: 1px solid var(--primary);
+    border-radius: 30px;
     min-width: 13px;
     transition: 0.5s ease;
     margin-right: 4px;
