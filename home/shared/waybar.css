@@ -29,7 +29,7 @@ window#waybar {
     box-shadow: none;
     text-shadow: none;
     transition: 0.2s ease;
-    padding: 10px;
+    padding: 5px;
 }
 
 #workspaces button {
@@ -37,7 +37,7 @@ window#waybar {
     background-color: var(--background);
     border-radius: 30px;
     border-color: var(--primary);
-    border-width: 4px;
+    border-width: 1px;
     border-style: solid;
     min-width: 13px;
     transition: 0.5s ease;
@@ -71,7 +71,7 @@ window#waybar.empty .modules-center {
 #battery {
     all:unset;
     background: var(--success); /* Default to green color */
-
+    
 }
 
 @keyframes critical_charging {
