@@ -17,6 +17,13 @@ window#waybar {
     padding: 5px;
 }
 
+.module {
+    all: unset;
+    padding-left: 5px;
+    padding-right: 5px;
+    border-radius: 30px;
+}
+
 
 /* WORKSPACES */
 #workspaces {
@@ -29,7 +36,6 @@ window#waybar {
     min-height: 5px;
     background-color: var(--background);
     border: 1px solid var(--primary);
-    border-radius: 30px;
     min-width: 15px;
     transition: 0.5s ease;
     margin-right: 4px;
@@ -63,9 +69,6 @@ window#waybar.empty .modules-center {
     all:unset;
     background: var(--success); /* Default to green color */
     color: var(--background);
-    border-radius: 30px;
-    padding-left: 4px;
-    padding-right: 4px;
 }
 
 @keyframes critical_charging {

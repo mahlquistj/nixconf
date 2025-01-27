@@ -15,7 +15,7 @@
       system = "x86_64-linux";
       pkgs = import nixpkgs { inherit system; };
       wallpapers = "${self}/media/wallpaper";
-      colors = import ./colors.nix { };
+      style = import ./style.nix { };
       system_options =
         { # TODO: How can we make this better, so that we don't have to *merge* it into specialArgs every time we run the flake?
           work = {
@@ -33,7 +33,7 @@
       nixosConfigurations = {
         work = nixpkgs.lib.nixosSystem {
           specialArgs = {
-            inherit inputs outputs self wallpapers colors;
+            inherit inputs outputs self wallpapers style;
           } // {
             sysOptions = system_options.work;
           };
@@ -41,7 +41,7 @@
         };
         desktop = nixpkgs.lib.nixosSystem {
           specialArgs = {
-            inherit inputs outputs self wallpapers colors;
+            inherit inputs outputs self wallpapers style;
           } // {
             sysOptions = system_options.desktop;
           };
@@ -53,7 +53,7 @@
         work = inputs.home-manager.lib.homeManagerConfiguration {
           pkgs = pkgs;
           extraSpecialArgs = {
-            inherit inputs outputs self wallpapers colors;
+            inherit inputs outputs self wallpapers style;
           } // {
             sysOptions = system_options.work;
           };
@@ -63,7 +63,7 @@
         desktop = inputs.home-manager.lib.homeManagerConfiguration {
           pkgs = pkgs;
           extraSpecialArgs = {
-            inherit inputs outputs self wallpapers colors;
+            inherit inputs outputs self wallpapers style;
           } // {
             sysOptions = system_options.desktop;
           };

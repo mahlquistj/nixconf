@@ -1,4 +1,4 @@
-{ colors, ... }: {
+{ style, ... }: {
   programs.alacritty = {
     enable = true;
     settings = {
@@ -26,7 +26,7 @@
       bell = {
         animation = "Ease";
         duration = 10;
-        color = "#${colors.primary}";
+        color = "#${style.primary}";
       };
 
       cursor = {
@@ -41,8 +41,8 @@
 
       colors = {
         primary = {
-          background = "#${colors.darker}";
-          foreground = "#${colors.foreground}";
+          background = "#${style.darker}";
+          foreground = "#${style.foreground}";
         };
       };
     };

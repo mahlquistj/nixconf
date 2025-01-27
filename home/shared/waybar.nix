@@ -1,4 +1,4 @@
-{ osConfig, colors, lib, sysOptions, ... }:
+{ osConfig, style, lib, sysOptions, ... }:
 
 let
   # Function to dynamically replace CSS variables
@@ -21,9 +21,9 @@ let
               varName = builtins.head rest;
               remaining = builtins.concatStringsSep ")" (builtins.tail rest);
 
-              # Check if the variable exists in `colors` and replace it, otherwise keep it as-is
-              replacement = if lib.hasAttr varName colors then
-                "#${colors.${varName}}"
+              # Check if the variable exists in `style` and replace it, otherwise keep it as-is
+              replacement = if lib.hasAttr varName style then
+                "#${style.${varName}}"
               else
                 "var(--${varName})";
               # Combine the replacement with the remaining part of the string

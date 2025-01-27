@@ -1,4 +1,4 @@
-{ colors, sysOptions, wallpapers, ... }:
+{ style, sysOptions, wallpapers, ... }:
 
 {
   services.hyprpaper = {
@@ -39,8 +39,8 @@
 
         border_size = 1;
 
-        "col.active_border" = "rgba(${colors.primary}ee)";
-        "col.inactive_border" = "rgba(${colors.background}aa)";
+        "col.active_border" = "rgba(${style.primary}ee)";
+        "col.inactive_border" = "rgba(${style.background}aa)";
 
         resize_on_border = true;
       };
@@ -53,10 +53,7 @@
         dim_strength = 0.2;
       };
       input = { kb_layout = "dk"; };
-      gestures = {
-        workspace_swipe = true;
-
-      };
+      gestures = { workspace_swipe = true; };
       animations = {
         enabled = "yes";
         bezier = "myBezier, 0.05, 0.9, 0.1, 1.05";

@@ -1,4 +1,4 @@
-{ pkgs, sysOptions, wallpapers, colors, ... }: {
+{ pkgs, sysOptions, wallpapers, style, ... }: {
   environment.systemPackages = [
     (pkgs.where-is-my-sddm-theme.override {
       themeConfig.General = {
@@ -6,7 +6,7 @@
         backgroundMode = "fill";
 
         passwordMask = true;
-        passwordInputBackground = "#${colors.background}60";
+        passwordInputBackground = "#${style.background}60";
         passwordInputRadius = 8;
         passwordInputVisibleCursor = true;
       };
