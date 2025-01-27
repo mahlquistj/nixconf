@@ -75,18 +75,17 @@ in {
       };
 
       battery = {
+        format = "{icon} {capacity}%";
+
         format-full = "{icon} {capacity}%";
         format-good = "{icon} {capacity}%";
         format-warning = "{icon} {capacity}% {time}";
         format-critical = "{icon} {capacity}% {time}";
-
-        format-plugged-full = "󱐋{icon} {capacity}%";
-        format-plugged-good = "󱐋{icon} {capacity}%";
-        format-plugged-warning = "󱐋{icon} {capacity}% {time}";
-        format-plugged-critical = "󱐋{icon} {capacity}% {time}";
+        
+        format-plugged = "󱐋{icon} {capacity}% {time}";
 
         states = {
-          full = "100";
+          full = "99";
           good = "75";
           warning = "40";
           critical = "20";
