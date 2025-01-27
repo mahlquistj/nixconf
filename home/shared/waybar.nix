@@ -75,6 +75,8 @@ in {
       };
 
       battery = {
+        interval = 20;
+
         format = "{icon} {capacity}%";
 
         format-full = "{icon} {capacity}%";
