@@ -1,11 +1,12 @@
 * {
     font-family: "Source Code Pro", "Symbols Nerd Font";
     font-weight: bold; 
-    font-size: 12px;
+    font-size: 10px;
 }
 
 window#waybar {
     all:unset;
+    padding: 5px;
 }
 
 .modules-left {
@@ -28,9 +29,6 @@ window#waybar {
 #workspaces {
     all: unset;
     transition: 0.2s ease;
-    padding: 5px;
-    font-weight: normal;
-    font-size: 5px;
 }
 
 #workspaces button {
@@ -43,6 +41,8 @@ window#waybar {
     transition: 0.5s ease;
     margin-right: 4px;
     margin-left: 4px;
+    font-size: 12px;
+    font-weight: normal;
 }
 
 #workspaces button.active {
@@ -58,10 +58,7 @@ window#waybar {
 }
 
 /* WINDOW */
-#window {
-    padding-left: 4px;
-    padding-right: 4px;
-}
+#window {}
 
 window#waybar.empty .modules-center {
     background-color: transparent;
@@ -72,9 +69,7 @@ window#waybar.empty .modules-center {
     all:unset;
     background: var(--success); /* Default to green color */
     color: var(--background);
-    border-radius: 30px;
-    padding-left: 4px;
-    padding-right: 4px;
+    border-radius: 12px;
 }
 
 @keyframes critical_charging {
