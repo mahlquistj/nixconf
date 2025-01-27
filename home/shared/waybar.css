@@ -69,11 +69,59 @@ window#waybar.empty .modules-center {
 
 /* BATTERY */
 #battery {
-    background: var(--success);
+    background: var(--success); /* Default to green color */
+}
+
+@keyframes critical_charging {
+    0% {
+        background-color: var(--danger); 
+    }
+    50% {
+        background-color: var(--caution);
+    }
+    100% {
+        background-color: var(--danger); 
+    }
+}
+
+@keyframes warning_charging {
+    0% {
+        background-color: var(--caution); 
+    }
+    50% {
+        background-color: var(--success);
+    }
+    100% {
+        background-color: var(--caution); 
+    }
+}
+
+@keyframes good_charging {
+    0% {
+        background-color: var(--success); 
+    }
+    50% {
+        background-color: transparent;
+    }
+    100% {
+        background-color: var(--success);
+    }
+}
+
+#battery.plugged.good {
+    animation: good_charging 4s infinite;
+}
+
+#battery.plugged.warning {
+    animation: warning_charging 4s infinite
 }
 
 #battery.warning {
     background: var(--caution);
+}
+
+#battery.plugged.critical {
+    animation: critical_charging 4s infinite
 }
 
 #battery.critical {
