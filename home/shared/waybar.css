@@ -108,11 +108,11 @@ window#waybar.empty .modules-center {
     }
 }
 
-#battery.plugged.good {
+#battery.charging.good {
     animation: good_charging 4s infinite;
 }
 
-#battery.plugged.warning {
+#battery.charging.warning {
     animation: warning_charging 4s infinite
 }
 
@@ -120,7 +120,7 @@ window#waybar.empty .modules-center {
     background: var(--caution);
 }
 
-#battery.plugged.critical {
+#battery.charging.critical {
     animation: critical_charging 4s infinite
 }
 
