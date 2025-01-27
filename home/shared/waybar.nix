@@ -79,10 +79,10 @@ in {
 
         format = "{icon} {capacity}%";
 
-        format-full = "{icon} {capacity}%";
-        format-good = "{icon} {capacity}%";
-        format-warning = "{icon} {capacity}% {time}";
-        format-critical = "{icon} {capacity}% {time}";
+        format-full = "{icon} FULL {capacity}%";
+        format-good = "{icon} GOOD {capacity}%";
+        format-warning = "{icon} WARN {capacity}% {time}";
+        format-critical = "{icon} WARN {capacity}% {time}";
         
         format-plugged = "󱐋{icon} {capacity}% {time}";
 
