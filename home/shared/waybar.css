@@ -33,7 +33,7 @@ window#waybar {
 #workspaces button {
     min-height: 5px;
     background-color: var(--background);
-    border: 1px solid var(--primary);
+    border: 1px solid var(--secondary);
     min-width: 15px;
     transition: 0.5s ease;
     font-size: 12px;
@@ -48,6 +48,7 @@ window#waybar {
 
 #workspaces button.active {
     background-color: var(--primary);
+    border-color: var(--primary);
     transition: all 0.5s ease;
     min-width: 3rem;
 }
