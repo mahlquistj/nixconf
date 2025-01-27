@@ -87,10 +87,10 @@ in {
         format-plugged = "󱐋{icon} {capacity}% {time}";
 
         states = {
-          full = "99";
-          good = "75";
-          warning = "40";
-          critical = "20";
+          full = 99;
+          good = 75;
+          warning = 40;
+          critical = 20;
         };
 
         format-icons = [ "󰂃" "󰁽" "󰁿" "󰂁" "󱟢"];
