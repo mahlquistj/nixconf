@@ -30,11 +30,11 @@ window#waybar {
     transition: 0.2s ease;
     padding: 5px;
     font-weight: normal;
+    font-size: 5px;
 }
 
 #workspaces button {
     all:unset;
-    font-size: 5px;
     min-height: 5px;
     background-color: var(--background);
     border: 1px solid var(--primary);
