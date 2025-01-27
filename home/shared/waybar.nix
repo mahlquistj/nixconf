@@ -95,10 +95,12 @@ in {
       battery = {
         interval = 20;
 
+        format = "{icon}";
         format-good = "{icon} {capacity}%";
         format-warning = "{icon} {capacity}%";
         format-critical = "{icon} {time}";
         
+        format-charging = "󱐋 {capacity}%";
         format-charging-good = "󱐋 {capacity}% {time}";
         format-charging-warning = "󱐋 {capacity}% {time}";
         format-charging-critical = "󱐋 {capacity}% {time}";
