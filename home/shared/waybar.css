@@ -26,8 +26,7 @@ window#waybar {
 
 /* WORKSPACES */
 #workspaces {
-    box-shadow: none;
-    text-shadow: none;
+    all: unset;
     transition: 0.2s ease;
     padding: 5px;
 }
@@ -39,7 +38,7 @@ window#waybar {
     border-color: var(--primary);
     border-width: 1px;
     border-style: solid;
-    min-width: 8px;
+    min-width: 10px;
     transition: 0.5s ease;
     margin-right: 4px;
     margin-left: 4px;
