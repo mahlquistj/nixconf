@@ -37,7 +37,7 @@ window#waybar {
     background-color: var(--background);
     border-radius: 30px;
     outline-color: var(--primary);
-    outline-width: 5px;
+    outline-width: 100px;
     outline-style: solid;
     min-width: 13px;
     transition: 0.5s ease;
