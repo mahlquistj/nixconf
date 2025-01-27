@@ -27,12 +27,10 @@ window#waybar {
 
 /* WORKSPACES */
 #workspaces {
-    all: unset;
     transition: 0.2s ease;
 }
 
 #workspaces button {
-    all:unset;
     min-height: 5px;
     background-color: var(--background);
     border: 1px solid var(--primary);
@@ -66,7 +64,6 @@ window#waybar.empty .modules-center {
 
 /* BATTERY */
 #battery {
-    all:unset;
     background: var(--success); /* Default to green color */
     color: var(--background);
 }
