@@ -25,11 +25,11 @@ window#waybar {
     background-color: green; /* Debug */
 }
 
-.modules-right .module {
+.modules-right widget {
     margin-left: 5px;
 }
 
-.modules-right .module:last-child {
+.modules-right widget:last-child {
     background-color: blue;
 }
 
