@@ -39,10 +39,11 @@ window#waybar {
     font-size: 12px;
     font-weight: normal;
     border-radius: 30px;
+    margin-right: 5px;
 }
 
-#workspaces button + button {
-    margin-right: 5px;
+#workspaces button:last-child {
+    margin-right: auto;
 }
 
 #workspaces button.active {
