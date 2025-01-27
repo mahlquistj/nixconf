@@ -71,7 +71,7 @@ window#waybar.empty .modules-center {
 #battery {
     all:unset;
     background: var(--success); /* Default to green color */
-    
+    color: var(--background);
 }
 
 @keyframes critical_charging {
@@ -128,4 +128,5 @@ window#waybar.empty .modules-center {
 
 #battery.critical {
     background: var(--danger);
+    color: white;
 }
