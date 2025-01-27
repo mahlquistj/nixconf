@@ -95,12 +95,10 @@ in {
       battery = {
         interval = 20;
 
-        format-full = "{icon} {capacity}%";
         format-good = "{icon} {capacity}%";
-        format-warning = "{icon} {time}";
+        format-warning = "{icon} {capacity}%";
         format-critical = "{icon} {time}";
         
-        format-charging-full = "󱐋 {capacity}% {time}";
         format-charging-good = "󱐋 {capacity}% {time}";
         format-charging-warning = "󱐋 {capacity}% {time}";
         format-charging-critical = "󱐋 {capacity}% {time}";
@@ -108,8 +106,7 @@ in {
         format-time = "{H}:{M}";
 
         states = {
-          full = 100;
-          good = 75;
+          good = 99;
           warning = 40;
           critical = 20;
         };

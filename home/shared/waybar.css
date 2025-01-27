@@ -75,6 +75,7 @@ window#waybar.empty .modules-center {
     }
     50% {
         background-color: var(--caution);
+        color: var(--background);
     }
     100% {
         background-color: var(--danger); 
