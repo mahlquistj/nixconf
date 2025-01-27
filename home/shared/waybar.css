@@ -35,11 +35,11 @@ window#waybar {
 #workspaces button {
     all:unset;
     background-color: var(--background);
-    border-radius: 30px;
+    border-radius: 15px;
     border-color: var(--primary);
     border-width: 1px;
     border-style: solid;
-    min-width: 13px;
+    min-width: 8px;
     transition: 0.5s ease;
     margin-right: 4px;
     margin-left: 4px;
