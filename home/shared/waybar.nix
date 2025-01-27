@@ -70,21 +70,7 @@ in {
       #smallspacer = { "format" = " "; };
 
       "hyprland/workspaces" = { 
-        format = "{icon}";
-        format-icons = {
-          "1" = "󱄅";
-          "2" = "󰖟";
-          "3" = "󱘗";
-          "4" = "";
-          "5" = "󰓇";
-          "6" = "6";
-          "7" = "7";
-          "8" = "8";
-          "9" = "9";
-        };
-        persistent-workspaces = {
-          "*" = 5;
-        };
+        format = "{name}";
       };
 
       "hyprland/window" = {
