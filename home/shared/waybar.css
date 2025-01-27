@@ -36,11 +36,11 @@ window#waybar {
     font-size: 5px;
     min-height: 5px;
     background-color: var(--background);
-    border-radius: 15px;
+    border-radius: 30px;
     border-color: var(--primary);
     border-width: 1px;
     border-style: solid;
-    min-width: 10px;
+    min-width: 13px;
     transition: 0.5s ease;
     margin-right: 4px;
     margin-left: 4px;
