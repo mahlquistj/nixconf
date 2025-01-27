@@ -10,7 +10,7 @@
   primary = "ED7D3A";
   secondary = "DA9EF8";
 
-  success = "B5DD3E";
+  success = "96EE8F";
   caution = "F0D93E";
   danger = "F63150";
   info = "2EBDE7";
