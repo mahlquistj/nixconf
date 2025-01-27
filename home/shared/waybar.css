@@ -25,12 +25,13 @@ window#waybar {
     background-color: green; /* Debug */
 }
 
-.modules-right widget {
+.modules-right widget .module {
     margin-left: 5px;
 }
 
-.modules-right widget:last-child {
+.modules-right widget:first-child .module {
     background-color: blue;
+    margin-left: 0px;
 }
 
 /* WORKSPACES */
