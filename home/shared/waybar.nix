@@ -70,7 +70,7 @@ in {
       #smallspacer = { "format" = " "; };
 
       "hyprland/workspaces" = { 
-        format = "{name}";
+        format = "{icon}";
         format-icons = {
           "1" = "󱄅";
           "2" = "󰖟";
