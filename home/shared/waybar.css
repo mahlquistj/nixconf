@@ -131,3 +131,9 @@ window#waybar.empty .modules-center {
     background: var(--danger);
     color: white;
 }
+
+
+/* CLOCK */
+#clock {
+    background-color: var(--darker);
+}
