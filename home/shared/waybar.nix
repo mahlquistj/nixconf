@@ -70,7 +70,7 @@ in {
       #smallspacer = { "format" = " "; };
 
       "hyprland/workspaces" = { 
-        format = "{icon}"; 
+        format = "<span rise='-4000'>{icon}</span>";
         format-icons = {
           "1" = "󱄅";
           "2" = "󰖟";
