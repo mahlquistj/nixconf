@@ -65,7 +65,8 @@ window#waybar.empty .modules-center {
     background: var(--success); /* Default to green color */
     color: var(--background);
     border-radius: 30px;
-
+    padding-left: 4px;
+    padding-right: 4px;
 }
 
 @keyframes critical_charging {
