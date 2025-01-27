@@ -100,10 +100,12 @@ in {
         format-warning = "{icon} {time}";
         format-critical = "{icon} {time}";
         
-        format-charging-full = "󱐋{icon} {capacity}% {time}";
-        format-charging-good = "󱐋{icon} {capacity}% {time}";
-        format-charging-warning = "󱐋{icon} {capacity}% {time}";
-        format-charging-critical = "󱐋{icon} {capacity}% {time}";
+        format-charging-full = "󱐋{capacity}% {time}";
+        format-charging-good = "󱐋{capacity}% {time}";
+        format-charging-warning = "󱐋{capacity}% {time}";
+        format-charging-critical = "󱐋{capacity}% {time}";
+
+        format-time = "{H}:{M}";
 
         states = {
           full = 100;
