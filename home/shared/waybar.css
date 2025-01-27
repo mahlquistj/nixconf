@@ -40,6 +40,7 @@ window#waybar {
     margin-left: 4px;
     font-size: 12px;
     font-weight: normal;
+    border-radius: 30px;
 }
 
 #workspaces button.active {
