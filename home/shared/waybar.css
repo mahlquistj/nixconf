@@ -1,7 +1,6 @@
 * {
     all:unset;
     font-family: "Source Code Pro", "Symbols Nerd Font";
-    font-weight: bold; 
     font-size: 10px;
 }
 
@@ -12,7 +11,7 @@ window#waybar {
 .modules-left, 
 .modules-center, 
 .modules-right {
-    background-color: rgba(0, 0, 0, 0.2);
+    background-color: rgba(0, 0, 0, 0.25);
     border-radius: 30px;
     padding: 5px;
 }
