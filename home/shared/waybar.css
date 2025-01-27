@@ -36,9 +36,9 @@ window#waybar {
     all:unset;
     background-color: var(--background);
     border-radius: 30px;
-    outline-color: var(--primary);
-    outline-width: 100px;
-    outline-style: solid;
+    border-color: var(--primary);
+    border-width: 4px;
+    border-style: solid;
     min-width: 13px;
     transition: 0.5s ease;
     margin-right: 4px;
@@ -69,7 +69,9 @@ window#waybar.empty .modules-center {
 
 /* BATTERY */
 #battery {
+    all:unset;
     background: var(--success); /* Default to green color */
+
 }
 
 @keyframes critical_charging {
@@ -113,7 +115,7 @@ window#waybar.empty .modules-center {
 }
 
 #battery.charging.warning {
-    animation: warning_charging 4s infinite
+    animation: warning_charging 4s infinite;
 }
 
 #battery.warning {
@@ -121,7 +123,7 @@ window#waybar.empty .modules-center {
 }
 
 #battery.charging.critical {
-    animation: critical_charging 4s infinite
+    animation: critical_charging 4s infinite;
 }
 
 #battery.critical {

@@ -77,20 +77,18 @@ in {
       battery = {
         interval = 20;
 
-        format = "{icon} {capacity}%";
-        format-full = "{icon} FULL {capacity}%";
-        format-good = "{icon} GOOD {capacity}%";
-        format-warning = "{icon} WARN {capacity}% {time}";
-        format-critical = "{icon} CRIT {capacity}% {time}";
+        format-full = "{icon} {capacity}%";
+        format-good = "{icon} {capacity}%";
+        format-warning = "{icon} {time}";
+        format-critical = "{icon} {time}";
         
-        format-charging = "󱐋{icon} CFULL {capacity}% {time}";
-        format-charging-full = "󱐋{icon} CFULL {capacity}% {time}";
-        format-charging-good = "󱐋{icon} CGOOD {capacity}% {time}";
-        format-charging-warning = "󱐋{icon} CWARN {capacity}% {time}";
-        format-charging-critical = "󱐋{icon} CCRIT {capacity}% {time}";
+        format-charging-full = "󱐋{icon} {capacity}% {time}";
+        format-charging-good = "󱐋{icon} {capacity}% {time}";
+        format-charging-warning = "󱐋{icon} {capacity}% {time}";
+        format-charging-critical = "󱐋{icon} {capacity}% {time}";
 
         states = {
-          full = 99;
+          full = 100;
           good = 75;
           warning = 40;
           critical = 20;
