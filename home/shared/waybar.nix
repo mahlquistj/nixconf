@@ -82,9 +82,13 @@ in {
         format-full = "{icon} FULL {capacity}%";
         format-good = "{icon} GOOD {capacity}%";
         format-warning = "{icon} WARN {capacity}% {time}";
-        format-critical = "{icon} WARN {capacity}% {time}";
+        format-critical = "{icon} CRIT {capacity}% {time}";
         
-        format-plugged = "󱐋{icon} {capacity}% {time}";
+        format-plugged = "󱐋{icon} FULL {capacity}% {time}";
+        format-plugged-full = "󱐋{icon} FULL {capacity}% {time}";
+        format-plugged-good = "󱐋{icon} GOOD {capacity}% {time}";
+        format-plugged-warning = "󱐋{icon} WARN {capacity}% {time}";
+        format-plugged-critical = "󱐋{icon} CRIT {capacity}% {time}";
 
         states = {
           full = 99;
