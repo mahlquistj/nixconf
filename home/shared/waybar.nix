@@ -52,7 +52,7 @@ in {
 
       mod = "dock";
 
-      height = 24;
+      height = 100;
 
       margin-left = 10;
       margin-right = 10;
