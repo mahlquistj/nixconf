@@ -17,21 +17,16 @@ window#waybar {
     padding: 5px;
 }
 
-.modules-left .module:first-child, 
-.modules-center .module:first-child, 
+.modules-right .module {
+    margin-left: 5px;
+}
+
 .modules-right .module:first-child {
     margin-left: 0px;
 }
 
-.modules-left .module:last-child, 
-.modules-center .module:last-child, 
-.modules-right .module:last-child {
-    margin-right: 0px;
-}
-
 .module {
     all: unset;
-    margin: 0px 2px 0px 2px;
     padding-left: 5px;
     padding-right: 5px;
     border-radius: 30px;
