@@ -41,7 +41,7 @@
 
       colors = {
         primary = {
-          background = "#${colors.background}";
+          background = "#${colors.darker}";
           foreground = "#${colors.foreground}";
         };
       };
