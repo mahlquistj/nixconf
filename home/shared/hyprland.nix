@@ -41,7 +41,7 @@
         dots_spacing = 0.35;
         dots_center = true;
         outer_color = "rbga(0, 0, 0, 0)"; # Transparent
-        inner_color = "rgba(${style.background}02)";
+        inner_color = "rgba(0, 255, 0, 0.2)";
         font_family = "${style.main-font}";
         font_color = "rgb(${style.foreground})";
         fade_on_empty = false;
