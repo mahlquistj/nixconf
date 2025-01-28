@@ -68,7 +68,7 @@ in {
       modules-right = [ "group/hardware" "network" "clock" bluetooth battery ];
 
       "group/power" = {
-        orientation = "inherit";
+        orientation = "horizontal";
         drawer = {
           transition-duration = 500;
           children-class = "other-btns";
