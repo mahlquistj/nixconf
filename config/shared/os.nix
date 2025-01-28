@@ -50,6 +50,11 @@
     extraGroups = [ "networkmanager" "wheel" ];
   };
 
+  security = {
+    polkit.enable = true;
+    pam.services.hyprlock = { };
+  };
+
   # Enable flakes
   nix.settings.experimental-features = [ "nix-command" "flakes" ];
 

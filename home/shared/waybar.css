@@ -56,32 +56,6 @@ tooltip,
     color: white;
 }
 
-/* #### HARDWARE #### */
-#hardware {
-
-}
-
-#disk.warning {
-    color: var(--caution);
-}
-
-#disk.critical {
-    color: var(--danger);
-}
-
-
-#memory.warning {
-    color: var(--caution);
-}
-
-#memory.critical {
-    color: var(--danger);
-}
-
-#cpu {
-    color: var(--secondary);
-}
-
 /* #### WORKSPACES #### */
 #workspaces button {
     min-height: 5px;
@@ -116,6 +90,32 @@ tooltip,
 /* The window here does NOT refer to the module, but the waybar-window itself, but is here to fix styling with the module */
 window#waybar.empty .modules-center {
     background-color: transparent;
+}
+
+/* #### HARDWARE #### */
+#hardware {
+
+}
+
+#disk.warning {
+    color: var(--caution);
+}
+
+#disk.critical {
+    color: var(--danger);
+}
+
+
+#memory.warning {
+    color: var(--caution);
+}
+
+#memory.critical {
+    color: var(--danger);
+}
+
+#cpu {
+    color: var(--secondary);
 }
 
 /* #### NETWORK #### */

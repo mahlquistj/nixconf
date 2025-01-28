@@ -83,24 +83,28 @@ in {
       };
 
       "custom/quit" = {
-          "format" = "󰗼";
-          "tooltip" = false;
-          "on-click" = "hyprctl dispatch exit";
+          format = "󰗼";
+          tooltip = true;
+          on-click = "hyprctl dispatch exit";
+          format-tooltip = "Logout";
       };
       "custom/lock" = {
           "format" = "󰍁";
-          "tooltip" = false;
+          "tooltip" = true;
           "on-click" = ""; #TODO: Implement lock
+          format-tooltip = "Lock";
       };
       "custom/reboot" = {
-          "format" = "󰜉";
-          "tooltip" = false;
-          "on-click" = "reboot";
+          format = "󰜉";
+          tooltip = true;
+          on-click = "reboot";
+          format-tooltip = "Reboot";
       };
       "custom/power" = {
-          "format" = "";
-          "tooltip" = false;
-          "on-click" = "shutdown now";
+          format = "";
+          tooltip = true;
+          on-click = "shutdown now";
+          format-tooltip = "Shut down";
       };
 
       tray = {
