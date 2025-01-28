@@ -48,7 +48,7 @@
       gtk.enable = true;
       name = "phinger-cursors-light";
       package = pkgs.phinger-cursors;
-      size = sysOptions.cursorSize * 2;
+      size = sysOptions.cursorSize;
     };
   };
 
