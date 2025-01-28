@@ -5,7 +5,7 @@
 
     settings = {
       font-family = "SauceCodePro Nerd Font";
-      font-size = "12px";
+      font-size = 12;
 
       background = "#${style.darker}";
       foreground = "#${style.foreground}";
