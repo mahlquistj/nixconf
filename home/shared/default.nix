@@ -1,8 +1,14 @@
 { pkgs, sysOptions, ... }:
 
 {
-  imports =
-    [ ./alacritty.nix ./fish.nix ./hyprland.nix ./wofi.nix ./waybar.nix ];
+  imports = [
+    ./alacritty.nix
+    ./fish.nix
+    ./ghostty.nix
+    ./hyprland.nix
+    ./wofi.nix
+    ./waybar.nix
+  ];
 
   home = {
     username = "maj";

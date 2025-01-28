@@ -1,4 +1,4 @@
-{ style, ghostty, ... }: {
+{ style, ... }: {
   programs.ghostty = {
     enable = true;
     enableFishIntegration = true;
