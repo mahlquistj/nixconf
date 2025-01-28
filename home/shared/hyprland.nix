@@ -46,7 +46,7 @@
         font_color = "rgb(${style.foreground})";
         fade_on_empty = false;
         rounding = -1;
-        check_color = "rgba(${style.danger}33)";
+        check_color = "rgba(${style.primary}33)";
         placeholder_text = ''
           <i><span foreground="#${style.foreground}">Input Password...</span></i>'';
         hide_input = false;
@@ -68,7 +68,7 @@
         }
         # TIME
         {
-          text = ''cmd[update:1000] date +"%-I:%M%p"'';
+          text = ''cmd[update:1000] date +"%H:%M"'';
           color = "rgba(${style.foreground}bf)";
           font_size = 95;
           font_family = "JetBrains Mono Extrabold";
