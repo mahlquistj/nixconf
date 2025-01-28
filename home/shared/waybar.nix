@@ -79,8 +79,22 @@ in {
         icon-size = 15;
       };
 
+      network = {
+        format-ethernet = "󰈁 Connected";
+        format-disconnected = "󰤮 Offline";
+        format-wifi = "{icon} {essid}";
+
+        tooltip-format-ethernet = "{gwaddr} | {ipaddr} Up: {bandwidthUpBytes} Down: {bandwidthDownBytes}";
+        tooltip-format-wifi = "{signaldBm} | {ipaddr} Up: {bandwidthUpBytes} Down: {bandwidthDownBytes}";
+
+        format-icons = ["󰤟" "󰤢" "󰤥" "󰤨"];
+
+        #TODO: on_click = "ADD COMMAND TO OPEN NETWORK MANAGER";
+      };
+
       clock = {
         format = "{:%H:%M %d/%m/%Y}";
+        tooltip-format = "{%A W%U}";
       };
 
       battery = {

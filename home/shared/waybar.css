@@ -1,3 +1,4 @@
+/* #### GENERAL #### */
 * {
     all:unset;
     font-family: "Source Code Pro", "Symbols Nerd Font";
@@ -31,7 +32,7 @@ window#waybar {
     margin-left: 0px;
 }
 
-/* WORKSPACES */
+/* #### WORKSPACES #### */
 #workspaces {
     transition: 0.2s ease;
 }
@@ -65,16 +66,23 @@ window#waybar {
     transition: all 0.5s ease;
 }
 
-/* WINDOW */
-#window {
-
-}
-
+/* #### WINDOW #### */
+/* The window here does NOT refer to the module, but the waybar-window itself, but is here to fix styling with the module */
 window#waybar.empty .modules-center {
     background-color: transparent;
 }
 
-/* BATTERY */
+/* #### NETWORK #### */
+#network {
+    background-color: var(--primary);
+}
+
+/* #### CLOCK #### */
+#clock {
+    background-color: var(--darker);
+}
+
+/* #### BATTERY #### */
 #battery {
     background: var(--success); /* Default to green color */
     color: var(--background);
@@ -137,10 +145,4 @@ window#waybar.empty .modules-center {
 #battery.critical {
     background: var(--danger);
     color: white;
-}
-
-
-/* CLOCK */
-#clock {
-    background-color: var(--darker);
 }
