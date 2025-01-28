@@ -72,6 +72,7 @@
       # Bindings
       bind = [
         # Important controls
+        "$mod, ESCAPE, exec, hyprlock"
         "$modshift, ESCAPE, exit"
 
         # Spawners
