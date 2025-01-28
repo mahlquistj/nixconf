@@ -63,7 +63,7 @@ in {
       gtk-layer-shell = true;
       reload_style_on_change = true;
 
-      modules-left = [ "hyprland/workspaces" ];
+      modules-left = [ "tray" "hyprland/workspaces" ];
       modules-center = [ "hyprland/window" ];
       modules-right = [ "cpu" "disk" "memory" "network" "clock" bluetooth battery ];
 

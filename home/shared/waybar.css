@@ -9,7 +9,8 @@ window#waybar {
     all:unset;
 }
 
-.modules-left, 
+#tray,
+#workspaces, 
 .modules-center, 
 .modules-right {
     background-color: rgba(0, 0, 0, 0.25);
@@ -40,10 +41,6 @@ tooltip {
 }
 
 /* #### WORKSPACES #### */
-#workspaces {
-    transition: 0.2s ease;
-}
-
 #workspaces button {
     min-height: 5px;
     background-color: var(--background);
