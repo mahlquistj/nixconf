@@ -40,13 +40,14 @@
         dots_size = 0.2;
         dots_spacing = 0.35;
         dots_center = true;
-        outer_color = "rbga(${style.darker}ff)";
-        inner_color = "rgba(${style.background}05)";
+        outer_color = "rbga(00000000)"; # Transparent
+        inner_color = "rgba(${style.background}33)";
         font_family = "${style.main-font}";
         font_color = "rgb(${style.foreground})";
         fade_on_empty = false;
         rounding = -1;
         check_color = "rgba(${style.primary}33)";
+        fail_color = "rgba(${style.danger}33)";
         placeholder_text = "Input Password...";
         hide_input = false;
         position = "0, -100";
