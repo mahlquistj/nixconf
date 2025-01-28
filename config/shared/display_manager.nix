@@ -2,8 +2,7 @@
   environment.systemPackages = [
     (pkgs.where-is-my-sddm-theme.override {
       themeConfig.General = {
-        background =
-          "${wallpapers}-${sysOptions.wallpaper}/login-background.png";
+        background = "${wallpapers}/login-${sysOptions.wallpaper}.png";
         backgroundMode = "fill";
 
         passwordMask = true;
