@@ -47,8 +47,7 @@
         fade_on_empty = false;
         rounding = -1;
         check_color = "rgba(${style.primary}33)";
-        placeholder_text = ''
-          <i><span foreground="#${style.foreground}">Input Password...</span></i>'';
+        placeholder_text = "Input Password...";
         hide_input = false;
         position = "0, -200";
         halign = "center";
