@@ -22,7 +22,7 @@
       #TODO: background-blur-radius = ?;
 
       command = "fish";
-      initial-command = "fish -l -i -c neofetch";
+      #initial-command = "fish -l -i -c neofetch";
 
       class = "Ghostty";
 
