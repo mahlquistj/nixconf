@@ -10,7 +10,74 @@
   };
   programs.hyprlock = {
     enable = true;
-    settings = { general = { ignore_empty_input = true; }; };
+    settings = {
+      # Inspiration1: https://github.com/justinmdickey/publicdots/blob/main/.config/hypr/hyprlock.conf
+      # Inspiration2: https://github.com/Daholli/nixos-config/blob/main/modules/nixos/desktop/addons/hyprlock/default.nix
+
+      # ACTUAL SETTINGS
+      general = {
+        no_fade_in = false;
+        no_fade_out = false;
+        hide_cursor = false;
+        grace = 0;
+        ignore_empty_input = true;
+        disable_loading_bar = true;
+      };
+
+      # WIDGETS
+      background = {
+        path = "screenshot";
+        blur_passes = 2;
+        contrast = 1;
+        brightness = 0.5;
+        vibrancy = 0.2;
+        vibrancy_darkness = 0.2;
+      };
+
+      input-field = {
+        size = "250, 60";
+        outline_thickness = 2;
+        dots_size = 0.2;
+        dots_spacing = 0.35;
+        dots_center = true;
+        outer_color = "rbga(${style.darker}00)";
+        inner_color = "rgba(${style.darker}51)";
+        font_family = "${style.main-font}";
+        font_color = "${style.foreground}";
+        fade_on_empty = false;
+        rounding = -1;
+        check_color = "rgba(${style.danger}33)";
+        placeholder_text =
+          "<i><span foreground='#${style.foreground}'>Input Password...</span></i>";
+        hide_input = false;
+        position = "0, -200";
+        halign = "center";
+        valign = "center";
+      };
+
+      label = [
+        # DATE
+        {
+          text = ''cmd[update:1000] echo date +"%A, %B %d"'';
+          color = "rgba(${style.foreground}bf)";
+          font_size = 18;
+          font_family = "JetBrains Mono";
+          position = "0, 50";
+          halign = "center";
+          valign = "bottom";
+        }
+        # TIME
+        {
+          text = ''cmd[update:1000] date +"%-I:%M%p"'';
+          color = "rgba(${style.foreground}bf)";
+          font_size = 95;
+          font_family = "JetBrains Mono Extrabold";
+          position = "0, 200";
+          halign = "center";
+          valign = "center";
+        }
+      ];
+    };
   };
   wayland.windowManager.hyprland = {
     enable = true;

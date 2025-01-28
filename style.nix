@@ -14,4 +14,6 @@
   caution = "F0D93E";
   danger = "F63150";
   info = "2EBDE7";
+
+  main-font = "Source Code Pro";
 }
