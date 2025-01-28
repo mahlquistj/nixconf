@@ -40,8 +40,8 @@
         dots_size = 0.2;
         dots_spacing = 0.35;
         dots_center = true;
-        outer_color = "rbga(${style.darker}00)";
-        inner_color = "rgba(${style.darker}51)";
+        outer_color = "rbga(${style.darker}ff)";
+        inner_color = "rgba(${style.background}51)";
         font_family = "${style.main-font}";
         font_color = "rgb(${style.foreground})";
         fade_on_empty = false;
