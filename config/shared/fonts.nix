@@ -2,7 +2,7 @@
 
 {
   fonts = {
-    packages = with pkgs; [ google-fonts nerdfonts ];
+    packages = with pkgs; [ google-fonts nerdfonts jetbrains-mono ];
 
     fontconfig = {
       defaultFonts = {
