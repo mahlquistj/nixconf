@@ -30,6 +30,9 @@
           };
         };
     in {
+      # Allow unfree packages globally
+      pkgs.config.allowUnfree = true;
+
       nixosConfigurations = {
         work = nixpkgs.lib.nixosSystem {
           specialArgs = {
