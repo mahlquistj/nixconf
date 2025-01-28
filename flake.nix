@@ -13,7 +13,7 @@
     let
       inherit (self) outputs;
       system = "x86_64-linux";
-      pkgs = import nixpkgs { inherit system; };
+      pkgs = import nixpkgs { inherit system; } { config.allowUnfree = true; };
       wallpapers = "${self}/media/wallpaper";
       style = import ./style.nix { };
       default_modules = [
@@ -25,7 +25,6 @@
           };
         }
       ];
-      allowUnfree = { nixpkgs.config.allowUnfree = true; };
       system_options =
         { # TODO: How can we make this better, so that we don't have to *merge* it into specialArgs every time we run the flake?
           work = {
