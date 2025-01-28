@@ -52,5 +52,8 @@
       size = sysOptions.cursorSize;
     };
   };
+
+  gtk.enable = true;
+
   programs.home-manager.enable = true;
 }
