@@ -16,7 +16,11 @@
 
       # Management
       nemo # File manager
+
+      # Screenshotting
       hyprshot
+
+      # Social
       discord
     ];
 
