@@ -57,7 +57,7 @@
       label = [
         # DATE
         {
-          text = ''cmd[update:1000] date +"%A, %B %d"'';
+          text = ''cmd[update:1000] date +"%A d. %d. %B"'';
           color = "rgba(${style.foreground}bf)";
           font_size = 18;
           font_family = "JetBrains Mono";
