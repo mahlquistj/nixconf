@@ -13,9 +13,19 @@
     let
       inherit (self) outputs;
       system = "x86_64-linux";
-      pkgs = import nixpkgs { inherit system; };
       wallpapers = "${self}/media/wallpaper";
       style = import ./style.nix { };
+
+      # Set unfree packages allowed
+      unfree = [ "discord" ];
+
+      pkgs = import nixpkgs {
+        inherit system;
+        config.allowUnfreePredicate = (pkg:
+          builtins.elem (pkg.name or (builtins.parseDrvName pkg.name).name)
+          unfree);
+      };
+
       default_modules = [
         inputs.home-manager.nixosModule
         {
@@ -25,6 +35,7 @@
           };
         }
       ];
+
       system_options =
         { # TODO: How can we make this better, so that we don't have to *merge* it into specialArgs every time we run the flake?
           work = {
@@ -39,9 +50,6 @@
           };
         };
     in {
-      # Allow unfree globally??
-      pkgs.config.allowUnfree = true;
-
       nixosConfigurations = {
         work = nixpkgs.lib.nixosSystem {
           specialArgs = {
