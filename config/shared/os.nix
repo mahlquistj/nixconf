@@ -56,13 +56,20 @@
   # Allow unfree packages
   nixpkgs.config.allowUnfree = true;
 
-  environment.etc = {
-    "xdg/gtk-3.0/settings.ini" = {
-      text = ''
-        [Settings]
-        gtk-cursor-theme-size=${builtins.toString sysOptions.cursorSize}
-      '';
-      mode = "444";
+  environment = {
+    sessionVariables = {
+      # Hint electron apps to use wayland
+      NIXOS_OZONE_WL = "1";
+      ELECTRON_OZONE_PLATFORM_HINT = "auto";
+    };
+    etc = {
+      "xdg/gtk-3.0/settings.ini" = {
+        text = ''
+          [Settings]
+          gtk-cursor-theme-size=${builtins.toString sysOptions.cursorSize}
+        '';
+        mode = "444";
+      };
     };
   };
 }
