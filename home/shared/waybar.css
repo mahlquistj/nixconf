@@ -26,15 +26,15 @@ window#waybar {
     border-radius: 30px;
 }
 
-.modules-left widget {
+#power, #tray, #workspaces {
     margin-right: 5px;
 }
 
-.modules-right widget {
+.modules-right widget .module {
     margin-left: 5px;
 }
 
-.modules-right widget:first-child {
+.modules-right widget:first-child .module {
     margin-left: 0px;
 }
 
