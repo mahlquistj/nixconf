@@ -30,10 +30,6 @@ window#waybar {
     margin-right: 5px;
 }
 
-.modules-left widget:last-child .module {
-    margin-right: 0px;
-}
-
 .modules-right widget .module {
     margin-left: 5px;
 }
