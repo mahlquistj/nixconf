@@ -16,6 +16,7 @@
 
       # Management
       nemo # File manager
+      hyprshot
     ];
 
     sessionVariables = {

@@ -28,9 +28,7 @@
       exec-once = [ "waybar" "$terminal" ];
 
       # Env variables
-      env = {
-
-      };
+      env = { HYPRSHOT_DIR = "~/screenshots"; };
 
       # Setttings and styling
       general = {
@@ -98,6 +96,11 @@
         "$modshift, J, togglesplit"
         "$modshift, F, fullscreen"
         "$modshift, Q, killactive"
+
+        # Screenshotting
+        "$mod, PRINT, exec, hyprshot -m window"
+        ", PRINT, exec, hyprshot -m output"
+        "$modshift, PRINT, exec, hyprshot -m region"
       ] ++ (
         # workspaces
         # binds $mod + [shift +] {1..9} to [move to] workspace {1..9}
