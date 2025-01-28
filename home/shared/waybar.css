@@ -32,6 +32,10 @@ window#waybar {
     margin-left: 0px;
 }
 
+tooltip {
+    background-color: var(--background);
+}
+
 /* #### WORKSPACES #### */
 #workspaces {
     transition: 0.2s ease;
