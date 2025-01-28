@@ -25,6 +25,14 @@ window#waybar {
     border-radius: 30px;
 }
 
+.modules-left .module {
+    margin-right: 5px;
+}
+
+.modules-left widget:last-child .module {
+    margin-right: 0px;
+}
+
 .modules-right widget .module {
     margin-left: 5px;
 }
@@ -39,6 +47,42 @@ tooltip,
     border-radius: 15px;
     border: 1px solid var(--background);
     padding: 5px;
+}
+
+/* #### POWER #### */
+#power {
+    color: var(--danger);
+    font-weight: bold;
+}
+
+#power.other-btns {
+    color: white;
+}
+
+/* #### HARDWARE #### */
+#hardware {
+
+}
+
+#disk.warning {
+    color: var(--caution);
+}
+
+#disk.critical {
+    color: var(--danger);
+}
+
+
+#memory.warning {
+    color: var(--caution);
+}
+
+#memory.critical {
+    color: var(--danger);
+}
+
+#cpu {
+    color: var(--secondary);
 }
 
 /* #### WORKSPACES #### */
@@ -90,7 +134,7 @@ window#waybar.empty .modules-center {
 /* #### BATTERY #### */
 #battery {
     background: var(--success); /* Default to green color */
-    color: var(--background);
+    color: var(--darker);
 }
 
 @keyframes critical_charging {

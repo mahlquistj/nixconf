@@ -63,11 +63,49 @@ in {
       gtk-layer-shell = true;
       reload_style_on_change = true;
 
-      modules-left = [ "tray" "hyprland/workspaces" ];
+      modules-left = [ "group/power" "tray" "hyprland/workspaces" ];
       modules-center = [ "hyprland/window" ];
-      modules-right = [ "cpu" "disk" "memory" "network" "clock" bluetooth battery ];
+      modules-right = [ "group/hardware" "network" "clock" bluetooth battery ];
 
-      #smallspacer = { "format" = " "; };
+      "group/power" = {
+        orientation = "inherit";
+        drawer = {
+          transition-duration = 500;
+          children-class = "other-btns";
+          transition-left-to-right = true;
+        };
+        modules = [
+          "custom/power"
+          "custom/quit"
+          "custom/lock"
+          "custom/reboot"
+        ];
+      };
+
+      "custom/quit" = {
+          "format" = "󰗼";
+          "tooltip" = false;
+          "on-click" = "hyprctl dispatch exit";
+      };
+      "custom/lock" = {
+          "format" = "󰍁";
+          "tooltip" = false;
+          "on-click" = ""; #TODO: Implement lock
+      };
+      "custom/reboot" = {
+          "format" = "󰜉";
+          "tooltip" = false;
+          "on-click" = "reboot";
+      };
+      "custom/power" = {
+          "format" = "";
+          "tooltip" = false;
+          "on-click" = "shutdown now";
+      };
+
+      tray = {
+
+      };
 
       "hyprland/workspaces" = { 
         format = "{name}";
@@ -77,6 +115,44 @@ in {
         format = "{title}";
         icon = true;
         icon-size = 15;
+      };
+
+      "group/hardware" = {
+        modules = [
+          "disk"
+          "memory"
+          "cpu"
+        ];
+      };
+
+      cpu = {
+        interval = 10;
+
+        format = "<span color='#ffffff'></span> {icon}";
+        format-icons = ["" "󰪞" "󰪟" "󰪠" "󰪡" "󰪢" "󰪣" "󰪤" "󰪥"];
+      };
+
+      disk = {
+        format = " {percentage_used}% free";
+        tooltip-format = "{used} used out of {total} ({free} free)";
+
+        states = {
+          "critical" = 90;
+          "warning" = 70;
+        };
+      };
+
+      memory = {
+        format = " {used:0.1f}GiB";
+        tooltip-format = ''
+          RAM: {used:0.1f}GiB of {total:0.1f}GiB used.
+          SWAP: {swapUsed:0.1f}GiB of {swapTotal:0.1f}GiB} used.
+        '';
+
+        states = {
+          "critical" = 80;
+          "warning" = 60;
+        };
       };
 
       network = {
