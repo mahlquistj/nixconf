@@ -10,7 +10,7 @@
   };
   programs.hyprlock = {
     enable = true;
-
+    settings = { general = { ignore_empty_input = true; }; };
   };
   wayland.windowManager.hyprland = {
     enable = true;
