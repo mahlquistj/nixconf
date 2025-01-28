@@ -66,6 +66,7 @@
       # Hint electron apps to use wayland
       NIXOS_OZONE_WL = "1";
       ELECTRON_OZONE_PLATFORM_HINT = "auto";
+      GDK_SCALE = "1";
     };
     etc = {
       "xdg/gtk-3.0/settings.ini" = {
