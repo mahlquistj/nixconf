@@ -16,6 +16,10 @@
       pkgs = import nixpkgs { inherit system; };
       wallpapers = "${self}/media/wallpaper";
       style = import ./style.nix { };
+      default_modules = [
+        inputs.home-manager.nixosModule
+        { home-manager.useGlobalPkgs = true; }
+      ];
       system_options =
         { # TODO: How can we make this better, so that we don't have to *merge* it into specialArgs every time we run the flake?
           work = {
@@ -40,7 +44,7 @@
           } // {
             sysOptions = system_options.work;
           };
-          modules = [ inputs.home-manager.nixosModule ./config/work ];
+          modules = default_modules ++ ./config/work;
         };
         desktop = nixpkgs.lib.nixosSystem {
           specialArgs = {
@@ -48,7 +52,7 @@
           } // {
             sysOptions = system_options.desktop;
           };
-          modules = [ inputs.home-manager.nixosModule ./config/desktop ];
+          modules = default_modules ++ ./config/desktop;
         };
       };
 
