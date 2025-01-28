@@ -86,25 +86,25 @@ in {
           format = "󰗼";
           tooltip = true;
           on-click = "hyprctl dispatch exit";
-          format-tooltip = "Logout";
+          tooltip-format = "Logout";
       };
       "custom/lock" = {
           "format" = "󰍁";
           "tooltip" = true;
           "on-click" = "hyprlock";
-          format-tooltip = "Lock";
+          tooltip-format = "Lock";
       };
       "custom/reboot" = {
           format = "󰜉";
           tooltip = true;
           on-click = "reboot";
-          format-tooltip = "Reboot";
+          tooltip-format = "Reboot";
       };
       "custom/power" = {
           format = "";
           tooltip = true;
           on-click = "shutdown now";
-          format-tooltip = "Shut down";
+          tooltip-format = "Shut down";
       };
 
       tray = {
