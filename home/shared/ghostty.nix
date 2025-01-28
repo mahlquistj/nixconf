@@ -34,6 +34,8 @@
       window-padding-color = "extend";
       window-decoration = false;
 
+      resize-overlay = "never";
+
       clipboard-read = "allow";
       clipboard-write = "allow";
       clipboard-trim-trailing-spaces = true;
