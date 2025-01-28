@@ -117,7 +117,7 @@
       # Hyprcursor theme
       env = HYPRCURSOR_THEME,phinger-cursors-light
       env = HYPRCURSOR_SIZE,${builtins.toString sysOptions.cursorSize}
-      env = HYPRSHOT_DIR,"~/screenshots"; 
+      env = HYPRSHOT_DIR,~/screenshots
     '';
   };
 }
