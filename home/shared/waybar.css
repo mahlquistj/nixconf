@@ -34,7 +34,7 @@ window#waybar {
 
 tooltip {
     background-color: var(--darker);
-    border-radius: 30px;
+    border-radius: 15px;
     border: 1px solid var(--background);
     padding: 5px;
 }
