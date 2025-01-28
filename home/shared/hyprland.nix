@@ -49,7 +49,7 @@
         check_color = "rgba(${style.primary}33)";
         placeholder_text = "Input Password...";
         hide_input = false;
-        position = "0, -200";
+        position = "0, 0";
         halign = "center";
         valign = "center";
       };
