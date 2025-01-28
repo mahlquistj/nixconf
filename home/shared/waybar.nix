@@ -145,8 +145,8 @@ in {
 
       memory = {
         format = " {used:0.1f}GiB";
-        tooltip-format = "RAM: {used:0.1f}GiB of {total:0.1f}GiB used.\nSWAP: {swapUsed:0.1f}GiB of {swapTotal:0.1f}GiB} used.";
-
+        tooltip-format = "RAM: {used:0.1f}GiB of {total:0.1f}GiB used.\nSWAP: {swapUsed:0.1f}GiB of {swapTotal:0.1f}GiB used.";
+        tooltip = true;
         states = {
           "critical" = 80;
           "warning" = 60;
