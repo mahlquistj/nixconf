@@ -84,8 +84,8 @@ in {
         format-disconnected = "󰤮 Offline";
         format-wifi = "{icon} {essid}";
 
-        tooltip-format-ethernet = "{gwaddr} | {ipaddr} Up: {bandwidthUpBytes} Down: {bandwidthDownBytes}";
-        tooltip-format-wifi = "{signaldBm} dBm | {ipaddr} Up: {bandwidthUpBytes} Down: {bandwidthDownBytes}";
+        tooltip-format-ethernet = "Gw: {gwaddr} | {ipaddr} | Up: {bandwidthUpBytes} Down: {bandwidthDownBytes}";
+        tooltip-format-wifi = "{signaldBm} dBm | {ipaddr} | Up: {bandwidthUpBytes} Down: {bandwidthDownBytes}";
 
         format-icons = ["󰤟" "󰤢" "󰤥" "󰤨"];
 
