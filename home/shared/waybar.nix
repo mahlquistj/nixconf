@@ -94,7 +94,7 @@ in {
 
       clock = {
         format = "{:%H:%M %d/%m/%Y}";
-        tooltip-format = "{:%A}";
+        tooltip-format = "{:%A Week %-U}";
       };
 
       battery = {
