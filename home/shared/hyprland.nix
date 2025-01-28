@@ -48,6 +48,7 @@
         rounding = -1;
         check_color = "rgba(${style.primary}33)";
         fail_color = "rgba(${style.danger}33)";
+        capslock_color = "rgba(${style.caution})";
         placeholder_text = "Input Password...";
         hide_input = false;
         position = "0, -100";
