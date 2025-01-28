@@ -26,7 +26,7 @@ window#waybar {
     border-radius: 30px;
 }
 
-.modules-left .module {
+.modules-left widget .module {
     margin-right: 5px;
 }
 
