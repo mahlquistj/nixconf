@@ -21,13 +21,47 @@
         "type": "github"
       }
     },
+    "hyprcursor-phinger": {
+      "inputs": {
+        "nixpkgs": "nixpkgs"
+      },
+      "locked": {
+        "lastModified": 1733645462,
+        "narHash": "sha256-6ktkUyK1CAuAXRZLNcAvR7o9lduC/EX98wZaapi4Q5M=",
+        "owner": "jappie3",
+        "repo": "hyprcursor-phinger",
+        "rev": "2e244e3398a3f9bbece6d21d56c2353cd773a8e6",
+        "type": "github"
+      },
+      "original": {
+        "owner": "jappie3",
+        "repo": "hyprcursor-phinger",
+        "type": "github"
+      }
+    },
     "nixpkgs": {
       "locked": {
-        "lastModified": 1737665804,
-        "narHash": "sha256-fY95Rp63NFzOwRFO6+RGi/UTyxgqmFmKtQ/DWg+6vsQ=",
+        "lastModified": 1728492678,
+        "narHash": "sha256-9UTxR8eukdg+XZeHgxW5hQA9fIKHsKCdOIUycTryeVw=",
         "owner": "nixos",
         "repo": "nixpkgs",
-        "rev": "c87f6eefb71ddde46ecc7fb128dd3f86e48ae69c",
+        "rev": "5633bcff0c6162b9e4b5f1264264611e950c8ec7",
+        "type": "github"
+      },
+      "original": {
+        "owner": "nixos",
+        "ref": "nixos-unstable",
+        "repo": "nixpkgs",
+        "type": "github"
+      }
+    },
+    "nixpkgs_2": {
+      "locked": {
+        "lastModified": 1738103456,
+        "narHash": "sha256-DQiPpMhJUhxrnKXxanlWlP5Bs2vORs5UnSsK1toabHI=",
+        "owner": "nixos",
+        "repo": "nixpkgs",
+        "rev": "28c8c9f114f56ce86b37fee83ef5e34cd95d246e",
         "type": "github"
       },
       "original": {
@@ -40,7 +74,8 @@
     "root": {
       "inputs": {
         "home-manager": "home-manager",
-        "nixpkgs": "nixpkgs"
+        "hyprcursor-phinger": "hyprcursor-phinger",
+        "nixpkgs": "nixpkgs_2"
       }
     }
   },
