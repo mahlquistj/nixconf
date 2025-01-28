@@ -44,7 +44,7 @@
           } // {
             sysOptions = system_options.work;
           };
-          modules = default_modules ++ ./config/work;
+          modules = default_modules ++ [ ./config/work ];
         };
         desktop = nixpkgs.lib.nixosSystem {
           specialArgs = {
@@ -52,7 +52,7 @@
           } // {
             sysOptions = system_options.desktop;
           };
-          modules = default_modules ++ ./config/desktop;
+          modules = default_modules ++ [ ./config/desktop ];
         };
       };
 
