@@ -33,7 +33,10 @@ window#waybar {
 }
 
 tooltip {
-    background-color: var(--background);
+    background-color: var(--darker);
+    border-radius: 30px;
+    border: 1px solid var(--background);
+    padding: 5px;
 }
 
 /* #### WORKSPACES #### */
