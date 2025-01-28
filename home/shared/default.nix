@@ -55,6 +55,7 @@
 
   gtk.enable = true;
   xsession.enable = true;
+  qt.enable = true;
 
   programs.home-manager.enable = true;
 }
