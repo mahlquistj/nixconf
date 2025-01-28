@@ -184,9 +184,9 @@ in {
         format-critical = "{icon} {time}";
         
         format-charging = "󱐋 {capacity}%";
-        format-charging-good = "󱐋 {capacity}% {time}";
-        format-charging-warning = "󱐋 {capacity}% {time}";
-        format-charging-critical = "󱐋 {capacity}% {time}";
+        format-charging-good = "󱐋 {capacity}%";
+        format-charging-warning = "󱐋 {capacity}%";
+        format-charging-critical = "󱐋 {capacity}%";
 
         format-time = "{H}:{M}";
 
