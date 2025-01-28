@@ -27,9 +27,6 @@
       # Startup
       exec-once = [ "waybar" "$terminal" ];
 
-      # Env variables
-      env = { HYPRSHOT_DIR = "~/screenshots"; };
-
       # Setttings and styling
       general = {
         gaps_in = 5;
@@ -120,6 +117,7 @@
       # Hyprcursor theme
       env = HYPRCURSOR_THEME,phinger-cursors-light
       env = HYPRCURSOR_SIZE,${builtins.toString sysOptions.cursorSize}
+      env = HYPRSHOT_DIR,"~/screenshots"; 
     '';
   };
 }

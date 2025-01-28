@@ -13,7 +13,7 @@
     let
       inherit (self) outputs;
       system = "x86_64-linux";
-      pkgs = import nixpkgs { inherit system; } { config.allowUnfree = true; };
+      pkgs = import nixpkgs { inherit system; };
       wallpapers = "${self}/media/wallpaper";
       style = import ./style.nix { };
       default_modules = [
@@ -39,6 +39,9 @@
           };
         };
     in {
+      # Allow unfree globally??
+      pkgs.config.allowUnfree = true;
+
       nixosConfigurations = {
         work = nixpkgs.lib.nixosSystem {
           specialArgs = {
