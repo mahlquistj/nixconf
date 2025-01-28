@@ -43,12 +43,12 @@
         outer_color = "rbga(${style.darker}00)";
         inner_color = "rgba(${style.darker}51)";
         font_family = "${style.main-font}";
-        font_color = "${style.foreground}";
+        font_color = "rgb(${style.foreground})";
         fade_on_empty = false;
         rounding = -1;
         check_color = "rgba(${style.danger}33)";
-        placeholder_text =
-          "<i><span foreground='#${style.foreground}'>Input Password...</span></i>";
+        placeholder_text = ''
+          <i><span foreground="#${style.foreground}">Input Password...</span></i>'';
         hide_input = false;
         position = "0, -200";
         halign = "center";
@@ -58,7 +58,7 @@
       label = [
         # DATE
         {
-          text = ''cmd[update:1000] echo date +"%A, %B %d"'';
+          text = ''cmd[update:1000] date +"%A, %B %d"'';
           color = "rgba(${style.foreground}bf)";
           font_size = 18;
           font_family = "JetBrains Mono";
