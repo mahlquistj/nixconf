@@ -7,6 +7,8 @@
       url = "github:nix-community/home-manager/release-24.11";
       inputs.nixpkgs.follows = "nixpkgs";
     };
+
+    hyprcursor-phinger.url = "github:jappie3/hyprcursor-phinger";
   };
 
   outputs = { self, nixpkgs, ... }@inputs:
@@ -36,7 +38,7 @@
           work = {
             has_battery = true;
             wallpaper = "normal";
-            cursorSize = 20;
+            cursorSize = 18;
           };
           desktop = {
             has_battery = false;
