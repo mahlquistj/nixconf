@@ -91,7 +91,7 @@ in {
       "custom/lock" = {
           "format" = "󰍁";
           "tooltip" = true;
-          "on-click" = ""; #TODO: Implement lock
+          "on-click" = "hyprlock";
           format-tooltip = "Lock";
       };
       "custom/reboot" = {

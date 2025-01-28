@@ -25,6 +25,7 @@
       wev # Keyboard debugging
 
       # Other
+      neofetch
       hyprpaper
       firefox
       phinger-cursors
