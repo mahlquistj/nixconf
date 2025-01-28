@@ -16,14 +16,9 @@
       wallpapers = "${self}/media/wallpaper";
       style = import ./style.nix { };
 
-      # Set unfree packages allowed
-      unfree = [ "discord" ];
-
       pkgs = import nixpkgs {
         inherit system;
-        config.allowUnfreePredicate = (pkg:
-          builtins.elem (pkg.name or (builtins.parseDrvName pkg.name).name)
-          unfree);
+        config.allowUnfree = true;
       };
 
       default_modules = [
