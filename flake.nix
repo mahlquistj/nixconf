@@ -18,8 +18,14 @@
       style = import ./style.nix { };
       default_modules = [
         inputs.home-manager.nixosModule
-        { home-manager.useGlobalPkgs = true; }
+        {
+          home-manager = {
+            useGlobalPkgs = true;
+            useUserPackages = true;
+          };
+        }
       ];
+      allowUnfree = { nixpkgs.config.allowUnfree = true; };
       system_options =
         { # TODO: How can we make this better, so that we don't have to *merge* it into specialArgs every time we run the flake?
           work = {
@@ -34,9 +40,6 @@
           };
         };
     in {
-      # Allow unfree packages globally
-      pkgs.config.allowUnfree = true;
-
       nixosConfigurations = {
         work = nixpkgs.lib.nixosSystem {
           specialArgs = {
