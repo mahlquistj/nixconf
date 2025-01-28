@@ -41,7 +41,7 @@
         dots_spacing = 0.35;
         dots_center = true;
         outer_color = "rbga(${style.darker}ff)";
-        inner_color = "rgba(${style.background}51)";
+        inner_color = "rgba(${style.background}05)";
         font_family = "${style.main-font}";
         font_color = "rgb(${style.foreground})";
         fade_on_empty = false;
