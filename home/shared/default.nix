@@ -17,6 +17,7 @@
       # Management
       nemo # File manager
       hyprshot
+      discord
     ];
 
     sessionVariables = {
