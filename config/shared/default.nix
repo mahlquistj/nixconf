@@ -8,5 +8,7 @@
     ./os.nix
     ./programs.nix
     ./shell.nix
+    /etc/nixos/hardware-configuration.nix
+    /etc/nixos/configuration.nix
   ];
 }
