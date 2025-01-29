@@ -41,6 +41,8 @@
       clipboard-trim-trailing-spaces = true;
       clipboard-paste-protection = true;
 
+      confirm-close-surface = false;
+
       initial-window = true;
     };
 

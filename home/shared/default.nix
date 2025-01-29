@@ -3,6 +3,7 @@
 {
   imports = [
     ./alacritty.nix
+    ./firefox.nix
     ./fish.nix
     ./ghostty.nix
     ./hyprland.nix
