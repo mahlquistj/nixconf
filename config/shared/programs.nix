@@ -21,15 +21,11 @@
       nixd
       openssl
       home-manager
-      wofi
       wev # Keyboard debugging
 
       # Other
       neofetch
-      hyprpaper
-      firefox
       phinger-cursors
-      btop
     ];
   };
 

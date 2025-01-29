@@ -59,7 +59,7 @@
       label = [
         # DATE
         {
-          text = ''cmd[update:1000] date +"%A d. %d. %B"'';
+          text = ''cmd[update:1000] date +"%A, %d %B"'';
           color = "rgba(${style.foreground}bf)";
           font_size = 18;
           font_family = "JetBrains Mono";
@@ -190,6 +190,7 @@
       # Hyprcursor theme
       env = HYPRCURSOR_THEME,phinger-cursors-light
       env = HYPRCURSOR_SIZE,${builtins.toString sysOptions.cursorSize}
+      env = XCURSOR_SIZE,${builtins.toString sysOptions.cursorSize}
       env = HYPRSHOT_DIR,screenshots
     '';
   };

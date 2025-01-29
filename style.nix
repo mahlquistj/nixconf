@@ -1,4 +1,7 @@
 { }: {
+  # This palette is used throughout the flake
+  # to add colors to **all** elements.
+
   foreground = "e4e5e7"; # TODO
   background = "363537";
   darker = "1f1e1f";
