@@ -2,8 +2,6 @@
   programs.wofi = {
     enable = true;
 
-    settings = {
-
-    };
+    settings = { key_expand = "End"; };
   };
 }
