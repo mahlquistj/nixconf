@@ -26,12 +26,7 @@ window {
 }
 
 #scroll {
-    margin: 0px;
     border: none;
-}
-
-#scroll:hover {
-    all:unset;
 }
 
 #text {
@@ -63,20 +58,4 @@ scrollbar {
     background-color: transparent;
     color: transparent;
     border: none;
-}
-
-scrollbar:hover {
-    all:unset;
-}
-
-scrollbar contents:hover {
-    all:unset;
-}
-
-scrollbar contents trough:hover {
-    all:unset;
-}
-
-scrollbar contents trough slider:hover {
-    all:unset;
 }
