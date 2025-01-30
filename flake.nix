@@ -11,12 +11,13 @@
     hyprcursor-phinger.url = "github:jappie3/hyprcursor-phinger";
   };
 
-  outputs = { self, nixpkgs, lib, ... }@inputs:
+  outputs = { self, nixpkgs, ... }@inputs:
     let
       inherit (self) outputs;
       system = "x86_64-linux";
       wallpapers = "${self}/media/wallpaper";
       style = import ./style.nix { };
+      lib = nixpkgs.lib;
       utils = import ./utils { inherit lib style; };
 
       pkgs = import nixpkgs {
