@@ -56,15 +56,14 @@ window {
 }
 
 scrollbar {
-    background-color: red;
+    background-color: transparent;
     color: transparent;
     border: none;
 }
 
-scrollbar contents {
-    background-color: blue;
+scrollbar:hover {
+    width: 300px;
 }
-
 
 scrollbar contents trough slider {
     padding-right: 2px;
