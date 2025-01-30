@@ -62,8 +62,7 @@ scrollbar {
 }
 
 scrollbar:hover {
-    background-color: green;
-    width: 300px;
+    all:unset;
 }
 
 scrollbar contents trough slider {
