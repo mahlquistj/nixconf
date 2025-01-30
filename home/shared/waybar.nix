@@ -1,7 +1,7 @@
-{ osConfig, utils, sysOptions, ... }:
+{ osConfig, customUtils, sysOptions, ... }:
 
 let
-  waybarStyling = utils.import.css ./waybar.css;
+  waybarStyling = customUtils.import.css ./waybar.css;
 
   # TODO: This resolves to null??? Possibly because of osConfig.hardware?
   bluetooth = if osConfig?hardware?bluetooth?enable then "bluetooth" else "";
