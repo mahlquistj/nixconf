@@ -62,6 +62,7 @@ scrollbar {
 }
 
 scrollbar:hover {
+    background-color: green;
     width: 300px;
 }
 
