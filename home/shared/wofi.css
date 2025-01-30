@@ -50,6 +50,6 @@ window {
     border-radius: 10px;
 }
 
-#expander-box:selected {
+expander .row:selected {
     background-color: var(--secondary);
 }
