@@ -40,7 +40,7 @@ window {
     border: none;
 }
 
-#selected {
+#entry:selected {
     background-color: var(--primary)f8;
     border-radius: 5px;
     border: none;
@@ -49,4 +49,8 @@ window {
 #expander-box {
     background-color: var(--background);
     border-radius: 10px;
+}
+
+#expander-box:selected {
+    background-color: var(--secondary);
 }
