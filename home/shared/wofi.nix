@@ -1,5 +1,5 @@
-{ utils, ... }:
-let wofiStyling = utils.import.css ./wofi.css;
+{ customUtils, ... }:
+let wofiStyling = customUtils.import.css ./wofi.css;
 in {
   programs.wofi = {
     enable = true;

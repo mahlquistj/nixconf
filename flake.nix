@@ -18,7 +18,7 @@
       wallpapers = "${self}/media/wallpaper";
       style = import ./style.nix { };
       lib = nixpkgs.lib;
-      utils = import ./utils.nix { inherit lib style; };
+      customUtils = import ./custom_utils.nix { inherit lib style; };
 
       pkgs = import nixpkgs {
         inherit system;
@@ -52,7 +52,7 @@
       nixosConfigurations = {
         work = nixpkgs.lib.nixosSystem {
           specialArgs = {
-            inherit inputs outputs self wallpapers style utils;
+            inherit inputs outputs self wallpapers style customUtils;
           } // {
             sysOptions = system_options.work;
           };
@@ -61,7 +61,7 @@
 
         desktop = nixpkgs.lib.nixosSystem {
           specialArgs = {
-            inherit inputs outputs self wallpapers style utils;
+            inherit inputs outputs self wallpapers style customUtils;
           } // {
             sysOptions = system_options.desktop;
           };
@@ -73,7 +73,7 @@
         work = inputs.home-manager.lib.homeManagerConfiguration {
           pkgs = pkgs;
           extraSpecialArgs = {
-            inherit inputs outputs self wallpapers style utils;
+            inherit inputs outputs self wallpapers style customUtils;
           } // {
             sysOptions = system_options.work;
           };
@@ -83,7 +83,7 @@
         desktop = inputs.home-manager.lib.homeManagerConfiguration {
           pkgs = pkgs;
           extraSpecialArgs = {
-            inherit inputs outputs self wallpapers style utils;
+            inherit inputs outputs self wallpapers style customUtils;
           } // {
             sysOptions = system_options.desktop;
           };
