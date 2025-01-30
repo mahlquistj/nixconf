@@ -65,9 +65,6 @@ scrollbar contents {
     background-color: blue;
 }
 
-scrollbar contents trough {
-    background-color: green;
-}
 
 scrollbar contents trough slider {
     padding-right: 2px;
