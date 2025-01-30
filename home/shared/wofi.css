@@ -54,3 +54,9 @@ window {
 #expander-box:selected {
     background-color: var(--secondary);
 }
+
+scrollbar {
+    background-color: transparent;
+    color: transparent;
+    border: none;
+}
