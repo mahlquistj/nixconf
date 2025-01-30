@@ -59,4 +59,9 @@ scrollbar {
     background-color: transparent;
     color: transparent;
     border: none;
+    margin-left: 2px;
+}
+
+scrollbar contents trough slider {
+    background-color: blue;
 }
