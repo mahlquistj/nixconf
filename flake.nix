@@ -11,12 +11,13 @@
     hyprcursor-phinger.url = "github:jappie3/hyprcursor-phinger";
   };
 
-  outputs = { self, nixpkgs, ... }@inputs:
+  outputs = { self, nixpkgs, lib, ... }@inputs:
     let
       inherit (self) outputs;
       system = "x86_64-linux";
       wallpapers = "${self}/media/wallpaper";
       style = import ./style.nix { };
+      utils = import ./utils { inherit lib style; };
 
       pkgs = import nixpkgs {
         inherit system;
@@ -50,15 +51,16 @@
       nixosConfigurations = {
         work = nixpkgs.lib.nixosSystem {
           specialArgs = {
-            inherit inputs outputs self wallpapers style;
+            inherit inputs outputs self wallpapers style utils;
           } // {
             sysOptions = system_options.work;
           };
           modules = default_modules ++ [ ./config/work ];
         };
+
         desktop = nixpkgs.lib.nixosSystem {
           specialArgs = {
-            inherit inputs outputs self wallpapers style;
+            inherit inputs outputs self wallpapers style utils;
           } // {
             sysOptions = system_options.desktop;
           };
@@ -70,7 +72,7 @@
         work = inputs.home-manager.lib.homeManagerConfiguration {
           pkgs = pkgs;
           extraSpecialArgs = {
-            inherit inputs outputs self wallpapers style;
+            inherit inputs outputs self wallpapers style utils;
           } // {
             sysOptions = system_options.work;
           };
@@ -80,7 +82,7 @@
         desktop = inputs.home-manager.lib.homeManagerConfiguration {
           pkgs = pkgs;
           extraSpecialArgs = {
-            inherit inputs outputs self wallpapers style;
+            inherit inputs outputs self wallpapers style utils;
           } // {
             sysOptions = system_options.desktop;
           };
