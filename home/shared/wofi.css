@@ -30,6 +30,10 @@ window {
     border: none;
 }
 
+#scroll:hover {
+    all:unset;
+}
+
 #text {
     margin: 5px;
     border: none;
