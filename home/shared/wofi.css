@@ -65,7 +65,14 @@ scrollbar:hover {
     all:unset;
 }
 
-scrollbar contents trough slider {
-    padding-right: 2px;
-    padding-left: 2px;
+scrollbar contents:hover {
+    all:unset;
+}
+
+scrollbar contents trough:hover {
+    all:unset;
+}
+
+scrollbar contents trough slider:hover {
+    all:unset;
 }
