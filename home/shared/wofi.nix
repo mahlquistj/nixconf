@@ -7,5 +7,6 @@ in {
     settings = { key_expand = "End"; };
 
     style = "${wofiStyling}";
+
   };
 }
