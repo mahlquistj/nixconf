@@ -56,12 +56,20 @@ window {
 }
 
 scrollbar {
-    background-color: transparent;
+    background-color: red;
     color: transparent;
     border: none;
-    margin-left: 2px;
+}
+
+scrollbar contents {
+    background-color: blue;
+}
+
+scrollbar contents trough {
+    background-color: green;
 }
 
 scrollbar contents trough slider {
-    background-color: blue;
+    padding-right: 2px;
+    padding-left: 2px;
 }
