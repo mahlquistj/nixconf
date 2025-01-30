@@ -4,7 +4,10 @@ in {
   programs.wofi = {
     enable = true;
 
-    settings = { key_expand = "End"; };
+    settings = {
+      key_expand = "End";
+      hide_scroll = true;
+    };
 
     style = "${wofiStyling}";
 
