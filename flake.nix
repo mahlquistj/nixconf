@@ -18,7 +18,7 @@
       wallpapers = "${self}/media/wallpaper";
       style = import ./style.nix { };
       lib = nixpkgs.lib;
-      utils = import ./utils { inherit lib style; };
+      utils = import ./utils.nix { inherit lib style; };
 
       pkgs = import nixpkgs {
         inherit system;
