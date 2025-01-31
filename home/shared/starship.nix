@@ -11,7 +11,7 @@
 
       right_format = "$cmd_duration$time";
 
-      add_newline = false;
+      add_newline = true;
 
       username = {
         always_show = true;
@@ -29,7 +29,7 @@
         repo_root_format =
           "[/$repo_root](bg:$style)[$path](bg:$style)[$read_only]($read_only_style)[](fg:$style)";
         truncation_symbol = "..";
-        read_only = "🔒 ";
+        read_only = "🔒";
         home_symbol = "󰠦 ";
       };
     };
