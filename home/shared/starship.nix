@@ -25,9 +25,9 @@
         before_repo_root_style = "none";
         repo_root_style = "none";
         format =
-          "[$path](bg:$style) [$read_only]($read_only_style)[](fg:$style)";
+          "[$path](bg:$style)[$read_only]($read_only_style)[](fg:$style)";
         repo_root_format =
-          "/[$repo_root](bg:$style)[$path](bg:$style) [$read_only]($read_only_style)[](fg:$style)";
+          "[/$repo_root](bg:$style)[$path](bg:$style)[$read_only]($read_only_style)[](fg:$style)";
         truncation_symbol = "..";
         read_only = "🔒";
         home_symbol = "";
