@@ -14,8 +14,8 @@
       add_newline = false;
 
       directory = {
-        style = "bg:#${style.background}";
-        format = "[$path $read_only]($style)";
+        style = "#${style.background}";
+        format = "[$path $read_only](bg:$style)[](fg:#$style)";
         truncation_symbol = "..";
       };
     };
