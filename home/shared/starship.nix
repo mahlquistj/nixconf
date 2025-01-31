@@ -7,16 +7,30 @@
 
     settings = {
       format =
-        "[](fg:#${style.background})$username$directory$git_branch$git_status$rust";
+        "[](fg:#${style.background})$username$directory$git_branch$git_status$rust ";
 
       right_format = "$cmd_duration$time";
 
       add_newline = false;
 
+      username = {
+        always_show = true;
+        style_user = "bg:#${style.background}";
+        style_root = "bg:#${style.background} fg:#${style.danger}";
+      };
+
       directory = {
         style = "#${style.background}";
-        format = "[$path $read_only](bg:$style)[](fg:#$style)";
+        read_only_style = "bg:#${style.background} fg:${style.danger}";
+        before_repo_root_style = "none";
+        repo_root_style = "none";
+        format =
+          "[$path](bg:$style) [$read_only]($read_only_style)[](fg:$style)";
+        repo_root_format =
+          "/[$repo_root](bg:$style)[$path](bg:$style) [$read_only]($read_only_style)[](fg:$style)";
         truncation_symbol = "..";
+        read_only = "🔒";
+        home_symbol = "";
       };
     };
   };
