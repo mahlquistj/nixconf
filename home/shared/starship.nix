@@ -21,7 +21,7 @@
 
       directory = {
         style = "#${style.background}";
-        read_only_style = "bg:#${style.background} fg:${style.danger}";
+        read_only_style = "bg:#${style.background} fg:#${style.danger}";
         before_repo_root_style = "none";
         repo_root_style = "none";
         format =
@@ -29,7 +29,7 @@
         repo_root_format =
           "[/$repo_root](bg:$style)[$path](bg:$style)[$read_only]($read_only_style)[](fg:$style)";
         truncation_symbol = "..";
-        read_only = "🔒";
+        read_only = "🔒 ";
         home_symbol = "󰠦 ";
       };
     };
