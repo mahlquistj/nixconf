@@ -30,7 +30,7 @@
           "[/$repo_root](bg:$style)[$path](bg:$style)[$read_only]($read_only_style)[](fg:$style)";
         truncation_symbol = "..";
         read_only = "🔒";
-        home_symbol = "";
+        home_symbol = " ";
       };
     };
   };
