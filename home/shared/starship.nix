@@ -14,7 +14,7 @@
       add_newline = true;
 
       username = {
-        format = " [$user]($style)";
+        format = "[ $user]($style)";
         show_always = true;
         style_user = "bg:#${style.background}";
         style_root = "bg:#${style.background} fg:#${style.danger}";
