@@ -6,18 +6,9 @@
     enableFishIntegration = true;
 
     settings = {
-      format = ''
-        $username\
-        $directory\
-        $git_branch\
-        $git_status\
-        $rust\
-      '';
+      format = "$username$directory$git_branch$git_status$rust";
 
-      right_format = ''
-        $cmd_duration\
-        $time
-      '';
+      right_format = "$cmd_duration$time";
 
       add_newline = false;
 
