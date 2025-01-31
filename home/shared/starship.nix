@@ -5,20 +5,20 @@
     enable = true;
     enableFishIntegration = true;
 
-    format = ''
-      $username\
-      $directory\
-      $git_branch\
-      $git_status\
-      $rust\
-    '';
-
-    right_format = ''
-      $cmd_duration\
-      $time
-    '';
-
     settings = {
+      format = ''
+        $username\
+        $directory\
+        $git_branch\
+        $git_status\
+        $rust\
+      '';
+
+      right_format = ''
+        $cmd_duration\
+        $time
+      '';
+
       add_newline = false;
 
       directory = {
