@@ -14,7 +14,7 @@
       add_newline = true;
 
       username = {
-        always_show = true;
+        show_always = true;
         style_user = "bg:#${style.background}";
         style_root = "bg:#${style.background} fg:#${style.danger}";
       };
