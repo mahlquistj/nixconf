@@ -7,8 +7,8 @@
 
         passwordMask = true;
         passwordInputBackground = "#${style.background}60";
-        passwordInputRadius = 8;
-        passwordInputVisibleCursor = true;
+        passwordInputRadius = 15;
+        passwordInputVisibleCursor = false;
       };
     })
   ];
