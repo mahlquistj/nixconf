@@ -65,16 +65,16 @@ in {
           [](fg:user)
           [](bg:user fg:dark)
           [](fg:user bg:bg)
-
+          [ $user in ]($style)
         '';
         show_always = true;
-        style_user = "";
-        style_root = "fg:user_root";
+        style_user = "bg:bg";
+        style_root = "fg:user_root  bg:bg";
       };
 
       directory = {
         truncation_symbol = "..";
-        read_only = " ";
+        read_only = "";
         home_symbol = "";
 
         style = "bg:bg";
@@ -99,23 +99,23 @@ in {
         format = multiline ''
           [─](fg:bg)
           [](fg:git)
-          [ $symbol $branch(:$remote_branch)](fg:dark bg:git)
-          [](fg:git)
+          [$symbol $branch(:$remote_branch)](fg:dark bg:git)
+          [](fg:git bg:bg)
         '';
       };
 
       git_status = {
-        conflicted = " 🚨";
-        ahead = " 🏎";
-        behind = " 😰";
-        diverged = " 😵";
-        up_to_date = "[ ✓](bold fg:dark bg:git)";
-        untracked = " 🤷";
-        stashed = " 📦";
-        modified = " 📝";
-        staged = "[ +$count](fg:dark bg:git)";
-        renamed = " 👅";
-        deleted = " 🗑";
+        conflicted = "🚨";
+        ahead = "🏎";
+        behind = "😰";
+        diverged = "😵";
+        up_to_date = "[✓](bold fg:green bg:bg)";
+        untracked = "🤷";
+        stashed = "📦";
+        modified = "📝";
+        staged = "[+$count](fg:green bg:bg)";
+        renamed = "👅";
+        deleted = "🗑";
 
         format = multiline ''
           [$all_status$ahead_behind](bg:bg)
