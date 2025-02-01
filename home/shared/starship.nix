@@ -104,7 +104,7 @@ in {
         untracked = " 🤷";
         stashed = " 📦";
         modified = " 📝";
-        staged = "[ +](fg:${color.green} bg:${color.git_status})";
+        staged = "[ +$count](fg:${color.green} bg:${color.git_status})";
         renamed = " 👅";
         deleted = " 🗑";
 
