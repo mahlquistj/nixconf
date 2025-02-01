@@ -99,16 +99,15 @@ in {
         ahead = "🏎";
         behind = "😰";
         diverged = "😵";
-        up_to_date = "✅";
+        up_to_date = "[✓](green)";
         untracked = "🤷";
         stashed = "📦";
         modified = "📝";
-        staged = "➕";
+        staged = "[+](green)";
         renamed = "👅";
         deleted = "🗑";
 
-        format =
-          "[$all_status$ahead_behind](fg:${color.dark} bg:${color.git_status})";
+        format = "[$all_status$ahead_behind](bg:${color.git_status})";
       };
 
       character = {
