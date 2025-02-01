@@ -92,7 +92,7 @@ in {
       git_branch = {
         symbol = "";
         format =
-          "[ $symbol$branch(:$remote_branch)](fg:${color.dark} bg:${color.git})";
+          "[ $symbol $branch(:$remote_branch)](fg:${color.dark} bg:${color.git})";
       };
 
       git_status = {
@@ -135,7 +135,7 @@ in {
         disabled = false;
         format = multiline ''
           [](fg:${color.time})
-          [](bold fg:${color.dark} bg:${color.time})
+          [](bold fg:${color.dark} bg:${color.time})
           [](fg:${color.time} bg:${color.bg})
           [ $time](bg:${color.bg})
           [ ](fg:${color.bg})
