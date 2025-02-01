@@ -1,8 +1,24 @@
 { style, customUtils, ... }:
 let
   color = {
+    # Basic colors
     bg = "#${style.background}";
-    darker = "#${style.darker}";
+    dark = "#${style.darker}";
+
+    # Warnings
+    user_root = "#${style.danger}";
+    read_only = "#${style.danger}";
+
+    # Module specific
+    git = "#${style.success}";
+    lang = "#${style.primary}";
+    time = "#${style.secondary}";
+    duration = "#${style.caution}";
+
+    # Character
+    ch_normal = "#${style.success}";
+    ch_error = "#${style.danger}";
+
   };
 
   multiline = customUtils.string.removeNewlines;
@@ -21,10 +37,11 @@ in {
         [](fg:${color.bg})
         $username
         $directory
-        [](fg:${color.bg} bg:#${style.success})
+        [](fg:${color.bg} bg:#${color.git})
         $git_branch
         $git_status
-        [](fg:#${style.success} bg:#${style.primary})
+        [](fg:#${color.git} bg:#${style.primary})
+        $nix
         $rust
         [](fg:#${style.primary})
 
@@ -46,20 +63,29 @@ in {
       };
 
       directory = {
+        truncation_symbol = "..";
+        read_only = " ";
+        home_symbol = "󰠦";
+
         style = "bg:${color.bg}";
         read_only_style = "bg:${color.bg} fg:#${style.danger}";
         before_repo_root_style = "none";
         repo_root_style = "none";
-        format = "[$path]($style)[ $read_only]($read_only_style)";
-        repo_root_format =
-          "[/$repo_root]($style)[$path]($style)[$read_only]($read_only_style)";
-        truncation_symbol = "..";
-        read_only = " ";
-        home_symbol = "󰠦";
+        format = multiline ''
+          [$path]($style)
+          [ $read_only]($read_only_style)
+        '';
+        repo_root_format = multiline ''
+          [/$repo_root]($style)
+          [$path]($style)
+          [$read_only]($read_only_style)
+        '';
       };
 
       git_branch = {
-
+        symbol = "";
+        format =
+          "[$symbol$branch(:$remote_branch)](fg:${color.dark} bg:${color.git})";
       };
 
       character = {
@@ -73,26 +99,22 @@ in {
 
       cmd_duration = {
         show_notifications = true;
-
-        style = "bg:${color.bg}";
         format = multiline ''
-          [](fg:#${style.caution})
-          [󱐋](bold fg:black bg:#${style.caution})
-          [](fg:#${style.caution} bg:${color.bg})
-          [ $duration]($style)
+          [](fg:${color.duration})
+          [󱐋](bold fg:${color.dark} bg:${color.duration})
+          [](fg:${color.duration} bg:${color.bg})
+          [ $duration](bg:${color.bg})
           [─](fg:${color.bg})
         '';
       };
 
       time = {
         disabled = false;
-
-        style = "bg:${color.bg}";
         format = multiline ''
-          [](fg:#${style.secondary})
-          [󰅒 ](bold fg:black bg:#${style.secondary})
-          [](fg:#${style.secondary} bg:${color.bg})
-          [ $time]($style)
+          [](fg:${color.time})
+          [󰅒 ](bold fg:${color.dark} bg:${color.time})
+          [](fg:${color.time} bg:${color.bg})
+          [ $time](bg:${color.bg})
           [ ](fg:${color.bg})
         '';
       };
