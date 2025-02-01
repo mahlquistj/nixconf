@@ -6,15 +6,22 @@
     enableFishIntegration = true;
 
     settings = {
-      format =
-        "[](fg:#${style.background})$username[](bold fg:#${style.primary} bg:#${style.background})$directory$git_branch$git_status$rust ";
+      format = ''
+        [](fg:#${style.background})\
+        $username\
+        [](fg:#${style.primary} bg:#${style.background})\
+        $directory\
+        $git_branch\
+        $git_status\
+        $rust
+      '';
 
       right_format = "$cmd_duration$time";
 
       add_newline = true;
 
       username = {
-        format = "[ $user]($style)";
+        format = "[ $user]($style)";
         show_always = true;
         style_user = "bg:#${style.background}";
         style_root = "bg:#${style.background} fg:#${style.danger}";
