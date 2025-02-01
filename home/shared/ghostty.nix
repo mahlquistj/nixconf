@@ -4,7 +4,7 @@
     enableFishIntegration = true;
 
     settings = {
-      font-family = "Twemoji, Sauce Code Pro";
+      font-family = "Noto Color Emoji, SauceCodePro Nerd Font";
       font-size = 10;
 
       background = "#${style.darker}";
