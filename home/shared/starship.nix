@@ -70,7 +70,7 @@ in {
       directory = {
         truncation_symbol = "..";
         read_only = " ";
-        home_symbol = "󰠦";
+        home_symbol = "";
 
         style = "bg:${color.bg}";
         read_only_style = "bg:${color.bg} fg:${color.read_only}";
@@ -98,11 +98,11 @@ in {
         ahead = " 🏎";
         behind = " 😰";
         diverged = " 😵";
-        up_to_date = "[ ✓](fg:${color.dark} bg:${color.git})";
+        up_to_date = "[ ✓](bold fg:${color.dark} bg:${color.git})";
         untracked = " 🤷";
         stashed = " 📦";
         modified = " 📝";
-        staged = "[ ++$count](fg:${color.dark} bg:${color.git})";
+        staged = "[ +$count](bold fg:${color.dark} bg:${color.git})";
         renamed = " 👅";
         deleted = " 🗑";
 
