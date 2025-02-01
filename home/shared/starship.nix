@@ -53,7 +53,7 @@
         vimcmd_symbol = "[❮](bold fg:#${style.success})";
         vimcmd_replace_one_symbol = "[❮](bold fg:#${style.secondary})";
         vimcmd_replace_symbol = "[❮](bold fg:#${style.secondary})";
-        vimcmd_visual_symbol = "[❮](bold fg:#${style.warning})";
+        vimcmd_visual_symbol = "[❮](bold fg:#${style.caution})";
       };
     };
   };
