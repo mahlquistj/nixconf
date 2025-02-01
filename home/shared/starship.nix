@@ -1,7 +1,7 @@
 { style, customUtils, ... }:
 let
   color = {
-    main = "#${style.background}";
+    bg = "#${style.background}";
     darker = "#${style.darker}";
   };
 in {
@@ -15,40 +15,42 @@ in {
       fill.symbol = " ";
 
       format = customUtils.string.removeNewlines ''
-        [╭](fg:${color.main})
-        [](fg:${color.main})
+        [╭](fg:${color.bg})
+        [](fg:${color.bg})
         $username
         $directory
-        [](fg:${color.main} bg:#${style.success})
+        [](fg:${color.bg} bg:#${style.success})
         $git_branch
         $git_status
         [](fg:#${style.success} bg:#${style.primary})
         $rust
         [](fg:#${style.primary})
+
         $fill
-        [](fg:#${style.secondary})
-        [󰅒 ](bg:#${style.secondary})
+
         $cmd_duration
         $time
+
         $line_break
-        [╰](fg:${color.main})
+
+        [╰](fg:${color.bg})
         $character
       '';
 
       username = {
         format = "[$user]($style)";
         style_user = "";
-        style_root = "bg:${color.main} fg:#${style.danger}";
+        style_root = "bg:${color.bg} fg:#${style.danger}";
       };
 
       directory = {
-        style = "${color.main}";
-        read_only_style = "bg:${color.main} fg:#${style.danger}";
+        style = "bg:${color.bg}";
+        read_only_style = "bg:${color.bg} fg:#${style.danger}";
         before_repo_root_style = "none";
         repo_root_style = "none";
-        format = "[$path](bg:$style)[ $read_only]($read_only_style)";
+        format = "[$path]($style)[ $read_only]($read_only_style)";
         repo_root_format =
-          "[/$repo_root](bg:$style)[$path](bg:$style)[$read_only]($read_only_style)";
+          "[/$repo_root]($style)[$path]($style)[$read_only]($read_only_style)";
         truncation_symbol = "..";
         read_only = "";
         home_symbol = "󰠦";
@@ -70,15 +72,17 @@ in {
       cmd_duration = {
         show_notifications = true;
 
-        style = "bg:${color.main}";
-        format = "[ $duration]($style)[](fg:${color.main} bg:${color.darker})";
+        style = "bg:${color.bg}";
+        format =
+          "[](fg:#${style.secondary})[󰅒 ](bg:#${style.secondary})[](fg:#${style.secondary} bg:${color.bg})[ $duration]($style)[ ](fg:${color.bg} bg:${color.darker})";
       };
 
       time = {
         disabled = false;
 
-        style = "bg:${color.darker}";
-        format = "[ $time ]($style)[ ](fg:${color.darker})";
+        style = "bg:${color.bg}";
+        format =
+          "[](fg:#${style.caution})[󱐋](bold fg:black)[](fg:#${style.caution} bg:${color.bg})[ $time ]($style)[ ](fg:${color.bg})";
       };
 
     };
