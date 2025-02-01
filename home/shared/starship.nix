@@ -66,7 +66,8 @@ in {
           [](fg:user)
           [](bg:user fg:dark)
           [](fg:user bg:bg)
-          [ $user in ]($style)
+          [ $user]($style)
+          [](fg:bg)
         '';
         show_always = true;
         style_user = "bg:bg";
@@ -87,7 +88,7 @@ in {
           [](fg:dir)
           [](bg:dir fg:dark)
           [](fg:dir bg:bg)
-          [$path]($style)
+          [ $path]($style)
           [$read_only]($read_only_style)
           [](fg:bg)
         '';
@@ -127,7 +128,7 @@ in {
         deleted = "🗑";
 
         format = multiline ''
-          [$conflicted$stashed$deleted$renamed$modified$typechanged$untracked $staged $ahead_behind](bg:bg)
+          [ $conflicted$stashed$deleted$renamed$modified$typechanged$untracked $staged $ahead_behind](bg:bg)
           [](fg:bg)
         '';
       };
