@@ -1,6 +1,10 @@
 { style, customUtils, ... }:
-
-{
+let
+  color = {
+    main = "#${style.background}";
+    darker = "#${style.background}";
+  };
+in {
   programs.starship = {
     enable = true;
     enableFishIntegration = true;
@@ -11,11 +15,11 @@
       fill.symbol = " ";
 
       format = customUtils.string.removeNewlines ''
-        [╭](fg:${style.background})
-        [](fg:#${style.background})
+        [╭](fg:${color.main})
+        [](fg:${color.main})
         $username
         $directory
-        [](fg:#${style.background} bg:#${style.success})
+        [](fg:${color.main} bg:#${style.success})
         $git_branch
         $git_status
         [](fg:#${style.success} bg:#${style.primary})
@@ -26,21 +30,21 @@
         [󰅒 ](bg:#${style.secondary})
         $cmd_duration
         $time
-        [](fg:#${style.darker})
+        [](fg:${color.darker})
         $line_break
-        [╰](fg:${style.background})
+        [╰](fg:${color.main})
         $character
       '';
 
       username = {
         format = "[$user]($style)";
         style_user = "";
-        style_root = "bg:#${style.background} fg:#${style.danger}";
+        style_root = "bg:${color.main} fg:#${style.danger}";
       };
 
       directory = {
-        style = "#${style.background}";
-        read_only_style = "bg:#${style.background} fg:#${style.danger}";
+        style = "${color.main}";
+        read_only_style = "bg:${color.main} fg:#${style.danger}";
         before_repo_root_style = "none";
         repo_root_style = "none";
         format = "[$path](bg:$style)[ $read_only]($read_only_style)";
@@ -49,6 +53,10 @@
         truncation_symbol = "..";
         read_only = "🔒";
         home_symbol = "󰠦";
+      };
+
+      git_branch = {
+
       };
 
       character = {
@@ -63,15 +71,14 @@
       cmd_duration = {
         show_notifications = true;
 
-        style = "bg:#${style.background}";
-        format =
-          "[ $duration]($style)[](fg:#${style.background} bg:#${style.darker})";
+        style = "bg:${color.main}";
+        format = "[ $duration]($style)[](fg:${color.main} bg:${color.darker})";
       };
 
       time = {
         disabled = false;
 
-        style = "bg:#${style.darker}";
+        style = "bg:${color.darker}";
         format = "[ $time]($style)";
       };
 
