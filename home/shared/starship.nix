@@ -10,10 +10,10 @@ let
     read_only = "#${style.danger}";
 
     # Module specific
+    directory = "#${style.background}";
     git = "#${style.success}";
-    git_status =
-      "#5c9457"; # A bit darker than my normal success TODO: Add to style, in a proper way
-    lang = "#${style.primary}";
+    git_status = "#${style.background}";
+    lang = "#${style.secondary}";
     time = "#${style.secondary}";
     duration = "#${style.caution}";
 
@@ -44,7 +44,7 @@ in {
         $directory
         [](fg:${color.bg} bg:${color.git})
         $git_branch
-        [](fg:${color.git} bg:${color.git_status})
+        [](fg:${color.git} bg:${color.git_status})
         $git_status
         [](fg:${color.git_status} bg:${color.lang})
         $nix
@@ -135,7 +135,7 @@ in {
         disabled = false;
         format = multiline ''
           [](fg:${color.time})
-          [󰅒](bold fg:${color.dark} bg:${color.time})
+          [󰥔](bold fg:${color.dark} bg:${color.time})
           [](fg:${color.time} bg:${color.bg})
           [ $time](bg:${color.bg})
           [ ](fg:${color.bg})
