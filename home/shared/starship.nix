@@ -8,6 +8,7 @@ in {
     settings = {
       line_break.disabled = false;
       add_newline = true;
+      palette = "default";
       fill.symbol = " ";
 
       palettes.default = {
