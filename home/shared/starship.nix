@@ -10,7 +10,7 @@ in {
       add_newline = true;
       fill.symbol = " ";
 
-      "palettes.default" = {
+      palettes.default = {
         # Basic colors
         bg = "#${style.background}";
         dark = "#${style.darker}";
