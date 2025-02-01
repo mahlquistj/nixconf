@@ -77,7 +77,7 @@ in {
         style = "bg:${color.bg}";
         format = multiline ''
           [](fg:#${style.secondary})
-          [󰅒 ](bg:#${style.secondary})
+          [󰅒 ](bold fg:black bg:#${style.secondary})
           [](fg:#${style.secondary} bg:${color.bg})
           [ $duration]($style)
           [─](fg:${color.bg})
