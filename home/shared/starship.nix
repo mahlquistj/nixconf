@@ -54,7 +54,7 @@ in {
         repo_root_format =
           "[/$repo_root]($style)[$path]($style)[$read_only]($read_only_style)";
         truncation_symbol = "..";
-        read_only = "";
+        read_only = " ";
         home_symbol = "󰠦";
       };
 
