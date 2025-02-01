@@ -16,9 +16,12 @@ let
     duration = "#${style.caution}";
 
     # Character
-    ch_normal = "#${style.success}";
+    ch_success = "#${style.success}";
     ch_error = "#${style.danger}";
-
+    ch_vim = "#${style.success}";
+    ch_vros = "#${style.secondary}";
+    ch_vrs = "#${style.secondary}";
+    ch_vvs = "#${style.caution}";
   };
 
   multiline = customUtils.string.removeNewlines;
@@ -37,13 +40,13 @@ in {
         [](fg:${color.bg})
         $username
         $directory
-        [](fg:${color.bg} bg:#${color.git})
+        [](fg:${color.bg} bg:${color.git})
         $git_branch
         $git_status
-        [](fg:#${color.git} bg:#${style.primary})
+        [](fg:${color.git} bg:${color.lang})
         $nix
         $rust
-        [](fg:#${style.primary})
+        [](fg:${color.lang})
 
         $fill
 
@@ -59,7 +62,7 @@ in {
       username = {
         format = "[$user]($style)";
         style_user = "";
-        style_root = "bg:${color.bg} fg:#${style.danger}";
+        style_root = "bg:${color.bg} fg:${color.user_root}";
       };
 
       directory = {
@@ -68,7 +71,7 @@ in {
         home_symbol = "󰠦";
 
         style = "bg:${color.bg}";
-        read_only_style = "bg:${color.bg} fg:#${style.danger}";
+        read_only_style = "bg:${color.bg} fg:${color.read_only}";
         before_repo_root_style = "none";
         repo_root_style = "none";
         format = multiline ''
@@ -89,12 +92,12 @@ in {
       };
 
       character = {
-        success_symbol = "[❯](bold fg:#${style.success})";
-        error_symbol = "[](bold fg:#${style.danger})";
-        vimcmd_symbol = "[❮](bold fg:#${style.success})";
-        vimcmd_replace_one_symbol = "[❮](bold fg:#${style.secondary})";
-        vimcmd_replace_symbol = "[❮](bold fg:#${style.secondary})";
-        vimcmd_visual_symbol = "[❮](bold fg:#${style.caution})";
+        success_symbol = "[❯](bold fg:${color.ch_success})";
+        error_symbol = "[](bold fg:${color.ch_error})";
+        vimcmd_symbol = "[❮](bold fg:#${color.ch_vim})";
+        vimcmd_replace_one_symbol = "[❮](bold fg:#${color.ch_vros})";
+        vimcmd_replace_symbol = "[❮](bold fg:#${color.ch_vrs})";
+        vimcmd_visual_symbol = "[❮](bold fg:#${color.ch_vvs})";
       };
 
       cmd_duration = {
