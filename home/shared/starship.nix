@@ -8,12 +8,12 @@
     settings = {
       format = ''
         ""
-          [](fg:#${style.background})\
-          $username\
-          [](fg:#${style.primary} bg:#${style.background})\
-          $directory\
-          $git_branch\
-          $git_status\
+          [](fg:#${style.background})\\
+          $username\\
+          [](fg:#${style.primary} bg:#${style.background})\\
+          $directory\\
+          $git_branch\\
+          $git_status\\
           $rust
         ""
       '';
