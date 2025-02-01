@@ -69,7 +69,7 @@ in {
 
       directory = {
         truncation_symbol = "..";
-        read_only = " ";
+        read_only = " ";
         home_symbol = "󰠦";
 
         style = "bg:${color.bg}";
@@ -78,7 +78,7 @@ in {
         repo_root_style = "none";
         format = multiline ''
           [$path]($style)
-          [ $read_only]($read_only_style)
+          [$read_only]($read_only_style)
         '';
         repo_root_format = multiline ''
           [/$repo_root]($style)
@@ -133,7 +133,7 @@ in {
         disabled = false;
         format = multiline ''
           [](fg:${color.time})
-          [](bg:${color.time})
+          [](fg:${color.dark} bg:${color.time})
           [](fg:${color.time} bg:${color.bg})
           [ $time](bg:${color.bg})
           [ ](fg:${color.bg})
