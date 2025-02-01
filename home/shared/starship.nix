@@ -6,20 +6,23 @@
     enableFishIntegration = true;
 
     settings = {
-      format = customUtils.string.removeNewlines ''
+      format = (customUtils.string.removeNewlines ''
         [](fg:#${style.background})
         $username
-        [](fg:#${style.background} bg:#${style.primary})
-        [ ](fg:#${style.primary} bg:#${style.background})
         $directory
+        [](fg:#${style.background} bg:#${style.success})
         $git_branch
         $git_status
         $rust
+      '') ++ ''
+        $character
       '';
 
       right_format = customUtils.string.removeNewlines ''
+        [](fg:#${style.secondary})
         $cmd_duration
         $time
+        [](fg:#${style.background})
       '';
 
       add_newline = true;
@@ -36,13 +39,21 @@
         read_only_style = "bg:#${style.background} fg:#${style.danger}";
         before_repo_root_style = "none";
         repo_root_style = "none";
-        format =
-          "[$path](bg:$style)[ $read_only]($read_only_style)[](fg:$style)";
+        format = "[$path](bg:$style)[ $read_only]($read_only_style)";
         repo_root_format =
-          "[/$repo_root](bg:$style)[$path](bg:$style)[$read_only]($read_only_style)[](fg:$style)";
+          "[/$repo_root](bg:$style)[$path](bg:$style)[$read_only]($read_only_style)";
         truncation_symbol = "..";
         read_only = "🔒";
         home_symbol = "󰠦";
+      };
+
+      character = {
+        success_symbol = "[❯](bold fg:#${style.success})";
+        error_symbol = "[❯](bold fg:#${style.danger})";
+        vimcmd_symbol = "[❮](bold fg:#${style.success})";
+        vimcmd_replace_one_symbol = "[❮](bold fg:#${style.secondary})";
+        vimcmd_replace_symbol = "[❮](bold fg:#${style.secondary})";
+        vimcmd_visual_symbol = "[❮](bold fg:#${style.warning})";
       };
     };
   };
