@@ -23,6 +23,7 @@ in {
 
         # Module specific
         user = "#${style.primary}";
+        dir = "#${style.secondary}";
         git = "#${style.success}";
         time = "#${style.secondary}";
         duration = "#${style.caution}";
@@ -82,12 +83,20 @@ in {
         before_repo_root_style = "none";
         repo_root_style = "none";
         format = multiline ''
+          [─](fg:bg)
+          [](fg:dir)
+          [](bg:dir fg:dark)
+          [](fg:dir bg:bg)
           [$path]($style)
           [$read_only]($read_only_style)
           [](fg:bg)
         '';
         repo_root_format = multiline ''
-          [/$repo_root]($style)
+          [─](fg:bg)
+          [](fg:dir)
+          [](bg:dir fg:dark)
+          [](fg:dir bg:bg)
+          [/$repo_root]($style)
           [$path]($style)
           [$read_only]($read_only_style)
           [](fg:bg)
