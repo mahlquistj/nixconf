@@ -78,7 +78,7 @@ in {
         disabled = false;
 
         style = "bg:${color.darker}";
-        format = "[ $time]($style)[](fg:${color.darker})";
+        format = "[ $time]($style)[ ](fg:${color.darker})";
       };
 
     };
