@@ -23,7 +23,7 @@
         [󰅒 ](bg:#${style.secondary})
         $cmd_duration
         $time
-        [](fg:#${style.style.darker})
+        [](fg:#${style.darker})
       '';
 
       add_newline = true;
