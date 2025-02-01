@@ -19,10 +19,8 @@
         $character'';
 
       right_format = customUtils.string.removeNewlines ''
-        [](fg:#${style.secondary})
         $cmd_duration
         $time
-        [](fg:#${style.background})
       '';
 
       add_newline = true;
@@ -55,6 +53,22 @@
         vimcmd_replace_symbol = "[❮](bold fg:#${style.secondary})";
         vimcmd_visual_symbol = "[❮](bold fg:#${style.caution})";
       };
+
+      cmd_duration = {
+        show_milliseconds = true;
+        show_notifications = true;
+
+        style = "bg:#${style.background}";
+        format = "[ 󰅒](fg:#${style.secondary})[$duration]($style)";
+      };
+
+      time = {
+        disabled = false;
+
+        style = "bg:#${style.background}";
+        format = "[at $time]($style)[](fg:#${style.background})";
+      };
+
     };
   };
 }
