@@ -14,7 +14,7 @@ let
     directory = "#${style.background}";
     git = "#${style.success}";
     git_status = "#5c9457"; # TODO: Maybe add this color to style
-    lang = "#${style.secondary}";
+    lang = "#${style.primary}";
     time = "#${style.secondary}";
     duration = "#${style.caution}";
 
@@ -135,7 +135,7 @@ in {
         disabled = false;
         format = multiline ''
           [](fg:${color.time})
-          [󰃭](bold fg:${color.dark} bg:${color.time})
+          [](bold fg:${color.dark} bg:${color.time})
           [](fg:${color.time} bg:${color.bg})
           [ $time](bg:${color.bg})
           [ ](fg:${color.bg})
