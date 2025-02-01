@@ -95,8 +95,6 @@ in {
       };
 
       git_status = {
-        all_status =
-          "$conflicted$stashed$deleted$renamed$modified$typechanged$staged$untracked";
         conflicted = "🚨";
         ahead = "🏎";
         behind = "😰";
