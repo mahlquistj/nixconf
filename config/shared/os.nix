@@ -1,4 +1,4 @@
-{ sysOptions, ... }:
+{ sysOptions, pkgs, ... }:
 
 {
   # This value determines the NixOS release from which the default
@@ -44,10 +44,13 @@
   networking.networkmanager.enable = true;
 
   # Define a user account. Don't forget to set a password with ‘passwd’.
-  users.users.maj = {
-    isNormalUser = true;
-    description = "Mads Ahlquist Jensen";
-    extraGroups = [ "networkmanager" "wheel" ];
+  users = {
+    defaultUserShell = pkgs.fish;
+    users.maj = {
+      isNormalUser = true;
+      description = "Mads Ahlquist Jensen";
+      extraGroups = [ "networkmanager" "wheel" ];
+    };
   };
 
   security = {
