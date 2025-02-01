@@ -59,7 +59,8 @@
         show_notifications = true;
 
         style = "bg:#${style.background}";
-        format = "[󰅒 ](bg:#${style.secondary})[$duration]($style)";
+        format =
+          "[](fg:#${style.secondary})[󰅒 ](bg:#${style.secondary})[$duration]($style)";
       };
 
       time = {
