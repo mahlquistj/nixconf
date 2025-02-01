@@ -4,6 +4,7 @@ let
     # Basic colors
     bg = "#${style.background}";
     dark = "#${style.darker}";
+    green = "#${style.success}";
 
     # Warnings
     user_root = "#${style.danger}";
@@ -99,11 +100,11 @@ in {
         ahead = "🏎";
         behind = "😰";
         diverged = "😵";
-        up_to_date = "[✓](green)";
+        up_to_date = "[✓](fg:${color.green} bg:${color.git_status})";
         untracked = "🤷";
         stashed = "📦";
         modified = "📝";
-        staged = "[+](green)";
+        staged = "[+](fg:${color.green} bg:${color.git_status})";
         renamed = "👅";
         deleted = "🗑";
 
