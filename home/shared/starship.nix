@@ -108,7 +108,7 @@ in {
         deleted = "🗑";
 
         format =
-          "[$all_status$ahead_behind](fg:${color.dark}; bg:${style.git_status})";
+          "[$all_status$ahead_behind](fg:${color.dark}; bg:${color.git_status})";
       };
 
       character = {
