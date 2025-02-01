@@ -6,7 +6,7 @@
     enableFishIntegration = true;
 
     settings = {
-      format = customUtils.string.removeNewLines ''
+      format = customUtils.string.removeNewlines ''
         [](fg:#${style.background})
         $username
         [](fg:#${style.primary} bg:#${style.background})
@@ -16,7 +16,7 @@
         $rust
       '';
 
-      right_format = customUtils.string.removeNewLines ''
+      right_format = customUtils.string.removeNewlines ''
         $cmd_duration
         $time
       '';
