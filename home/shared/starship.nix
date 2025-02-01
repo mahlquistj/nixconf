@@ -19,8 +19,11 @@
         $character'';
 
       right_format = customUtils.string.removeNewlines ''
+        [](fg:#${style.secondary})
+        [󰅒 ](bg:#${style.secondary})
         $cmd_duration
         $time
+        [](fg:#${style.style.darker})
       '';
 
       add_newline = true;
@@ -60,14 +63,14 @@
 
         style = "bg:#${style.background}";
         format =
-          "[](fg:#${style.secondary})[󰅒 ](bg:#${style.secondary})[$duration]($style)";
+          "[ $duration]($style)[](fg:#${style.background} bg:#${style.darker})";
       };
 
       time = {
         disabled = false;
 
-        style = "bg:#${style.background}";
-        format = "[at $time]($style)[](fg:#${style.background})";
+        style = "bg:#${style.darker}";
+        format = "[$time]($style)";
       };
 
     };
