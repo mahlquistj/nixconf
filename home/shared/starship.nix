@@ -6,32 +6,35 @@
     enableFishIntegration = true;
 
     settings = {
+      line_break.disabled = false;
+      add_newline = true;
+      fill.symbol = " ";
+
       format = customUtils.string.removeNewlines ''
+        [╭](fg:background)
         [](fg:#${style.background})
         $username
         $directory
         [](fg:#${style.background} bg:#${style.success})
         $git_branch
         $git_status
+        [](fg:#${style.success} bg:#${style.primary})
         $rust
-      '';
-
-      right_format = (customUtils.string.removeNewlines ''
+        [](fg:#${style.primary})
+        $fill
         [](fg:#${style.secondary})
         [󰅒 ](bg:#${style.secondary})
         $cmd_duration
         $time
         [](fg:#${style.darker})
-      '') + ''
-
-        $character'';
-
-      add_newline = true;
+        $line_break
+        [╰](fg:separator)
+        $character
+      '';
 
       username = {
-        format = "[ $user]($style)";
-        show_always = true;
-        style_user = "bg:#${style.background}";
+        format = "[$user]($style)";
+        style_user = "";
         style_root = "bg:#${style.background} fg:#${style.danger}";
       };
 
