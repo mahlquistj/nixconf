@@ -30,8 +30,7 @@ in {
 
         $fill
 
-        $cmd_duration
-        $time
+        $cmd_duration $time
 
         $line_break
 
@@ -80,7 +79,7 @@ in {
           [󰅒 ](bg:#${style.secondary})
           [](fg:#${style.secondary} bg:${color.bg})
           [ $duration]($style)
-          [ ](fg:${color.bg} bg:${color.darker})
+          [](fg:${color.bg} bg:${color.darker})
         '';
       };
 
@@ -92,7 +91,7 @@ in {
           [](fg:#${style.caution})
           [󱐋](bold fg:black bg:#${style.caution})
           [](fg:#${style.caution} bg:${color.bg})
-          [ $time ]($style)
+          [ $time]($style)
           [ ](fg:${color.bg})
         '';
       };
