@@ -44,9 +44,8 @@ in {
         $directory
         [](fg:${color.bg} bg:${color.git})
         $git_branch
-        [](fg:${color.git} bg:${color.git_status})
         $git_status
-        [](fg:${color.git_status} bg:${color.lang})
+        [](fg:${color.git} bg:${color.lang})
         $nix
         $rust
         [](fg:${color.lang})
