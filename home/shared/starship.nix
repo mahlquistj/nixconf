@@ -11,7 +11,7 @@
       fill.symbol = " ";
 
       format = customUtils.string.removeNewlines ''
-        [╭](fg:background)
+        [╭](fg:${style.background})
         [](fg:#${style.background})
         $username
         $directory
@@ -28,7 +28,7 @@
         $time
         [](fg:#${style.darker})
         $line_break
-        [╰](fg:separator)
+        [╰](fg:${style.background})
         $character
       '';
 
