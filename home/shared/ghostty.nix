@@ -4,8 +4,7 @@
     enableFishIntegration = true;
 
     settings = {
-      font-family =
-        [ "Noto Color Emoji" "Source Code Pro Mono" "Symbols Nerd Font Mono" ];
+      font-family = "SauceCodePro Nerd Font Mono";
       font-size = 10;
 
       background = "#${style.darker}";
