@@ -2,7 +2,12 @@
 
 {
   fonts = {
-    packages = with pkgs; [ google-fonts nerdfonts jetbrains-mono ];
+    packages = with pkgs; [
+      twemoji-color-font
+      google-fonts
+      nerdfonts
+      jetbrains-mono
+    ];
 
     fontconfig = {
       defaultFonts = {

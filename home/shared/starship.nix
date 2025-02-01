@@ -95,20 +95,22 @@ in {
       };
 
       git_status = {
-        conflicted = "🏳";
-        ahead = "🏎💨";
+        all_status =
+          "$conflicted$stashed$deleted$renamed$modified$typechanged$staged$untracked";
+        conflicted = "🚨";
+        ahead = "🏎";
         behind = "😰";
         diverged = "😵";
-        up_to_date = "✓";
+        up_to_date = "✅";
         untracked = "🤷";
         stashed = "📦";
         modified = "📝";
-        staged = "[+($count)]";
+        staged = "➕";
         renamed = "👅";
         deleted = "🗑";
 
         format =
-          "[$all_status$ahead_behind](fg:${color.dark}; bg:${color.git_status})";
+          "[$all_status$ahead_behind](fg:${color.dark} bg:${color.git_status})";
       };
 
       character = {
