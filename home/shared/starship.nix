@@ -133,7 +133,7 @@ in {
         disabled = false;
         format = multiline ''
           [](fg:${color.time})
-          [🕒](bg:${color.time})
+          [](bg:${color.time})
           [](fg:${color.time} bg:${color.bg})
           [ $time](bg:${color.bg})
           [ ](fg:${color.bg})

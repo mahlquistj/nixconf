@@ -12,7 +12,7 @@
     fontconfig = {
       defaultFonts = {
         sansSerif = [ "Product Sans" ];
-        monospace = [ "SauceCodePro Nerd Font" ];
+        monospace = [ "SauceCodePro Nerd Font Mono" ];
       };
     };
 
