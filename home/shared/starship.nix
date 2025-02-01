@@ -14,7 +14,7 @@
         $git_branch
         $git_status
         $rust
-      '') ++ ''
+      '') + ''
         $character
       '';
 
