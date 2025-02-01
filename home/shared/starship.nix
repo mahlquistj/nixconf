@@ -2,7 +2,7 @@
 let
   color = {
     main = "#${style.background}";
-    darker = "#${style.background}";
+    darker = "#${style.darker}";
   };
 in {
   programs.starship = {
@@ -30,7 +30,6 @@ in {
         [󰅒 ](bg:#${style.secondary})
         $cmd_duration
         $time
-        [](fg:${color.darker})
         $line_break
         [╰](fg:${color.main})
         $character
@@ -79,7 +78,7 @@ in {
         disabled = false;
 
         style = "bg:${color.darker}";
-        format = "[ $time]($style)";
+        format = "[ $time]($style)[](fg:${color.darker})";
       };
 
     };
