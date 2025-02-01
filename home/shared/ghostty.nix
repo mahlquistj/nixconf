@@ -18,7 +18,7 @@
       mouse-hide-while-typing = true;
       mouse-shift-capture = true;
 
-      background-opacity = 0.9;
+      background-opacity = 0.8;
       #TODO: background-blur-radius = ?;
 
       command = "fish";
