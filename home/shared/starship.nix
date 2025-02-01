@@ -118,7 +118,7 @@ in {
         ahead = "🏎";
         behind = "😰";
         diverged = "😵";
-        up_to_date = "[✓](bold fg:green bg:bg)";
+        up_to_date = "✅";
         untracked = "🤷";
         stashed = "📦";
         modified = "📝";
@@ -127,7 +127,7 @@ in {
         deleted = "🗑";
 
         format = multiline ''
-          [$all_status$ahead_behind](bg:bg)
+          [$conflicted$stashed$deleted$renamed$modified$typechanged$untracked $staged $ahead_behind](bg:bg)
           [](fg:bg)
         '';
       };
