@@ -16,7 +16,7 @@
         $rust
       '') + ''
 
-        $character '';
+        $character'';
 
       right_format = customUtils.string.removeNewlines ''
         [](fg:#${style.secondary})
