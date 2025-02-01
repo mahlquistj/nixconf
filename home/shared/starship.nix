@@ -13,7 +13,7 @@ let
     # Module specific
     directory = "#${style.background}";
     git = "#${style.success}";
-    git_status = "#${style.background}";
+    git_status = "#5c9457"; # TODO: Maybe add this color to style
     lang = "#${style.secondary}";
     time = "#${style.secondary}";
     duration = "#${style.caution}";
@@ -100,11 +100,11 @@ in {
         ahead = " 🏎";
         behind = " 😰";
         diverged = " 😵";
-        up_to_date = "[ ✓](fg:${color.green} bg:${color.git_status})";
+        up_to_date = "[ ✓](fg:${color.dark} bg:${color.git_status})";
         untracked = " 🤷";
         stashed = " 📦";
         modified = " 📝";
-        staged = "[ +$count](fg:${color.green} bg:${color.git_status})";
+        staged = "[ ++$count](fg:${color.dark} bg:${color.git_status})";
         renamed = " 👅";
         deleted = " 🗑";
 
@@ -135,7 +135,7 @@ in {
         disabled = false;
         format = multiline ''
           [](fg:${color.time})
-          [󰅐](bold fg:${color.dark} bg:${color.time})
+          [](bold fg:${color.dark} bg:${color.time})
           [](fg:${color.time} bg:${color.bg})
           [ $time](bg:${color.bg})
           [ ](fg:${color.bg})
