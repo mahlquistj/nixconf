@@ -50,7 +50,7 @@
 
       character = {
         success_symbol = "[❯](bold fg:#${style.success})";
-        error_symbol = "[❯](bold fg:#${style.danger})";
+        error_symbol = "[](bold fg:#${style.danger})";
         vimcmd_symbol = "[❮](bold fg:#${style.success})";
         vimcmd_replace_one_symbol = "[❮](bold fg:#${style.secondary})";
         vimcmd_replace_symbol = "[❮](bold fg:#${style.secondary})";
