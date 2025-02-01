@@ -50,7 +50,7 @@ in {
         repo_root_format =
           "[/$repo_root](bg:$style)[$path](bg:$style)[$read_only]($read_only_style)";
         truncation_symbol = "..";
-        read_only = "🔒";
+        read_only = "";
         home_symbol = "󰠦";
       };
 
@@ -78,7 +78,7 @@ in {
         disabled = false;
 
         style = "bg:${color.darker}";
-        format = "[ $time]($style)[ ](fg:${color.darker})";
+        format = "[ $time ]($style)[ ](fg:${color.darker})";
       };
 
     };
