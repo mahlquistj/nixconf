@@ -6,7 +6,7 @@
     enableFishIntegration = true;
 
     settings = {
-      format = (customUtils.string.removeNewlines ''
+      format = customUtils.string.removeNewlines ''
         [](fg:#${style.background})
         $username
         $directory
@@ -14,17 +14,17 @@
         $git_branch
         $git_status
         $rust
-      '') + ''
+      '';
 
-        $character'';
-
-      right_format = customUtils.string.removeNewlines ''
+      right_format = (customUtils.string.removeNewlines ''
         [](fg:#${style.secondary})
         [󰅒 ](bg:#${style.secondary})
         $cmd_duration
         $time
         [](fg:#${style.darker})
-      '';
+      '') + ''
+
+        $character'';
 
       add_newline = true;
 
@@ -70,7 +70,7 @@
         disabled = false;
 
         style = "bg:#${style.darker}";
-        format = "[$time]($style)";
+        format = "[ $time]($style)";
       };
 
     };
