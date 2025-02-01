@@ -79,7 +79,7 @@ in {
           [󰅒 ](bg:#${style.secondary})
           [](fg:#${style.secondary} bg:${color.bg})
           [ $duration]($style)
-          [](fg:${color.bg} bg:${color.darker})
+          [─](fg:${color.bg})
         '';
       };
 
