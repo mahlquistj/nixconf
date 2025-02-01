@@ -45,7 +45,7 @@
         repo_root_style = "none";
         format = "[$path](bg:$style)[ $read_only]($read_only_style)";
         repo_root_format =
-          "[/$repo_root](bg:$style)[$path](bg:$style)[$read_only]($read_only_style)";
+          "[/$repo_root](bg:$style)[$path](bg:$style)[$read_only]($read_only_style)";
         truncation_symbol = "..";
         read_only = "🔒";
         home_symbol = "󰠦";
@@ -61,7 +61,6 @@
       };
 
       cmd_duration = {
-        show_milliseconds = true;
         show_notifications = true;
 
         style = "bg:#${style.background}";
