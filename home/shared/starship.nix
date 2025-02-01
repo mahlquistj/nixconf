@@ -1,4 +1,4 @@
-{ style, ... }:
+{ style, customUtils, ... }:
 
 {
   programs.starship = {
@@ -6,19 +6,20 @@
     enableFishIntegration = true;
 
     settings = {
-      format = ''
-        ""
-          [](fg:#${style.background})\\
-          $username\\
-          [](fg:#${style.primary} bg:#${style.background})\\
-          $directory\\
-          $git_branch\\
-          $git_status\\
-          $rust
-        ""
+      format = customUtils.string.removeNewLines ''
+        [](fg:#${style.background})
+        $username
+        [](fg:#${style.primary} bg:#${style.background})
+        $directory
+        $git_branch
+        $git_status
+        $rust
       '';
 
-      right_format = "$cmd_duration$time";
+      right_format = customUtils.string.removeNewLines ''
+        $cmd_duration
+        $time
+      '';
 
       add_newline = true;
 

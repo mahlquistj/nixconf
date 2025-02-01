@@ -36,4 +36,8 @@
         transformedCss = dynamicReplace cssContent;
       in transformedCss;
   };
+
+  string = {
+    removeNewlines = str: builtins.replaceStrings [ "\n" ] [ "" ] str;
+  };
 }
