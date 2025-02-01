@@ -11,6 +11,8 @@ let
 
     # Module specific
     git = "#${style.success}";
+    git_status =
+      "#5c9457"; # A bit darker than my normal success TODO: Add to style, in a proper way
     lang = "#${style.primary}";
     time = "#${style.secondary}";
     duration = "#${style.caution}";
@@ -42,8 +44,9 @@ in {
         $directory
         [](fg:${color.bg} bg:${color.git})
         $git_branch
+        [](fg:${color.git} bg:${color.git_status})
         $git_status
-        [](fg:${color.git} bg:${color.lang})
+        [](fg:${color.git_status} bg:${color.lang})
         $nix
         $rust
         [](fg:${color.lang})
@@ -88,7 +91,24 @@ in {
       git_branch = {
         symbol = "";
         format =
-          "[$symbol$branch(:$remote_branch)](fg:${color.dark} bg:${color.git})";
+          "[ $symbol$branch(:$remote_branch)](fg:${color.dark} bg:${color.git})";
+      };
+
+      git_status = {
+        conflicted = "🏳";
+        ahead = "🏎💨";
+        behind = "😰";
+        diverged = "😵";
+        up_to_date = "✓";
+        untracked = "🤷";
+        stashed = "📦";
+        modified = "📝";
+        staged = "[+($count)]";
+        renamed = "👅";
+        deleted = "🗑";
+
+        format =
+          "[$all_status$ahead_behind](fg:${color.dark}; bg:${style.git_status})";
       };
 
       character = {
@@ -115,7 +135,7 @@ in {
         disabled = false;
         format = multiline ''
           [](fg:${color.time})
-          [󰅒 ](bold fg:${color.dark} bg:${color.time})
+          [󰅒](bold fg:${color.dark} bg:${color.time})
           [](fg:${color.time} bg:${color.bg})
           [ $time](bg:${color.bg})
           [ ](fg:${color.bg})
