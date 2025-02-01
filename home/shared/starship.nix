@@ -76,9 +76,9 @@ in {
 
         style = "bg:${color.bg}";
         format = multiline ''
-          [](fg:#${style.secondary})
-          [󰅒 ](bold fg:black bg:#${style.secondary})
-          [](fg:#${style.secondary} bg:${color.bg})
+          [](fg:#${style.caution})
+          [󱐋](bold fg:black bg:#${style.caution})
+          [](fg:#${style.caution} bg:${color.bg})
           [ $duration]($style)
           [─](fg:${color.bg})
         '';
@@ -89,9 +89,9 @@ in {
 
         style = "bg:${color.bg}";
         format = multiline ''
-          [](fg:#${style.caution})
-          [󱐋](bold fg:black bg:#${style.caution})
-          [](fg:#${style.caution} bg:${color.bg})
+          [](fg:#${style.secondary})
+          [󰅒 ](bold fg:black bg:#${style.secondary})
+          [](fg:#${style.secondary} bg:${color.bg})
           [ $time]($style)
           [ ](fg:${color.bg})
         '';
