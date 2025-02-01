@@ -7,13 +7,15 @@
 
     settings = {
       format = ''
-        [](fg:#${style.background})\
-        $username\
-        [](fg:#${style.primary} bg:#${style.background})\
-        $directory\
-        $git_branch\
-        $git_status\
-        $rust
+        ""
+          [](fg:#${style.background})\
+          $username\
+          [](fg:#${style.primary} bg:#${style.background})\
+          $directory\
+          $git_branch\
+          $git_status\
+          $rust
+        ""
       '';
 
       right_format = "$cmd_duration$time";
