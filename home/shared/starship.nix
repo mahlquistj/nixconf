@@ -96,17 +96,17 @@ in {
       };
 
       git_status = {
-        conflicted = "🚨";
-        ahead = "🏎";
-        behind = "😰";
-        diverged = "😵";
-        up_to_date = "[✓](fg:${color.green} bg:${color.git_status})";
-        untracked = "🤷";
-        stashed = "📦";
-        modified = "📝";
-        staged = "[+](fg:${color.green} bg:${color.git_status})";
-        renamed = "👅";
-        deleted = "🗑";
+        conflicted = " 🚨";
+        ahead = " 🏎";
+        behind = " 😰";
+        diverged = " 😵";
+        up_to_date = "[ ✓](fg:${color.green} bg:${color.git_status})";
+        untracked = " 🤷";
+        stashed = " 📦";
+        modified = " 📝";
+        staged = "[ +](fg:${color.green} bg:${color.git_status})";
+        renamed = " 👅";
+        deleted = " 🗑";
 
         format = "[$all_status$ahead_behind](bg:${color.git_status})";
       };
