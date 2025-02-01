@@ -4,6 +4,8 @@ let
     bg = "#${style.background}";
     darker = "#${style.darker}";
   };
+
+  multiline = customUtils.string.removeNewlines;
 in {
   programs.starship = {
     enable = true;
@@ -14,7 +16,7 @@ in {
       add_newline = true;
       fill.symbol = " ";
 
-      format = customUtils.string.removeNewlines ''
+      format = multiline ''
         [╭](fg:${color.bg})
         [](fg:${color.bg})
         $username
@@ -73,16 +75,26 @@ in {
         show_notifications = true;
 
         style = "bg:${color.bg}";
-        format =
-          "[](fg:#${style.secondary})[󰅒 ](bg:#${style.secondary})[](fg:#${style.secondary} bg:${color.bg})[ $duration]($style)[ ](fg:${color.bg} bg:${color.darker})";
+        format = multiline ''
+          [](fg:#${style.secondary})
+          [󰅒 ](bg:#${style.secondary})
+          [](fg:#${style.secondary} bg:${color.bg})
+          [ $duration]($style)
+          [ ](fg:${color.bg} bg:${color.darker})
+        '';
       };
 
       time = {
         disabled = false;
 
         style = "bg:${color.bg}";
-        format =
-          "[](fg:#${style.caution})[󱐋](bold fg:black)[](fg:#${style.caution} bg:${color.bg})[ $time ]($style)[ ](fg:${color.bg})";
+        format = multiline ''
+          [](fg:#${style.caution})
+          [󱐋](bold fg:black bg:#${style.caution})
+          [](fg:#${style.caution} bg:${color.bg})
+          [ $time ]($style)
+          [ ](fg:${color.bg})
+        '';
       };
 
     };
