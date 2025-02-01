@@ -9,7 +9,8 @@
       format = customUtils.string.removeNewlines ''
         [](fg:#${style.background})
         $username
-        [](fg:#${style.primary} bg:#${style.background})
+        [ ](fg:#${style.background} bg:#${style.primary})
+        [ ](fg:#${style.primary} bg:#${style.background})
         $directory
         $git_branch
         $git_status
