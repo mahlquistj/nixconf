@@ -30,7 +30,8 @@ in {
 
         $fill
 
-        $cmd_duration $time
+        $cmd_duration
+        $time
 
         $line_break
 
