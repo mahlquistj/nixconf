@@ -119,7 +119,7 @@ in {
         ahead = "🏎";
         behind = "😰";
         diverged = "😵";
-        up_to_date = "✅";
+        up_to_date = "[✓](bold fg:green bg:bg)";
         untracked = "🤷";
         stashed = "📦";
         modified = "📝";
