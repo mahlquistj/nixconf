@@ -14,8 +14,8 @@
     enable = true;
 
     # Catppuccin compat
-    style.name = "kvantum";
-    platformTheme = "kvantum";
+    #style.name = "kvantum";
+    #platformTheme = "kvantum";
   };
 
   # System packages
