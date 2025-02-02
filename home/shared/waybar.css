@@ -1,7 +1,7 @@
 /* #### GENERAL #### */
 * {
     all:unset;
-    font-family: var(--main-font), var(--icons-font);
+    font-family: "var(--main-font)", "var(--icons-font)";
     font-size: 10px;
 }
 
