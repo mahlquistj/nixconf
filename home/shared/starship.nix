@@ -67,8 +67,7 @@ in {
           [](fg:mauve)
           [](bg:mauve fg:crust)
           [](fg:mauve bg:surface0)
-          [/$repo_root]($style)
-          [ $path]($style)
+          [ /$repo_root$path]($style)
           [ $read_only]($read_only_style)
           [](fg:surface0)
         '';
