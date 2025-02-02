@@ -11,12 +11,11 @@
   accent = "fa3867"; # TODO
 
   primary = "ED7D3A";
-  secondary = "DA9EF8";
+  secondary = "1A6DE5";
 
-  success = "2FBF71";
-  caution = "FCD224";
-  danger = "EF2D56";
-  info = "1BB3E2";
+  success = "2BBA4D";
+  caution = "EABE03";
+  danger = "ED392F";
 
   main-font = "Source Code Pro";
   icons-font = "Symbols Nerd Font Mono";
