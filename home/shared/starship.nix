@@ -99,7 +99,7 @@ in {
           [](fg:dir bg:bg)
           [/$repo_root]($style)
           [$path]($style)
-          [$read_only]($read_only_style)
+          [ $read_only]($read_only_style)
           [](fg:bg)
         '';
       };
@@ -119,16 +119,16 @@ in {
         ahead = "🏎";
         behind = "😰";
         diverged = "😵";
-        up_to_date = "[✓](bold fg:green bg:bg)";
+        up_to_date = "[ ✓](bold fg:green bg:bg)";
         untracked = "🤷";
         stashed = "📦";
         modified = "📝";
-        staged = "[+$count](fg:green bg:bg)";
+        staged = "[ +$count](fg:green bg:bg)";
         renamed = "👅";
         deleted = "🗑";
 
         format = multiline ''
-          [ $conflicted$stashed$deleted$renamed$modified$typechanged$untracked $staged $ahead_behind](bg:bg)
+          [$conflicted$stashed$deleted$renamed$modified$typechanged$untracked$staged$ahead_behind](bg:bg)
           [](fg:bg)
         '';
       };
