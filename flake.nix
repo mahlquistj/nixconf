@@ -30,7 +30,7 @@
           home-manager.useGlobalPkgs = true;
           catppuccin = {
             enable = true;
-            flavor = "macchiato";
+            flavor = "mocha";
           };
         }
       ];
@@ -40,7 +40,7 @@
         {
           catppuccin = {
             enable = true;
-            flavor = "macchiato";
+            flavor = "mocha";
           };
         }
       ];
