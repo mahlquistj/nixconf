@@ -8,7 +8,13 @@
     };
   };
 
-  qt.enable = true;
+  qt = {
+    enable = true;
+
+    # Catppuccin compat
+    style.name = "kvantum";
+    platformTheme = "kvantum";
+  };
 
   # System packages
   environment = {

@@ -2,7 +2,10 @@
   description = "My NixOS configurations";
 
   inputs = {
-    nixpkgs.url = "github:nixos/nixpkgs/release-24.11";
+    nixpkgs = {
+      url = "github:nixos/nixpkgs/release-24.11";
+      config.allowUnfree = true;
+    };
     home-manager = {
       url = "github:nix-community/home-manager/release-24.11";
       inputs.nixpkgs.follows = "nixpkgs";
@@ -24,10 +27,7 @@
       lib = nixpkgs.lib;
       customUtils = import ./custom_utils.nix { inherit lib style; };
 
-      pkgs = import nixpkgs {
-        inherit system;
-        config.allowUnfree = true;
-      };
+      pkgs = import nixpkgs { inherit system; };
 
       default_modules = [
         catppuccin.nixosModules.catppuccin
