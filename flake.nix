@@ -65,7 +65,8 @@
         };
     in {
       nixosConfigurations = {
-        work = pkgs.lib.nixosSystem {
+        work = nixpkgs.lib.nixosSystem {
+          pkgs = pkgs;
           specialArgs = {
             inherit inputs outputs self wallpapers style customUtils;
           } // {
@@ -80,7 +81,8 @@
           ];
         };
 
-        desktop = pkgs.lib.nixosSystem {
+        desktop = nixpkgs.lib.nixosSystem {
+          pkgs = pkgs;
           specialArgs = {
             inherit inputs outputs self wallpapers style customUtils;
           } // {
