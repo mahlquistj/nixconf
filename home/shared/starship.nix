@@ -36,7 +36,7 @@ in {
           [](fg:peach)
           [](bg:peach fg:crust)
           [](fg:peach bg:surface0)
-          [ $user]($style)
+          [$user]($style)
           [](fg:surface0)
         '';
         show_always = true;
@@ -58,7 +58,7 @@ in {
           [](fg:mauve)
           [](bg:mauve fg:crust)
           [](fg:mauve bg:surface0)
-          [ $path]($style)
+          [$path]($style)
           [ $read_only]($read_only_style)
           [](fg:surface0)
         '';
@@ -67,7 +67,7 @@ in {
           [](fg:mauve)
           [](bg:mauve fg:crust)
           [](fg:mauve bg:surface0)
-          [ /$repo_root$path]($style)
+          [$repo_root$path]($style)
           [ $read_only]($read_only_style)
           [](fg:surface0)
         '';
@@ -108,7 +108,7 @@ in {
           [](fg:yellow)
           [󱐋](bold fg:crust bg:yellow)
           [](fg:yellow bg:surface0)
-          [ $duration](bg:surface0)
+          [$duration](bg:surface0)
           [─](fg:surface0)
         '';
       };
@@ -119,7 +119,7 @@ in {
           [](fg:sapphire)
           [](fg:crust bg:sapphire)
           [](fg:sapphire bg:surface0)
-          [ $time](bg:surface0)
+          [$time](bg:surface0)
           [ ](fg:surface0)
         '';
       };
