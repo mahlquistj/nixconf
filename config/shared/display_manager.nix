@@ -19,7 +19,6 @@
     enable = true;
     wayland.enable = true;
     package = pkgs.kdePackages.sddm;
-    theme = "where_is_my_sddm_theme";
     settings = {
       Theme = {
         CursorTheme = "phinger-cursors-light";
