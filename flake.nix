@@ -2,10 +2,7 @@
   description = "My NixOS configurations";
 
   inputs = {
-    nixpkgs = {
-      url = "github:nixos/nixpkgs/release-24.11";
-      config.allowUnfree = true;
-    };
+    nixpkgs = { url = "github:nixos/nixpkgs/release-24.11"; };
     home-manager = {
       url = "github:nix-community/home-manager/release-24.11";
       inputs.nixpkgs.follows = "nixpkgs";
@@ -68,12 +65,13 @@
     in {
       nixosConfigurations = {
         work = nixpkgs.lib.nixosSystem {
-          pkgs = pkgs;
+
           specialArgs = args // { sysOptions = system_options.work; };
           modules = default_modules ++ [
             ./config/work
             {
               home-manager = {
+                pkgs = pkgs;
                 extraSpecialArgs = args // {
                   sysOptions = system_options.work;
                 };
@@ -84,12 +82,12 @@
         };
 
         desktop = nixpkgs.lib.nixosSystem {
-          pkgs = pkgs;
           specialArgs = args { sysOptions = system_options.desktop; };
           modules = default_modules ++ [
             ./config/desktop
             {
               home-manager = {
+                pkgs = pkgs;
                 extraSpecialArgs = args // {
                   sysOptions = system_options.desktop;
                 };
