@@ -4,7 +4,7 @@
     enableFishIntegration = true;
 
     settings = {
-      font-family = "SauceCodePro Nerd Font Mono";
+      font-family = style.terminal-font;
       font-size = 10;
 
       background = "#${style.darker}";

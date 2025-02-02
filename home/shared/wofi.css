@@ -1,5 +1,5 @@
 window {
-    font-family: "Source Code Pro", "Symbols Nerd Font";
+    font-family: var(--main-font), var(--icons-font);
     margin: 0px;
     border: 1px solid var(--primary);
     background-color: var(--darker);
