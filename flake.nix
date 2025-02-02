@@ -75,8 +75,12 @@
           modules = default_modules ++ [
             ./config/work
             {
-              home-manager.users.maj.imports = default_hm_modules
-                ++ [ ./home/work.nix ];
+              home-manager = {
+                extraSpecialArgs = specialArgs;
+                users.maj.imports = default_hm_modules ++ [
+                  ./home/work.nix
+                ];
+              }
             }
           ];
         };
@@ -91,8 +95,12 @@
           modules = default_modules ++ [
             ./config/desktop
             {
-              home-manager.users.maj.imports = default_hm_modules
-                ++ [ ./home/desktop.nix ];
+              home-manager = {
+                extraSpecialArgs = specialArgs;
+                users.maj.imports = default_hm_modules ++ [
+                  ./home/desktop.nix
+                ];
+              }
             }
           ];
         };
