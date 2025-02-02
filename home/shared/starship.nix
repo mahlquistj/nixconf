@@ -11,7 +11,7 @@ in {
       fill.symbol = " ";
 
       format = multiline ''
-        [╭](fg:base)
+        [╭](fg:overlay0)
         $username
         $directory
 
@@ -27,7 +27,7 @@ in {
 
         $line_break
 
-        [╰](fg:base)
+        [╰](fg:overlay0)
         $character
       '';
 
@@ -35,13 +35,13 @@ in {
         format = multiline ''
           [](fg:peach)
           [](bg:peach fg:crust)
-          [](fg:peach bg:base)
+          [](fg:peach bg:overlay0)
           [ $user]($style)
-          [](fg:base)
+          [](fg:overlay0)
         '';
         show_always = true;
-        style_user = "bg:base";
-        style_root = "fg:red  bg:base";
+        style_user = "bg:overlay0";
+        style_root = "fg:red  bg:overlay0";
       };
 
       directory = {
@@ -49,38 +49,38 @@ in {
         read_only = "";
         home_symbol = "";
 
-        style = "bg:base";
-        read_only_style = "bg:base fg:red";
+        style = "bg:overlay0";
+        read_only_style = "bg:overlay0 fg:red";
         before_repo_root_style = "none";
         repo_root_style = "none";
         format = multiline ''
-          [─](fg:base)
+          [─](fg:overlay0)
           [](fg:mauve)
           [](bg:mauve fg:crust)
-          [](fg:mauve bg:base)
+          [](fg:mauve bg:overlay0)
           [ $path]($style)
           [$read_only]($read_only_style)
-          [](fg:base)
+          [](fg:overlay0)
         '';
         repo_root_format = multiline ''
-          [─](fg:base)
+          [─](fg:overlay0)
           [](fg:mauve)
           [](bg:mauve fg:crust)
-          [](fg:mauve bg:base)
+          [](fg:mauve bg:overlay0)
           [/$repo_root]($style)
           [$path]($style)
           [ $read_only]($read_only_style)
-          [](fg:base)
+          [](fg:overlay0)
         '';
       };
 
       git_branch = {
         symbol = "";
         format = multiline ''
-          [─](fg:base)
+          [─](fg:overlay0)
           [](fg:green)
           [$symbol $branch(:$remote_branch)](fg:crust bg:green)
-          [](fg:green bg:base)
+          [](fg:green bg:overlay0)
         '';
       };
 
@@ -89,17 +89,17 @@ in {
         ahead = "🏎";
         behind = "😰";
         diverged = "😵";
-        up_to_date = "[ ✓](bold fg:green bg:base)";
+        up_to_date = "[ ✓](bold fg:green bg:overlay0)";
         untracked = "🤷";
         stashed = "📦";
         modified = "📝";
-        staged = "[ +$count](fg:green bg:base)";
+        staged = "[ +$count](fg:green bg:overlay0)";
         renamed = "👅";
         deleted = "🗑";
 
         format = multiline ''
-          [$conflicted$stashed$deleted$renamed$modified$typechanged$untracked$staged$ahead_behind](bg:base)
-          [](fg:base)
+          [$conflicted$stashed$deleted$renamed$modified$typechanged$untracked$staged$ahead_behind](bg:overlay0)
+          [](fg:overlay0)
         '';
       };
 
@@ -108,9 +108,9 @@ in {
         format = multiline ''
           [](fg:yellow)
           [󱐋](bold fg:crust bg:yellow)
-          [](fg:yellow bg:base)
-          [ $duration](bg:base)
-          [─](fg:base)
+          [](fg:yellow bg:overlay0)
+          [ $duration](bg:overlay0)
+          [─](fg:overlay0)
         '';
       };
 
@@ -119,9 +119,9 @@ in {
         format = multiline ''
           [](fg:sapphire)
           [](fg:crust bg:sapphire)
-          [](fg:sapphire bg:base)
-          [ $time](bg:base)
-          [ ](fg:base)
+          [](fg:sapphire bg:overlay0)
+          [ $time](bg:overlay0)
+          [ ](fg:overlay0)
         '';
       };
 
