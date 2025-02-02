@@ -57,7 +57,13 @@
 
   gtk.enable = true;
   xsession.enable = true;
-  qt.enable = true;
+  qt = {
+    enable = true;
+
+    # Catppuccin compat
+    style.name = "kvantum";
+    platformTheme.name = "kvantum";
+  };
 
   programs.home-manager.enable = true;
 }
