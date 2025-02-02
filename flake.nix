@@ -77,10 +77,8 @@
             {
               home-manager = {
                 extraSpecialArgs = specialArgs;
-                users.maj.imports = default_hm_modules ++ [
-                  ./home/work.nix
-                ];
-              }
+                users.maj.imports = default_hm_modules ++ [ ./home/work.nix ];
+              };
             }
           ];
         };
@@ -97,10 +95,9 @@
             {
               home-manager = {
                 extraSpecialArgs = specialArgs;
-                users.maj.imports = default_hm_modules ++ [
-                  ./home/desktop.nix
-                ];
-              }
+                users.maj.imports = default_hm_modules
+                  ++ [ ./home/desktop.nix ];
+              };
             }
           ];
         };
