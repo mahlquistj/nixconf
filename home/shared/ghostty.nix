@@ -1,16 +1,12 @@
-{ style, ... }: {
+{ ... }: {
   programs.ghostty = {
     enable = true;
     enableFishIntegration = true;
 
     settings = {
-      font-family = style.terminal-font;
+      font-family = "SauceCodePro Nerd Font Mono";
       font-size = 10;
 
-      background = "#${style.darker}";
-      foreground = "#${style.foreground}";
-
-      cursor-color = "#${style.cursorColor}";
       cursor-style = "bar";
       cursor-style-blink = true;
       cursor-click-to-move = true;

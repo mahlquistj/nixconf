@@ -2,7 +2,7 @@
 
 {
   imports = [
-    ./alacritty.nix
+    #./alacritty.nix
     ./firefox.nix
     ./fish.nix
     ./ghostty.nix

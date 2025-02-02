@@ -1,7 +1,7 @@
 /* #### GENERAL #### */
 * {
     all:unset;
-    font-family: "var(--main-font)", "var(--icons-font)";
+    font-family: "Source Code Pro", "Symbols Nerd Font Mono";
     font-size: 10px;
 }
 
@@ -40,15 +40,15 @@ window#waybar {
 
 tooltip, 
 #tray menu {
-    background-color: var(--darker);
+    background-color: @base;
     border-radius: 15px;
-    border: 1px solid var(--background);
+    border: 1px solid @crust;
     padding: 5px;
 }
 
 /* #### POWER #### */
 #power {
-    color: var(--danger);
+    color: @red;
     font-weight: bold;
 }
 
@@ -59,8 +59,8 @@ tooltip,
 /* #### WORKSPACES #### */
 #workspaces button {
     min-height: 5px;
-    background-color: var(--background);
-    border: 1px solid var(--primary);
+    background-color: @base;
+    border: 1px solid @peach;
     min-width: 15px;
     transition: 0.5s ease;
     font-size: 12px;
@@ -75,14 +75,14 @@ tooltip,
 
 #workspaces button.active {
     font-weight: bold;
-    background-color: var(--primary);
-    border-color: var(--primary);
+    background-color: @peach;
+    border-color: @peach;
     transition: all 0.5s ease;
     min-width: 3rem;
 }
 
 #workspaces button:hover {
-    background: var(--primary);
+    background: @peach;
     transition: all 0.5s ease;
 }
 
@@ -98,77 +98,77 @@ window#waybar.empty .modules-center {
 }
 
 #disk.warning {
-    color: var(--caution);
+    color: @yellow;
 }
 
 #disk.critical {
-    color: var(--danger);
+    color: @red;
 }
 
 
 #memory.warning {
-    color: var(--caution);
+    color: @yellow;
 }
 
 #memory.critical {
-    color: var(--danger);
+    color: @red;
 }
 
 #cpu {
-    color: var(--secondary);
+    color: @mauve;
 }
 
 /* #### NETWORK #### */
 #network {
-    background-color: var(--primary);
+    background-color: @sapphire;
 }
 
 /* #### CLOCK #### */
 #clock {
-    background-color: var(--darker);
+    background-color: @crust;
 }
 
 /* #### BATTERY #### */
 #battery {
-    background: var(--success); /* Default to green color */
-    color: var(--darker);
+    background: @green; /* Default to green color */
+    color: @crust;
 }
 
 @keyframes critical_charging {
     25% {
-        background-color: var(--danger); 
+        background-color: @red; 
     }
     50% {
-        background-color: var(--caution);
-        color: var(--background);
+        background-color: @yellow;
+        color: @base;
     }
     75% {
-        background-color: var(--danger); 
+        background-color: @red; 
     }
 }
 
 @keyframes warning_charging {
     25% {
-        background-color: var(--caution); 
+        background-color: @yellow; 
     }
     50% {
-        background-color: var(--success);
+        background-color: @green;
     }
     75% {
-        background-color: var(--caution); 
+        background-color: @yellow; 
     }
 }
 
 @keyframes good_charging {
     25% {
-        background-color: var(--success); 
+        background-color: @green; 
     }
     50% {
         background-color: transparent;
-        color: var(--success);
+        color: @green;
     }
     75% {
-        background-color: var(--success); 
+        background-color: @green; 
     }
 }
 
@@ -181,7 +181,7 @@ window#waybar.empty .modules-center {
 }
 
 #battery.warning {
-    background: var(--caution);
+    background: @yellow;
 }
 
 #battery.charging.critical {
@@ -189,6 +189,6 @@ window#waybar.empty .modules-center {
 }
 
 #battery.critical {
-    background: var(--danger);
+    background: @red;
     color: white;
 }

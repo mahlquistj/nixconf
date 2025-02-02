@@ -1,16 +1,16 @@
 window {
-    font-family: var(--main-font), var(--icons-font);
+    font-family: "Source Code Pro", "Symbols Nerd Font Mono";
     margin: 0px;
-    border: 1px solid var(--primary);
-    background-color: var(--darker);
+    border: 1px solid @peach;
+    background-color: @base;
     border-radius: 10px;
 }
 
 #input {
     margin: 5px;
     border: none;
-    color: var(--foreground);
-    background-color: var(--background);
+    color: @text;
+    background-color: @surface0;
 }
 
 #inner-box {
@@ -32,7 +32,7 @@ window {
 #text {
     margin: 5px;
     border: none;
-    color: var(--foreground);
+    color: @text;
 }
 
 #entry {
@@ -40,16 +40,16 @@ window {
 }
 
 #entry:selected {
-    background-color: var(--primary);
+    background-color: @peach;
     border-radius: 5px;
     border: none;
 }
 
 #expander-box {
-    background-color: var(--background);
+    background-color: @surface0;
     border-radius: 10px;
 }
 
 expander .row:selected {
-    background-color: var(--secondary);
+    background-color: @sapphire;
 }

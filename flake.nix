@@ -8,10 +8,14 @@
       inputs.nixpkgs.follows = "nixpkgs";
     };
 
+    # Cursor
     hyprcursor-phinger.url = "github:jappie3/hyprcursor-phinger";
+
+    # Color scheme
+    catppuccin.url = "github:catppuccin/nix";
   };
 
-  outputs = { self, nixpkgs, ... }@inputs:
+  outputs = { self, nixpkgs, catppuccin, home-manager, ... }@inputs:
     let
       inherit (self) outputs;
       system = "x86_64-linux";
@@ -26,11 +30,22 @@
       };
 
       default_modules = [
-        inputs.home-manager.nixosModule
+        catppuccin.nixosModules.catppuccin
+        home-manager.nixosModules.home-manager
         {
-          home-manager = {
-            useGlobalPkgs = true;
-            useUserPackages = true;
+          catppuccin = {
+            enable = true;
+            flavor = "macchiato";
+          };
+        }
+      ];
+
+      default_hm_modules = [
+        catppuccin.homeManagerModules.catppuccin
+        {
+          catppuccin = {
+            enable = true;
+            flavor = "macchiato";
           };
         }
       ];
@@ -50,46 +65,35 @@
         };
     in {
       nixosConfigurations = {
-        work = nixpkgs.lib.nixosSystem {
+        work = pkgs.lib.nixosSystem {
           specialArgs = {
             inherit inputs outputs self wallpapers style customUtils;
           } // {
             sysOptions = system_options.work;
           };
-          modules = default_modules ++ [ ./config/work ];
+          modules = default_modules ++ [
+            ./config/work
+            {
+              home-manager.users.maj.imports = default_hm_modules
+                ++ [ ./home/work.nix ];
+            }
+          ];
         };
 
-        desktop = nixpkgs.lib.nixosSystem {
+        desktop = pkgs.lib.nixosSystem {
           specialArgs = {
             inherit inputs outputs self wallpapers style customUtils;
           } // {
             sysOptions = system_options.desktop;
           };
-          modules = default_modules ++ [ ./config/desktop ];
+          modules = default_modules ++ [
+            ./config/desktop
+            {
+              home-manager.users.maj.imports = default_hm_modules
+                ++ [ ./home/desktop.nix ];
+            }
+          ];
         };
       };
-
-      homeConfigurations = {
-        work = inputs.home-manager.lib.homeManagerConfiguration {
-          pkgs = pkgs;
-          extraSpecialArgs = {
-            inherit inputs outputs self wallpapers style customUtils;
-          } // {
-            sysOptions = system_options.work;
-          };
-          modules = [ ./home/work.nix ];
-        };
-
-        desktop = inputs.home-manager.lib.homeManagerConfiguration {
-          pkgs = pkgs;
-          extraSpecialArgs = {
-            inherit inputs outputs self wallpapers style customUtils;
-          } // {
-            sysOptions = system_options.desktop;
-          };
-          modules = [ ./home/home.nix ];
-        };
-      };
-
     };
 }
