@@ -18,18 +18,16 @@
   outputs = { self, nixpkgs, catppuccin, home-manager, ... }@inputs:
     let
       inherit (self) outputs;
-      system = "x86_64-linux";
       wallpapers = "${self}/media/wallpaper";
       style = import ./style.nix { };
       lib = nixpkgs.lib;
       customUtils = import ./custom_utils.nix { inherit lib style; };
 
-      pkgs = import nixpkgs { inherit system; };
-
       default_modules = [
         catppuccin.nixosModules.catppuccin
         home-manager.nixosModules.home-manager
         {
+          home-manager.useGlobalPkgs = true;
           catppuccin = {
             enable = true;
             flavor = "macchiato";
@@ -65,13 +63,11 @@
     in {
       nixosConfigurations = {
         work = nixpkgs.lib.nixosSystem {
-
           specialArgs = args // { sysOptions = system_options.work; };
           modules = default_modules ++ [
             ./config/work
             {
               home-manager = {
-                pkgs = pkgs;
                 extraSpecialArgs = args // {
                   sysOptions = system_options.work;
                 };
@@ -87,7 +83,6 @@
             ./config/desktop
             {
               home-manager = {
-                pkgs = pkgs;
                 extraSpecialArgs = args // {
                   sysOptions = system_options.desktop;
                 };
