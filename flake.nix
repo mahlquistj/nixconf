@@ -63,20 +63,20 @@
             cursorSize = 24;
           };
         };
+
+      args = { inherit inputs outputs self wallpapers style customUtils; };
     in {
       nixosConfigurations = {
         work = nixpkgs.lib.nixosSystem {
           pkgs = pkgs;
-          specialArgs = {
-            inherit inputs outputs self wallpapers style customUtils;
-          } // {
-            sysOptions = system_options.work;
-          };
+          specialArgs = args // { sysOptions = system_options.work; };
           modules = default_modules ++ [
             ./config/work
             {
               home-manager = {
-                extraSpecialArgs = specialArgs;
+                extraSpecialArgs = args // {
+                  sysOptions = system_options.work;
+                };
                 users.maj.imports = default_hm_modules ++ [ ./home/work.nix ];
               };
             }
@@ -85,16 +85,14 @@
 
         desktop = nixpkgs.lib.nixosSystem {
           pkgs = pkgs;
-          specialArgs = {
-            inherit inputs outputs self wallpapers style customUtils;
-          } // {
-            sysOptions = system_options.desktop;
-          };
+          specialArgs = args { sysOptions = system_options.desktop; };
           modules = default_modules ++ [
             ./config/desktop
             {
               home-manager = {
-                extraSpecialArgs = specialArgs;
+                extraSpecialArgs = args // {
+                  sysOptions = system_options.desktop;
+                };
                 users.maj.imports = default_hm_modules
                   ++ [ ./home/desktop.nix ];
               };
