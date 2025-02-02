@@ -4,8 +4,8 @@
   services.hyprpaper = {
     enable = true;
     settings = {
-      preload = [ "${wallpapers}/${sysOptions.wallpaper}.png" ];
-      wallpaper = [ ", ${wallpapers}/${sysOptions.wallpaper}.png" ];
+      preload = [ "${wallpapers}/${sysOptions.wallpaper}.jpg" ];
+      wallpaper = [ ", ${wallpapers}/${sysOptions.wallpaper}.jpg" ];
     };
   };
   programs.hyprlock = {

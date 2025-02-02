@@ -49,12 +49,12 @@
         { # TODO: How can we make this better, so that we don't have to *merge* it into specialArgs every time we run the flake?
           work = {
             has_battery = true;
-            wallpaper = "normal";
+            wallpaper = "1920x1080";
             cursorSize = 18;
           };
           desktop = {
             has_battery = false;
-            wallpaper = "ultrawide";
+            wallpaper = "3440x1440";
             cursorSize = 24;
           };
         };
