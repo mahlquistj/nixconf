@@ -59,7 +59,7 @@ in {
           [](bg:mauve fg:crust)
           [](fg:mauve bg:overlay0)
           [ $path]($style)
-          [$read_only]($read_only_style)
+          [ $read_only]($read_only_style)
           [](fg:overlay0)
         '';
         repo_root_format = multiline ''
@@ -68,7 +68,7 @@ in {
           [](bg:mauve fg:crust)
           [](fg:mauve bg:overlay0)
           [/$repo_root]($style)
-          [$path]($style)
+          [ $path]($style)
           [ $read_only]($read_only_style)
           [](fg:overlay0)
         '';
@@ -85,17 +85,17 @@ in {
       };
 
       git_status = {
-        conflicted = "🚨";
-        ahead = "🏎";
-        behind = "😰";
-        diverged = "😵";
+        conflicted = " 🚨";
+        ahead = " 🏎";
+        behind = " 😰";
+        diverged = " 😵";
         up_to_date = "[ ✓](bold fg:green bg:overlay0)";
-        untracked = "🤷";
-        stashed = "📦";
-        modified = "📝";
+        untracked = " 🤷";
+        stashed = " 📦";
+        modified = " 📝";
         staged = "[ +$count](fg:green bg:overlay0)";
-        renamed = "👅";
-        deleted = "🗑";
+        renamed = " 👅";
+        deleted = " 🗑";
 
         format = multiline ''
           [$conflicted$stashed$deleted$renamed$modified$typechanged$untracked$staged$ahead_behind](bg:overlay0)
