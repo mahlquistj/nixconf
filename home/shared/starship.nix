@@ -59,7 +59,7 @@ in {
           [](bg:mauve fg:crust)
           [](fg:mauve bg:surface0)
           [ $path]($style)
-          [ $read_only]($read_only_style)
+          [$read_only]($read_only_style)
           [](fg:surface0)
         '';
         repo_root_format = multiline ''
