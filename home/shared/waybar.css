@@ -59,7 +59,7 @@ tooltip,
 /* #### WORKSPACES #### */
 #workspaces button {
     min-height: 5px;
-    background-color: @base;
+    background-color: @surface0;
     border: 1px solid @peach;
     min-width: 15px;
     transition: 0.5s ease;
@@ -125,7 +125,7 @@ window#waybar.empty .modules-center {
 
 /* #### CLOCK #### */
 #clock {
-    background-color: @crust;
+    background-color: @base;
 }
 
 /* #### BATTERY #### */
