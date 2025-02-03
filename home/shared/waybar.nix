@@ -57,7 +57,7 @@ in {
       "custom/lock" = {
           "format" = "󰍁";
           "tooltip" = true;
-          "on-click" = "hyprlock";
+          "on-click" = "hyprctl dispatch exec hyprlock";
           tooltip-format = "Lock";
       };
       "custom/reboot" = {
@@ -85,15 +85,47 @@ in {
         format = "{title}";
         icon = true;
         icon-size = 15;
+        max-length = 30;
+        rewrite = {
+          "(.*) - Mozilla Firefox" = "$1";
+          "(.*) - Discord" = "$1";
+        };
       };
 
       "group/hardware" = {
         orientation = "horizontal";
         modules = [
+          "wireplumber"
+          "backlight"
           "disk"
           "memory"
           "cpu"
         ];
+      };
+
+      wireplumber = {
+        format = "<span color='#cad3f5' rise='-1000'>{icon}</span> {volume}%";
+        format-muted = "";
+        tooltip-format = "Open pwvucontrol";
+        format-icons = ["" "" ""];
+
+        on-click = "hyprctl dispatch exec pwvucontrol";
+
+        states = {
+          "medium" = 50;
+          "low" = 25;
+        };
+      };
+
+      backlight = {
+        format = "<span color='#cad3f5' rise='-1000'>{icon}</span> {percentage}%";
+        format-icons = ["󰃞" "󰃟" "󰃠"];
+        tooltip = false;
+
+        states = {
+          "medium" = 50;
+          "low" = 25;
+        };
       };
 
       disk = {

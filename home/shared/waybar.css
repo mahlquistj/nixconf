@@ -107,8 +107,7 @@ window#waybar.empty .modules-center {
         background-color: @red; 
     }
     50% {
-        background-color: @yellow;
-        color: @base;
+        background-color: @red;
     }
     75% {
         background-color: @red; 
@@ -129,15 +128,7 @@ window#waybar.empty .modules-center {
     animation: critical_swap 2s infinite;
 }
 
-#disk {
-    color: @green;
-}
-
-#memory {
-    color: @green;
-}
-
-#cpu {
+#disk, #cpu, #memory, #wireplumber, #backlight {
     color: @green;
 }
 
