@@ -121,6 +121,7 @@ window#waybar.empty .modules-center {
 /* #### NETWORK #### */
 #network {
     background-color: @sapphire;
+    color: @crust;
 }
 
 /* #### CLOCK #### */
