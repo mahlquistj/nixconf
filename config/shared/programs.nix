@@ -26,6 +26,7 @@
 
     # Display management
     brightnessctl
+    wlr-randr
 
     # Other
     neofetch
