@@ -3,6 +3,7 @@
     all:unset;
     font-family: "Source Code Pro", "Symbols Nerd Font Mono";
     font-size: 10px;
+    color: @text;
 }
 
 window#waybar {
@@ -42,7 +43,7 @@ tooltip,
 #tray menu {
     background-color: @base;
     border-radius: 15px;
-    border: 1px solid @crust;
+    border: 1px solid @base;
     padding: 5px;
 }
 
@@ -94,7 +95,7 @@ window#waybar.empty .modules-center {
 
 /* #### HARDWARE #### */
 #hardware {
-
+    background-color: @base;
 }
 
 #disk.warning {
@@ -120,19 +121,24 @@ window#waybar.empty .modules-center {
 
 /* #### NETWORK #### */
 #network {
-    background-color: @sapphire;
-    color: @crust;
+    background-color: @green;
+    color: @base;
+}
+
+#network.disconnected {
+    background-color: @red;
 }
 
 /* #### CLOCK #### */
 #clock {
-    background-color: @base;
+    background-color: @sapphire;
+    color: @base;
 }
 
 /* #### BATTERY #### */
 #battery {
     background: @green; /* Default to green color */
-    color: @crust;
+    color: @base;
 }
 
 @keyframes critical_charging {
