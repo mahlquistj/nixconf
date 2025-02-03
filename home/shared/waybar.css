@@ -100,16 +100,16 @@ window#waybar.empty .modules-center {
 }
 
 /* hardware circle indicators */<
-#hardware * .warning {
+#hardware .warning {
     color: @yellow;
 }
 
-#hardware * .critical {
+#hardware .critical {
     color: @red;
 }
 
 /* hardware icons */
-#hardware * span {
+#hardware span {
     color: @text;
 }
 
