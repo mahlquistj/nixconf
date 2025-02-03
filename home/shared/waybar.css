@@ -99,6 +99,19 @@ window#waybar.empty .modules-center {
     border-radius: 30px;
 }
 
+@keyframes critical_swap {
+    25% {
+        background-color: @red; 
+    }
+    50% {
+        background-color: @yellow;
+        color: @base;
+    }
+    75% {
+        background-color: @red; 
+    }
+}
+
 /* hardware circle indicators */
 #hardware .warning {
     color: @yellow;
@@ -108,8 +121,13 @@ window#waybar.empty .modules-center {
     color: @red;
 }
 
+#hardware .critical_swap { /* Disk only */
+    color: @red;
+    animation: critical_swap 2s infinite;
+}
+
 /* hardware icons */
-#hardware span {
+#hardware * span {
     color: @text;
 }
 

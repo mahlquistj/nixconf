@@ -96,21 +96,10 @@ in {
         ];
       };
 
-      cpu = {
-        interval = 10;
-
-        format = "<span></span> {icon}";
-        format-icons = ["" "󰪞" "󰪟" "󰪠" "󰪡" "󰪢" "󰪣" "󰪤" "󰪥"];
-        states = {
-          "critical" = 90;
-          "warning" = 70;
-        };
-      };
-
       disk = {
-        format = "<span></span> {icon}";
+        format = "<span></span> {percentage_used}% used";
         tooltip-format = "{used} used out of {total} ({free} free)";
-        format-icons = ["" "󰪞" "󰪟" "󰪠" "󰪡" "󰪢" "󰪣" "󰪤" "󰪥"];
+
         states = {
           "critical" = 90;
           "warning" = 70;
@@ -123,8 +112,20 @@ in {
         tooltip = true;
         format-icons = ["" "󰪞" "󰪟" "󰪠" "󰪡" "󰪢" "󰪣" "󰪤" "󰪥"];
         states = {
-          "critical" = 80;
-          "warning" = 60;
+          "critical_swap" = 80;
+          "critical" = 50; # We're over our normal ram - now using SWAP
+          "warning" = 35;
+        };
+      };
+
+      cpu = {
+        interval = 10;
+
+        format = "<span></span> {icon}";
+        format-icons = ["" "󰪞" "󰪟" "󰪠" "󰪡" "󰪢" "󰪣" "󰪤" "󰪥"];
+        states = {
+          "critical" = 90;
+          "warning" = 70;
         };
       };
 
