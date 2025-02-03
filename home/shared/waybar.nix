@@ -112,8 +112,8 @@ in {
         on-click = "hyprctl dispatch exec pwvucontrol";
 
         states = {
-          "medium" = 50;
-          "low" = 25;
+          "critical" = 50;
+          "warning" = 25;
         };
       };
 
@@ -123,8 +123,8 @@ in {
         tooltip = false;
 
         states = {
-          "medium" = 50;
-          "low" = 25;
+          "critical" = 50;
+          "warning" = 25;
         };
       };
 
