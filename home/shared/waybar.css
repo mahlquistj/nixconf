@@ -126,11 +126,6 @@ window#waybar.empty .modules-center {
     animation: critical_swap 2s infinite;
 }
 
-/* hardware icons */
-#hardware widget .module span {
-    color: @text;
-}
-
 #disk {
     color: @green;
 }

@@ -97,7 +97,7 @@ in {
       };
 
       disk = {
-        format = "<span></span> {percentage_used}%";
+        format = "<span color='@text'></span> {percentage_used}%";
         tooltip-format = "{used} used out of {total} ({free} free)";
 
         states = {
@@ -107,7 +107,7 @@ in {
       };
 
       memory = {
-        format = "<span></span> {icon}";
+        format = "<span color='@text'></span> {icon}";
         tooltip-format = "RAM: {used:0.1f}GiB of {total:0.1f}GiB used.\nSWAP: {swapUsed:0.1f}GiB of {swapTotal:0.1f}GiB used.";
         tooltip = true;
         format-icons = ["" "󰪞" "󰪟" "󰪠" "󰪡" "󰪢" "󰪣" "󰪤" "󰪥"];
@@ -121,7 +121,7 @@ in {
       cpu = {
         interval = 10;
 
-        format = "<span></span> {icon}";
+        format = "<span color='@text'></span> {icon}";
         format-icons = ["" "󰪞" "󰪟" "󰪠" "󰪡" "󰪢" "󰪣" "󰪤" "󰪥"];
         states = {
           "critical" = 90;
