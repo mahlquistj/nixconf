@@ -183,6 +183,8 @@
 
         # Volume mute
         ",XF86AudioMute, exec, wpctl set-mute @DEFAULT_AUDIO_SINK@ toggle"
+        # Microphone mute
+        ",XF86AudioMicMute, exect, wpctl set-mute @DEFAULT_AUDIO_SOURCE@ toggle"
       ] ++ (
         # workspaces
         # binds $mod + [shift +] {1..9} to [move to] workspace {1..9}
