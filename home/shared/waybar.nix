@@ -118,7 +118,7 @@ in {
       };
 
       backlight = {
-      #  format = "<span color='#cad3f5' rise='-1000'>{icon}</span> {percentage}%";
+        format = "<span color='#cad3f5' rise='-1000'>{icon}</span> {percentage}%";
       #  device = "${sysOptions.backlight_device}";
       #  format-icons = ["󰃞" "󰃟" "󰃠"];
       #  tooltip = false;
