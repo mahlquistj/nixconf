@@ -99,7 +99,7 @@ window#waybar.empty .modules-center {
     border-radius: 30px;
 }
 
-/* hardware circle indicators */<
+/* hardware circle indicators */
 #hardware .warning {
     color: @yellow;
 }
