@@ -96,6 +96,7 @@ window#waybar.empty .modules-center {
 /* #### HARDWARE #### */
 #hardware {
     background-color: @base;
+    border-radius: 30px;
 }
 
 #disk.warning {
