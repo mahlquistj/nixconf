@@ -83,6 +83,9 @@ tooltip,
     border-color: @peach;
     transition: all 0.5s ease;
     min-width: 3rem;
+}
+
+#workspaces button.active * {
     color: @base;
 }
 
