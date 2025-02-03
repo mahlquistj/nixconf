@@ -117,17 +117,17 @@ in {
         };
       };
 
-      backlight = {
-        format = "<span color='#cad3f5' rise='-1000'>{icon}</span> {percentage}%";
-        device = "${sysOptions.backlight_device}";
-        format-icons = ["󰃞" "󰃟" "󰃠"];
-        tooltip = false;
-
-        states = {
-          "critical" = 50;
-          "warning" = 25;
-        };
-      };
+      #backlight = {
+      #  format = "<span color='#cad3f5' rise='-1000'>{icon}</span> {percentage}%";
+      #  device = "${sysOptions.backlight_device}";
+      #  format-icons = ["󰃞" "󰃟" "󰃠"];
+      #  tooltip = false;
+      #
+      #  states = {
+      #    "critical" = 50;
+      #    "warning" = 25;
+      #  };
+      #};
 
       disk = {
         format = "<span color='#cad3f5'></span> {percentage_used}%"; #TODO: Can the color be set in another way?
