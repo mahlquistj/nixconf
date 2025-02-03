@@ -15,10 +15,11 @@
     catppuccin.url = "github:catppuccin/nix";
 
     # Spotify themes
-    spicetify.url = "github:Gerg-L/spicetify-nix";
+    spicetify-nix.url = "github:Gerg-L/spicetify-nix";
   };
 
-  outputs = { self, nixpkgs, catppuccin, spicetify, home-manager, ... }@inputs:
+  outputs =
+    { self, nixpkgs, catppuccin, spicetify-nix, home-manager, ... }@inputs:
     let
       inherit (self) outputs;
       wallpapers = "${self}/media/wallpaper";
@@ -42,7 +43,7 @@
 
       default_hm_modules = [
         catppuccin.homeManagerModules.catppuccin
-        spicetify.homeManagerModules.spicetify
+        spicetify-nix.homeManagerModules.spicetify
         {
           catppuccin = {
             enable = true;
@@ -68,7 +69,7 @@
         };
 
       args = {
-        inherit inputs outputs self wallpapers style customUtils spicetify;
+        inherit inputs outputs self wallpapers style customUtils spicetify-nix;
       };
     in {
       nixosConfigurations = {
