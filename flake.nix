@@ -15,7 +15,7 @@
     catppuccin.url = "github:catppuccin/nix";
 
     # Spotify themes
-    spicetify.url = "github:the-argus/spicetify-nix";
+    spicetify.url = "github:Gerg-L/spicetify-nix";
   };
 
   outputs = { self, nixpkgs, catppuccin, spicetify, home-manager, ... }@inputs:
@@ -42,7 +42,7 @@
 
       default_hm_modules = [
         catppuccin.homeManagerModules.catppuccin
-        spicetify.homeManagerModule
+        spicetify.homeManagerModules.spicetify
         {
           catppuccin = {
             enable = true;
