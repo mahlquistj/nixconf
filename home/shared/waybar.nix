@@ -104,7 +104,7 @@ in {
       };
 
       wireplumber = {
-        format = "<span color='#cad3f5' rise='-1000'>{icon}</span> {volume}%";
+        format = "<span rise='-1000'><span color='#cad3f5'>{icon}</span> {volume}%</span>";
         format-muted = "";
         tooltip-format = "Open pwvucontrol";
         format-icons = ["" "" ""];
@@ -118,13 +118,9 @@ in {
       };
 
       backlight = {
-        format = "<span color='#cad3f5' rise='-1000'>{icon}</span> {percent}%";
+        format = "<span rise='-1000'><span color='#cad3f5'>{icon}</span> {percent}%</span>";
         format-icons = ["󰃞" "󰃟" "󰃠"];
         tooltip = false;
-        states = {
-          "critical" = 50;
-          "warning" = 25;
-        };
       };
 
       disk = {
