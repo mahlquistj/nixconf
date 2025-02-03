@@ -5,7 +5,7 @@ in {
     enable = true;
     theme = spicePkgs.themes.catppuccin;
     colorScheme = config.catppuccin.flavor;
-    enabledExtenstions = with spicePkgs.extensions; [ fullAppDisplay shuffle ];
+    enabledExtensions = with spicePkgs.extensions; [ fullAppDisplay shuffle ];
     enabledCustomApps = with spicePkgs.apps; [ new-releases ];
   };
 }
