@@ -56,10 +56,6 @@ tooltip,
     color: @red;
 }
 
-#power .other-btns {
-    color: white;
-}
-
 /* #### WORKSPACES #### */
 #workspaces button {
     min-height: 5px;
@@ -223,5 +219,4 @@ window#waybar.empty .modules-center {
 
 #battery.critical {
     background: @red;
-    color: white;
 }
