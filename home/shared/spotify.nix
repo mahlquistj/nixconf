@@ -6,6 +6,6 @@ in {
     theme = spicePkgs.themes.catppuccin;
     colorScheme = config.catppuccin.flavor;
     enabledExtensions = with spicePkgs.extensions; [ fullAppDisplay shuffle ];
-    enabledCustomApps = with spicePkgs.apps; [ new-releases ];
+    enabledCustomApps = with spicePkgs.apps; [ newReleases ];
   };
 }
