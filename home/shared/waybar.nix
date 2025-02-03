@@ -125,7 +125,6 @@ in {
           "critical" = 50;
           "warning" = 25;
         };
-        on-click = "hyprctl dispatch exec ddcui";
       };
 
       disk = {

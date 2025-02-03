@@ -25,8 +25,7 @@
     wev # Keyboard debugging
 
     # Display management
-    ddcutil
-    ddcui
+    brightnessctl
 
     # Other
     neofetch

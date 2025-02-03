@@ -143,8 +143,8 @@
         ",XF86AudioRaiseVolume, exec, wpctl set-volume -l 1.4 @DEFAULT_AUDIO_SINK@ 5%+"
         ",XF86AudioLowerVolume, exec, wpctl set-volume -l 1.4 @DEFAULT_AUDIO_SINK@ 5%-"
         # Brightness up/down
-        ",XF86MonBrightnessUp, exec, ddcutil setvcp 10 + 10"
-        ",XF86MonBrightnessDown, exec, ddcutil setvcp 10 - 10"
+        ",XF86MonBrightnessUp, exec, brightnessctl set 10%+"
+        ",XF86MonBrightnessDown, exec, brightnessctl set 10%-"
       ];
       bind = [
         # Important controls

@@ -15,8 +15,6 @@
     efi.canTouchEfiVariables = true;
   };
 
-  hardware.i2c.enable = true;
-
   # Timezone
   time.timeZone = "Europe/Copenhagen";
 
@@ -51,7 +49,7 @@
     users.maj = {
       isNormalUser = true;
       description = "Mads Ahlquist Jensen";
-      extraGroups = [ "networkmanager" "wheel" "i2c" ];
+      extraGroups = [ "networkmanager" "wheel" ];
     };
   };
 
