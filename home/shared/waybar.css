@@ -99,25 +99,30 @@ window#waybar.empty .modules-center {
     border-radius: 30px;
 }
 
-#disk.warning {
+/* hardware circle indicators */<
+#hardware * .warning {
     color: @yellow;
 }
 
-#disk.critical {
+#hardware * .critical {
     color: @red;
 }
 
-
-#memory.warning {
-    color: @yellow;
+/* hardware icons */
+#hardware * span {
+    color: @text;
 }
 
-#memory.critical {
-    color: @red;
+#disk {
+    color: @green;
+}
+
+#memory {
+    color: @green;
 }
 
 #cpu {
-    color: @mauve;
+    color: @green;
 }
 
 /* #### NETWORK #### */
@@ -132,7 +137,7 @@ window#waybar.empty .modules-center {
 
 /* #### CLOCK #### */
 #clock {
-    background-color: @sapphire;
+    background-color: @blue;
     color: @base;
 }
 

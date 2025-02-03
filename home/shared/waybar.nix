@@ -99,14 +99,18 @@ in {
       cpu = {
         interval = 10;
 
-        format = "<span color='#ffffff'></span> {icon}";
+        format = "<span></span> {icon}";
         format-icons = ["" "󰪞" "󰪟" "󰪠" "󰪡" "󰪢" "󰪣" "󰪤" "󰪥"];
+        states = {
+          "critical" = 90;
+          "warning" = 70;
+        };
       };
 
       disk = {
-        format = " {percentage_used}% used";
+        format = "<span></span> {icon}";
         tooltip-format = "{used} used out of {total} ({free} free)";
-
+        format-icons = ["" "󰪞" "󰪟" "󰪠" "󰪡" "󰪢" "󰪣" "󰪤" "󰪥"];
         states = {
           "critical" = 90;
           "warning" = 70;
@@ -114,9 +118,10 @@ in {
       };
 
       memory = {
-        format = " {used:0.1f}GiB";
+        format = "<span></span> {icon}";
         tooltip-format = "RAM: {used:0.1f}GiB of {total:0.1f}GiB used.\nSWAP: {swapUsed:0.1f}GiB of {swapTotal:0.1f}GiB used.";
         tooltip = true;
+        format-icons = ["" "󰪞" "󰪟" "󰪠" "󰪡" "󰪢" "󰪣" "󰪤" "󰪥"];
         states = {
           "critical" = 80;
           "warning" = 60;

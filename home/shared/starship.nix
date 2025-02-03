@@ -116,9 +116,9 @@ in {
       time = {
         disabled = false;
         format = multiline ''
-          [](fg:sapphire)
-          [](fg:crust bg:sapphire)
-          [](fg:sapphire bg:surface0)
+          [](fg:blue)
+          [](fg:crust bg:blue)
+          [](fg:blue bg:surface0)
           [ $time](bg:surface0)
           [ ](fg:surface0)
         '';
