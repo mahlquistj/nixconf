@@ -7,6 +7,7 @@
     ./fish.nix
     ./ghostty.nix
     ./hyprland.nix
+    ./spotify.nix
     ./starship.nix
     ./wofi.nix
     ./waybar.nix

@@ -13,15 +13,20 @@
 
     # Color scheme
     catppuccin.url = "github:catppuccin/nix";
+
+    # Spotify themes
+    spicetify.url = "github:the-argus/spicetify-nix";
   };
 
-  outputs = { self, nixpkgs, catppuccin, home-manager, ... }@inputs:
+  outputs = { self, nixpkgs, catppuccin, spicetify, home-manager, ... }@inputs:
     let
       inherit (self) outputs;
       wallpapers = "${self}/media/wallpaper";
       style = import ./style.nix { };
-      lib = nixpkgs.lib;
-      customUtils = import ./custom_utils.nix { inherit lib style; };
+      customUtils = import ./custom_utils.nix {
+        lib = nixpkgs.lib;
+        style = style;
+      };
 
       default_modules = [
         catppuccin.nixosModules.catppuccin
@@ -37,6 +42,7 @@
 
       default_hm_modules = [
         catppuccin.homeManagerModules.catppuccin
+        spicetify.homeManagerModule
         {
           catppuccin = {
             enable = true;
@@ -61,7 +67,9 @@
           };
         };
 
-      args = { inherit inputs outputs self wallpapers style customUtils; };
+      args = {
+        inherit inputs outputs self wallpapers style customUtils spicetify;
+      };
     in {
       nixosConfigurations = {
         work = nixpkgs.lib.nixosSystem {
