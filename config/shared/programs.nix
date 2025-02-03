@@ -23,7 +23,10 @@
     openssl
     home-manager
     wev # Keyboard debugging
-    ddcutil # Display management
+
+    # Display management
+    ddcutil
+    ddcui
 
     # Other
     neofetch
