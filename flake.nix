@@ -51,11 +51,13 @@
             has_battery = true;
             wallpaper = "1920x1080";
             cursorSize = 18;
+            backlight_device = "amdgpu_bl1";
           };
           desktop = {
             has_battery = false;
             wallpaper = "3440x1440";
             cursorSize = 24;
+            backlight_device = "TODO";
           };
         };
 

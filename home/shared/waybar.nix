@@ -112,20 +112,20 @@ in {
         on-click = "hyprctl dispatch exec pwvucontrol";
 
         states = {
-          "critical" = 50;
-          "warning" = 25;
+          "critical" = 80;
+          "warning" = 50;
         };
       };
 
       backlight = {
         format = "<span color='#cad3f5' rise='-1000'>{icon}</span> {percentage}%";
-        format-icons = ["󰃞" "󰃟" "󰃠"];
-        tooltip = false;
+        #format-icons = ["󰃞" "󰃟" "󰃠"];
+        #tooltip = false;
 
-        states = {
-          "critical" = 50;
-          "warning" = 25;
-        };
+        #states = {
+        #  "critical" = 50;
+        #  "warning" = 25;
+        #};
       };
 
       disk = {
