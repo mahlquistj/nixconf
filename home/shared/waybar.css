@@ -127,7 +127,7 @@ window#waybar.empty .modules-center {
 }
 
 /* hardware icons */
-#hardware * span {
+#hardware widget .module span {
     color: @text;
 }
 

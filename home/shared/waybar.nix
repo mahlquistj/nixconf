@@ -97,7 +97,7 @@ in {
       };
 
       disk = {
-        format = "<span></span> {percentage_used}% used";
+        format = "<span></span> {percentage_used}%";
         tooltip-format = "{used} used out of {total} ({free} free)";
 
         states = {
