@@ -118,14 +118,14 @@ in {
       };
 
       backlight = {
-        format = "<span color='#cad3f5' rise='-1000'>{icon}</span> {percentage}%";
-      #  device = "${sysOptions.backlight_device}";
-      #  format-icons = ["󰃞" "󰃟" "󰃠"];
-      #  tooltip = false;
+        format = "<span color='#cad3f5' rise='-1000'>{icon}</span> {percent}%";
+        format-icons = ["󰃞" "󰃟" "󰃠"];
+        tooltip = false;
         states = {
           "critical" = 50;
           "warning" = 25;
         };
+        on-click = "hyprctl dispatch exec ddcui";
       };
 
       disk = {
