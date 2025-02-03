@@ -121,7 +121,7 @@ in {
       cpu = {
         interval = 10;
 
-        format = "<span color='#cad3f5'></span> <span rise='-1000'>{icon}</span>"; #TODO: Can the color be set in another way?
+        format = "<span color='#cad3f5' rise='-1000'></span> <span rise='-1000'>{icon}</span>"; #TODO: Can the color be set in another way?
         format-icons = ["" "󰪞" "󰪟" "󰪠" "󰪡" "󰪢" "󰪣" "󰪤" "󰪥"];
         states = {
           "critical" = 90;
