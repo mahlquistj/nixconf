@@ -97,7 +97,7 @@ in {
       };
 
       disk = {
-        format = "<span color='@text'></span> {percentage_used}%";
+        format = "<span color='#cad3f5'></span> {percentage_used}%"; #TODO: Can the color be set in another way?
         tooltip-format = "{used} used out of {total} ({free} free)";
 
         states = {
@@ -107,7 +107,7 @@ in {
       };
 
       memory = {
-        format = "<span color='@text'></span> {icon}";
+        format = "<span color='#cad3f5'></span> {icon}"; #TODO: Can the color be set in another way?
         tooltip-format = "RAM: {used:0.1f}GiB of {total:0.1f}GiB used.\nSWAP: {swapUsed:0.1f}GiB of {swapTotal:0.1f}GiB used.";
         tooltip = true;
         format-icons = ["" "󰪞" "󰪟" "󰪠" "󰪡" "󰪢" "󰪣" "󰪤" "󰪥"];
@@ -121,7 +121,7 @@ in {
       cpu = {
         interval = 10;
 
-        format = "<span color='@text'></span> {icon}";
+        format = "<span color='#cad3f5'></span> {icon}"; #TODO: Can the color be set in another way?
         format-icons = ["" "󰪞" "󰪟" "󰪠" "󰪡" "󰪢" "󰪣" "󰪤" "󰪥"];
         states = {
           "critical" = 90;
