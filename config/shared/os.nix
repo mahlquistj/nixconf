@@ -10,10 +10,17 @@
   system.stateVersion = "24.11"; # Did you read the comment?
 
   # Bootloader
-  boot.loader = {
-    systemd-boot.enable = true;
-    efi.canTouchEfiVariables = true;
+  boot = {
+    loader = {
+      systemd-boot.enable = true;
+      efi.canTouchEfiVariables = true;
+    };
+    kernelModules = [ "i2c-dev" ];
   };
+
+  services.udev.extraRules = ''
+    KERNEL=="i2c-[0-9]*", GROUP="i2c", MODE="0660"
+  '';
 
   # Timezone
   time.timeZone = "Europe/Copenhagen";
@@ -49,7 +56,7 @@
     users.maj = {
       isNormalUser = true;
       description = "Mads Ahlquist Jensen";
-      extraGroups = [ "networkmanager" "wheel" ];
+      extraGroups = [ "networkmanager" "wheel" "i2c" ];
     };
   };
 
