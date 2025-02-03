@@ -49,8 +49,11 @@ tooltip,
 
 /* #### POWER #### */
 #power {
-    color: @red;
     font-weight: bold;
+}
+
+#custom-power {
+    color: @red;
 }
 
 #power .other-btns {
