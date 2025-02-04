@@ -56,15 +56,13 @@
         { # TODO: How can we make this better, so that we don't have to *merge* it into specialArgs every time we run the flake?
           work = {
             has_battery = true;
-            wallpaper = "1920x1080";
+            wallpaper = "1920x1200";
             cursorSize = 18;
-            backlight_device = "amdgpu_bl1";
           };
           desktop = {
             has_battery = false;
             wallpaper = "3440x1440";
             cursorSize = 24;
-            backlight_device = "TODO";
           };
         };
 
