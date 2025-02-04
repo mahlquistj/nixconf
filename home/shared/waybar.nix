@@ -134,7 +134,7 @@ in {
       };
 
       memory = {
-        format = "<span color='#cad3f5' rise='-900'></span> <span rise='-900'>{icon}</span>"; #TODO: Can the color be set in another way?
+        format = "<span color='#cad3f5' rise='-500'></span> <span rise='-500'>{icon}</span>"; #TODO: Can the color be set in another way?
         tooltip-format = "RAM: {used:0.1f}GiB of {total:0.1f}GiB used.\nSWAP: {swapUsed:0.1f}GiB of {swapTotal:0.1f}GiB used.";
         tooltip = true;
         format-icons = ["" "󰪞" "󰪟" "󰪠" "󰪡" "󰪢" "󰪣" "󰪤" "󰪥"];
@@ -148,7 +148,7 @@ in {
       cpu = {
         interval = 10;
 
-        format = "<span color='#cad3f5' rise='-900'></span> <span rise='-900'>{icon}</span>"; #TODO: Can the color be set in another way?
+        format = "<span color='#cad3f5' rise='-500'></span> <span rise='-500'>{icon}</span>"; #TODO: Can the color be set in another way?
         format-icons = ["" "󰪞" "󰪟" "󰪠" "󰪡" "󰪢" "󰪣" "󰪤" "󰪥"];
         states = {
           "critical" = 90;
@@ -164,7 +164,7 @@ in {
         tooltip-format-ethernet = "Gw: {gwaddr} | {ipaddr} | Up: {bandwidthUpBytes} Down: {bandwidthDownBytes}";
         tooltip-format-wifi = "{signaldBm} dBm | {ipaddr} | Up: {bandwidthUpBytes} Down: {bandwidthDownBytes}";
 
-        format-icons = ["󰤟" "󰤢" "󰤥" "󰤨"];
+        format-icons = ["󰤯" "󰤟" "󰤢" "󰤥" "󰤨"];
 
         #TODO: on_click = "ADD COMMAND TO OPEN NETWORK MANAGER";
       };
