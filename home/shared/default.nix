@@ -55,7 +55,10 @@
     };
   };
 
-  gtk.enable = true;
+  gtk = {
+    enable = true;
+    font.name = "Source Code Pro";
+  };
   xsession.enable = true;
   qt = {
     enable = true;
