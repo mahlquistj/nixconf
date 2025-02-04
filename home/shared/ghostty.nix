@@ -5,7 +5,7 @@
 
     settings = {
       font-family = "SauceCodePro Nerd Font Mono";
-      font-size = 18;
+      font-size = 12;
 
       cursor-style = "bar";
       cursor-style-blink = true;
