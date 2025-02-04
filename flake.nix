@@ -39,6 +39,7 @@
             flavor = "mocha";
           };
         }
+        ./config/shared
       ];
 
       default_hm_modules = [
@@ -50,6 +51,7 @@
             flavor = "mocha";
           };
         }
+        ./home/shared
       ];
 
       system_options =
