@@ -134,7 +134,7 @@ in {
       };
 
       memory = {
-        format = "<span rise='-500'><span color='#cad3f5'></span> {icon}</span>"; #TODO: Can the color be set in another way?
+        format = "<span rise='-750'><span color='#cad3f5'></span> {icon}</span>"; #TODO: Can the color be set in another way?
         tooltip-format = "RAM: {used:0.1f}GiB of {total:0.1f}GiB used.\nSWAP: {swapUsed:0.1f}GiB of {swapTotal:0.1f}GiB used.";
         tooltip = true;
         format-icons = ["" "󰪞" "󰪟" "󰪠" "󰪡" "󰪢" "󰪣" "󰪤" "󰪥"];
@@ -148,7 +148,7 @@ in {
       cpu = {
         interval = 10;
 
-        format = "<span rise='-500'><span color='#cad3f5'></span> {icon}</span>"; #TODO: Can the color be set in another way?
+        format = "<span rise='-750'><span color='#cad3f5'></span> {icon}</span>"; #TODO: Can the color be set in another way?
         format-icons = ["" "󰪞" "󰪟" "󰪠" "󰪡" "󰪢" "󰪣" "󰪤" "󰪥"];
         states = {
           "critical" = 90;
