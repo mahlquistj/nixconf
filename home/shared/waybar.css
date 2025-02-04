@@ -64,7 +64,7 @@ tooltip,
     min-height: 5px;
     background-color: @surface0;
     border: 1px solid @peach;
-    min-width: 15px;
+    min-width: 25px;
     transition: 0.5s ease;
     font-size: 12px;
     font-weight: normal;
