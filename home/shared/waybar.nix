@@ -18,7 +18,7 @@ in {
 
       mod = "dock";
 
-      height = 27;
+      height = 35;
 
       margin-left = 10;
       margin-right = 10;
