@@ -3,7 +3,6 @@
     all:unset;
     font-family: "Source Code Pro", "Symbols Nerd Font Mono";
     font-size: 12px;
-    font-weight: bold;
     color: @text;
 }
 
