@@ -58,6 +58,8 @@
   gtk = {
     enable = true;
     font.name = "Source Code Pro";
+    theme.name = "Catppuccin-Dark-BL-MB";
+    theme.package = pkgs.magnetic-catppuccin-gtk;
   };
   xsession.enable = true;
   qt = {

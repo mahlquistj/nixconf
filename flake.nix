@@ -49,7 +49,6 @@
           catppuccin = {
             enable = true;
             flavor = "mocha";
-            gtk.tweaks = [ "black" ];
           };
         }
         ./home/shared

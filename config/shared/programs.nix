@@ -27,6 +27,9 @@
     # Display management
     brightnessctl
 
+    # Theming
+    magnetic-catppuccin-gtk
+
     # Other
     neofetch
     phinger-cursors
