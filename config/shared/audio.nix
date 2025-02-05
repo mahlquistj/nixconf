@@ -8,6 +8,6 @@
 
   };
   environment.systemPackages = [
-    pkgs.pwvucontrol # Audio GUI
+    pkgs.pavucontrol # Audio GUI
   ];
 }

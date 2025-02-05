@@ -106,10 +106,10 @@ in {
       wireplumber = {
         format = "<span rise='-1000'><span color='#cad3f5'>{icon}</span> {volume}%</span>";
         format-muted = "";
-        tooltip-format = "Open pwvucontrol";
+        tooltip-format = "Open sound manager";
         format-icons = ["" "" ""];
 
-        on-click = "hyprctl dispatch exec pwvucontrol";
+        on-click = "hyprctl dispatch exec pavucontrol";
 
         states = {
           "critical" = 80;
