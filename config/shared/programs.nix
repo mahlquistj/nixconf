@@ -30,7 +30,6 @@
     # Theming
     magnetic-catppuccin-gtk
     papirus-icon-theme
-    catppuccin-papirus-folders
 
     # Other
     neofetch
