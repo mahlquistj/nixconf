@@ -74,7 +74,7 @@ in {
       };
 
       tray = {
-
+        spacing = 2;
       };
 
       "hyprland/workspaces" = { 
@@ -178,9 +178,9 @@ in {
         interval = 20;
 
         format = "<span rise='-1000'>{icon}</span>";
-        format-good = "<span rise='-1000'>{icon}</span> {capacity}%";
-        format-warning = "<span rise='-1000'>{icon}</span> {capacity}%";
-        format-critical = "<span rise='-1000'>{icon}</span> {time}";
+        format-good = "{icon} {capacity}%";
+        format-warning = "{icon} {capacity}%";
+        format-critical = "{icon} {time}";
         
         format-charging = "󱐋 {capacity}%";
         format-charging-good = "󱐋 {capacity}%";
