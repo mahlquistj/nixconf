@@ -13,8 +13,8 @@
       drun-display-format = "{icon} {name}";
       hide-scrollbar = true;
       lines = 5;
-      display-drun = "󱄅";
-      display-run = "❯";
+      display-drun = "󱄅 ";
+      display-run = "❯ ";
       sidebar-mode = true;
     };
   };
