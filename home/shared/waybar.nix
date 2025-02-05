@@ -74,7 +74,7 @@ in {
       };
 
       tray = {
-        spacing = 2;
+        spacing = 5;
       };
 
       "hyprland/workspaces" = { 
