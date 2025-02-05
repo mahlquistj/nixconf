@@ -59,7 +59,7 @@
     enable = true;
     font.name = "Source Code Pro";
     theme = {
-      name = "Catppuccin-GTK-Purple-Dark-Compact";
+      name = "Catppuccin-GTK-Dark-Compact";
       package = pkgs.magnetic-catppuccin-gtk.override {
         shade = "dark";
         size = "compact";
