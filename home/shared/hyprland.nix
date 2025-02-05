@@ -93,8 +93,7 @@
       # Apps
       "$terminal" = "ghostty";
       "$fileman" = "nemo";
-      "$menu" =
-        ''rofi -show combi -modes combi -combi-modes "window,drun,run"'';
+      "$menu" = "rofi -show drun";
       "$browser" = "firefox";
 
       # Startup

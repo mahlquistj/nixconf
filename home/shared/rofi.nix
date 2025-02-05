@@ -6,6 +6,7 @@
     font = "SauceCodePro Nerd Font Mono";
 
     extraConfig = {
+      modes = [ "drun" "window" "run" ];
       show-icons = true;
       icon-theme = "Papirus";
       terminal = "ghostty";
