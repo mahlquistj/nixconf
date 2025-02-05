@@ -1,15 +1,12 @@
-{ customUtils, ... }:
-let wofiStyling = customUtils.import.css ./wofi.css;
-in {
-  programs.wofi = {
+{ ... }: {
+  programs.rofi = {
     enable = true;
 
-    settings = {
-      key_expand = "End";
-      hide_scroll = true;
+    location = "center";
+    font = "Source Code Pro";
+
+    extraConfig = {
+      # TODO
     };
-
-    style = "${wofiStyling}";
-
   };
 }
