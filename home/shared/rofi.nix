@@ -3,10 +3,18 @@
     enable = true;
 
     location = "center";
-    font = "Source Code Pro";
+    font = "SauceCodePro Nerd Font Mono";
 
     extraConfig = {
-      # TODO
+      show-icons = true;
+      icon-theme = "Papirus";
+      terminal = "ghostty";
+      drun-display-format = "{icon} {name}";
+      hide-scrollbar = true;
+      lines = 5;
+      display-drun = " 󱄅 ";
+      display-run = " ❯ ";
+      display-window = "  ";
     };
   };
 }
