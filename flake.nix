@@ -10,9 +10,6 @@
       inputs.nixpkgs.follows = "nixpkgs";
     };
 
-    # Cursor
-    hyprcursor-phinger.url = "github:jappie3/hyprcursor-phinger";
-
     # Color scheme
     catppuccin.url = "github:catppuccin/nix";
 
@@ -20,8 +17,7 @@
     spicetify-nix.url = "github:Gerg-L/spicetify-nix";
   };
 
-  outputs =
-    { self, nixpkgs, catppuccin, spicetify-nix, home-manager, ... }@inputs:
+  outputs = { self, nixpkgs, ... }@inputs:
     let
       inherit (self) outputs;
 
