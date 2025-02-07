@@ -1,4 +1,4 @@
-{ pkgs, sysOptions, ... }:
+{ pkgs, sysOptions, osConfig, ... }:
 
 {
   imports = [
@@ -15,7 +15,7 @@
   home = {
     username = "maj";
     homeDirectory = "/home/maj";
-    stateVersion = "24.11";
+    stateVersion = osConfig.system.stateVersion;
 
     packages = with pkgs; [
       # Utils
