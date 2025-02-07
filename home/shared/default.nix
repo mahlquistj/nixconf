@@ -13,8 +13,8 @@
   ];
 
   home = {
-    username = "maj";
-    homeDirectory = "/home/maj";
+    username = sysOptions.user;
+    homeDirectory = "/home/${sysOptions.user}";
     stateVersion = osConfig.system.stateVersion;
 
     packages = with pkgs; [

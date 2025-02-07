@@ -2,7 +2,9 @@
   description = "My NixOS configurations";
 
   inputs = {
-    nixpkgs = { url = "github:nixos/nixpkgs/release-24.11"; };
+    nixpkgs.url = "github:nixos/nixpkgs/release-24.11";
+
+    # Home manager
     home-manager = {
       url = "github:nix-community/home-manager/release-24.11";
       inputs.nixpkgs.follows = "nixpkgs";
@@ -54,17 +56,19 @@
         ./home/shared
       ];
 
-      system_options =
+      sysOptions =
         { # TODO: How can we make this better, so that we don't have to *merge* it into specialArgs every time we run the flake?
           work = {
+            user = "maj";
             has_battery = true;
             wallpaper = "1920x1200";
             cursorSize = 18;
           };
           desktop = {
+            user = "maj";
             has_battery = false;
             wallpaper = "3440x1440";
-            cursorSize = 24;
+            cursorSize = 18;
           };
         };
 
@@ -74,30 +78,27 @@
     in {
       nixosConfigurations = {
         work = nixpkgs.lib.nixosSystem {
-          specialArgs = args // { sysOptions = system_options.work; };
+          specialArgs = args // { sysOptions = sysOptions.work; };
           modules = default_modules ++ [
             ./config/work
             {
               home-manager = {
-                extraSpecialArgs = args // {
-                  sysOptions = system_options.work;
-                };
-                users.maj.imports = default_hm_modules ++ [ ./home/work.nix ];
+                extraSpecialArgs = args // { sysOptions = sysOptions.work; };
+                users.${sysOptions.work.user}.imports = default_hm_modules
+                  ++ [ ./home/work.nix ];
               };
             }
           ];
         };
 
         desktop = nixpkgs.lib.nixosSystem {
-          specialArgs = args { sysOptions = system_options.desktop; };
+          specialArgs = args { sysOptions = sysOptions.desktop; };
           modules = default_modules ++ [
             ./config/desktop
             {
               home-manager = {
-                extraSpecialArgs = args // {
-                  sysOptions = system_options.desktop;
-                };
-                users.maj.imports = default_hm_modules
+                extraSpecialArgs = args // { sysOptions = sysOptions.desktop; };
+                users.${sysOptions.desktop.user}.imports = default_hm_modules
                   ++ [ ./home/desktop.nix ];
               };
             }

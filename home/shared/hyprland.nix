@@ -206,7 +206,7 @@
       env = HYPRCURSOR_SIZE,${builtins.toString sysOptions.cursorSize}
       env = XCURSOR_SIZE,${builtins.toString sysOptions.cursorSize}
       env = HYPRSHOT_DIR,screenshots
-      env = PATH,/home/maj/.nix-profile/bin:/run/current-system/sw/bin:$PATH
+      env = PATH,/home/${sysOptions.user}/.nix-profile/bin:/run/current-system/sw/bin:$PATH
     '';
   };
 }
