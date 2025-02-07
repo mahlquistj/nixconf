@@ -18,7 +18,7 @@ in {
 
       mod = "dock";
 
-      height = 27;
+      height = 35;
 
       margin-left = 10;
       margin-right = 10;
@@ -57,7 +57,7 @@ in {
       "custom/lock" = {
           "format" = "󰍁";
           "tooltip" = true;
-          "on-click" = "hyprlock";
+          "on-click" = "hyprctl dispatch exec hyprlock";
           tooltip-format = "Lock";
       };
       "custom/reboot" = {
@@ -74,7 +74,7 @@ in {
       };
 
       tray = {
-
+        spacing = 5;
       };
 
       "hyprland/workspaces" = { 
@@ -85,26 +85,46 @@ in {
         format = "{title}";
         icon = true;
         icon-size = 15;
+        max-length = 30;
+        rewrite = {
+          "(.*) - Mozilla Firefox" = "$1";
+          "(.*) - Discord" = "$1";
+        };
       };
 
       "group/hardware" = {
         orientation = "horizontal";
         modules = [
+          "wireplumber"
+          "backlight"
           "disk"
           "memory"
           "cpu"
         ];
       };
 
-      cpu = {
-        interval = 10;
+      wireplumber = {
+        format = "<span rise='-1000'><span color='#cad3f5'>{icon}</span> {volume}%</span>";
+        format-muted = "";
+        tooltip-format = "Open sound manager";
+        format-icons = ["" "" ""];
 
-        format = "<span color='#ffffff'></span> {icon}";
-        format-icons = ["" "󰪞" "󰪟" "󰪠" "󰪡" "󰪢" "󰪣" "󰪤" "󰪥"];
+        on-click = "hyprctl dispatch exec pavucontrol";
+
+        states = {
+          "critical" = 80;
+          "warning" = 50;
+        };
+      };
+
+      backlight = {
+        format = "<span rise='-1000'><span color='#cad3f5'>{icon}</span> {percent}%</span>";
+        format-icons = ["󰃞" "󰃟" "󰃠"];
+        tooltip = false;
       };
 
       disk = {
-        format = " {percentage_used}% used";
+        format = "<span color='#cad3f5'></span> {percentage_used}%"; #TODO: Can the color be set in another way?
         tooltip-format = "{used} used out of {total} ({free} free)";
 
         states = {
@@ -114,12 +134,25 @@ in {
       };
 
       memory = {
-        format = " {used:0.1f}GiB";
+        format = "<span rise='-1000'><span color='#cad3f5'></span> {icon}</span>"; #TODO: Can the color be set in another way?
         tooltip-format = "RAM: {used:0.1f}GiB of {total:0.1f}GiB used.\nSWAP: {swapUsed:0.1f}GiB of {swapTotal:0.1f}GiB used.";
         tooltip = true;
+        format-icons = ["" "󰪞" "󰪟" "󰪠" "󰪡" "󰪢" "󰪣" "󰪤" "󰪥"];
         states = {
-          "critical" = 80;
-          "warning" = 60;
+          "critical_swap" = 80;
+          "critical" = 50; # We're over our normal ram - now using SWAP
+          "warning" = 35;
+        };
+      };
+
+      cpu = {
+        interval = 10;
+
+        format = "<span rise='-1000'><span color='#cad3f5'></span> {icon}</span>"; #TODO: Can the color be set in another way?
+        format-icons = ["" "󰪞" "󰪟" "󰪠" "󰪡" "󰪢" "󰪣" "󰪤" "󰪥"];
+        states = {
+          "critical" = 90;
+          "warning" = 70;
         };
       };
 
@@ -131,7 +164,7 @@ in {
         tooltip-format-ethernet = "Gw: {gwaddr} | {ipaddr} | Up: {bandwidthUpBytes} Down: {bandwidthDownBytes}";
         tooltip-format-wifi = "{signaldBm} dBm | {ipaddr} | Up: {bandwidthUpBytes} Down: {bandwidthDownBytes}";
 
-        format-icons = ["󰤟" "󰤢" "󰤥" "󰤨"];
+        format-icons = ["󰤯" "󰤟" "󰤢" "󰤥" "󰤨"];
 
         #TODO: on_click = "ADD COMMAND TO OPEN NETWORK MANAGER";
       };
@@ -144,7 +177,7 @@ in {
       battery = {
         interval = 20;
 
-        format = "{icon}";
+        format = "<span rise='-1000'>{icon}</span>";
         format-good = "{icon} {capacity}%";
         format-warning = "{icon} {capacity}%";
         format-critical = "{icon} {time}";

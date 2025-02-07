@@ -2,13 +2,13 @@
 
 {
   imports = [
-    ./alacritty.nix
     ./firefox.nix
     ./fish.nix
     ./ghostty.nix
     ./hyprland.nix
+    ./rofi.nix
+    ./spotify.nix
     ./starship.nix
-    ./wofi.nix
     ./waybar.nix
   ];
 
@@ -55,9 +55,25 @@
     };
   };
 
-  gtk.enable = true;
+  gtk = {
+    enable = true;
+    font.name = "Source Code Pro";
+    theme = {
+      name = "Catppuccin-GTK-Dark-Compact";
+      package = pkgs.magnetic-catppuccin-gtk.override {
+        shade = "dark";
+        size = "compact";
+      };
+    };
+  };
   xsession.enable = true;
-  qt.enable = true;
+  qt = {
+    enable = true;
+
+    # Catppuccin compat
+    style.name = "kvantum";
+    platformTheme.name = "kvantum";
+  };
 
   programs.home-manager.enable = true;
 }

@@ -1,4 +1,4 @@
-{ style, customUtils, ... }:
+{ customUtils, ... }:
 let multiline = customUtils.string.removeNewlines;
 in {
   programs.starship = {
@@ -8,40 +8,10 @@ in {
     settings = {
       line_break.disabled = false;
       add_newline = true;
-      palette = "default";
       fill.symbol = " ";
 
-      palettes.default = {
-        # Basic colors
-        bg = "#${style.background}";
-        dark = "#${style.darker}";
-        green = "#${style.success}";
-
-        # Warnings
-        user_root = "#${style.danger}";
-        read_only = "#${style.danger}";
-
-        # Module specific
-        user = "#${style.primary}";
-        dir = "#${style.secondary}";
-        git = "#${style.success}";
-        time = "#${style.secondary}";
-        duration = "#${style.caution}";
-
-        # Language specific
-        rust = "#${style.danger}";
-
-        # Character
-        ch_success = "#${style.success}";
-        ch_error = "#${style.danger}";
-        ch_vim = "#${style.success}";
-        ch_vros = "#${style.secondary}";
-        ch_vrs = "#${style.secondary}";
-        ch_vvs = "#${style.caution}";
-      };
-
       format = multiline ''
-        [╭](fg:bg)
+        [╭](fg:surface0)
         $username
         $directory
 
@@ -57,111 +27,110 @@ in {
 
         $line_break
 
-        [╰](fg:bg)
+        [╰](fg:surface0)
         $character
       '';
 
       username = {
         format = multiline ''
-          [](fg:user)
-          [](bg:user fg:dark)
-          [](fg:user bg:bg)
+          [](fg:peach)
+          [](bg:peach fg:crust)
+          [](fg:peach bg:surface0)
           [ $user]($style)
-          [](fg:bg)
+          [](fg:surface0)
         '';
         show_always = true;
-        style_user = "bg:bg";
-        style_root = "fg:user_root  bg:bg";
+        style_user = "bg:surface0";
+        style_root = "fg:red  bg:surface0";
       };
 
       directory = {
         truncation_symbol = "..";
-        read_only = "";
+        read_only = " ";
         home_symbol = "";
 
-        style = "bg:bg";
-        read_only_style = "bg:bg fg:read_only";
+        style = "bg:surface0";
+        read_only_style = "bg:surface0 fg:red";
         before_repo_root_style = "none";
         repo_root_style = "none";
         format = multiline ''
-          [─](fg:bg)
-          [](fg:dir)
-          [](bg:dir fg:dark)
-          [](fg:dir bg:bg)
+          [─](fg:surface0)
+          [](fg:mauve)
+          [](bg:mauve fg:crust)
+          [](fg:mauve bg:surface0)
           [ $path]($style)
           [$read_only]($read_only_style)
-          [](fg:bg)
+          [](fg:surface0)
         '';
         repo_root_format = multiline ''
-          [─](fg:bg)
-          [](fg:dir)
-          [](bg:dir fg:dark)
-          [](fg:dir bg:bg)
-          [/$repo_root]($style)
-          [$path]($style)
-          [ $read_only]($read_only_style)
-          [](fg:bg)
+          [─](fg:surface0)
+          [](fg:mauve)
+          [](bg:mauve fg:crust)
+          [](fg:mauve bg:surface0)
+          [ $repo_root$path]($style)
+          [$read_only]($read_only_style)
+          [](fg:surface0)
         '';
       };
 
       git_branch = {
         symbol = "";
         format = multiline ''
-          [─](fg:bg)
-          [](fg:git)
-          [$symbol $branch(:$remote_branch)](fg:dark bg:git)
-          [](fg:git bg:bg)
+          [─](fg:surface0)
+          [](fg:green)
+          [$symbol $branch(:$remote_branch)](fg:crust bg:green)
+          [](fg:green bg:surface0)
         '';
       };
 
       git_status = {
-        conflicted = "🚨";
-        ahead = "🏎";
-        behind = "😰";
-        diverged = "😵";
-        up_to_date = "[ ✓](bold fg:green bg:bg)";
-        untracked = "🤷";
-        stashed = "📦";
-        modified = "📝";
-        staged = "[ +$count](fg:green bg:bg)";
-        renamed = "👅";
-        deleted = "🗑";
+        conflicted = " 🚨";
+        ahead = " 🏎";
+        behind = " 😰";
+        diverged = " 😵";
+        up_to_date = "[ ✓](bold fg:green bg:surface0)";
+        untracked = " 🤷";
+        stashed = " 📦";
+        modified = " 📝";
+        staged = "[ +$count](fg:green bg:surface0)";
+        renamed = " 👅";
+        deleted = " 🗑";
 
         format = multiline ''
-          [$conflicted$stashed$deleted$renamed$modified$typechanged$untracked$staged$ahead_behind](bg:bg)
-          [](fg:bg)
+          [$conflicted$stashed$deleted$renamed$modified$typechanged$untracked$staged$ahead_behind](bg:surface0)
+          [](fg:surface0)
         '';
       };
 
       cmd_duration = {
         show_notifications = true;
         format = multiline ''
-          [](fg:duration)
-          [󱐋](bold fg:dark bg:duration)
-          [](fg:duration bg:bg)
-          [ $duration](bg:bg)
-          [─](fg:bg)
+          [](fg:yellow)
+          [󱐋](bold fg:crust bg:yellow)
+          [](fg:yellow bg:surface0)
+          [ $duration](bg:surface0)
+          [─](fg:surface0)
         '';
       };
 
       time = {
         disabled = false;
         format = multiline ''
-          [](fg:time)
-          [](fg:dark bg:time)
-          [](fg:time bg:bg)
-          [ $time](bg:bg)
-          [ ](fg:bg)
+          [](fg:blue)
+          [](fg:crust bg:blue)
+          [](fg:blue bg:surface0)
+          [ $time](bg:surface0)
+          [ ](fg:surface0)
         '';
       };
 
       character = {
-        success_symbol = "[❯](bold fg:ch_success)";
-        error_symbol = "[](bold fg:ch_error)";
-        vimcmd_symbol = "[❮](bold fg:ch_vim)";
-        vimcmd_replace_one_symbol = "[❮](bold fg:ch_vros)";
-        vimcmd_replace_symbol = "[❮](bold fg:ch_vrs)";
-        vimcmd_visual_symbol = "[❮](bold fg:ch_vvs)";
+        success_symbol = "[❯](bold fg:green)";
+        error_symbol = "[](bold fg:red)";
+        vimcmd_symbol = "[❮](bold fg:green)";
+        vimcmd_replace_one_symbol = "[❮](bold fg:yellow)";
+        vimcmd_replace_symbol = "[❮](bold fg:yellow)";
+        vimcmd_visual_symbol = "[❮](bold fg:mauve)";
       };
 
     };

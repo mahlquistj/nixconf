@@ -1,4 +1,4 @@
-{ style, sysOptions, wallpapers, ... }:
+{ sysOptions, wallpapers, ... }:
 
 {
   services.hyprpaper = {
@@ -40,15 +40,15 @@
         dots_size = 0.2;
         dots_spacing = 0.35;
         dots_center = true;
-        outer_color = "rbga(0, 0, 0, 0)"; # Transparent
-        inner_color = "rgba(0, 0, 0, 0.2)";
-        font_family = "${style.main-font}";
-        font_color = "rgb(${style.foreground})";
+        outer_color = "rgba(0, 0, 0, 0)";
+        inner_color = "rgba(0, 0, 0, 0.6)";
+        font_family = "Source Code Pro";
+        font_color = "$text";
         fade_on_empty = false;
         rounding = -1;
-        check_color = "rgba(${style.primary}33)";
-        fail_color = "rgba(${style.danger}33)";
-        capslock_color = "rgba(${style.caution}33)";
+        check_color = "$peach";
+        fail_color = "$red";
+        capslock_color = "$yellow";
         placeholder_text = "Input Password...";
         hide_input = false;
         position = "0, -100";
@@ -60,7 +60,7 @@
         # DATE
         {
           text = ''cmd[update:1000] date +"%A, %d %B"'';
-          color = "rgba(${style.foreground}bf)";
+          color = "$text";
           font_size = 18;
           font_family = "JetBrains Mono";
           position = "0, 50";
@@ -70,7 +70,7 @@
         # TIME
         {
           text = ''cmd[update:1000] date +"%H:%M"'';
-          color = "rgba(${style.foreground}bf)";
+          color = "$subtext1";
           font_size = 95;
           font_family = "JetBrains Mono Extrabold";
           position = "0, 200";
@@ -93,7 +93,7 @@
       # Apps
       "$terminal" = "ghostty";
       "$fileman" = "nemo";
-      "$menu" = "wofi --show drun";
+      "$menu" = "rofi -show drun";
       "$browser" = "firefox";
 
       # Startup
@@ -106,8 +106,8 @@
 
         border_size = 1;
 
-        "col.active_border" = "rgba(${style.primary}ee)";
-        "col.inactive_border" = "rgba(${style.background}aa)";
+        "col.active_border" = "$peach";
+        "col.inactive_border" = "$base";
 
         resize_on_border = true;
       };
@@ -138,6 +138,14 @@
       };
 
       # Bindings
+      binde = [
+        # Volume up/down
+        ",XF86AudioRaiseVolume, exec, wpctl set-volume -l 1.4 @DEFAULT_AUDIO_SINK@ 5%+"
+        ",XF86AudioLowerVolume, exec, wpctl set-volume -l 1.4 @DEFAULT_AUDIO_SINK@ 5%-"
+        # Brightness up/down
+        ",XF86MonBrightnessUp, exec, brightnessctl set 10%+"
+        ",XF86MonBrightnessDown, exec, brightnessctl set 10%-"
+      ];
       bind = [
         # Important controls
         "$mod, ESCAPE, exec, hyprlock"
@@ -172,6 +180,11 @@
         "$mod, PRINT, exec, hyprshot -m window"
         ", PRINT, exec, hyprshot -m output"
         "$modshift, PRINT, exec, hyprshot -m region"
+
+        # Volume mute
+        ",XF86AudioMute, exec, wpctl set-mute @DEFAULT_AUDIO_SINK@ toggle"
+        # Microphone mute
+        ",XF86AudioMicMute, exec, wpctl set-mute @DEFAULT_AUDIO_SOURCE@ toggle"
       ] ++ (
         # workspaces
         # binds $mod + [shift +] {1..9} to [move to] workspace {1..9}

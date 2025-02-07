@@ -2,94 +2,107 @@
   description = "My NixOS configurations";
 
   inputs = {
-    nixpkgs.url = "github:nixos/nixpkgs/release-24.11";
+    nixpkgs = { url = "github:nixos/nixpkgs/release-24.11"; };
     home-manager = {
       url = "github:nix-community/home-manager/release-24.11";
       inputs.nixpkgs.follows = "nixpkgs";
     };
 
+    # Cursor
     hyprcursor-phinger.url = "github:jappie3/hyprcursor-phinger";
+
+    # Color scheme
+    catppuccin.url = "github:catppuccin/nix";
+
+    # Spotify themes
+    spicetify-nix.url = "github:Gerg-L/spicetify-nix";
   };
 
-  outputs = { self, nixpkgs, ... }@inputs:
+  outputs =
+    { self, nixpkgs, catppuccin, spicetify-nix, home-manager, ... }@inputs:
     let
       inherit (self) outputs;
-      system = "x86_64-linux";
       wallpapers = "${self}/media/wallpaper";
       style = import ./style.nix { };
-      lib = nixpkgs.lib;
-      customUtils = import ./custom_utils.nix { inherit lib style; };
-
-      pkgs = import nixpkgs {
-        inherit system;
-        config.allowUnfree = true;
+      customUtils = import ./custom_utils.nix {
+        lib = nixpkgs.lib;
+        style = style;
       };
 
       default_modules = [
-        inputs.home-manager.nixosModule
+        catppuccin.nixosModules.catppuccin
+        home-manager.nixosModules.home-manager
         {
-          home-manager = {
-            useGlobalPkgs = true;
-            useUserPackages = true;
+          home-manager.useGlobalPkgs = true;
+          catppuccin = {
+            enable = true;
+            flavor = "mocha";
           };
         }
+        ./config/shared
+      ];
+
+      default_hm_modules = [
+        catppuccin.homeManagerModules.catppuccin
+        spicetify-nix.homeManagerModules.spicetify
+        {
+          catppuccin = {
+            enable = true;
+            flavor = "mocha";
+          };
+        }
+        ./home/shared
       ];
 
       system_options =
         { # TODO: How can we make this better, so that we don't have to *merge* it into specialArgs every time we run the flake?
           work = {
             has_battery = true;
-            wallpaper = "normal";
+            wallpaper = "1920x1200";
             cursorSize = 18;
           };
           desktop = {
             has_battery = false;
-            wallpaper = "ultrawide";
+            wallpaper = "3440x1440";
             cursorSize = 24;
           };
         };
+
+      args = {
+        inherit inputs outputs self wallpapers style customUtils spicetify-nix;
+      };
     in {
       nixosConfigurations = {
         work = nixpkgs.lib.nixosSystem {
-          specialArgs = {
-            inherit inputs outputs self wallpapers style customUtils;
-          } // {
-            sysOptions = system_options.work;
-          };
-          modules = default_modules ++ [ ./config/work ];
+          specialArgs = args // { sysOptions = system_options.work; };
+          modules = default_modules ++ [
+            ./config/work
+            {
+              home-manager = {
+                extraSpecialArgs = args // {
+                  sysOptions = system_options.work;
+                };
+                users.maj.imports = default_hm_modules ++ [ ./home/work.nix ];
+              };
+            }
+          ];
         };
 
         desktop = nixpkgs.lib.nixosSystem {
-          specialArgs = {
-            inherit inputs outputs self wallpapers style customUtils;
-          } // {
-            sysOptions = system_options.desktop;
-          };
-          modules = default_modules ++ [ ./config/desktop ];
+          specialArgs = args { sysOptions = system_options.desktop; };
+          modules = default_modules ++ [
+            ./config/desktop
+            {
+              home-manager = {
+                extraSpecialArgs = args // {
+                  sysOptions = system_options.desktop;
+                };
+                users.maj.imports = default_hm_modules
+                  ++ [ ./home/desktop.nix ];
+              };
+            }
+          ];
         };
       };
-
-      homeConfigurations = {
-        work = inputs.home-manager.lib.homeManagerConfiguration {
-          pkgs = pkgs;
-          extraSpecialArgs = {
-            inherit inputs outputs self wallpapers style customUtils;
-          } // {
-            sysOptions = system_options.work;
-          };
-          modules = [ ./home/work.nix ];
-        };
-
-        desktop = inputs.home-manager.lib.homeManagerConfiguration {
-          pkgs = pkgs;
-          extraSpecialArgs = {
-            inherit inputs outputs self wallpapers style customUtils;
-          } // {
-            sysOptions = system_options.desktop;
-          };
-          modules = [ ./home/home.nix ];
-        };
-      };
-
     };
 }

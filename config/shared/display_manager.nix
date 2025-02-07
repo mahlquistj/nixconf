@@ -1,12 +1,15 @@
-{ pkgs, sysOptions, wallpapers, style, ... }: {
+{ pkgs, sysOptions, wallpapers, ... }: {
+  # Disable catppuccin for SDDM
+  catppuccin.sddm.enable = false;
+
   environment.systemPackages = [
     (pkgs.where-is-my-sddm-theme.override {
       themeConfig.General = {
-        background = "${wallpapers}/login-${sysOptions.wallpaper}.png";
+        background = "${wallpapers}/${sysOptions.wallpaper}-login.png";
         backgroundMode = "fill";
 
         passwordMask = true;
-        passwordInputBackground = "#${style.background}60";
+        passwordInputBackground = "rgba(0, 0, 0, 0.8)";
         passwordInputRadius = 15;
         passwordInputVisibleCursor = false;
       };

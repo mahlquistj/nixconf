@@ -1,4 +1,6 @@
 { pkgs, ... }: {
+  nixpkgs.config.allowUnfree = true;
+
   # Hyprland service needed directly in the config 
   # for the home-manager module to work
   programs = {
@@ -11,23 +13,28 @@
   qt.enable = true;
 
   # System packages
-  environment = {
-    systemPackages = with pkgs; [
-      # Essentials
-      vim
-      wget
-      git
-      curl
-      nixd
-      openssl
-      home-manager
-      wev # Keyboard debugging
+  environment.systemPackages = with pkgs; [
+    # Essentials
+    vim
+    wget
+    git
+    curl
+    nixd
+    openssl
+    home-manager
+    wev # Keyboard debugging
 
-      # Other
-      neofetch
-      phinger-cursors
-    ];
-  };
+    # Display management
+    brightnessctl
+
+    # Theming
+    magnetic-catppuccin-gtk
+    catppuccin-papirus-folders
+
+    # Other
+    neofetch
+    phinger-cursors
+  ];
 
   services = {
     # OpenSSH

@@ -1,4 +1,4 @@
-{ sysOptions, pkgs, ... }:
+{ pkgs, ... }:
 
 {
   # This value determines the NixOS release from which the default
@@ -64,21 +64,10 @@
   # Allow unfree packages
   nixpkgs.config.allowUnfree = true;
 
-  environment = {
-    sessionVariables = {
-      # Hint electron apps to use wayland
-      NIXOS_OZONE_WL = "1";
-      ELECTRON_OZONE_PLATFORM_HINT = "auto";
-      GDK_SCALE = "1";
-    };
-    etc = {
-      "xdg/gtk-3.0/settings.ini" = {
-        text = ''
-          [Settings]
-          gtk-cursor-theme-size=${builtins.toString sysOptions.cursorSize}
-        '';
-        mode = "444";
-      };
-    };
+  environment.sessionVariables = {
+    # Hint electron apps to use wayland
+    NIXOS_OZONE_WL = "1";
+    ELECTRON_OZONE_PLATFORM_HINT = "auto";
+    GDK_SCALE = "1";
   };
 }
