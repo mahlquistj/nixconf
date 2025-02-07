@@ -1,4 +1,4 @@
-{ osConfig, sysOptions, ... }:
+{ lib, osConfig, sysOptions, ... }:
 
 let
   # TODO: This resolves to null??? Possibly because of osConfig.hardware?
@@ -8,7 +8,7 @@ in {
   programs.waybar = {
     enable = true;
 
-    style = ./waybar.css;
+    style = lib.fileContents ./waybar.css;
 
     settings = [{
       position = "top";
