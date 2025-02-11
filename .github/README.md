@@ -19,7 +19,7 @@
 ## Usage
 
 1. Fork the repo.
-2. Change options such as username and styling to your likin.
+2. Create your own system configuration in flake.nix and add an entry in `config/<sys_name>.nix` and `home/<sys_name>.nix`.
 3. Use `nixos-rebuild --flake .#<hostname> --impure` to build
 
 I use `--impure` in my configurations because i haven't found a good enough way to handle
