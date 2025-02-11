@@ -7,6 +7,14 @@
 > Breaking changes may occur at any time.
 >
 
+<details>
+    <summary>Screenshots</summary>
+    ![terminal](/screenshots/terminal.png)
+    ![launcher](/screenshots/launcher.png)
+    ![spotify](/screenshots/spotify.png)
+
+</details>
+
 ## Usage
 
 1. Fork the repo.
