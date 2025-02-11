@@ -9,10 +9,11 @@
 
 <details>
     <summary>Screenshots</summary>
-    ![terminal](screenshots/terminal.png)
-    ![launcher](screenshots/launcher.png)
-    ![spotify](screenshots/spotify.png)
-
+    <div align="center">
+        <img src="screenshots/terminal.png" alt="terminal">
+        <img src="screenshots/launcher.png" alt="launcher">
+        <img src="screenshots/spotify.png" alt="spotify">
+    </div>
 </details>
 
 ## Usage
