@@ -1,16 +1,14 @@
-{ osConfig, customUtils, sysOptions, ... }:
+{ lib, osConfig, sysOptions, ... }:
 
 let
-  waybarStyling = customUtils.import.css ./waybar.css;
-
   # TODO: This resolves to null??? Possibly because of osConfig.hardware?
   bluetooth = if osConfig?hardware?bluetooth?enable then "bluetooth" else "";
-  battery = if sysOptions.has_battery then "battery" else "";
+  battery = if sysOptions.battery then "battery" else "";
 in {
   programs.waybar = {
     enable = true;
 
-    style = "${waybarStyling}";
+    style = lib.fileContents ./waybar.css;
 
     settings = [{
       position = "top";

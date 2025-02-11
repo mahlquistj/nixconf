@@ -1,5 +1,5 @@
-{ customUtils, ... }:
-let multiline = customUtils.string.removeNewlines;
+{ myLib, ... }:
+let multiline = myLib.string.removeNewlines;
 in {
   programs.starship = {
     enable = true;
