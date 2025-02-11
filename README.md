@@ -9,9 +9,9 @@
 
 <details>
     <summary>Screenshots</summary>
-    ![terminal](/screenshots/terminal.png)
-    ![launcher](/screenshots/launcher.png)
-    ![spotify](/screenshots/spotify.png)
+    ![terminal](screenshots/terminal.png)
+    ![launcher](screenshots/launcher.png)
+    ![spotify](screenshots/spotify.png)
 
 </details>
 
