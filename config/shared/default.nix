@@ -5,6 +5,7 @@
     ./audio.nix
     ./display_manager.nix
     ./fonts.nix
+    ./hyprland.nix
     ./programs.nix
     ./shell.nix
     /etc/nixos/hardware-configuration.nix

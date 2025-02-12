@@ -1,15 +1,6 @@
 { pkgs, ... }: {
   nixpkgs.config.allowUnfree = true;
 
-  # Hyprland service needed directly in the config 
-  # for the home-manager module to work
-  programs = {
-    hyprland = {
-      enable = true;
-      xwayland.enable = true;
-    };
-  };
-
   qt.enable = true;
 
   # System packages
