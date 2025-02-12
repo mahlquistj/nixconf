@@ -11,6 +11,8 @@
       telescope.enable = true;
       spellcheck.enable = true;
 
+      filetree.nvimTree.enable = true;
+
       statusline.lualine = {
         enable = true;
         refresh.statusline = 100;
