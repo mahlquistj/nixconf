@@ -7,8 +7,9 @@
       viAlias = true;
 
       telescope.enable = true;
-
       spellcheck.enable = true;
+
+      statusline.lualine.enable = true;
 
       languages = {
         enableLSP = true;
