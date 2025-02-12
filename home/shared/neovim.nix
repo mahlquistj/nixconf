@@ -9,7 +9,10 @@
       telescope.enable = true;
       spellcheck.enable = true;
 
-      statusline.lualine.enable = true;
+      statusline.lualine = {
+        enable = true;
+        refresh.statusline = 100;
+      };
 
       languages = {
         enableLSP = true;
