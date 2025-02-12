@@ -15,6 +15,9 @@
 
     # Spotify themes
     spicetify-nix.url = "github:Gerg-L/spicetify-nix";
+
+    # Neovim configuration
+    nvf.url = "github:notashelf/nvf";
   };
 
   outputs = { self, nixpkgs, ... }@inputs:

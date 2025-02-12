@@ -6,6 +6,7 @@
     ./fish.nix
     ./ghostty.nix
     ./hyprland.nix
+    ./neovim.nix
     ./rofi.nix
     ./spotify.nix
     ./starship.nix

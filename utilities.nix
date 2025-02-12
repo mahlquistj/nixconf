@@ -3,6 +3,7 @@ let
   home-manager = inputs.home-manager;
   catppuccin = inputs.catppuccin;
   spicetify-nix = inputs.spicetify-nix;
+  nvf = inputs.nvf;
 
   myLib = {
     string = {
@@ -33,6 +34,7 @@ in {
       default_hm_modules = [
         catppuccin.homeManagerModules.catppuccin
         spicetify-nix.homeManagerModules.spicetify
+        nvf.homeManagerModules.default
         {
           catppuccin = {
             enable = true;
