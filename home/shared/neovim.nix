@@ -1,6 +1,4 @@
 { pkgs, ... }: {
-  programs.neovim.enable = true;
-
   programs.nvf = {
     enable = true;
 
@@ -24,6 +22,8 @@
       };
 
       visuals = { indent-blankline.enable = true; };
+
+      theme = { name = "catppuccin"; };
     };
   };
 }
