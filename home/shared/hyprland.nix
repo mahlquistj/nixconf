@@ -155,7 +155,7 @@
         "$mod, Return, exec, $terminal"
         "$mod, W, exec, $browser"
         "$mod, F, exec, $fileman"
-        "$mod, R, exec, $menu"
+        "$mod, SPACE, exec, $menu"
         "$mod, D, exec, echo $PATH && whoami" # DEBUG
 
         # Moving windows
