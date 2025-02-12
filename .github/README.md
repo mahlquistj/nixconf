@@ -17,7 +17,7 @@
 </details>
 
 ## 🔌 Components
-|                       |                                                                               |
+| Component             | Link                                                                          |
 |-----------------------|:-----------------------------------------------------------------------------:|
 | **Window manager**    | [Hyprland][Hyprland]                                                          |
 | **Bar**               | [Waybar][Waybar]                                                              |
@@ -26,9 +26,9 @@
 | **Shell**             | [Fish][Fish] + [Starship][Starship]                                           |
 | **File Manager**      | [Nemo][Nemo]                                                                  |
 | **Color Scheme**      | [Catppuccin-nix][Catppuccin-nix]                                              |
-| **GTK Theme**         | [Catppuccin-gtk-theme][Catppuccin-gtk-theme]                                  |
+| **GTK Theme**         | [Catppuccin-gtk][Catppuccin-gtk]                                              |
 | **Cursor**            | [Phinger-cursors][Phinger-cursors]                                            |
-| **Icons**             | [Papirus][Papirus] + [Papirus-Catppuccin-folders][Papirus-catppuccin-folders] |
+| **Icons**             | [Papirus][Papirus] + [Catppuccin-folders][Catppuccin-folders]                 |
 | **Lockscreen**        | [Hyprlock][Hyprlock]                                                          |
 
 
@@ -48,7 +48,9 @@ conflict with the flakes' configuration.
 
 ## 🏅 Credits
 
-Initial file-structure inspiration: https://github.com/namishh/crystal/tree/main
+- [Namish - Nixos config](https://github.com/namishh/crystal/tree/main)
+- [Frost-Phoenix - Nixos config](https://github.com/Frost-Phoenix/nixos-config/tree/main/)
+- [@Gerg-L](https://github.com/Gerg-L) for quick help with [Spicetify](https://github.com/Gerg-L/spicetify-nix/issues/263)
 
 
 <!-- Links -->
@@ -60,8 +62,9 @@ Initial file-structure inspiration: https://github.com/namishh/crystal/tree/main
 [Hyprlock]: https://github.com/hyprwm/hyprlock
 [Neovim]: https://github.com/neovim/neovim
 [Papirus]: https://github.com/PapirusDevelopmentTeam/papirus-icon-theme
-[Papirus-catppuccin-folders]: https://github.com/catppuccin/papirus-folders
+[Catppuccin-folders]: https://github.com/catppuccin/papirus-folders
 [Catppuccin-nix]: https://github.com/catppuccin/nix
-[Catppuccin-gtk-theme]: https://github.com/Fausto-Korpsvart/Catppuccin-GTK-Theme
+[Catppuccin-gtk]: https://github.com/Fausto-Korpsvart/Catppuccin-GTK-Theme
 [Phinger-cursors]: https://github.com/phisch/phinger-cursors
 [Starship]: https://github.com/starship/starship
+[Fish]: https://github.com/fish-shell/fish-shell
