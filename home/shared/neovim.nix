@@ -11,7 +11,7 @@
       spellcheck.enable = true;
 
       languages = {
-        enableLsp = true;
+        enableLSP = true;
         enableFormat = true;
         enableTreesitter = true;
         enableExtraDiagnostics = true;
