@@ -24,6 +24,7 @@
       visuals = { indent-blankline.enable = true; };
 
       theme = {
+        enable = true;
         name = "catppuccin";
         style = sysOptions.theme;
         transparent = true;
