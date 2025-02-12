@@ -1,4 +1,4 @@
-{ pkgs, ... }: {
+{ pkgs, sysOptions, ... }: {
   programs.nvf = {
     enable = true;
 
@@ -23,7 +23,11 @@
 
       visuals = { indent-blankline.enable = true; };
 
-      theme = { name = "catppuccin"; };
+      theme = {
+        name = "catppuccin";
+        style = sysOptions.theme;
+        transparent = true;
+      };
     };
   };
 }
