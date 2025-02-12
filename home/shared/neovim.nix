@@ -6,6 +6,8 @@
       vimAlias = true;
       viAlias = true;
 
+      globals = { mapleader = ","; };
+
       telescope.enable = true;
       spellcheck.enable = true;
 
