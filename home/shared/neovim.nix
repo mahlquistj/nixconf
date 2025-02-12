@@ -1,4 +1,6 @@
 { pkgs, ... }: {
+  programs.neovim.enable = true;
+
   programs.nvf = {
     enable = true;
 
