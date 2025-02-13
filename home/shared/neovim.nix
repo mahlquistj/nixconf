@@ -8,6 +8,11 @@
 
       globals = { mapleader = ","; };
 
+      options = {
+        tabstop = 4;
+        shiftwidth = 4;
+      };
+
       telescope.enable = true;
       spellcheck.enable = true;
 
