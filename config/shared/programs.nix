@@ -15,11 +15,12 @@
     home-manager
     wev # Keyboard debugging
 
+    # C
+    gcc
+
     # Rust
     rustup
     cargo
-    rustfmt
-    clippy
     cargo-cache
     bacon
 
