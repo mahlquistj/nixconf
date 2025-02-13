@@ -34,8 +34,6 @@
         rust.enable = true;
       };
 
-      formatter.conform-nvim.enable = true;
-
       visuals = { indent-blankline.enable = true; };
 
       theme = {

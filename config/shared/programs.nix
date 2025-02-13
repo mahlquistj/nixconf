@@ -15,6 +15,14 @@
     home-manager
     wev # Keyboard debugging
 
+    # Rust
+    rustup
+    cargo
+    rustfmt
+    clippy
+    cargo-cache
+    bacon
+
     # Display management
     brightnessctl
 
