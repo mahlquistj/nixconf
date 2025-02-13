@@ -22,9 +22,6 @@
     magnetic-catppuccin-gtk
     catppuccin-papirus-folders
 
-    # Utilities
-    alejandra # nix formatter
-
     # Other
     neofetch
     phinger-cursors
