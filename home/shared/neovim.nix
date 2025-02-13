@@ -8,13 +8,15 @@
 
       globals = { mapleader = ","; };
 
+      ui.noice.enable = true;
+
       options = {
         tabstop = 4;
         shiftwidth = 4;
       };
 
       telescope.enable = true;
-      spellcheck.enable = true;
+      #spellcheck.enable = true;
 
       filetree.nvimTree.enable = true;
 
@@ -22,6 +24,8 @@
         enable = true;
         refresh.statusline = 100;
       };
+
+      autocomplete.nvim-cmp.enable = true;
 
       languages = {
         enableLSP = true;
