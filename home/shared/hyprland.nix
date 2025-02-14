@@ -159,10 +159,10 @@
 
           # Moving focus
           ## Arrow keys
-          "$mod, left, move, l"
-          "$mod, right, move, r"
-          "$mod, up, move, u"
-          "$mod, down, move, d"
+          "$mod, left, movefocus, l"
+          "$mod, right, movefocus, r"
+          "$mod, up, movefocus, u"
+          "$mod, down, movefocus, d"
           ## Vim keys
           "$mod, H, movefocus, l"
           "$mod, L, movefocus, r"
@@ -177,15 +177,15 @@
 
           # Move window
           ## Arrow keys
-          "$modshift, left, move, l"
-          "$modshift, right, move, r"
-          "$modshift, up, move, u"
-          "$modshift, down, move, d"
+          "$modshift, left, movewindow, l"
+          "$modshift, right, movewindow, r"
+          "$modshift, up, movewindow, u"
+          "$modshift, down, movewindow, d"
           ## Vim keys
-          "$modshift, H, movefocus, l"
-          "$modshift, L, movefocus, r"
-          "$modshift, K, movefocus, u"
-          "$modshift, J, movefocus, d"
+          "$modshift, H, movewindow, l"
+          "$modshift, L, movewindow, r"
+          "$modshift, K, movewindow, u"
+          "$modshift, J, movewindow, d"
 
           # Screenshotting
           "$mod, PRINT, exec, hyprshot -m window"
