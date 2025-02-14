@@ -1,7 +1,11 @@
-{ pkgs, sysOptions, osConfig, ... }:
-
 {
+  pkgs,
+  sysOptions,
+  osConfig,
+  ...
+}: {
   imports = [
+    ./btop.nix
     ./firefox.nix
     ./fish.nix
     ./ghostty.nix
