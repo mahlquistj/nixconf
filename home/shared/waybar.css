@@ -104,13 +104,13 @@ window#waybar.empty .modules-center {
 
 @keyframes critical_swap {
     25% {
-        background-color: @red; 
+        color: @red; 
     }
     50% {
-        background-color: @red;
+        color: transparent;
     }
     75% {
-        background-color: @red; 
+        color: @red; 
     }
 }
 
@@ -130,6 +130,10 @@ window#waybar.empty .modules-center {
 
 #disk, #cpu, #memory, #wireplumber, #backlight {
     color: @green;
+}
+
+#wireplumber.muted {
+    color: @red;
 }
 
 /* #### NETWORK #### */
