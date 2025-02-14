@@ -141,6 +141,9 @@
       };
 
       # Bindings
+      bindm = [
+        "$mod, mouse:272, movewindow"
+      ];
       binde = [
         # Volume up/down
         ",XF86AudioRaiseVolume, exec, wpctl set-volume -l 1.4 @DEFAULT_AUDIO_SINK@ 5%+"
