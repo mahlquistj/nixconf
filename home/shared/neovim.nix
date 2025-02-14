@@ -1,4 +1,8 @@
-{ pkgs, sysOptions, ... }: {
+{
+  pkgs,
+  sysOptions,
+  ...
+}: {
   programs.nvf = {
     enable = true;
 
@@ -6,7 +10,7 @@
       vimAlias = true;
       viAlias = true;
 
-      globals = { mapleader = ","; };
+      globals = {mapleader = ",";};
 
       ui.noice.enable = true;
 
@@ -40,7 +44,7 @@
         rust.enable = true;
       };
 
-      visuals = { indent-blankline.enable = true; };
+      visuals = {indent-blankline.enable = true;};
 
       theme = {
         enable = true;

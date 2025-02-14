@@ -91,6 +91,8 @@
       # Important keys
       "$mod" = "SUPER";
       "$modshift" = "SUPER SHIFT";
+      "$modalt" = "SUPER ALT";
+      "$modctl" = "SUPER CTRL";
 
       # Apps
       "$terminal" = "ghostty";
@@ -145,6 +147,18 @@
         "$mod, mouse:272, movewindow"
       ];
       binde = [
+        # Resizing
+        ## Arrow keys
+        "$modctl, left, resizeactive, -10% 0"
+        "$modctl, right, resizeactive, 10% 0"
+        "$modctl, up, resizeactive, 0 -10%"
+        "$modctl, down, resizeactive, 0 10%"
+        ## Vim keys
+        "$modctl, H, resizeactive, -10% 0"
+        "$modctl, L, resizeactive, 10% 0"
+        "$modctl, K, resizeactive, 0 -10%"
+        "$modctl, J, resizeactive, 0 10%"
+
         # Volume up/down
         ",XF86AudioRaiseVolume, exec, wpctl set-volume -l 1.4 @DEFAULT_AUDIO_SINK@ 5%+"
         ",XF86AudioLowerVolume, exec, wpctl set-volume -l 1.4 @DEFAULT_AUDIO_SINK@ 5%-"
