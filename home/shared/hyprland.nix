@@ -1,11 +1,13 @@
-{ sysOptions, wallpapers, ... }:
-
 {
+  sysOptions,
+  wallpapers,
+  ...
+}: {
   services.hyprpaper = {
     enable = true;
     settings = {
-      preload = [ "${wallpapers}/${sysOptions.wallpaper}.png" ];
-      wallpaper = [ ", ${wallpapers}/${sysOptions.wallpaper}.png" ];
+      preload = ["${wallpapers}/${sysOptions.wallpaper}.png"];
+      wallpaper = [", ${wallpapers}/${sysOptions.wallpaper}.png"];
     };
   };
   programs.hyprlock = {
@@ -83,7 +85,7 @@
   wayland.windowManager.hyprland = {
     enable = true;
 
-    plugins = [ ];
+    plugins = [];
 
     settings = {
       # Important keys
@@ -97,7 +99,7 @@
       "$browser" = "firefox";
 
       # Startup
-      exec-once = [ "waybar" "$terminal" ];
+      exec-once = ["waybar" "$terminal"];
 
       # Setttings and styling
       general = {
@@ -106,10 +108,11 @@
 
         border_size = 1;
 
+        resize_on_border = true;
+
+        # col.* has to be in quotes
         "col.active_border" = "$peach";
         "col.inactive_border" = "$base";
-
-        resize_on_border = true;
       };
       decoration = {
         rounding = 10;
@@ -119,8 +122,8 @@
         dim_inactive = true;
         dim_strength = 0.2;
       };
-      input = { kb_layout = "dk"; };
-      gestures = { workspace_swipe = true; };
+      input = {kb_layout = "dk";};
+      gestures = {workspace_swipe = true;};
       animations = {
         enabled = "yes";
         bezier = "myBezier, 0.05, 0.9, 0.1, 1.05";
@@ -146,58 +149,70 @@
         ",XF86MonBrightnessUp, exec, brightnessctl set 10%+"
         ",XF86MonBrightnessDown, exec, brightnessctl set 10%-"
       ];
-      bind = [
-        # Important controls
-        "$mod, ESCAPE, exec, hyprlock"
-        "$modshift, ESCAPE, exit"
+      bind =
+        [
+          # Spawners
+          "$mod, Return, exec, $terminal"
+          "$mod, SPACE, exec, $menu"
+          "$mod, ESCAPE, exec, hyprlock"
+          "$modshift, E, exit"
 
-        # Spawners
-        "$mod, Return, exec, $terminal"
-        "$mod, W, exec, $browser"
-        "$mod, F, exec, $fileman"
-        "$mod, SPACE, exec, $menu"
-        "$mod, D, exec, echo $PATH && whoami" # DEBUG
+          # Moving focus
+          ## Arrow keys
+          "$mod, left, move, l"
+          "$mod, right, move, r"
+          "$mod, up, move, u"
+          "$mod, down, move, d"
+          ## Vim keys
+          "$mod, H, movefocus, l"
+          "$mod, L, movefocus, r"
+          "$mod, K, movefocus, u"
+          "$mod, J, movefocus, d"
 
-        # Moving windows
-        ## Arrow keys
-        "$mod, left, movefocus, l"
-        "$mod, right, movefocus, r"
-        "$mod, up, movefocus, u"
-        "$mod, down, movefocus, d"
-        ## Vim keys
-        "$mod, H, movefocus, l"
-        "$mod, L, movefocus, r"
-        "$mod, K, movefocus, u"
-        "$mod, J, movefocus, d"
+          # Window control
+          "$mod, V, togglefloating"
+          "$mod, J, togglesplit"
+          "$mod, F, fullscreen"
+          "$mod, Q, killactive"
 
-        # Window control
-        "$modshift, V, togglefloating"
-        "$modshift, J, togglesplit"
-        "$modshift, F, fullscreen"
-        "$modshift, Q, killactive"
+          # Move window
+          ## Arrow keys
+          "$modshift, left, move, l"
+          "$modshift, right, move, r"
+          "$modshift, up, move, u"
+          "$modshift, down, move, d"
+          ## Vim keys
+          "$modshift, H, movefocus, l"
+          "$modshift, L, movefocus, r"
+          "$modshift, K, movefocus, u"
+          "$modshift, J, movefocus, d"
 
-        # Screenshotting
-        "$mod, PRINT, exec, hyprshot -m window"
-        ", PRINT, exec, hyprshot -m output"
-        "$modshift, PRINT, exec, hyprshot -m region"
+          # Screenshotting
+          "$mod, PRINT, exec, hyprshot -m window"
+          ", PRINT, exec, hyprshot -m output"
+          "$modshift, PRINT, exec, hyprshot -m region"
 
-        # Volume mute
-        ",XF86AudioMute, exec, wpctl set-mute @DEFAULT_AUDIO_SINK@ toggle"
-        # Microphone mute
-        ",XF86AudioMicMute, exec, wpctl set-mute @DEFAULT_AUDIO_SOURCE@ toggle"
-      ] ++ (
-        # workspaces
-        # binds $mod + [shift +] {1..9} to [move to] workspace {1..9}
-        builtins.concatLists (builtins.genList (i:
-          let ws = i + 1;
-          in [
-            "$mod, code:1${toString i}, workspace, ${
-              toString ws
-            }" # Switch workspace
-            "$modshift, code:1${toString i}, movetoworkspace, ${
-              toString ws
-            }" # Move window to workspace
-          ]) 9));
+          # Audio
+          ## Volume mute
+          ",XF86AudioMute, exec, wpctl set-mute @DEFAULT_AUDIO_SINK@ toggle"
+          ## Microphone mute
+          ",XF86AudioMicMute, exec, wpctl set-mute @DEFAULT_AUDIO_SOURCE@ toggle"
+        ]
+        ++ (
+          # workspaces
+          # binds $mod + [shift +] {1..9} to [move to] workspace {1..9}
+          builtins.concatLists (builtins.genList (i: let
+              ws = i + 1;
+            in [
+              "$mod, code:1${toString i}, workspace, ${
+                toString ws
+              }" # Switch workspace
+              "$modshift, code:1${toString i}, movetoworkspace, ${
+                toString ws
+              }" # Move window to workspace
+            ])
+            9)
+        );
     };
 
     extraConfig = ''
