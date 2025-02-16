@@ -11,7 +11,6 @@ window#waybar {
 }
 
 #tray,
-#workspaces, 
 #power,
 .modules-center, 
 .modules-right {
@@ -27,7 +26,7 @@ window#waybar {
     border-radius: 30px;
 }
 
-#power, #tray, #workspaces {
+#power, #tray {
     margin-right: 5px;
 }
 
@@ -59,14 +58,11 @@ tooltip,
 /* #### WORKSPACES #### */
 #workspaces button {
     min-height: 5px;
-    background-color: @surface0;
-    border: 1px solid @peach;
-    min-width: 23px;
+    background-color: @sapphire;
     transition: 0.5s ease;
-    font-size: 12px;
-    font-weight: normal;
-    border-radius: 30px;
+    border-radius: 25px;
     margin-right: 5px;
+    min-width: 20px;
 }
 
 #workspaces button:last-child {
@@ -74,9 +70,7 @@ tooltip,
 }
 
 #workspaces button.active {
-    font-weight: bold;
     background-color: @peach;
-    border-color: @peach;
     transition: all 0.5s ease;
     min-width: 3rem;
 }
@@ -121,11 +115,6 @@ window#waybar.empty .modules-center {
 
 #hardware .critical {
     color: @red;
-}
-
-#hardware .critical_swap { /* Disk only */
-    color: @red;
-    animation: critical_swap 2s infinite;
 }
 
 #disk, #cpu, #memory, #wireplumber, #backlight {

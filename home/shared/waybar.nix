@@ -37,8 +37,8 @@ in {
         gtk-layer-shell = true;
         reload_style_on_change = true;
 
-        modules-left = ["group/power" "tray" "hyprland/workspaces"];
-        modules-center = ["hyprland/window"];
+        modules-left = ["group/power" "tray"];
+        modules-center = ["hyprland/workspaces"];
         modules-right = ["group/hardware" "network" "clock" bluetooth battery];
 
         "group/power" = {
@@ -86,17 +86,9 @@ in {
         };
 
         "hyprland/workspaces" = {
-          format = "{name}";
-        };
-
-        "hyprland/window" = {
-          format = "{title}";
-          icon = true;
-          icon-size = 15;
-          max-length = 30;
-          rewrite = {
-            "(.*) - Mozilla Firefox" = "$1";
-            "(.*) - Discord" = "$1";
+          format = "";
+          persistent-workspaces = {
+            "*" = 5;
           };
         };
 
@@ -147,9 +139,8 @@ in {
           tooltip = true;
           format-icons = ["" "󰪞" "󰪟" "󰪠" "󰪡" "󰪢" "󰪣" "󰪤" "󰪥"];
           states = {
-            "critical_swap" = 80;
-            "critical" = 50; # We're over our normal ram - now using SWAP
-            "warning" = 35;
+            "critical" = 80;
+            "warning" = 50; # We're over our normal ram - now using SWAP
           };
         };
 
