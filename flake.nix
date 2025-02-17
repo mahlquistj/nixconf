@@ -18,25 +18,34 @@
 
     # Neovim configuration
     nvf.url = "github:notashelf/nvf";
+
+    # Hyprpanel
+    hyprpanel = {
+      url = "github:jas-singhfsu/hyprpanel";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
   };
 
-  outputs = { self, nixpkgs, ... }@inputs:
-    let
-      inherit (self) outputs;
+  outputs = {
+    self,
+    nixpkgs,
+    ...
+  } @ inputs: let
+    inherit (self) outputs;
 
-      utilities =
-        import ./utilities.nix { inherit self nixpkgs inputs outputs; };
-    in {
-      nixosConfigurations = {
-        work = utilities.mkSystem {
-          name = "work";
-          battery = true;
-        };
+    utilities =
+      import ./utilities.nix {inherit self nixpkgs inputs outputs;};
+  in {
+    nixosConfigurations = {
+      work = utilities.mkSystem {
+        name = "work";
+        battery = true;
+      };
 
-        desktop = utilities.mkSystem {
-          name = "desktop";
-          wallpaper = "3440x1440";
-        };
+      desktop = utilities.mkSystem {
+        name = "desktop";
+        wallpaper = "3440x1440";
       };
     };
+  };
 }

@@ -100,9 +100,6 @@
       "$menu" = "rofi -show drun";
       "$browser" = "firefox";
 
-      # Startup
-      exec-once = ["waybar" "$terminal"];
-
       # Setttings and styling
       general = {
         gaps_in = 5;
