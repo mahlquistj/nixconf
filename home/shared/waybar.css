@@ -10,33 +10,44 @@ window#waybar {
     all:unset;
 }
 
+/* Add transparent background */
 #tray,
 #power,
+#cava,
 .modules-center, 
 .modules-right {
     background-color: rgba(0, 0, 0, 0.4);
     border-radius: 30px;
+}
+
+/* Add padding where needed */
+#tray,
+.modules-right { 
     padding: 5px;
 }
 
+/* Internal padding in modules */
 .module {
     all: unset;
     padding: 2px 8px;
     border-radius: 30px;
 }
 
-#power, #tray {
+/* Margin for widgets in the left section */
+.modules-left > widget >  box,
+.modules-left > widget > label {
     margin-right: 5px;
 }
 
+/* Margin for widgets in the right section */
 .modules-right widget .module {
     margin-left: 5px;
 }
-
 .modules-right widget:first-child .module {
     margin-left: 0px;
 }
 
+/* On hover/click menus */
 tooltip, 
 #tray menu {
     background-color: @base;
@@ -55,10 +66,10 @@ tooltip,
 
 /* #### WORKSPACES #### */
 /* for smaller circles */
-/*.modules-center {
-    padding-top: 9px;
-    padding-bottom: 9px;
-}*/
+.modules-center {
+    padding-top: 5px;
+    padding-bottom: 5px;
+}
 
 #workspaces button {
     all:unset;

@@ -37,7 +37,7 @@ in {
         gtk-layer-shell = true;
         reload_style_on_change = true;
 
-        modules-left = ["group/power" "tray"];
+        modules-left = ["group/power" "tray" "cava"];
         modules-center = ["hyprland/workspaces"];
         modules-right = ["group/hardware" "network" "clock" bluetooth battery];
 
@@ -85,6 +85,20 @@ in {
           spacing = 5;
         };
 
+        cava = {
+          framerate = 30;
+          stereo = false;
+          autosens = 1;
+          hide_on_silence = true;
+          method = "pipewire";
+          source = "auto";
+          bar_delimiter = 0;
+          bars = 12;
+          input_delay = 2;
+          sleep_timer = 2;
+          format-icons = ["▁" "▂" "▃" "▄" "▅" "▆" "▇" "█"];
+        };
+
         "hyprland/workspaces" = {
           format = "";
           persistent-workspaces = {
@@ -105,7 +119,7 @@ in {
 
         wireplumber = {
           format = "<span color='#cad3f5'>{icon}</span> {volume}%";
-          format-muted = " muted";
+          format-muted = "";
           tooltip-format = "Open sound manager";
           format-icons = ["" "" ""];
 
@@ -156,9 +170,9 @@ in {
         };
 
         network = {
-          format-ethernet = "󰈁 Connected";
-          format-disconnected = "󰤮 Offline";
-          format-wifi = "{icon} {essid}";
+          format-ethernet = "󰈁";
+          format-disconnected = "󰤮";
+          format-wifi = "{icon}";
 
           tooltip-format-ethernet = "Gw: {gwaddr} | {ipaddr} | Up: {bandwidthUpBytes} Down: {bandwidthDownBytes}";
           tooltip-format-wifi = "{signaldBm} dBm | {ipaddr} | Up: {bandwidthUpBytes} Down: {bandwidthDownBytes}";
