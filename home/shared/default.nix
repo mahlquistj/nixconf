@@ -10,11 +10,11 @@
     ./fish.nix
     ./ghostty.nix
     ./hyprland.nix
-    ./hyprpanel.nix
     ./neovim.nix
     ./rofi.nix
     ./spotify.nix
     ./starship.nix
+    ./swaync.nix
     ./waybar.nix
   ];
 

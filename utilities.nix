@@ -28,12 +28,14 @@ in {
       catppuccin.nixosModules.catppuccin
       home-manager.nixosModules.home-manager
       {
-        home-manager.useGlobalPkgs = true;
+        home-manager = {
+          useGlobalPkgs = true;
+          backupFileExtension = "backup";
+        };
         catppuccin = {
           enable = true;
           flavor = "${theme}";
         };
-        nixpkgs.overlays = [hyprpanel.overlay];
       }
       "${self}/config/shared"
     ];
@@ -42,13 +44,11 @@ in {
       catppuccin.homeManagerModules.catppuccin
       spicetify-nix.homeManagerModules.spicetify
       nvf.homeManagerModules.default
-      hyprpanel.homeManagerModules.hyprpanel
       {
         catppuccin = {
           enable = true;
           flavor = "${theme}";
         };
-        nixpkgs.overlays = [hyprpanel.overlay];
       }
       "${self}/home/shared"
     ];

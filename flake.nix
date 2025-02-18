@@ -18,12 +18,6 @@
 
     # Neovim configuration
     nvf.url = "github:notashelf/nvf";
-
-    # Hyprpanel
-    hyprpanel = {
-      url = "github:jas-singhfsu/hyprpanel";
-      inputs.nixpkgs.follows = "nixpkgs";
-    };
   };
 
   outputs = {

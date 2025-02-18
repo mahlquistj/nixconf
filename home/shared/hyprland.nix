@@ -99,6 +99,10 @@
       "$fileman" = "nemo";
       "$menu" = "rofi -show drun";
       "$browser" = "firefox";
+      "$lock" = "hyprlock";
+
+      # Startup
+      exec-once = ["waybar" "swaync"];
 
       # Setttings and styling
       general = {
@@ -168,8 +172,9 @@
           # Spawners
           "$mod, Return, exec, $terminal"
           "$mod, SPACE, exec, $menu"
-          "$mod, ESCAPE, exec, hyprlock"
+          "$mod, ESCAPE, exec, $lock"
           "$modshift, E, exit"
+          "$mod, N, exec, swaync-client -t"
 
           # Moving focus
           ## Arrow keys

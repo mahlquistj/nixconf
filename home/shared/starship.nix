@@ -1,5 +1,5 @@
-{ myLib, ... }:
-let multiline = myLib.string.removeNewlines;
+{myLib, ...}: let
+  multiline = myLib.string.removeNewlines;
 in {
   programs.starship = {
     enable = true;
@@ -103,7 +103,6 @@ in {
       };
 
       cmd_duration = {
-        show_notifications = true;
         format = multiline ''
           [](fg:yellow)
           [󱐋](bold fg:crust bg:yellow)
@@ -132,7 +131,6 @@ in {
         vimcmd_replace_symbol = "[❮](bold fg:yellow)";
         vimcmd_visual_symbol = "[❮](bold fg:mauve)";
       };
-
     };
   };
 }

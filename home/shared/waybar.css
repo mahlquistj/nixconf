@@ -56,32 +56,44 @@ tooltip,
 }
 
 /* #### WORKSPACES #### */
+/* for smaller circles */
+.modules-center {
+    padding-top: 9px;
+    padding-bottom: 9px;
+}
+
 #workspaces button {
-    min-height: 5px;
+    all:unset;
     background-color: @sapphire;
-    transition: 0.5s ease;
-    border-radius: 25px;
+    transition: 0.5s ease-in-out;
+    border-radius: 12px;
     margin-right: 5px;
-    min-width: 20px;
+    min-width: 16px;
 }
 
 #workspaces button:last-child {
     margin-right: 0px;
 }
 
-#workspaces button.active {
-    background-color: @peach;
-    transition: all 0.5s ease;
-    min-width: 3rem;
+#workspaces button.empty {
+    background-color: @surface0;
 }
 
-#workspaces button.active * {
-    color: @base;
+#workspaces button.active {
+    background-color: @peach;
+    border-color: @peach;
+    transition: all 0.5s ease-in-out;
+    min-width: 3.5rem;
 }
+
+#workspaces button.urgent {
+    background-color: @red;
+}
+
 
 #workspaces button:hover {
     background: @peach;
-    transition: all 0.5s ease;
+    transition: all 0.5s ease-in-out;
 }
 
 /* #### WINDOW #### */
