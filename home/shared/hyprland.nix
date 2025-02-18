@@ -123,7 +123,7 @@
 
         inactive_opacity = 0.8;
         dim_inactive = true;
-        dim_strength = 0.2;
+        dim_strength = 0.1;
       };
       input = {kb_layout = "dk";};
       gestures = {workspace_swipe = true;};

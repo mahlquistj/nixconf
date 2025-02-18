@@ -21,8 +21,7 @@ window#waybar {
 
 .module {
     all: unset;
-    padding-left: 8px;
-    padding-right: 8px;
+    padding: 2px 8px;
     border-radius: 30px;
 }
 
@@ -42,7 +41,6 @@ tooltip,
 #tray menu {
     background-color: @base;
     border-radius: 15px;
-    border: 1px solid @base;
     padding: 5px;
 }
 
@@ -57,18 +55,21 @@ tooltip,
 
 /* #### WORKSPACES #### */
 /* for smaller circles */
-.modules-center {
+/*.modules-center {
     padding-top: 9px;
     padding-bottom: 9px;
-}
+}*/
 
 #workspaces button {
     all:unset;
-    background-color: @sapphire;
-    transition: 0.5s ease-in-out;
+    background-color: @flamingo;
+    transition-property: background-color,width,min-width; 
+    transition-duration: 0.3s;
+    transition-timing-function: ease;
     border-radius: 12px;
     margin-right: 5px;
     min-width: 16px;
+    min-height: 1px;
 }
 
 #workspaces button:last-child {
@@ -79,10 +80,13 @@ tooltip,
     background-color: @surface0;
 }
 
+#workspaces button.active.empty {
+    background-color: @surface1;
+    min-width: 3.5rem;
+}
+
 #workspaces button.active {
     background-color: @peach;
-    border-color: @peach;
-    transition: all 0.5s ease-in-out;
     min-width: 3.5rem;
 }
 
@@ -92,8 +96,7 @@ tooltip,
 
 
 #workspaces button:hover {
-    background: @peach;
-    transition: all 0.5s ease-in-out;
+    background-color: @overlay2;
 }
 
 /* #### WINDOW #### */
