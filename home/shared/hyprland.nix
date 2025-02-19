@@ -85,6 +85,8 @@
   wayland.windowManager.hyprland = {
     enable = true;
 
+    systemd.enable = true;
+
     plugins = [];
 
     settings = {
@@ -102,7 +104,7 @@
       "$lock" = "hyprlock";
 
       # Startup
-      exec-once = ["waybar" "swaync"];
+      exec-once = ["swaync"];
 
       # Setttings and styling
       general = {
@@ -141,6 +143,7 @@
       misc = {
         disable_hyprland_logo = true;
         disable_splash_rendering = true;
+        focus_on_activate = true;
       };
 
       # Bindings
@@ -161,8 +164,8 @@
         "$modctl, J, resizeactive, 0 10%"
 
         # Volume up/down
-        ",XF86AudioRaiseVolume, exec, wpctl set-volume -l 1.4 @DEFAULT_AUDIO_SINK@ 5%+"
-        ",XF86AudioLowerVolume, exec, wpctl set-volume -l 1.4 @DEFAULT_AUDIO_SINK@ 5%-"
+        ",XF86AudioRaiseVolume, exec, wpctl set-volume -l 1.25 @DEFAULT_AUDIO_SINK@ 5%+"
+        ",XF86AudioLowerVolume, exec, wpctl set-volume -l 1.25 @DEFAULT_AUDIO_SINK@ 5%-"
         # Brightness up/down
         ",XF86MonBrightnessUp, exec, brightnessctl set 10%+"
         ",XF86MonBrightnessDown, exec, brightnessctl set 10%-"

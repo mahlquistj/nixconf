@@ -4,48 +4,63 @@
     font-family: "Source Code Pro", "Symbols Nerd Font Mono";
     font-size: 12px;
     color: @text;
+    font-weight: bold;
 }
 
 window#waybar {
     all:unset;
 }
 
-/* Add transparent background */
-#tray,
-#power,
-#cava,
-.modules-center, 
-.modules-right {
-    background-color: rgba(0, 0, 0, 0.4);
-    border-radius: 30px;
+/* Global classes */
+.good {
+    color: @green;
 }
 
-/* Add padding where needed */
-#tray,
-.modules-right { 
+.warning {
+    color: @yellow;
+}
+
+.critical {
+    color: @red;
+}
+
+/* Add transparent background */
+.modules-center > widget > *,
+.modules-left > widget > *,
+.modules-right > widget > * {
+    background-color: rgba(0, 0, 0, 0.6);
+    border-radius: 15px;
     padding: 5px;
 }
 
-/* Internal padding in modules */
-.module {
-    all: unset;
-    padding: 2px 8px;
-    border-radius: 30px;
+/* Global padding for labels within modules */
+.modules-center > widget > * label,
+.modules-left > widget > * label,
+.modules-right > widget > * label {
+    padding: 0px 4px;
+}
+
+/* Reset seperator padding */
+#custom-seperator label {
+    all:unset
 }
 
 /* Margin for widgets in the left section */
-.modules-left > widget >  box,
+.modules-left > widget > box,
 .modules-left > widget > label {
     margin-right: 5px;
 }
 
 /* Margin for widgets in the right section */
-.modules-right widget .module {
+.modules-right > widget > box,
+.modules-right > widget > label {
     margin-left: 5px;
 }
-.modules-right widget:first-child .module {
+
+/*.modules-right > widget:first-child > box,
+.modules-right > widget:first-child > label {
     margin-left: 0px;
-}
+}*/
 
 /* On hover/click menus */
 tooltip, 
@@ -65,12 +80,6 @@ tooltip,
 }
 
 /* #### WORKSPACES #### */
-/* for smaller circles */
-.modules-center {
-    padding-top: 5px;
-    padding-bottom: 5px;
-}
-
 #workspaces button {
     all:unset;
     background-color: @flamingo;
@@ -80,7 +89,6 @@ tooltip,
     border-radius: 12px;
     margin-right: 5px;
     min-width: 16px;
-    min-height: 1px;
 }
 
 #workspaces button:last-child {
@@ -110,18 +118,7 @@ tooltip,
     background-color: @overlay2;
 }
 
-/* #### WINDOW #### */
-/* The window here does NOT refer to the module, but the waybar-window itself, but is here to fix styling with the module */
-window#waybar.empty .modules-center {
-    background-color: transparent;
-}
-
 /* #### HARDWARE #### */
-#hardware {
-    background-color: @base;
-    border-radius: 30px;
-}
-
 @keyframes critical_swap {
     25% {
         color: @red; 
@@ -135,15 +132,7 @@ window#waybar.empty .modules-center {
 }
 
 /* hardware circle indicators */
-#hardware .warning {
-    color: @yellow;
-}
-
-#hardware .critical {
-    color: @red;
-}
-
-#disk, #cpu, #memory, #wireplumber, #backlight {
+#hardware > widget > * {
     color: @green;
 }
 
@@ -152,63 +141,61 @@ window#waybar.empty .modules-center {
 }
 
 /* #### NETWORK #### */
-#network {
-    background-color: @green;
-    color: @base;
+#network.disconnected {
+    color: @red;
 }
 
-#network.disconnected {
-    background-color: @red;
+/* #### NOTIFICATIONS #### */
+#custom-notification.notification {
+    color: @blue;
 }
 
 /* #### CLOCK #### */
 #clock {
-    background-color: @blue;
-    color: @base;
+    font-weight: bold;
 }
 
 /* #### BATTERY #### */
-#battery {
-    background: @green; /* Default to green color */
-    color: @base;
-}
-
 @keyframes critical_charging {
     25% {
-        background-color: @red; 
+        color: @red; 
     }
     50% {
-        background-color: @yellow;
-        color: @base;
+        color: @yellow;
     }
     75% {
-        background-color: @red; 
+        color: @red; 
     }
 }
 
 @keyframes warning_charging {
     25% {
-        background-color: @yellow; 
+        color: @yellow; 
     }
     50% {
-        background-color: @green;
+        color: @green;
     }
     75% {
-        background-color: @yellow; 
+        color: @yellow; 
     }
 }
 
 @keyframes good_charging {
     25% {
-        background-color: @green; 
+        color: @green; 
     }
     50% {
-        background-color: transparent;
-        color: @green;
+        color: @text;
     }
     75% {
-        background-color: @green; 
+        color: @green; 
     }
+}
+
+#battery {
+    color: @green;
+    transition: all 0.2s ease;
+    font-weight: bold;
 }
 
 #battery.charging.good {
@@ -220,7 +207,7 @@ window#waybar.empty .modules-center {
 }
 
 #battery.warning {
-    background: @yellow;
+    color: @yellow;
 }
 
 #battery.charging.critical {
@@ -228,5 +215,7 @@ window#waybar.empty .modules-center {
 }
 
 #battery.critical {
-    background: @red;
+    color: @red;
 }
+
+

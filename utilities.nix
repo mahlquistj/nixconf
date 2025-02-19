@@ -19,8 +19,9 @@ in {
     wallpaper ? "1920x1080",
     cursorSize ? 18,
     theme ? "mocha",
+    cpu_thermal_zone ? 0,
   }: let
-    sysOptions = {inherit user battery wallpaper cursorSize theme;};
+    sysOptions = {inherit user battery wallpaper cursorSize theme cpu_thermal_zone;};
 
     wallpapers = "${self}/media/wallpaper";
 

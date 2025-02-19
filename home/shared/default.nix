@@ -19,14 +19,16 @@
   ];
 
   home = {
+    inherit (osConfig.system) stateVersion;
+
     username = sysOptions.user;
     homeDirectory = "/home/${sysOptions.user}";
-    stateVersion = osConfig.system.stateVersion;
 
     packages = with pkgs; [
       # Utils
       jq # CLI JSON parsing
       eza # `ls` substitute
+      playerctl
 
       # Management
       nemo # File manager
