@@ -11,6 +11,11 @@ with inputs; let
       removeNewlines = str: builtins.replaceStrings ["\n"] [""] str;
     };
   };
+  system = "x86_64-linux";
+  pkgs-unstable = import unstable {
+    inherit system;
+    config.allowUnfree = true;
+  };
 in {
   mkSystem = {
     name,
@@ -54,10 +59,11 @@ in {
     ];
 
     args = {
-      inherit inputs outputs self wallpapers myLib spicetify-nix sysOptions;
+      inherit inputs outputs self pkgs-unstable wallpapers myLib spicetify-nix sysOptions;
     };
   in
     nixpkgs.lib.nixosSystem {
+      inherit system;
       specialArgs = args;
       modules =
         default_modules
