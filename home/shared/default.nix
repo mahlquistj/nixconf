@@ -29,6 +29,7 @@
       jq # CLI JSON parsing
       eza # `ls` substitute
       playerctl
+      ethtool
 
       # Management
       nemo # File manager
