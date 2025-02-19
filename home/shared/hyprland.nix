@@ -1,4 +1,5 @@
 {
+  pkgs-unstable,
   sysOptions,
   wallpapers,
   ...
@@ -12,6 +13,7 @@
   };
   programs.hyprlock = {
     enable = true;
+    package = pkgs-unstable.hyprlock;
     settings = {
       # Inspiration1: https://github.com/justinmdickey/publicdots/blob/main/.config/hypr/hyprlock.conf
       # Inspiration2: https://github.com/Daholli/nixos-config/blob/main/modules/nixos/desktop/addons/hyprlock/default.nix
@@ -238,12 +240,13 @@
     };
 
     extraConfig = ''
-      # Hyprcursor theme
-      env = HYPRCURSOR_THEME,phinger-cursors-light
-      env = HYPRCURSOR_SIZE,${builtins.toString sysOptions.cursorSize}
-      env = XCURSOR_SIZE,${builtins.toString sysOptions.cursorSize}
-      env = HYPRSHOT_DIR,screenshots
-      env = PATH,/home/${sysOptions.user}/.nix-profile/bin:/run/current-system/sw/bin:$PATH
+        # Hyprcursor theme
+        env = HYPRCURSOR_THEME,phinger-cursors-light
+        env = HYPRCURSOR_SIZE,${builtins.toString sysOptions.cursorSize}
+        env = XCURSOR_SIZE,${builtins.toString sysOptions.cursorSize}
+        env = HYPRSHOT_DIR,screenshots
+        env = PATH,/home/${sysOptions.user}/.nix-profile/bin:/run/current-system/sw/bin:$PATH
+      env = ELECTRON_OZONE_PLATFORM_HINT,auto
     '';
   };
 }
