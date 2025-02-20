@@ -149,6 +149,11 @@ tooltip,
   color: @blue;
 }
 
+#custom-notification.dnd-none,
+#custom-notification.dnd-notification {
+  color: @red;
+}
+
 /* #### CLOCK #### */
 #clock {
   font-weight: bold;

@@ -165,9 +165,14 @@
         "$modctl, K, resizeactive, 0 -10%"
         "$modctl, J, resizeactive, 0 10%"
 
-        # Volume up/down
+        # System volume up/down
         ",XF86AudioRaiseVolume, exec, wpctl set-volume -l 1.25 @DEFAULT_AUDIO_SINK@ 5%+"
         ",XF86AudioLowerVolume, exec, wpctl set-volume -l 1.25 @DEFAULT_AUDIO_SINK@ 5%-"
+
+        # Media player volume up/down
+        "CTRL,XF86AudioRaiseVolume, exec, playerctl volume 0.1+"
+        "CTRL,XF86AudioLowerVolume, exec, playerctl volume 0.1-"
+
         # Brightness up/down
         ",XF86MonBrightnessUp, exec, brightnessctl set 10%+"
         ",XF86MonBrightnessDown, exec, brightnessctl set 10%-"
@@ -221,6 +226,11 @@
           ",XF86AudioMute, exec, wpctl set-mute @DEFAULT_AUDIO_SINK@ toggle"
           ## Microphone mute
           ",XF86AudioMicMute, exec, wpctl set-mute @DEFAULT_AUDIO_SOURCE@ toggle"
+
+          # Media player
+          ",XF86AudioNext, exec, playerctl next"
+          ",XF86AudioPrev, exec, playerctl previous"
+          ",XF86AudioPlay, exec, playerctl play-pause"
         ]
         ++ (
           # workspaces

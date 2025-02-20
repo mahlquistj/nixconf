@@ -229,16 +229,17 @@ in {
         };
 
         "custom/notification" = {
-          tooltip = false;
+          tooltip = true;
+          tooltip-format = "{} notification";
           format = "{icon}";
           format-icons = {
-            notification = "<sup></sup>";
+            notification = "";
             none = "";
-            dnd-notification = "<sup></sup>";
+            dnd-notification = "";
             dnd-none = "";
-            inhibited-notification = "<sup></sup>";
+            inhibited-notification = "";
             inhibited-none = "";
-            dnd-inhibited-notification = "<sup></sup>";
+            dnd-inhibited-notification = "";
             dnd-inhibited-none = "";
           };
           return-type = "json";

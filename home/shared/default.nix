@@ -74,6 +74,9 @@
         size = "compact";
       };
     };
+    iconTheme = {
+      name = "Papirus";
+    };
   };
   xsession.enable = true;
   qt = {

@@ -1,11 +1,10 @@
 # My nixos configuration/dotfiles
 
 > [!WARNING]
-> 
+>
 > Feel free to use this however you like. Issues can be opened, but don't expect immediate help, as this is **intended for my own usage**.
 >
 > Breaking changes may occur at any time.
->
 
 <details>
     <summary>Screenshots</summary>
@@ -17,20 +16,20 @@
 </details>
 
 ## 🔌 Components
-| Component             | Link                                                                          |
-|-----------------------|:-----------------------------------------------------------------------------:|
-| **Window manager**    | [Hyprland][Hyprland]                                                          |
-| **Bar**               | [Waybar][Waybar]                                                              |
-| **Launcher**          | [Rofi][rofi]                                                                  |
-| **Terminal**          | [Ghostty][Ghostty]                                                            |
-| **Shell**             | [Fish][Fish] + [Starship][Starship]                                           |
-| **File Manager**      | [Nemo][Nemo]                                                                  |
-| **Color Scheme**      | [Catppuccin-nix][Catppuccin-nix]                                              |
-| **GTK Theme**         | [Catppuccin-gtk][Catppuccin-gtk]                                              |
-| **Cursor**            | [Phinger-cursors][Phinger-cursors]                                            |
-| **Icons**             | [Papirus][Papirus] + [Catppuccin-folders][Catppuccin-folders]                 |
-| **Lockscreen**        | [Hyprlock][Hyprlock]                                                          |
 
+| Component          |                             Link                              |
+| ------------------ | :-----------------------------------------------------------: |
+| **Window manager** |                     [Hyprland][Hyprland]                      |
+| **Bar**            |                       [Waybar][Waybar]                        |
+| **Launcher**       |                         [Rofi][rofi]                          |
+| **Terminal**       |                      [Ghostty][Ghostty]                       |
+| **Shell**          |              [Fish][Fish] + [Starship][Starship]              |
+| **File Manager**   |                         [Nemo][Nemo]                          |
+| **Color Scheme**   |               [Catppuccin-nix][Catppuccin-nix]                |
+| **GTK Theme**      |               [Catppuccin-gtk][Catppuccin-gtk]                |
+| **Cursor**         |              [Phinger-cursors][Phinger-cursors]               |
+| **Icons**          | [Papirus][Papirus] + [Catppuccin-folders][Catppuccin-folders] |
+| **Lockscreen**     |                     [Hyprlock][Hyprlock]                      |
 
 ## 📖 Usage
 
@@ -39,21 +38,22 @@
 3. Use `nixos-rebuild --flake .#<hostname> --impure` to build
 
 I use `--impure` in my configurations because i haven't found a good enough way to handle
-encrypted drives when re-installing. The flake pulls from `/etc/nixos/configuration.nix` and 
+encrypted drives when re-installing. The flake pulls from `/etc/nixos/configuration.nix` and
 `/etc/nixos/hardware-configuration.nix` so be sure that these exist.
 
-The flake will point out if any options set in your `/etc/nixos/configuration.nix` should 
+The flake will point out if any options set in your `/etc/nixos/configuration.nix` should
 conflict with the flakes' configuration.
-
 
 ## 🏅 Credits
 
 - [Namish - Nixos config](https://github.com/namishh/crystal/tree/main)
 - [Frost-Phoenix - Nixos config](https://github.com/Frost-Phoenix/nixos-config/tree/main/)
 - [@Gerg-L](https://github.com/Gerg-L) for quick help with [Spicetify](https://github.com/Gerg-L/spicetify-nix/issues/263)
-
+- [@NotAShelf](https://github.com/NotAShelf) for quick help with [Nvf](https://github.com/NotAShelf/nvf/issues?q=is%3Aissue%20author%3Amadser123%20)
+  and general inspiration for learning nix.
 
 <!-- Links -->
+
 [Hyprland]: https://github.com/hyprwm/Hyprland
 [Ghostty]: https://ghostty.org/
 [Waybar]: https://github.com/Alexays/Waybar

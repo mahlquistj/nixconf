@@ -1,6 +1,4 @@
-{ pkgs, ... }:
-
-{
+{pkgs, ...}: {
   imports = [
     ./audio.nix
     ./display_manager.nix
@@ -23,7 +21,7 @@
 
   security = {
     polkit.enable = true;
-    pam.services.hyprlock = { };
+    pam.services.hyprlock = {};
   };
 
   # Allow unfree packages
