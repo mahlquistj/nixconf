@@ -128,15 +128,6 @@ in {
           };
         };
 
-        "group/usage" = {
-          orientation = "horizontal";
-          modules = [
-            "disk"
-            "memory"
-            "cpu"
-          ];
-        };
-
         disk = {
           format = "<span color='#cad3f5'></span> {percentage_used}%"; #TODO: Can the color be set in another way?
           tooltip-format = "{used} used out of {total} ({free} free)";
@@ -146,6 +137,14 @@ in {
             warning = 70;
             good = 0;
           };
+        };
+
+        "group/usage" = {
+          orientation = "horizontal";
+          modules = [
+            "memory"
+            "cpu"
+          ];
         };
 
         memory = {
