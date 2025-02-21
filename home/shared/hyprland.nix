@@ -1,19 +1,13 @@
-{
-  pkgs-unstable,
-  sysOptions,
-  wallpapers,
-  ...
-}: {
+{ pkgs-unstable, sysOptions, wallpapers, ... }: {
   services.hyprpaper = {
     enable = true;
     settings = {
-      preload = ["${wallpapers}/${sysOptions.wallpaper}.png"];
-      wallpaper = [", ${wallpapers}/${sysOptions.wallpaper}.png"];
+      preload = [ "${wallpapers}/${sysOptions.wallpaper}.png" ];
+      wallpaper = [ ", ${wallpapers}/${sysOptions.wallpaper}.png" ];
     };
   };
   programs.hyprlock = {
     enable = true;
-    package = pkgs-unstable.hyprlock;
     settings = {
       # Inspiration1: https://github.com/justinmdickey/publicdots/blob/main/.config/hypr/hyprlock.conf
       # Inspiration2: https://github.com/Daholli/nixos-config/blob/main/modules/nixos/desktop/addons/hyprlock/default.nix
@@ -89,7 +83,7 @@
 
     systemd.enable = true;
 
-    plugins = [];
+    plugins = [ ];
 
     settings = {
       # Important keys
@@ -106,7 +100,7 @@
       "$lock" = "hyprlock";
 
       # Startup
-      exec-once = ["swaync"];
+      exec-once = [ "swaync" ];
 
       # Setttings and styling
       general = {
@@ -129,8 +123,8 @@
         dim_inactive = true;
         dim_strength = 0.1;
       };
-      input = {kb_layout = "dk";};
-      gestures = {workspace_swipe = true;};
+      input = { kb_layout = "dk"; };
+      gestures = { workspace_swipe = true; };
       animations = {
         enabled = "yes";
         bezier = "myBezier, 0.05, 0.9, 0.1, 1.05";
@@ -149,9 +143,7 @@
       };
 
       # Bindings
-      bindm = [
-        "$mod, mouse:272, movewindow"
-      ];
+      bindm = [ "$mod, mouse:272, movewindow" ];
       binde = [
         # Resizing
         ## Arrow keys
@@ -177,76 +169,72 @@
         ",XF86MonBrightnessUp, exec, brightnessctl set 10%+"
         ",XF86MonBrightnessDown, exec, brightnessctl set 10%-"
       ];
-      bind =
-        [
-          # Spawners
-          "$mod, Return, exec, $terminal"
-          "$mod, SPACE, exec, $menu"
-          "$mod, ESCAPE, exec, $lock"
-          "$modshift, E, exit"
-          "$mod, N, exec, swaync-client -t"
+      bind = [
+        # Spawners
+        "$mod, Return, exec, $terminal"
+        "$mod, SPACE, exec, $menu"
+        "$mod, ESCAPE, exec, $lock"
+        "$modshift, E, exit"
+        "$mod, N, exec, swaync-client -t"
 
-          # Moving focus
-          ## Arrow keys
-          "$mod, left, movefocus, l"
-          "$mod, right, movefocus, r"
-          "$mod, up, movefocus, u"
-          "$mod, down, movefocus, d"
-          ## Vim keys
-          "$mod, H, movefocus, l"
-          "$mod, L, movefocus, r"
-          "$mod, K, movefocus, u"
-          "$mod, J, movefocus, d"
+        # Moving focus
+        ## Arrow keys
+        "$mod, left, movefocus, l"
+        "$mod, right, movefocus, r"
+        "$mod, up, movefocus, u"
+        "$mod, down, movefocus, d"
+        ## Vim keys
+        "$mod, H, movefocus, l"
+        "$mod, L, movefocus, r"
+        "$mod, K, movefocus, u"
+        "$mod, J, movefocus, d"
 
-          # Window control
-          "$mod, V, togglefloating"
-          "$mod, J, togglesplit"
-          "$mod, F, fullscreen"
-          "$mod, Q, killactive"
+        # Window control
+        "$mod, V, togglefloating"
+        "$mod, J, togglesplit"
+        "$mod, F, fullscreen"
+        "$mod, Q, killactive"
 
-          # Move window
-          ## Arrow keys
-          "$modshift, left, movewindow, l"
-          "$modshift, right, movewindow, r"
-          "$modshift, up, movewindow, u"
-          "$modshift, down, movewindow, d"
-          ## Vim keys
-          "$modshift, H, movewindow, l"
-          "$modshift, L, movewindow, r"
-          "$modshift, K, movewindow, u"
-          "$modshift, J, movewindow, d"
+        # Move window
+        ## Arrow keys
+        "$modshift, left, movewindow, l"
+        "$modshift, right, movewindow, r"
+        "$modshift, up, movewindow, u"
+        "$modshift, down, movewindow, d"
+        ## Vim keys
+        "$modshift, H, movewindow, l"
+        "$modshift, L, movewindow, r"
+        "$modshift, K, movewindow, u"
+        "$modshift, J, movewindow, d"
 
-          # Screenshotting
-          "$mod, PRINT, exec, hyprshot -m window"
-          ", PRINT, exec, hyprshot -m output"
-          "$modshift, PRINT, exec, hyprshot -m region"
+        # Screenshotting
+        "$mod, PRINT, exec, hyprshot -m window"
+        ", PRINT, exec, hyprshot -m output"
+        "$modshift, PRINT, exec, hyprshot -m region"
 
-          # Audio
-          ## Volume mute
-          ",XF86AudioMute, exec, wpctl set-mute @DEFAULT_AUDIO_SINK@ toggle"
-          ## Microphone mute
-          ",XF86AudioMicMute, exec, wpctl set-mute @DEFAULT_AUDIO_SOURCE@ toggle"
+        # Audio
+        ## Volume mute
+        ",XF86AudioMute, exec, wpctl set-mute @DEFAULT_AUDIO_SINK@ toggle"
+        ## Microphone mute
+        ",XF86AudioMicMute, exec, wpctl set-mute @DEFAULT_AUDIO_SOURCE@ toggle"
 
-          # Media player
-          ",XF86AudioNext, exec, playerctl next"
-          ",XF86AudioPrev, exec, playerctl previous"
-          ",XF86AudioPlay, exec, playerctl play-pause"
-        ]
-        ++ (
-          # workspaces
-          # binds $mod + [shift +] {1..9} to [move to] workspace {1..9}
-          builtins.concatLists (builtins.genList (i: let
-              ws = i + 1;
-            in [
-              "$mod, code:1${toString i}, workspace, ${
-                toString ws
-              }" # Switch workspace
-              "$modshift, code:1${toString i}, movetoworkspace, ${
-                toString ws
-              }" # Move window to workspace
-            ])
-            9)
-        );
+        # Media player
+        ",XF86AudioNext, exec, playerctl next"
+        ",XF86AudioPrev, exec, playerctl previous"
+        ",XF86AudioPlay, exec, playerctl play-pause"
+      ] ++ (
+        # workspaces
+        # binds $mod + [shift +] {1..9} to [move to] workspace {1..9}
+        builtins.concatLists (builtins.genList (i:
+          let ws = i + 1;
+          in [
+            "$mod, code:1${toString i}, workspace, ${
+              toString ws
+            }" # Switch workspace
+            "$modshift, code:1${toString i}, movetoworkspace, ${
+              toString ws
+            }" # Move window to workspace
+          ]) 9));
     };
 
     extraConfig = ''
