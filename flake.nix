@@ -20,6 +20,9 @@
 
     # Neovim configuration
     nvf.url = "github:notashelf/nvf";
+
+    # Secrets
+    sops-nix.url = "github:Mic92/sops-nix";
   };
 
   outputs = {

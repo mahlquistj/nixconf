@@ -1,4 +1,8 @@
-{pkgs, ...}: {
+{
+  pkgs,
+  sysOptions,
+  ...
+}: {
   imports = [
     ./audio.nix
     ./display_manager.nix
@@ -14,7 +18,10 @@
   location.provider = "geoclue2";
 
   # Enable networking
-  networking.networkmanager.enable = true;
+  networking = {
+    hostName = sysOptions.name;
+    networkmanager.enable = true;
+  };
 
   # Define a user account. Don't forget to set a password with ‘passwd’.
   users.defaultUserShell = pkgs.fish;

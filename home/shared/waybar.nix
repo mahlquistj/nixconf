@@ -11,7 +11,7 @@
     else "";
   battery =
     if sysOptions.battery
-    then "group/battery-group"
+    then "battery"
     else "";
 in {
   programs.waybar = {
@@ -253,14 +253,6 @@ in {
         clock = {
           format = "{:%H:%M %d/%m/%Y}";
           tooltip-format = "{:%A | Week: %U}";
-        };
-
-        "group/battery-group" = {
-          orientation = "horizontal";
-          modules = [
-            "custom/seperator"
-            "battery"
-          ];
         };
 
         battery = {

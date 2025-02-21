@@ -22,17 +22,18 @@ in {
     user ? "maj",
     battery ? false,
     wallpaper ? "1920x1080",
-    cursorSize ? 18,
+    cursorSize ? 24,
     theme ? "mocha",
     cpu_thermal_zone ? 0,
   }: let
-    sysOptions = {inherit user battery wallpaper cursorSize theme cpu_thermal_zone;};
+    sysOptions = {inherit name user battery wallpaper cursorSize theme cpu_thermal_zone;};
 
     wallpapers = "${self}/media/wallpaper";
 
     default_modules = [
       catppuccin.nixosModules.catppuccin
       home-manager.nixosModules.home-manager
+      sops-nix.nixosModules.sops
       {
         home-manager = {
           useGlobalPkgs = true;
@@ -50,6 +51,7 @@ in {
       catppuccin.homeManagerModules.catppuccin
       spicetify-nix.homeManagerModules.spicetify
       nvf.homeManagerModules.default
+      sops-nix.homeManagerModules.sops
       {
         catppuccin = {
           enable = true;

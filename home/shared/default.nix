@@ -39,6 +39,9 @@
 
       # Social
       discord
+
+      # Media
+      spot
     ];
 
     # Files
