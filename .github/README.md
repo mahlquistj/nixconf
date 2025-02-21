@@ -30,6 +30,7 @@
 | **Cursor**         |              [Phinger-cursors][Phinger-cursors]               |
 | **Icons**          | [Papirus][Papirus] + [Catppuccin-folders][Catppuccin-folders] |
 | **Lockscreen**     |                     [Hyprlock][Hyprlock]                      |
+| **Notifications**  |                       [SwayNC][SwayNC]                        |
 
 ## 📖 Usage
 
@@ -68,3 +69,4 @@ conflict with the flakes' configuration.
 [Phinger-cursors]: https://github.com/phisch/phinger-cursors
 [Starship]: https://github.com/starship/starship
 [Fish]: https://github.com/fish-shell/fish-shell
+[SwayNC]: https://github.com/ErikReider/SwayNotificationCenter
