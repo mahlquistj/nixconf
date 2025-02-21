@@ -1,5 +1,5 @@
 {
-  pkgs-unstable,
+  self,
   sysOptions,
   wallpapers,
   ...
@@ -106,6 +106,7 @@
 
       # Startup
       exec-once = [
+        "${self}/scripts/fix-portals.bash"
         "dbus-update-activation-environment --systemd WAYLAND_DISPLAY XDG_CURRENT_DESKTOP"
         "swaync"
       ];
@@ -236,26 +237,30 @@
           # workspaces
           # binds $mod + [shift +] {1..9} to [move to] workspace {1..9}
           builtins.concatLists (builtins.genList (i: let
-            ws = i + 1;
-          in [
-            "$mod, code:1${toString i}, workspace, ${
-              toString ws
-            }" # Switch workspace
-            "$modshift, code:1${toString i}, movetoworkspace, ${
-              toString ws
-            }" # Move window to workspace
-          ]) 9)
+              ws = i + 1;
+            in [
+              "$mod, code:1${toString i}, workspace, ${
+                toString ws
+              }" # Switch workspace
+              "$modshift, code:1${toString i}, movetoworkspace, ${
+                toString ws
+              }" # Move window to workspace
+            ])
+            9)
         );
     };
 
     extraConfig = ''
-        # Hyprcursor theme
-        env = HYPRCURSOR_THEME,phinger-cursors-light
-        env = HYPRCURSOR_SIZE,${builtins.toString sysOptions.cursorSize}
-        env = XCURSOR_SIZE,${builtins.toString sysOptions.cursorSize}
-        env = HYPRSHOT_DIR,screenshots
-        env = PATH,/home/${sysOptions.user}/.nix-profile/bin:/run/current-system/sw/bin:$PATH
+      # Hyprcursor theme
+      env = HYPRCURSOR_THEME,phinger-cursors-light
+      env = HYPRCURSOR_SIZE,${builtins.toString sysOptions.cursorSize}
+      env = XCURSOR_SIZE,${builtins.toString sysOptions.cursorSize}
+      env = HYPRSHOT_DIR,screenshots
+      env = PATH,/home/${sysOptions.user}/.nix-profile/bin:/run/current-system/sw/bin:$PATH
       env = ELECTRON_OZONE_PLATFORM_HINT,auto
+      env = XDG_CURRENT_DESKTOP,Hyprland
+      env = XDG_SESSION_TYPE,wayland
+      env = XDG_SESSION_DESKTOP,Hyprland
     '';
   };
 }
