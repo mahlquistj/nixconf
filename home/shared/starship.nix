@@ -19,6 +19,10 @@ in {
         $git_status
 
         $rust
+        $perl
+        $php
+        $python
+        $terraform
 
         $fill
 
@@ -100,6 +104,55 @@ in {
           [$conflicted$stashed$deleted$renamed$modified$typechanged$untracked$staged$ahead_behind](bg:surface0)
           [](fg:surface0)
         '';
+      };
+
+      rust = {
+        symbol = "🦀";
+        format = multiline ''
+          [─](fg:surface0)
+          [](fg:crust)
+          [$symbol](bg:crust)
+          [](fg:crust bg:surface0)
+          [ $version](bold bg:surface0)
+          [](fg:surface0)
+        '';
+      };
+
+      perl = {
+        symbol = "🐪";
+        format = multiline ''
+          [─](fg:surface0)
+          [](fg:crust)
+          [$symbol](bg:crust)
+          [](fg:crust bg:surface0)
+          [ $version](bold bg:surface0)
+          [](fg:surface0)
+        '';
+      };
+
+      php = {
+        symbol = "🐘";
+        format = multiline ''
+          [─](fg:surface0)
+          [](fg:crust)
+          [$symbol](bg:crust)
+          [](fg:crust bg:surface0)
+          [ $version](bold bg:surface0)
+          [](fg:surface0)
+        '';
+      };
+
+      python = {
+        symbol = "🐍";
+        format = multiline ''
+          [─](fg:surface0)
+          [](fg:crust)
+          [$symbol](bg:crust)
+          [](fg:crust bg:surface0)
+          [ $pyenv_prefix$version(\($virtualenv\))](bold bg:surface0)
+          [](fg:surface0)
+        '';
+        pyenv_prefix = "pyenv-";
       };
 
       cmd_duration = {

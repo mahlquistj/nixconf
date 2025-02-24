@@ -62,7 +62,7 @@ in {
     ];
 
     args = {
-      inherit inputs outputs self pkgs-unstable wallpapers myLib spicetify-nix sysOptions;
+      inherit inputs outputs self pkgs-unstable nurpkgs wallpapers myLib spicetify-nix sysOptions;
     };
   in
     nixpkgs.lib.nixosSystem {

@@ -8,6 +8,7 @@
 in {
   programs.spicetify = {
     enable = true;
+    spotifyPackage = pkgs.spotify;
     theme = spicePkgs.themes.catppuccin;
     colorScheme = sysOptions.theme;
     enabledExtensions = with spicePkgs.extensions; [fullAppDisplay shuffle];

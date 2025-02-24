@@ -10,5 +10,14 @@
 
   home.packages = with pkgs; [
     cava
+
+    (lutris.override {
+      # Unused for now
+      extraLibraries = pkgs: [
+      ];
+      # Unused for now
+      extraPkgs = pkgs: [
+      ];
+    })
   ];
 }

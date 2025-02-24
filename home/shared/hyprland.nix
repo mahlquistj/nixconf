@@ -2,6 +2,7 @@
   self,
   sysOptions,
   wallpapers,
+  pkgs-unstable,
   ...
 }: {
   services.hyprpaper = {
@@ -13,6 +14,7 @@
   };
   programs.hyprlock = {
     enable = true;
+    package = pkgs-unstable.hyprlock;
     settings = {
       # Inspiration1: https://github.com/justinmdickey/publicdots/blob/main/.config/hypr/hyprlock.conf
       # Inspiration2: https://github.com/Daholli/nixos-config/blob/main/modules/nixos/desktop/addons/hyprlock/default.nix
@@ -98,7 +100,7 @@
       "$modctl" = "SUPER CTRL";
 
       # Apps
-      "$terminal" = "ghostty";
+      "$terminal" = "rio";
       "$fileman" = "nemo";
       "$menu" = "rofi -show drun";
       "$browser" = "firefox";
@@ -106,8 +108,8 @@
 
       # Startup
       exec-once = [
-        "${self}/scripts/fix-portals.bash"
-        "dbus-update-activation-environment --systemd WAYLAND_DISPLAY XDG_CURRENT_DESKTOP"
+        "dbus-update-activation-environment --systemd --all"
+        "systemctl --user import-environment WAYLAND_DISPLAY XDG_CURRENT_DESKTOP XDG_SESSION_TYPE XDG_SESSION_DESKTOP"
         "swaync"
       ];
 
@@ -251,16 +253,17 @@
     };
 
     extraConfig = ''
-      # Hyprcursor theme
+      env = PATH,/home/${sysOptions.user}/.nix-profile/bin:/run/current-system/sw/bin:$PATH
+
       env = HYPRCURSOR_THEME,phinger-cursors-light
       env = HYPRCURSOR_SIZE,${builtins.toString sysOptions.cursorSize}
       env = XCURSOR_SIZE,${builtins.toString sysOptions.cursorSize}
+
       env = HYPRSHOT_DIR,screenshots
-      env = PATH,/home/${sysOptions.user}/.nix-profile/bin:/run/current-system/sw/bin:$PATH
-      env = ELECTRON_OZONE_PLATFORM_HINT,auto
+
       env = XDG_CURRENT_DESKTOP,Hyprland
-      env = XDG_SESSION_TYPE,wayland
       env = XDG_SESSION_DESKTOP,Hyprland
+      env = XDG_SESSION_TYPE,wayland
     '';
   };
 }

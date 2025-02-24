@@ -13,6 +13,7 @@
     nixd
     openssl
     wev # Keyboard debugging
+    killall
 
     # C
     gcc

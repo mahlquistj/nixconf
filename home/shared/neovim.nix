@@ -8,6 +8,8 @@
 
       globals = {mapleader = ",";};
 
+      presence.neocord.enable = true;
+
       ui.noice = {
         enable = true;
         setupOpts.presets.lsp_doc_border = true;
@@ -71,6 +73,13 @@
         style = sysOptions.theme;
         transparent = true;
       };
+
+      luaConfigPre =
+        /*
+        lua
+        */
+        ''          vim.lsp.inlay_hint.enable(not vim.lsp.inlay_hint.is_enabled(), { bufnr })
+        '';
     };
   };
 }

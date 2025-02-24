@@ -2,21 +2,24 @@
   pkgs,
   sysOptions,
   osConfig,
+  nurpkgs,
   ...
 }: {
   imports = [
     ./btop.nix
     ./firefox.nix
     ./fish.nix
-    ./ghostty.nix
     ./hyprland.nix
     ./neovim.nix
+    ./rio.nix
     ./rofi.nix
     ./spotify.nix
     ./starship.nix
     ./swaync.nix
     ./waybar.nix
   ];
+
+  nixpkgs.overlays = [nurpkgs.overlays.default];
 
   home = {
     inherit (osConfig.system) stateVersion;
@@ -39,9 +42,6 @@
 
       # Social
       discord
-
-      # Media
-      spot
     ];
 
     # Files
@@ -64,6 +64,17 @@
       name = "phinger-cursors-light";
       package = pkgs.phinger-cursors;
       size = sysOptions.cursorSize;
+    };
+
+    sessionVariables = {
+      NIXOS_OZONE_WL = "1";
+
+      MOZ_ENABLE_WAYLAND = "1";
+
+      GTK_CSD = "0";
+      GTK_USE_PORTAL = "1";
+
+      NIXOS_XDG_OPEN_USE_PORTAL = "1";
     };
   };
 

@@ -22,7 +22,7 @@
 | **Window manager** |                     [Hyprland][Hyprland]                      |
 | **Bar**            |                       [Waybar][Waybar]                        |
 | **Launcher**       |                         [Rofi][rofi]                          |
-| **Terminal**       |                      [Ghostty][Ghostty]                       |
+| **Terminal**       |                          [Rio][Rio]                           |
 | **Shell**          |              [Fish][Fish] + [Starship][Starship]              |
 | **File Manager**   |                         [Nemo][Nemo]                          |
 | **Color Scheme**   |               [Catppuccin-nix][Catppuccin-nix]                |
@@ -56,7 +56,7 @@ conflict with the flakes' configuration.
 <!-- Links -->
 
 [Hyprland]: https://github.com/hyprwm/Hyprland
-[Ghostty]: https://ghostty.org/
+[Rio]: https://github.com/raphamorim/rio
 [Waybar]: https://github.com/Alexays/Waybar
 [rofi]: https://github.com/lbonn/rofi
 [nemo]: https://github.com/linuxmint/nemo/

@@ -19,10 +19,16 @@
     spicetify-nix.url = "github:Gerg-L/spicetify-nix";
 
     # Neovim configuration
-    nvf.url = "github:notashelf/nvf";
+    nvf.url = "github:NotAShelf/nvf";
 
     # Secrets
     sops-nix.url = "github:Mic92/sops-nix";
+
+    # Nix User Repository
+    nurpkgs = {
+      url = "github:nix-community/NUR";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
   };
 
   outputs = {
