@@ -1,4 +1,4 @@
-{ ... }: {
+{...}: {
   programs.rofi = {
     enable = true;
 
@@ -6,10 +6,10 @@
     font = "SauceCodePro Nerd Font Mono";
 
     extraConfig = {
-      modes = [ "drun" "run" ];
+      modes = ["drun" "run"];
       show-icons = true;
       icon-theme = "Papirus";
-      terminal = "ghostty";
+      terminal = "rio";
       drun-display-format = "{icon} {name}";
       hide-scrollbar = true;
       lines = 5;

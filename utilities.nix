@@ -11,27 +11,30 @@ with inputs; let
       removeNewlines = str: builtins.replaceStrings ["\n"] [""] str;
     };
   };
-  system = "x86_64-linux";
-  pkgs-unstable = import unstable {
-    inherit system;
-    config.allowUnfree = true;
-  };
 in {
   mkSystem = {
     name,
     user ? "maj",
     battery ? false,
     wallpaper ? "1920x1080",
-    cursorSize ? 18,
+    cursorSize ? 24,
     theme ? "mocha",
+    cpu_thermal_zone ? 0,
+    system ? "x86_64-linux",
   }: let
-    sysOptions = {inherit user battery wallpaper cursorSize theme;};
+    sysOptions = {inherit name user battery wallpaper cursorSize theme cpu_thermal_zone system;};
 
     wallpapers = "${self}/media/wallpaper";
+
+    pkgs-unstable = import unstable {
+      inherit system;
+      config.allowUnfree = true;
+    };
 
     default_modules = [
       catppuccin.nixosModules.catppuccin
       home-manager.nixosModules.home-manager
+      sops-nix.nixosModules.sops
       {
         home-manager = {
           useGlobalPkgs = true;
@@ -49,6 +52,7 @@ in {
       catppuccin.homeManagerModules.catppuccin
       spicetify-nix.homeManagerModules.spicetify
       nvf.homeManagerModules.default
+      sops-nix.homeManagerModules.sops
       {
         catppuccin = {
           enable = true;
@@ -59,7 +63,7 @@ in {
     ];
 
     args = {
-      inherit inputs outputs self pkgs-unstable wallpapers myLib spicetify-nix sysOptions;
+      inherit inputs outputs self pkgs-unstable nurpkgs wallpapers myLib spicetify-nix sysOptions;
     };
   in
     nixpkgs.lib.nixosSystem {

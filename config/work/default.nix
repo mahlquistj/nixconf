@@ -1,7 +1,5 @@
-{ ... }:
-
-{
-  imports = [ ../shared ];
+{sysOptions, ...}: {
+  imports = [../shared];
 
   hardware.bluetooth.enable = true;
 }

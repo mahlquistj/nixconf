@@ -1,0 +1,11 @@
+keys:
+  - &users:
+    - &maj age1gzg4amf6pgdg3mf22yaz26vzx0rpzvxwneghtsqpftk3qq42ae9suzah0k
+  - &hosts:
+    - &work age1c634fmpv7xp227wjggndxszhxepjp73p35z32rrs8k38ke6en9ts6gpr23
+creation_rules:
+  - path_regex: secrets.yaml$
+    key_groups:
+      - age:
+          - *maj
+          - *work

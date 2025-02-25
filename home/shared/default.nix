@@ -2,15 +2,16 @@
   pkgs,
   sysOptions,
   osConfig,
+  nurpkgs,
   ...
 }: {
   imports = [
     ./btop.nix
     ./firefox.nix
     ./fish.nix
-    ./ghostty.nix
     ./hyprland.nix
     ./neovim.nix
+    ./rio.nix
     ./rofi.nix
     ./spotify.nix
     ./starship.nix
@@ -18,15 +19,20 @@
     ./waybar.nix
   ];
 
+  nixpkgs.overlays = [nurpkgs.overlays.default];
+
   home = {
+    inherit (osConfig.system) stateVersion;
+
     username = sysOptions.user;
     homeDirectory = "/home/${sysOptions.user}";
-    stateVersion = osConfig.system.stateVersion;
 
     packages = with pkgs; [
       # Utils
       jq # CLI JSON parsing
       eza # `ls` substitute
+      playerctl
+      ethtool
 
       # Management
       nemo # File manager
@@ -59,6 +65,17 @@
       package = pkgs.phinger-cursors;
       size = sysOptions.cursorSize;
     };
+
+    sessionVariables = {
+      NIXOS_OZONE_WL = "1";
+
+      MOZ_ENABLE_WAYLAND = "1";
+
+      GTK_CSD = "0";
+      GTK_USE_PORTAL = "1";
+
+      NIXOS_XDG_OPEN_USE_PORTAL = "1";
+    };
   };
 
   gtk = {
@@ -70,6 +87,9 @@
         shade = "dark";
         size = "compact";
       };
+    };
+    iconTheme = {
+      name = "Papirus";
     };
   };
   xsession.enable = true;

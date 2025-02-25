@@ -1,4 +1,4 @@
-{ pkgs, ... }: {
+{pkgs, ...}: {
   nixpkgs.config.allowUnfree = true;
 
   qt.enable = true;
@@ -13,6 +13,7 @@
     nixd
     openssl
     wev # Keyboard debugging
+    killall
 
     # C
     gcc
@@ -33,11 +34,11 @@
     # Theming
     magnetic-catppuccin-gtk
     catppuccin-papirus-folders
+    phinger-cursors
 
     # Other
     neofetch
-    phinger-cursors
-
+    gnome.gvfs # fix for swaync mpris widget
   ];
 
   services = {

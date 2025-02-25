@@ -16,6 +16,10 @@
 in {
   programs.waybar = {
     enable = true;
+    systemd = {
+      enable = true;
+      target = "hyprland-session.target";
+    };
 
     style = lib.fileContents ./waybar.css;
 
@@ -26,7 +30,7 @@ in {
 
         mod = "dock";
 
-        height = 25;
+        height = 26;
 
         margin-left = 10;
         margin-right = 10;
@@ -39,7 +43,25 @@ in {
 
         modules-left = ["group/power" "tray" "cava"];
         modules-center = ["hyprland/workspaces"];
-        modules-right = ["group/hardware" "network" "clock" bluetooth battery];
+        modules-right = [
+          "disk"
+          "group/usage"
+          "temperature"
+          "group/meta"
+          "clock"
+          battery
+        ];
+
+        "group/meta" = {
+          orientation = "horizontal";
+          modules = [
+            "wireplumber"
+            "backlight"
+            bluetooth
+            "network"
+            "custom/notification"
+          ];
+        };
 
         "group/power" = {
           orientation = "horizontal";
@@ -86,7 +108,7 @@ in {
         };
 
         cava = {
-          framerate = 30;
+          framerate = 60;
           stereo = false;
           autosens = 1;
           hide_on_silence = true;
@@ -106,80 +128,126 @@ in {
           };
         };
 
-        "group/hardware" = {
-          orientation = "horizontal";
-          modules = [
-            "wireplumber"
-            "backlight"
-            "disk"
-            "memory"
-            "cpu"
-          ];
-        };
-
-        wireplumber = {
-          format = "<span color='#cad3f5'>{icon}</span> {volume}%";
-          format-muted = "";
-          tooltip-format = "Open sound manager";
-          format-icons = ["" "" ""];
-
-          on-click = "hyprctl dispatch exec pavucontrol";
-
-          states = {
-            "critical" = 80;
-            "warning" = 50;
-          };
-        };
-
-        backlight = {
-          format = "<span color='#cad3f5'>{icon}</span> {percent}%";
-          format-icons = ["󰃞" "󰃟" "󰃠"];
-          tooltip = false;
-        };
-
         disk = {
           format = "<span color='#cad3f5'></span> {percentage_used}%"; #TODO: Can the color be set in another way?
           tooltip-format = "{used} used out of {total} ({free} free)";
 
           states = {
-            "critical" = 90;
-            "warning" = 70;
+            critical = 90;
+            warning = 70;
+            good = 0;
           };
         };
 
+        "group/usage" = {
+          orientation = "horizontal";
+          modules = [
+            "memory"
+            "cpu"
+          ];
+        };
+
         memory = {
-          format = "<span color='#cad3f5'></span> {icon}"; #TODO: Can the color be set in another way?
+          format = "<span color='#cad3f5'></span> <span rise='-1000'>{icon}</span>"; #TODO: Can the color be set in another way?
           tooltip-format = "RAM: {used:0.1f}GiB of {total:0.1f}GiB used.\nSWAP: {swapUsed:0.1f}GiB of {swapTotal:0.1f}GiB used.";
           tooltip = true;
           format-icons = ["" "󰪞" "󰪟" "󰪠" "󰪡" "󰪢" "󰪣" "󰪤" "󰪥"];
           states = {
-            "critical" = 80;
-            "warning" = 50; # We're over our normal ram - now using SWAP
+            critical = 80;
+            warning = 50; # We're over our normal ram - now using SWAP
+            good = 0;
           };
         };
 
         cpu = {
           interval = 10;
 
-          format = "<span color='#cad3f5'></span> {icon}"; #TODO: Can the color be set in another way?
+          format = "<span color='#cad3f5'></span> <span rise='-1000'>{icon}</span>"; #TODO: Can the color be set in another way?
           format-icons = ["" "󰪞" "󰪟" "󰪠" "󰪡" "󰪢" "󰪣" "󰪤" "󰪥"];
           states = {
-            "critical" = 90;
-            "warning" = 70;
+            critical = 90;
+            warning = 70;
+            good = 0;
           };
+        };
+
+        temperature = {
+          format = "{icon} {temperatureC}°C";
+          thermal-zone = sysOptions.cpu_thermal_zone;
+          critical-threshold = 70;
+
+          format-icons = [
+            ""
+            ""
+            ""
+            ""
+            ""
+          ];
+        };
+
+        wireplumber = {
+          format = "{icon}";
+          format-muted = "";
+          tooltip-format = "Open sound manager";
+          format-icons = ["" "" ""];
+
+          on-click = "hyprctl dispatch exec pavucontrol";
+        };
+
+        backlight = {
+          format = "{icon}";
+          format-icons = ["󰃞" "󰃟" "󰃠"];
+          tooltip = false;
         };
 
         network = {
           format-ethernet = "󰈁";
-          format-disconnected = "󰤮";
+          format-disconnected = "";
           format-wifi = "{icon}";
 
-          tooltip-format-ethernet = "Gw: {gwaddr} | {ipaddr} | Up: {bandwidthUpBytes} Down: {bandwidthDownBytes}";
-          tooltip-format-wifi = "{signaldBm} dBm | {ipaddr} | Up: {bandwidthUpBytes} Down: {bandwidthDownBytes}";
+          tooltip-format-ethernet = ''
+            Interface: {ifname}
+            Gateway-IP: {gwaddr}
+            IP: {ipaddr}
+            Up: {bandwidthUpBytes}
+            Down: {bandwidthDownBytes}
+          '';
+          tooltip-format-wifi = ''
+            SSID: {essid}
+            Signal: {signaldBm} dBm
+            Freqency: {frequency} GHz
+            Interface: {ifname}
+            Gateway: {gwaddr}
+            IP: {ipaddr}
+            Up: {bandwidthUpBytes}
+            Down: {bandwidthDownBytes}
+          '';
 
           format-icons = ["󰤯" "󰤟" "󰤢" "󰤥" "󰤨"];
 
           #TODO: on_click = "ADD COMMAND TO OPEN NETWORK MANAGER";
+        };
+
+        "custom/notification" = {
+          tooltip = true;
+          tooltip-format = "{} notification";
+          format = "{icon}";
+          format-icons = {
+            notification = "";
+            none = "";
+            dnd-notification = "";
+            dnd-none = "";
+            inhibited-notification = "";
+            inhibited-none = "";
+            dnd-inhibited-notification = "";
+            dnd-inhibited-none = "";
+          };
+          return-type = "json";
+          exec-if = "which swaync-client";
+          exec = "swaync-client -swb";
+          on-click = "swaync-client -t -sw";
+          on-click-right = "swaync-client -d -sw";
+          escape = true;
         };
 
         clock = {
@@ -188,9 +256,9 @@ in {
         };
 
         battery = {
-          interval = 20;
+          interval = 5;
 
-          format = "<span rise='-1000'>{icon}</span>";
+          format = "{icon}";
           format-good = "{icon} {capacity}%";
           format-warning = "{icon} {capacity}%";
           format-critical = "{icon} {time}";

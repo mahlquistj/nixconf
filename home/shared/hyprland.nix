@@ -1,5 +1,5 @@
 {
-  pkgs-unstable,
+  inputs,
   sysOptions,
   wallpapers,
   ...
@@ -13,7 +13,7 @@
   };
   programs.hyprlock = {
     enable = true;
-    package = pkgs-unstable.hyprlock;
+    package = inputs.hyprlock.packages."${sysOptions.system}".default;
     settings = {
       # Inspiration1: https://github.com/justinmdickey/publicdots/blob/main/.config/hypr/hyprlock.conf
       # Inspiration2: https://github.com/Daholli/nixos-config/blob/main/modules/nixos/desktop/addons/hyprlock/default.nix
@@ -87,6 +87,8 @@
   wayland.windowManager.hyprland = {
     enable = true;
 
+    systemd.enable = true;
+
     plugins = [];
 
     settings = {
@@ -97,14 +99,18 @@
       "$modctl" = "SUPER CTRL";
 
       # Apps
-      "$terminal" = "ghostty";
+      "$terminal" = "rio";
       "$fileman" = "nemo";
       "$menu" = "rofi -show drun";
       "$browser" = "firefox";
       "$lock" = "hyprlock";
 
       # Startup
-      exec-once = ["waybar" "swaync"];
+      exec-once = [
+        "dbus-update-activation-environment --systemd --all"
+        "systemctl --user import-environment WAYLAND_DISPLAY XDG_CURRENT_DESKTOP XDG_SESSION_TYPE XDG_SESSION_DESKTOP"
+        "swaync"
+      ];
 
       # Setttings and styling
       general = {
@@ -143,12 +149,11 @@
       misc = {
         disable_hyprland_logo = true;
         disable_splash_rendering = true;
+        focus_on_activate = true;
       };
 
       # Bindings
-      bindm = [
-        "$mod, mouse:272, movewindow"
-      ];
+      bindm = ["$mod, mouse:272, movewindow"];
       binde = [
         # Resizing
         ## Arrow keys
@@ -162,9 +167,14 @@
         "$modctl, K, resizeactive, 0 -10%"
         "$modctl, J, resizeactive, 0 10%"
 
-        # Volume up/down
-        ",XF86AudioRaiseVolume, exec, wpctl set-volume -l 1.4 @DEFAULT_AUDIO_SINK@ 5%+"
-        ",XF86AudioLowerVolume, exec, wpctl set-volume -l 1.4 @DEFAULT_AUDIO_SINK@ 5%-"
+        # System volume up/down
+        ",XF86AudioRaiseVolume, exec, wpctl set-volume -l 1.25 @DEFAULT_AUDIO_SINK@ 5%+"
+        ",XF86AudioLowerVolume, exec, wpctl set-volume -l 1.25 @DEFAULT_AUDIO_SINK@ 5%-"
+
+        # Media player volume up/down
+        "CTRL,XF86AudioRaiseVolume, exec, playerctl volume 0.1+"
+        "CTRL,XF86AudioLowerVolume, exec, playerctl volume 0.1-"
+
         # Brightness up/down
         ",XF86MonBrightnessUp, exec, brightnessctl set 10%+"
         ",XF86MonBrightnessDown, exec, brightnessctl set 10%-"
@@ -218,6 +228,11 @@
           ",XF86AudioMute, exec, wpctl set-mute @DEFAULT_AUDIO_SINK@ toggle"
           ## Microphone mute
           ",XF86AudioMicMute, exec, wpctl set-mute @DEFAULT_AUDIO_SOURCE@ toggle"
+
+          # Media player
+          ",XF86AudioNext, exec, playerctl next"
+          ",XF86AudioPrev, exec, playerctl previous"
+          ",XF86AudioPlay, exec, playerctl play-pause"
         ]
         ++ (
           # workspaces
@@ -237,13 +252,17 @@
     };
 
     extraConfig = ''
-        # Hyprcursor theme
-        env = HYPRCURSOR_THEME,phinger-cursors-light
-        env = HYPRCURSOR_SIZE,${builtins.toString sysOptions.cursorSize}
-        env = XCURSOR_SIZE,${builtins.toString sysOptions.cursorSize}
-        env = HYPRSHOT_DIR,screenshots
-        env = PATH,/home/${sysOptions.user}/.nix-profile/bin:/run/current-system/sw/bin:$PATH
-      env = ELECTRON_OZONE_PLATFORM_HINT,auto
+      env = PATH,/home/${sysOptions.user}/.nix-profile/bin:/run/current-system/sw/bin:$PATH
+
+      env = HYPRCURSOR_THEME,phinger-cursors-light
+      env = HYPRCURSOR_SIZE,${builtins.toString sysOptions.cursorSize}
+      env = XCURSOR_SIZE,${builtins.toString sysOptions.cursorSize}
+
+      env = HYPRSHOT_DIR,screenshots
+
+      env = XDG_CURRENT_DESKTOP,Hyprland
+      env = XDG_SESSION_DESKTOP,Hyprland
+      env = XDG_SESSION_TYPE,wayland
     '';
   };
 }

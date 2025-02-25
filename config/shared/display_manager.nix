@@ -1,4 +1,9 @@
-{ pkgs, sysOptions, wallpapers, ... }: {
+{
+  pkgs,
+  sysOptions,
+  wallpapers,
+  ...
+}: {
   # Disable catppuccin for SDDM
   catppuccin.sddm.enable = false;
 

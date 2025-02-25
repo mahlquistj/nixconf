@@ -9,6 +9,15 @@
   };
 
   home.packages = with pkgs; [
-    ethtool
+    cava
+
+    (lutris.override {
+      # Unused for now
+      extraLibraries = pkgs: [
+      ];
+      # Unused for now
+      extraPkgs = pkgs: [
+      ];
+    })
   ];
 }
