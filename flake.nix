@@ -12,17 +12,35 @@
       inputs.nixpkgs.follows = "nixpkgs";
     };
 
+    # Hyprlock
+    hyprlock = {
+      url = "github:hyprwm/hyprlock";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
+
     # Color scheme
-    catppuccin.url = "github:catppuccin/nix";
+    catppuccin = {
+      url = "github:catppuccin/nix";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
 
     # Spotify themes
-    spicetify-nix.url = "github:Gerg-L/spicetify-nix";
+    spicetify-nix = {
+      url = "github:Gerg-L/spicetify-nix";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
 
     # Neovim configuration
-    nvf.url = "github:NotAShelf/nvf";
+    nvf = {
+      url = "github:NotAShelf/nvf/bump-all-inputs";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
 
     # Secrets
-    sops-nix.url = "github:Mic92/sops-nix";
+    sops-nix = {
+      url = "github:Mic92/sops-nix";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
 
     # Nix User Repository
     nurpkgs = {

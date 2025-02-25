@@ -11,11 +11,6 @@ with inputs; let
       removeNewlines = str: builtins.replaceStrings ["\n"] [""] str;
     };
   };
-  system = "x86_64-linux";
-  pkgs-unstable = import unstable {
-    inherit system;
-    config.allowUnfree = true;
-  };
 in {
   mkSystem = {
     name,
@@ -25,10 +20,16 @@ in {
     cursorSize ? 24,
     theme ? "mocha",
     cpu_thermal_zone ? 0,
+    system ? "x86_64-linux",
   }: let
-    sysOptions = {inherit name user battery wallpaper cursorSize theme cpu_thermal_zone;};
+    sysOptions = {inherit name user battery wallpaper cursorSize theme cpu_thermal_zone system;};
 
     wallpapers = "${self}/media/wallpaper";
+
+    pkgs-unstable = import unstable {
+      inherit system;
+      config.allowUnfree = true;
+    };
 
     default_modules = [
       catppuccin.nixosModules.catppuccin
