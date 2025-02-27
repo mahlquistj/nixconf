@@ -230,17 +230,17 @@ in {
 
         "custom/notification" = {
           tooltip = true;
-          tooltip-format = "{} notification";
-          format = "{icon}";
+          tooltip-format = "{} notification(s)";
+          format = "<span rise='-1000'>{icon}</span>";
           format-icons = {
-            notification = "";
-            none = "";
-            dnd-notification = "";
-            dnd-none = "";
-            inhibited-notification = "";
-            inhibited-none = "";
-            dnd-inhibited-notification = "";
-            dnd-inhibited-none = "";
+            notification = "";
+            none = "";
+            dnd-notification = "";
+            dnd-none = "";
+            inhibited-notification = "";
+            inhibited-none = "";
+            dnd-inhibited-notification = "";
+            dnd-inhibited-none = "";
           };
           return-type = "json";
           exec-if = "which swaync-client";

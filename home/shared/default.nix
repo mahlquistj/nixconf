@@ -10,6 +10,7 @@
     ./firefox.nix
     ./fish.nix
     ./hyprland.nix
+    ./kdeconnect.nix
     ./neovim.nix
     ./rio.nix
     ./rofi.nix
