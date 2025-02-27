@@ -1,8 +1,14 @@
-{myLib, ...}: let
+{
+  myLib,
+  sysOptions,
+  pkgs-unstable,
+  ...
+}: let
   multiline = myLib.string.removeNewlines;
 in {
   programs.starship = {
     enable = true;
+    package = pkgs-unstable.starship;
     enableFishIntegration = true;
 
     settings = {
@@ -12,40 +18,47 @@ in {
 
       format = multiline ''
         [╭](fg:surface0)
+        $nix_shell
         $username
         $directory
-
         $git_branch
         $git_status
-
         $rust
         $perl
         $php
         $python
         $terraform
-
         $fill
-
         $cmd_duration
         $time
-
         $line_break
-
         [╰](fg:surface0)
         $character
       '';
 
+      nix_shell = {
+        format = multiline ''
+          [](fg:mantle)
+          [$symbol](bg:mantle fg:crust)
+          [](fg:mantle)
+          [─](fg:surface0)
+        '';
+        symbol = "❄️";
+      };
+
       username = {
         format = multiline ''
           [](fg:peach)
-          [](bg:peach fg:crust)
-          [](fg:peach bg:surface0)
-          [ $user]($style)
-          [](fg:surface0)
+          [$user](bg:peach fg:crust)
+          [](fg:peach)
         '';
         show_always = true;
-        style_user = "bg:surface0";
-        style_root = "fg:red  bg:surface0";
+        style_user = "bg:peach fg:crust";
+        style_root = "bg:red fg:crust";
+        aliases = {
+          ${sysOptions.user} = "";
+          root = "";
+        };
       };
 
       directory = {
@@ -110,9 +123,9 @@ in {
         symbol = "🦀";
         format = multiline ''
           [─](fg:surface0)
-          [](fg:crust)
-          [$symbol](bg:crust)
-          [](fg:crust bg:surface0)
+          [](fg:mantle)
+          [$symbol](bg:mantle)
+          [](fg:mantle bg:surface0)
           [ $version](bold bg:surface0)
           [](fg:surface0)
         '';
@@ -122,9 +135,9 @@ in {
         symbol = "🐪";
         format = multiline ''
           [─](fg:surface0)
-          [](fg:crust)
-          [$symbol](bg:crust)
-          [](fg:crust bg:surface0)
+          [](fg:mantle)
+          [$symbol](bg:mantle)
+          [](fg:mantle bg:surface0)
           [ $version](bold bg:surface0)
           [](fg:surface0)
         '';
@@ -134,9 +147,9 @@ in {
         symbol = "🐘";
         format = multiline ''
           [─](fg:surface0)
-          [](fg:crust)
-          [$symbol](bg:crust)
-          [](fg:crust bg:surface0)
+          [](fg:mantle)
+          [$symbol](bg:mantle)
+          [](fg:mantle bg:surface0)
           [ $version](bold bg:surface0)
           [](fg:surface0)
         '';
@@ -146,9 +159,9 @@ in {
         symbol = "🐍";
         format = multiline ''
           [─](fg:surface0)
-          [](fg:crust)
-          [$symbol](bg:crust)
-          [](fg:crust bg:surface0)
+          [](fg:mantle)
+          [$symbol](bg:mantle)
+          [](fg:mantle bg:surface0)
           [ $pyenv_prefix$version(\($virtualenv\))](bold bg:surface0)
           [](fg:surface0)
         '';

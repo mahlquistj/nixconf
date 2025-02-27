@@ -11,6 +11,7 @@
     ./fish.nix
     ./hyprland.nix
     ./neovim.nix
+    ./nix.nix
     ./rio.nix
     ./rofi.nix
     ./spotify.nix

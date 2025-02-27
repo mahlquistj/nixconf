@@ -30,6 +30,9 @@
 
       # Various program aliases
       "top" = "btop";
+
+      # Development
+      "dev" = "nix develop . --command \"fish\"";
     };
 
     shellAbbrs = {
