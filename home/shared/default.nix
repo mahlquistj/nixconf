@@ -12,6 +12,7 @@
     ./hyprland.nix
     ./kdeconnect.nix
     ./neovim.nix
+    ./nix.nix
     ./rio.nix
     ./rofi.nix
     ./spotify.nix
