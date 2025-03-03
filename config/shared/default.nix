@@ -9,6 +9,7 @@
     ./display_manager.nix
     ./fonts.nix
     ./hyprland.nix
+    ./network.nix
     ./programs.nix
     ./shell.nix
     /etc/nixos/hardware-configuration.nix
@@ -21,12 +22,6 @@
 
   # Location
   location.provider = "geoclue2";
-
-  # Enable networking
-  networking = {
-    hostName = sysOptions.name;
-    networkmanager.enable = true;
-  };
 
   # Define a user account. Don't forget to set a password with ‘passwd’.
   users.defaultUserShell = pkgs.fish;
