@@ -133,7 +133,7 @@
         dim_inactive = true;
         dim_strength = 0.1;
       };
-      input = {kb_layout = "dk";};
+      input = {kb_layout = "us";};
       gestures = {workspace_swipe = true;};
       animations = {
         enabled = "yes";

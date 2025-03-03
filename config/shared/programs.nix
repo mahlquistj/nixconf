@@ -12,6 +12,7 @@
     curl
     nixd
     openssl
+    keymapp
     wev # Keyboard debugging
     killall
 

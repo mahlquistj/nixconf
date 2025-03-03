@@ -43,6 +43,9 @@
 
       # Social
       discord
+
+      # Chromium for my moonlander
+      chromium
     ];
 
     # Files

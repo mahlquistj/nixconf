@@ -1,6 +1,13 @@
-{config, ...}: {
+{
+  pkgs,
+  config,
+  ...
+}: {
   imports = [../shared];
 
+  environment.systemPackages = [
+    pkgs.gamescope
+  ];
   # Enable OpenGL
   hardware.graphics = {
     enable = true;

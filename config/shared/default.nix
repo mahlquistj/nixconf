@@ -15,6 +15,8 @@
     /etc/nixos/configuration.nix
   ];
 
+  hardware.keyboard.zsa.enable = true;
+
   nixpkgs.overlays = [nurpkgs.overlays.default];
 
   # Location
