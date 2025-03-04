@@ -5,5 +5,11 @@
     blueman
   ];
 
-  hardware.bluetooth.enable = true;
+  hardware = {
+    bluetooth.enable = true;
+  };
+
+  services.hardware = {
+    bolt.enable = true;
+  };
 }

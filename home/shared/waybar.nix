@@ -122,10 +122,7 @@ in {
         };
 
         "hyprland/workspaces" = {
-          format = "";
-          persistent-workspaces = {
-            "*" = 5;
-          };
+          format = "{name}";
         };
 
         disk = {

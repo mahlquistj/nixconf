@@ -91,6 +91,10 @@ tooltip,
   min-width: 16px;
 }
 
+#workspaces button * {
+  color: @crust;
+}
+
 #workspaces button:last-child {
   margin-right: 0px;
 }
@@ -104,6 +108,10 @@ tooltip,
   min-width: 3.5rem;
 }
 
+#workspaces button.empty * {
+  color: @text;
+}
+
 #workspaces button.active {
   background-color: @peach;
   min-width: 3.5rem;
@@ -115,6 +123,10 @@ tooltip,
 
 #workspaces button:hover {
   background-color: @overlay2;
+}
+
+#workspaces button:hover * {
+  color: @text;
 }
 
 /* #### HARDWARE #### */

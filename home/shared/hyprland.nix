@@ -86,7 +86,7 @@
   };
   wayland.windowManager.hyprland = {
     enable = true;
-
+    xwayland.enable = false;
     systemd.enable = true;
 
     plugins = [];
@@ -133,7 +133,10 @@
         dim_inactive = true;
         dim_strength = 0.1;
       };
-      input = {kb_layout = "us";};
+      input = {
+        kb_layout = "us";
+        kb_options = "compose:ralt";
+      };
       gestures = {workspace_swipe = true;};
       animations = {
         enabled = "yes";
@@ -217,6 +220,12 @@
           "$modshift, L, movewindow, r"
           "$modshift, K, movewindow, u"
           "$modshift, J, movewindow, d"
+
+          # Move workspaces
+          "$modalt, left, movecurrentworkspacetomonitor, l"
+          "$modalt, right, movecurrentworkspacetomonitor, r"
+          "$modalt, up, movecurrentworkspacetomonitor, u"
+          "$modalt, down, movecurrentworkspacetomonitor, d"
 
           # Screenshotting
           "$mod, PRINT, exec, hyprshot -m window"
