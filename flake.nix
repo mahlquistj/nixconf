@@ -3,7 +3,6 @@
 
   inputs = {
     nixpkgs.url = "github:nixos/nixpkgs/nixos-24.11";
-
     unstable.url = "github:nixos/nixpkgs/nixos-unstable";
 
     # Home manager
@@ -32,7 +31,7 @@
 
     # Neovim configuration
     nvf = {
-      url = "github:NotAShelf/nvf/bump-all-inputs";
+      url = "github:NotAShelf/nvf";
       inputs.nixpkgs.follows = "nixpkgs";
     };
 

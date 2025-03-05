@@ -31,6 +31,16 @@
       };
 
       autocomplete.nvim-cmp.enable = true;
+      autopairs.nvim-autopairs.enable = true;
+
+      binds.whichKey = {
+        enable = true;
+        setupOpts = {
+          replace = {
+            "<leader>" = "LEADER";
+          };
+        };
+      };
 
       lsp = {
         formatOnSave = true;
