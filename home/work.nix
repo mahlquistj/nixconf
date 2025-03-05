@@ -1,4 +1,8 @@
-_: {
+{pkgs, ...}: {
+  home.packages = with pkgs; [
+    slack
+  ];
+
   services.kanshi = {
     enable = true;
     systemdTarget = "hyprland-session.target";

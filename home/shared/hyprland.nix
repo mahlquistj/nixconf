@@ -86,7 +86,6 @@
   };
   wayland.windowManager.hyprland = {
     enable = true;
-    xwayland.enable = false;
     systemd.enable = true;
 
     plugins = [];
@@ -222,10 +221,16 @@
           "$modshift, J, movewindow, d"
 
           # Move workspaces
+          ## Arrow keys
           "$modalt, left, movecurrentworkspacetomonitor, l"
           "$modalt, right, movecurrentworkspacetomonitor, r"
           "$modalt, up, movecurrentworkspacetomonitor, u"
           "$modalt, down, movecurrentworkspacetomonitor, d"
+          ## Vim Keys
+          "$modalt, H, movecurrentworkspacetomonitor, l"
+          "$modalt, L, movecurrentworkspacetomonitor, r"
+          "$modalt, K, movecurrentworkspacetomonitor, u"
+          "$modalt, J, movecurrentworkspacetomonitor, d"
 
           # Screenshotting
           "$mod, PRINT, exec, hyprshot -m window"

@@ -4,7 +4,7 @@
   programs = {
     hyprland = {
       enable = true;
-      xwayland.enable = false;
+      xwayland.enable = true;
       portalPackage = pkgs.xdg-desktop-portal-hyprland;
     };
   };
