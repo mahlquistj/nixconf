@@ -40,7 +40,6 @@
     ELECTRON_OZONE_PLATFORM_HINT = "auto";
     GDK_SCALE = 1;
 
-    GTK_USE_PORTAL = 1;
     NIXOS_XDG_USE_PORTAL = 1;
     XDG_CURRENT_DESKTOP = "Hyprland";
     XDG_SESSION_DESKTOP = "Hyprland";

@@ -106,8 +106,8 @@
 
       # Startup
       exec-once = [
-        "dbus-update-activation-environment --systemd --all"
         "systemctl --user import-environment WAYLAND_DISPLAY XDG_CURRENT_DESKTOP XDG_SESSION_TYPE XDG_SESSION_DESKTOP"
+        "dbus-update-activation-environment --systemd --all WAYLAND_DISPLAY XDG_CURRENT_DESKTOP XDG_SESSION_TYPE XDG_SESSION_DESKTOP"
         "swaync"
       ];
 
@@ -274,9 +274,6 @@
 
       env = HYPRSHOT_DIR,screenshots
 
-      env = XDG_CURRENT_DESKTOP,Hyprland
-      env = XDG_SESSION_DESKTOP,Hyprland
-      env = XDG_SESSION_TYPE,wayland
     '';
   };
 }
