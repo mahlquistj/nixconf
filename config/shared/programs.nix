@@ -22,13 +22,6 @@
     # Lua
     dap
 
-    # Rust
-    rustup
-    cargo
-    cargo-cache
-    cargo-nextest # For rustaceanvim
-    bacon
-
     # Display management
     brightnessctl
 

@@ -10,7 +10,7 @@
 
   home.packages = with pkgs; [
     cava
-
+    prismlauncher
     (lutris.override {
       # Unused for now
       extraLibraries = pkgs: [

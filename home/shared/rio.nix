@@ -1,6 +1,11 @@
-{sysOptions, ...}: {
+{
+  sysOptions,
+  inputs,
+  ...
+}: {
   programs.rio = {
     enable = true;
+    package = inputs.rio.packages."${sysOptions.system}".default;
     settings = {
       confirm-before-quit = false;
 
@@ -13,6 +18,7 @@
 
       fonts = {
         size = 18;
+        extras = [{family = "DejaVu Sans Mono";}];
         regular = {
           family = "SauceCodePro Nerd Font Mono";
           style = "Normal";

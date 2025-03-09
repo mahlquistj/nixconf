@@ -46,6 +46,10 @@
       url = "github:nix-community/NUR";
       inputs.nixpkgs.follows = "nixpkgs";
     };
+
+    rio = {
+      url = "github:raphamorim/rio/73f0158330a0fe6d639406fe748588dc1bb69816";
+    };
   };
 
   outputs = {
