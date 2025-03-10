@@ -36,6 +36,7 @@ in {
       home-manager.nixosModules.home-manager
       sops-nix.nixosModules.sops
       {
+        nixpkgs.overlays = [rust-overlay.overlays.default nurpkgs.overlays.default];
         home-manager = {
           useGlobalPkgs = true;
           backupFileExtension = "backup";

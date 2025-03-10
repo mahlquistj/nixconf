@@ -47,8 +47,15 @@
       inputs.nixpkgs.follows = "nixpkgs";
     };
 
+    # Rio terminal
     rio = {
       url = "github:raphamorim/rio/73f0158330a0fe6d639406fe748588dc1bb69816";
+    };
+
+    # Rust overlay
+    rust-overlay = {
+      url = "github:oxalica/rust-overlay";
+      inputs.nixpkgs.follows = "nixpkgs";
     };
   };
 

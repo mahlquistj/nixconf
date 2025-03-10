@@ -1,4 +1,8 @@
-{sysOptions, ...}: {
+{
+  pkgs,
+  sysOptions,
+  ...
+}: {
   programs.nvf = {
     enable = true;
 
@@ -65,6 +69,9 @@
         python.enable = true;
         rust = {
           enable = true;
+          format.package = pkgs.rust-bin.stable.latest.rustfmt;
+          lsp.package = pkgs.rust-bin.stable.latest.rust-analyzer;
+
           crates = {
             enable = true;
             codeActions = true;

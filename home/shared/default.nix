@@ -2,7 +2,6 @@
   pkgs,
   sysOptions,
   osConfig,
-  nurpkgs,
   ...
 }: {
   imports = [
@@ -20,8 +19,6 @@
     ./swaync.nix
     ./waybar.nix
   ];
-
-  nixpkgs.overlays = [nurpkgs.overlays.default];
 
   home = {
     inherit (osConfig.system) stateVersion;
