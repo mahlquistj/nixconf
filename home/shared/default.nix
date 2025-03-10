@@ -40,7 +40,7 @@
       hyprshot
 
       # Social
-      vesktop
+      discord
 
       # Chromium for my moonlander
       chromium
