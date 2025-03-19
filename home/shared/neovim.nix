@@ -34,7 +34,12 @@
         refresh.statusline = 100;
       };
 
-      autocomplete.nvim-cmp.enable = true;
+      autocomplete.blink-cmp = {
+        enable = true;
+      };
+
+      utility.icon-picker.enable = true;
+
       autopairs.nvim-autopairs.enable = true;
 
       binds.whichKey = {
@@ -95,7 +100,12 @@
         /*
         lua
         */
-        ''          vim.lsp.inlay_hint.enable(not vim.lsp.inlay_hint.is_enabled(), { bufnr })
+        ''
+          local ipopts = { noremap = true, silent = true }
+
+          vim.keymap.set("i", "<C-i>", "<CMD>IconPickerInsert<CR>", ipopts)
+
+          vim.lsp.inlay_hint.enable(not vim.lsp.inlay_hint.is_enabled(), { bufnr })
         '';
     };
   };
