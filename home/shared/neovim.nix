@@ -34,9 +34,7 @@
         refresh.statusline = 100;
       };
 
-      autocomplete.blink-cmp = {
-        enable = true;
-      };
+      autocomplete.nvim-cmp.enable = true;
 
       utility.icon-picker.enable = true;
 
@@ -103,7 +101,8 @@
         ''
           local ipopts = { noremap = true, silent = true }
 
-          vim.keymap.set("i", "<C-i>", "<CMD>IconPickerInsert<CR>", ipopts)
+
+          vim.keymap.set("i", "<C-s>", "<CMD>IconPickerInsert emoji<CR>", ipopts)
 
           vim.lsp.inlay_hint.enable(not vim.lsp.inlay_hint.is_enabled(), { bufnr })
         '';
