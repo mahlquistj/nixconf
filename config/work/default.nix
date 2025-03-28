@@ -12,4 +12,6 @@
   services.hardware = {
     bolt.enable = true;
   };
+
+  programs.steam.enable = true;
 }

@@ -14,9 +14,12 @@
 
       presence.neocord.enable = true;
 
-      ui.noice = {
-        enable = true;
-        setupOpts.presets.lsp_doc_border = true;
+      ui = {
+        breadcrumbs.enable = true;
+        noice = {
+          enable = true;
+          setupOpts.presets.lsp_doc_border = true;
+        };
       };
 
       options = {
@@ -24,10 +27,14 @@
         shiftwidth = 4;
       };
 
-      telescope.enable = true;
-      #spellcheck.enable = true;
+      git.enable = true;
 
-      filetree.nvimTree.enable = true;
+      telescope.enable = true;
+
+      filetree.nvimTree = {
+        enable = true;
+        setupOpts.git.enable = true;
+      };
 
       statusline.lualine = {
         enable = true;
@@ -51,9 +58,7 @@
 
       lsp = {
         formatOnSave = true;
-        lightbulb.enable = true;
         lspkind.enable = true;
-        lsplines.enable = true;
       };
 
       languages = {
@@ -67,6 +72,10 @@
           lsp.enable = false; # We don't want LSP as we also use GTK-css, which is a pain when it comes to LSP
           format.enable = true;
           treesitter.enable = true;
+        };
+        markdown = {
+          enable = true;
+          extensions.render-markdown-nvim.enable = true;
         };
         nix.enable = true;
         python.enable = true;
@@ -100,7 +109,6 @@
         */
         ''
           local ipopts = { noremap = true, silent = true }
-
 
           vim.keymap.set("i", "<C-s>", "<CMD>IconPickerInsert emoji<CR>", ipopts)
 
