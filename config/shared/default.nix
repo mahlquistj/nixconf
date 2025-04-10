@@ -12,6 +12,7 @@
     ./network.nix
     ./programs.nix
     ./shell.nix
+    ./yubikey.nix
     /etc/nixos/hardware-configuration.nix
     /etc/nixos/configuration.nix
   ];
