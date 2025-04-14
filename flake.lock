@@ -434,17 +434,16 @@
         "systems": "systems_4"
       },
       "locked": {
-        "lastModified": 1740589012,
-        "narHash": "sha256-1sX2V00irRhxiBoAu/Xx98YWDwkqMxXyEAFLboDxUo8=",
+        "lastModified": 1744629577,
+        "narHash": "sha256-gZlchrh2329m7IoLdx2UizYwEdfUHLpBNLljJYczlO8=",
         "owner": "raphamorim",
         "repo": "rio",
-        "rev": "73f0158330a0fe6d639406fe748588dc1bb69816",
+        "rev": "daf25a0e0300aad112b7ba07ee59ef4bb1de6508",
         "type": "github"
       },
       "original": {
         "owner": "raphamorim",
         "repo": "rio",
-        "rev": "73f0158330a0fe6d639406fe748588dc1bb69816",
         "type": "github"
       }
     },

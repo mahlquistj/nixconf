@@ -18,7 +18,7 @@
 
       fonts = {
         size = 18;
-        extras = [{family = "DejaVu Sans Mono";}];
+
         regular = {
           family = "SauceCodePro Nerd Font Mono";
           style = "Normal";
