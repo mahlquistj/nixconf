@@ -1,5 +1,5 @@
 {pkgs, ...}: {
-  programs.firefox = {
+  programs.librewolf = {
     enable = true;
 
     profiles.default = {
@@ -57,8 +57,9 @@
       ];
       extensions = with pkgs.nur.repos.rycee.firefox-addons; [
         clearurls
-        decentraleyes
         dashlane
+        darkreader
+        decentraleyes
         no-pdf-download
         tridactyl
         ublock-origin
