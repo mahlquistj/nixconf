@@ -1,7 +1,6 @@
 {
   pkgs,
   nurpkgs,
-  sysOptions,
   ...
 }: {
   imports = [
@@ -29,7 +28,17 @@
 
   security = {
     polkit.enable = true;
-    pam.services.hyprlock = {};
+    pam = {
+      u2f = {
+        enable = true;
+        control = "sufficient";
+      };
+      services = {
+        hyprlock.u2fAuth = true;
+        login.u2fAuth = true;
+        sudo.u2fAuth = true;
+      };
+    };
   };
 
   # Allow unfree packages
