@@ -2,6 +2,7 @@
   inputs,
   sysOptions,
   wallpapers,
+  pkgs-unstable,
   ...
 }: {
   services = {
@@ -46,7 +47,7 @@
   };
   programs.hyprlock = {
     enable = true;
-    package = inputs.hyprlock.packages."${sysOptions.system}".default;
+    package = pkgs-unstable.hyprlock;
     settings = {
       # Inspiration1: https://github.com/justinmdickey/publicdots/blob/main/.config/hypr/hyprlock.conf
       # Inspiration2: https://github.com/Daholli/nixos-config/blob/main/modules/nixos/desktop/addons/hyprlock/default.nix

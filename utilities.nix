@@ -50,7 +50,7 @@ in {
     ];
 
     default_hm_modules = [
-      catppuccin.homeManagerModules.catppuccin
+      catppuccin.homeModules.catppuccin
       spicetify-nix.homeManagerModules.spicetify
       nvf.homeManagerModules.default
       sops-nix.homeManagerModules.sops

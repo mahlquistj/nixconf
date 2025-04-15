@@ -32,6 +32,7 @@
       eza # `ls` substitute
       playerctl
       ethtool
+      dig
 
       # Management
       nemo # File manager
