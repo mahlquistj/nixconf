@@ -11,11 +11,11 @@
       inputs.nixpkgs.follows = "nixpkgs";
     };
 
-    # Hyprlock - UNUSED ATM (Flake fails, but unstable doesn't)
-    # hyprlock = {
-    #   url = "github:hyprwm/hyprlock";
-    #   inputs.nixpkgs.follows = "nixpkgs";
-    # };
+    # Hyprlock
+    hyprlock = {
+      url = "github:hyprwm/hyprlock/e588351d1df57b125fda8d92f5b36a435545bb95";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
 
     # Color scheme
     catppuccin = {
