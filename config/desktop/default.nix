@@ -10,23 +10,20 @@
     clinfo
     lact
   ];
-  # Enable OpenGL
-  hardware.graphics = {
-    enable = true;
-  };
-
   programs.steam.enable = true;
 
   # AMD GPU
   boot.initrd.kernelModules = ["amdgpu"];
 
   hardware = {
-    opengl.extraPackages = with pkgs; [
-      rocmPackages.clr.icd
-    ];
-
-    graphics.enable32Bit = true; # For 32 bit applications
     bluetooth.enable = true;
+    graphics = {
+      enable32Bit = true; # For 32 bit applications
+      enable = true;
+      extraPackages = with pkgs; [
+        rocmPackages.clr.icd
+      ];
+    };
   };
 
   systemd = {
