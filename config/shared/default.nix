@@ -27,6 +27,7 @@
   users.defaultUserShell = pkgs.fish;
 
   security = {
+    sudo.enable = true;
     polkit.enable = true;
     pam = {
       u2f = {
