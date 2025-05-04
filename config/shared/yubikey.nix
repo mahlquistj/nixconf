@@ -22,4 +22,6 @@
   environment.systemPackages = with pkgs; [
     yubioath-flutter
   ];
+
+  programs.ssh.enableAskPassword = true;
 }

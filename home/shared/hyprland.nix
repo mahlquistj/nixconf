@@ -47,7 +47,7 @@
   };
   programs.hyprlock = {
     enable = true;
-    package = pkgs-unstable.hyprlock;
+    package = inputs.hyprlock.packages.${sysOptions.system}.default;
     settings = {
       # Inspiration1: https://github.com/justinmdickey/publicdots/blob/main/.config/hypr/hyprlock.conf
       # Inspiration2: https://github.com/Daholli/nixos-config/blob/main/modules/nixos/desktop/addons/hyprlock/default.nix
@@ -71,51 +71,6 @@
         vibrancy = 0.2;
         vibrancy_darkness = 0.2;
       };
-
-      input-field = {
-        size = "250, 60";
-        outline_thickness = 2;
-        dots_size = 0.2;
-        dots_spacing = 0.35;
-        dots_center = true;
-        outer_color = "rgba(0, 0, 0, 0)";
-        inner_color = "rgba(0, 0, 0, 0.6)";
-        font_family = "Source Code Pro";
-        font_color = "$text";
-        fade_on_empty = false;
-        rounding = -1;
-        check_color = "$peach";
-        fail_color = "$red";
-        capslock_color = "$yellow";
-        placeholder_text = "Input Password...";
-        hide_input = false;
-        position = "0, -100";
-        halign = "center";
-        valign = "center";
-      };
-
-      label = [
-        # DATE
-        {
-          text = ''cmd[update:1000] date +"%A, %d %B"'';
-          color = "$text";
-          font_size = 18;
-          font_family = "JetBrains Mono";
-          position = "0, 50";
-          halign = "center";
-          valign = "bottom";
-        }
-        # TIME
-        {
-          text = ''cmd[update:1000] date +"%H:%M"'';
-          color = "$subtext1";
-          font_size = 95;
-          font_family = "JetBrains Mono Extrabold";
-          position = "0, 200";
-          halign = "center";
-          valign = "center";
-        }
-      ];
     };
   };
   wayland.windowManager.hyprland = {
