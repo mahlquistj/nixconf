@@ -168,19 +168,19 @@ in {
           };
         };
 
-        temperature = {
-          format = "{icon} {temperatureC}°C";
-          thermal-zone = sysOptions.cpu_thermal_zone;
-          critical-threshold = 70;
-
-          format-icons = [
-            ""
-            ""
-            ""
-            ""
-            ""
-          ];
-        };
+        # temperature = {
+        #   format = "{icon} {temperatureC}°C";
+        #   thermal-zone = sysOptions.cpu_thermal_zone;
+        #   critical-threshold = 70;
+        #
+        #   format-icons = [
+        #     ""
+        #     ""
+        #     ""
+        #     ""
+        #     ""
+        #   ];
+        # };
 
         wireplumber = {
           format = "{icon}";

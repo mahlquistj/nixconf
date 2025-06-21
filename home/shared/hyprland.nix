@@ -76,6 +76,8 @@
   wayland.windowManager.hyprland = {
     enable = true;
     systemd.enable = true;
+    package = null;
+    portalPackage = null;
 
     plugins = [];
 
@@ -90,7 +92,7 @@
       "$terminal" = "rio";
       "$fileman" = "nemo";
       "$menu" = "rofi -show drun";
-      "$browser" = "firefox";
+      "$browser" = "chromium";
       "$lock" = "hyprlock";
 
       # Startup
@@ -112,6 +114,8 @@
         # col.* has to be in quotes
         "col.active_border" = "$peach";
         "col.inactive_border" = "$base";
+
+        allow_tearing = true;
       };
       decoration = {
         rounding = 10;

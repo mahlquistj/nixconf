@@ -1,6 +1,6 @@
 _: {
-  services.kdeconnect = {
-    enable = true;
-    indicator = true;
-  };
+  # services.kdeconnect = {
+  #   enable = true;
+  #   indicator = true;
+  # };
 }

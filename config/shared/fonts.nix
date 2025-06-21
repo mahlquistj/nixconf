@@ -1,18 +1,16 @@
-{ pkgs, ... }:
-
-{
+{pkgs, ...}: {
   fonts = {
     packages = with pkgs; [
       twemoji-color-font
       google-fonts
-      nerdfonts
+      nerd-fonts.sauce-code-pro
       jetbrains-mono
     ];
 
     fontconfig = {
       defaultFonts = {
-        sansSerif = [ "Product Sans" ];
-        monospace = [ "SauceCodePro Nerd Font Mono" ];
+        sansSerif = ["Product Sans"];
+        monospace = ["SauceCodePro Nerd Font Mono"];
       };
     };
 

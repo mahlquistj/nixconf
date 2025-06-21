@@ -15,12 +15,14 @@
     keymapp
     wev # Keyboard debugging
     killall
+    zip
+    unzip
 
     # C
     gcc
 
     # Lua
-    dap
+    # dap
 
     # Display management
     brightnessctl

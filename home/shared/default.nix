@@ -6,7 +6,7 @@
 }: {
   imports = [
     ./btop.nix
-    ./firefox.nix
+    ./chrome.nix
     ./fish.nix
     ./hyprland.nix
     ./kdeconnect.nix
@@ -19,6 +19,8 @@
     ./swaync.nix
     ./waybar.nix
   ];
+
+  catppuccin.mako.enable = false;
 
   home = {
     inherit (osConfig.system) stateVersion;
@@ -42,9 +44,6 @@
 
       # Social
       discord
-
-      # Chromium for my moonlander
-      chromium
     ];
 
     # Files
@@ -95,7 +94,6 @@
       name = "Papirus";
     };
   };
-  xsession.enable = true;
   qt = {
     enable = true;
 

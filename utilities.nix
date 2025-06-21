@@ -50,6 +50,7 @@ in {
     ];
 
     default_hm_modules = [
+      fancontrol-gui.homeManagerModules.default
       catppuccin.homeModules.catppuccin
       spicetify-nix.homeManagerModules.spicetify
       nvf.homeManagerModules.default

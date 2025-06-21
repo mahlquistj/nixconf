@@ -23,15 +23,24 @@
 
   environment.variables.QT_QPA_PLATFORM = "wayland";
 
-  services.displayManager.sddm = {
+  services.xserver = {
     enable = true;
-    wayland.enable = true;
-    theme = "where_is_my_sddm_theme";
-    settings = {
-      Theme = {
-        CursorTheme = "phinger-cursors-light";
-        CursorSize = sysOptions.cursorSize;
-      };
-    };
+    displayManager.gdm.enable = true;
   };
+
+  # services.displayManager.ly = {
+  #   enable = true;
+  # };
+
+  # services.displayManager.sddm = {
+  #   enable = true;
+  #   wayland.enable = true;
+  #   theme = "where_is_my_sddm_theme";
+  #   settings = {
+  #     Theme = {
+  #       CursorTheme = "phinger-cursors-light";
+  #       CursorSize = sysOptions.cursorSize;
+  #     };
+  #   };
+  # };
 }
