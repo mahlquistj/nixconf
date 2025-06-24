@@ -36,7 +36,10 @@
       enable32Bit = true; # For 32 bit applications
       enable = true;
       extraPackages = with pkgs; [
-        rocmPackages.clr.icd
+        amdvlk
+        vaapiVdpau
+        libvdpau-va-gl
+        rocmPackages.clr
       ];
     };
   };

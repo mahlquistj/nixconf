@@ -49,7 +49,7 @@
 
     # Rio terminal
     rio = {
-      url = "github:raphamorim/rio";
+      url = "github:raphamorim/rio/3a51a09924016670e0982b6785233a171e8fdb48";
     };
 
     # Rust overlay
