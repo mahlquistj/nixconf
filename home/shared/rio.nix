@@ -5,7 +5,7 @@
 }: {
   programs.rio = {
     enable = true;
-    package = inputs.rio.packages."${sysOptions.system}".default;
+    # package = inputs.rio.packages."${sysOptions.system}".default;
     settings = {
       confirm-before-quit = false;
 
