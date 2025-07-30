@@ -1,14 +1,13 @@
 {
   pkgs,
   sysOptions,
-  pkgs-unstable,
   ...
 }: {
   programs.nvf = {
     enable = true;
 
     settings.vim = {
-      package = pkgs-unstable.neovim-unwrapped;
+      package = pkgs.neovim-unwrapped;
 
       vimAlias = true;
       viAlias = true;

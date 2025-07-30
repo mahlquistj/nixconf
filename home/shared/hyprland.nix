@@ -2,7 +2,6 @@
   inputs,
   sysOptions,
   wallpapers,
-  pkgs-unstable,
   ...
 }: {
   services = {

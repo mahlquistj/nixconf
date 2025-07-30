@@ -26,7 +26,7 @@ in {
 
     wallpapers = "${self}/media/wallpaper";
 
-    pkgs-unstable = import unstable {
+    pkgs-stable = import stable {
       inherit system;
       config.allowUnfree = true;
     };
@@ -65,7 +65,7 @@ in {
     ];
 
     args = {
-      inherit inputs outputs self pkgs-unstable nurpkgs wallpapers myLib spicetify-nix sysOptions;
+      inherit inputs outputs self pkgs-stable nurpkgs wallpapers myLib spicetify-nix sysOptions;
     };
   in
     nixpkgs.lib.nixosSystem {
