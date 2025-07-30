@@ -87,8 +87,10 @@
       "$modshift" = "SUPER SHIFT";
       "$modalt" = "SUPER ALT";
       "$modctl" = "SUPER CTRL";
+      "$modhyper" = "SUPER CTRL ALT SHIFT";
+      "$modmeh" = "CTRL ALT SHIFT";
 
-      # Apps
+      # App
       "$terminal" = "rio";
       "$fileman" = "nemo";
       "$menu" = "rofi -show drun";
@@ -97,15 +99,15 @@
 
       # Startup
       exec-once = [
-        "systemctl --user import-environment WAYLAND_DISPLAY XDG_CURRENT_DESKTOP XDG_SESSION_TYPE XDG_SESSION_DESKTOP"
+        "systemctl --user import-environment WAYLAND_DISPLAY XDG_CURRENT_DESKTOP XDG_SESSION_TYPE XDG_SESSION_DESKTOP "
         "dbus-update-activation-environment --systemd --all WAYLAND_DISPLAY XDG_CURRENT_DESKTOP XDG_SESSION_TYPE XDG_SESSION_DESKTOP"
         "swaync"
       ];
 
       # Setttings and styling
       general = {
-        gaps_in = 5;
-        gaps_out = 10;
+        gaps_in = 2;
+        gaps_out = 5;
 
         border_size = 1;
 
@@ -114,8 +116,6 @@
         # col.* has to be in quotes
         "col.active_border" = "$peach";
         "col.inactive_border" = "$base";
-
-        allow_tearing = true;
       };
       decoration = {
         rounding = 10;
@@ -146,6 +146,16 @@
         disable_splash_rendering = true;
         focus_on_activate = true;
       };
+      master = {
+        orientation = "center";
+        slave_count_for_center_master = 0;
+        # use half of the scrren width available
+        mfact = "0.5";
+      };
+
+      workspace = [
+        "special:scratchpad, on-created-empty:rio"
+      ];
 
       # Bindings
       bindm = ["$mod, mouse:272, movewindow"];
@@ -182,6 +192,24 @@
           "$mod, ESCAPE, exec, $lock"
           "$modshift, E, exit"
           "$mod, N, exec, swaync-client -t"
+
+          # Layout toggle
+          ''
+            $mod, T, exec, hyprctl keyword general:layout "$(hyprctl getoption general:layout | grep -q 'dwindle' && echo 'master' || echo 'dwindle')"
+          ''
+
+          # Special workspace toggle
+          "$modhyper, Return, togglespecialworkspace, scratchpad"
+          "$modmeh, Return, movetoworkspace, scratchpad"
+
+          # Master layout
+          "$mod, M, layoutmsg, focusmaster"
+          "$modctl, M, layoutmsg, swapwithmaster"
+          "$modhyper, H, layoutmsg, orientationleft"
+          "$modhyper, L, layoutmsg, orientationright"
+          "$modhyper, K, layoutmsg, orientationcenter"
+          "$modhyper, up, layoutmsg, orientationnext"
+          "$modhyper, down, layoutmsg, orientationprev"
 
           # Moving focus
           ## Arrow keys

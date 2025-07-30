@@ -43,7 +43,7 @@
       hyprshot
 
       # Social
-      discord
+      vesktop
     ];
 
     # Files
@@ -69,6 +69,9 @@
     };
 
     sessionVariables = {
+      PROTON_LOG = "1";
+      PROTON_LOG_DIR = "/home/maj/";
+
       NIXOS_OZONE_WL = "1";
 
       MOZ_ENABLE_WAYLAND = "1";
@@ -80,6 +83,8 @@
 
       VDPAU_DRIVER = "va_gl";
       LIBVA_DRIVER_NAME = "radeonsi";
+
+      DISCORD_SKIP_HOST_GPU_BLOCKLIST = "1";
     };
   };
 

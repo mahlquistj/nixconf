@@ -1,6 +1,7 @@
 {
   pkgs,
   config,
+  sysOptions,
   ...
 }: {
   imports = [../shared];
@@ -15,6 +16,13 @@
     winetricks
     cabextract
     lm_sensors
+    protonup-qt
+  ];
+
+  users.users."${sysOptions.user}".extraGroups = ["adbusers"];
+  programs.adb.enable = true;
+  services.udev.packages = with pkgs; [
+    android-udev-rules
   ];
 
   programs.steam.enable = true;
@@ -36,10 +44,7 @@
       enable32Bit = true; # For 32 bit applications
       enable = true;
       extraPackages = with pkgs; [
-        amdvlk
-        vaapiVdpau
-        libvdpau-va-gl
-        rocmPackages.clr
+        rocmPackages.clr.icd
       ];
     };
   };
