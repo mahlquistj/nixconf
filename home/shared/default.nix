@@ -44,6 +44,9 @@
 
       # Social
       vesktop
+
+      # Usb mounting
+      udiskie
     ];
 
     # Files

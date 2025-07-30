@@ -1,14 +1,14 @@
 {
+  pkgs,
   myLib,
   sysOptions,
-  pkgs-unstable,
   ...
 }: let
   multiline = myLib.string.removeNewlines;
 in {
   programs.starship = {
     enable = true;
-    package = pkgs-unstable.starship;
+    package = pkgs.starship;
     enableFishIntegration = true;
 
     settings = {

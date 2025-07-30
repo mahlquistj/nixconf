@@ -18,6 +18,9 @@
     zip
     unzip
 
+    # DAW
+    bitwig-studio
+
     # C
     gcc
 
