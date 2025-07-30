@@ -11,6 +11,7 @@
     ./network.nix
     ./programs.nix
     ./shell.nix
+    ./usb.nix
     ./yubikey.nix
     /etc/nixos/hardware-configuration.nix
     /etc/nixos/configuration.nix

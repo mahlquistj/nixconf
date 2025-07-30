@@ -44,6 +44,9 @@
 
       # Social
       discord
+
+      # Usb mounting
+      udiskie
     ];
 
     # Files
