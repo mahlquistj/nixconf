@@ -1,6 +1,5 @@
 {sysOptions, ...}: let
   meh = "control | alt | shift";
-  hyper = "super | control | alt | shift";
 in {
   programs.rio = {
     enable = true;
@@ -9,7 +8,7 @@ in {
       bindings = {
         keys = [
           {
-            key = "o";
+            key = "i";
             "with" = "control | shift";
             action = "ToggleVIMode";
             mode = "~vi";
@@ -23,16 +22,6 @@ in {
             key = "q";
             "with" = "${meh}";
             action = "CloseTab";
-          }
-          {
-            key = "h";
-            "with" = "${hyper}";
-            action = "SelectPrevTab";
-          }
-          {
-            key = "l";
-            "with" = "${hyper}";
-            action = "SelectNextTab";
           }
         ];
       };
