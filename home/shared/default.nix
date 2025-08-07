@@ -18,6 +18,7 @@
     ./starship.nix
     ./swaync.nix
     ./waybar.nix
+    ./yazi.nix
   ];
 
   catppuccin.mako.enable = false;
@@ -86,6 +87,13 @@
 
       DISCORD_SKIP_HOST_GPU_BLOCKLIST = "1";
     };
+  };
+
+  xdg.portal = {
+    enable = true;
+    extraPortals = [
+      pkgs.xdg-desktop-portal-termfilechooser
+    ];
   };
 
   gtk = {

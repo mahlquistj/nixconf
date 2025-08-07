@@ -1,18 +1,29 @@
-{...}: {
+{
+  pkgs,
+  sysOptions,
+  ...
+}: {
   programs.yazi = {
     enable = true;
     enableFishIntegration = true;
     shellWrapperName = "y";
   };
 
+  xdg.portal = {
+    config.common = {
+      "org.freedesktop.impl.portal.FileChooser" = "termfilechooser";
+    };
+    extraPortals = with pkgs; [
+      xdg-desktop-portal-termfilechooser
+    ];
+  };
   xdg.configFile = {
     # 1. Add the 'config' file
     "xdg-desktop-portal-termfilechooser/config" = {
-      # Use `text` for inline content.
-      # Replace the content below with your actual config.
+      force = true;
       text = ''
         [filechooser]
-        cmd=yazi-wrapper.sh
+        cmd=/home/${sysOptions.user}/.config/xdg-desktop-portal-termfilechooser/yazi-wrapper.sh
         default_dir=$HOME
         ; Uncomment to skip creating destination save files with instructions in them
         ; create_help_file=0
@@ -23,14 +34,9 @@
       '';
     };
 
-    # 2. Add the 'yasi.sh' script and make it executable
-    "xdg-desktop-portal-termfilechooser/yasi.sh" = {
-      # Use `source` to point to your script file.
-      # This assumes 'yasi.sh' is in the same directory as your home.nix.
-      # Adjust the path if it's located elsewhere.
-      source = ./yasi-wrapper.sh;
-
-      # Set the executable bit
+    "xdg-desktop-portal-termfilechooser/yazi-wrapper.sh" = {
+      force = true;
+      source = ./yazi-wrapper.sh;
       executable = true;
     };
   };
