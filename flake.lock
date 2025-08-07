@@ -463,8 +463,7 @@
         "rust-overlay": "rust-overlay_2",
         "sops-nix": "sops-nix",
         "spicetify-nix": "spicetify-nix",
-        "stable": "stable",
-        "tailray": "tailray"
+        "stable": "stable"
       }
     },
     "rust-overlay": {
@@ -620,26 +619,6 @@
       "original": {
         "owner": "nix-systems",
         "repo": "default",
-        "type": "github"
-      }
-    },
-    "tailray": {
-      "inputs": {
-        "nixpkgs": [
-          "nixpkgs"
-        ]
-      },
-      "locked": {
-        "lastModified": 1754322522,
-        "narHash": "sha256-HTsqTMSScDCPW2PENbRysPth6bvlUciIvrjGzy9itts=",
-        "owner": "NotAShelf",
-        "repo": "tailray",
-        "rev": "ee5bef27364ad745dd179fb016cbcf00f4167758",
-        "type": "github"
-      },
-      "original": {
-        "owner": "NotAShelf",
-        "repo": "tailray",
         "type": "github"
       }
     }

@@ -101,7 +101,6 @@
             codeActions = true;
           };
         };
-        just.enable = true;
       };
 
       comments.comment-nvim.enable = true;

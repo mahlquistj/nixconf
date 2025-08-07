@@ -35,7 +35,6 @@ in {
       catppuccin.nixosModules.catppuccin
       home-manager.nixosModules.home-manager
       sops-nix.nixosModules.sops
-      tailray.nixosModules.tailray
       {
         nixpkgs.overlays = [rust-overlay.overlays.default nurpkgs.overlays.default];
         home-manager = {
