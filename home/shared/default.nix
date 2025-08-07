@@ -36,10 +36,6 @@
       ethtool
       dig
 
-      # Management
-      # nemo # GUI file manager
-      yazi
-
       # Screenshotting
       hyprshot
 
