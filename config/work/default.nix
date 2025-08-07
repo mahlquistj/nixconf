@@ -21,6 +21,7 @@
       bolt.enable = true;
     };
     xserver.videoDrivers = ["amdgpu"];
+    tailscale.enable = true;
   };
 
   programs.steam.enable = true;

@@ -37,7 +37,8 @@
       dig
 
       # Management
-      nemo # File manager
+      # nemo # GUI file manager
+      yazi
 
       # Screenshotting
       hyprshot
@@ -102,7 +103,7 @@
       };
     };
     iconTheme = {
-      name = "Papirus";
+      name = "Papirus-Dark";
     };
   };
   qt = {

@@ -1,12 +1,42 @@
-{
-  sysOptions,
-  inputs,
-  ...
-}: {
+{sysOptions, ...}: let
+  meh = "control | alt | shift";
+  hyper = "super | control | alt | shift";
+in {
   programs.rio = {
     enable = true;
     # package = inputs.rio.packages."${sysOptions.system}".default;
     settings = {
+      bindings = {
+        keys = [
+          {
+            key = "o";
+            "with" = "control | shift";
+            action = "ToggleVIMode";
+            mode = "~vi";
+          }
+          {
+            key = "t";
+            "with" = "${meh}";
+            action = "CreateTab";
+          }
+          {
+            key = "q";
+            "with" = "${meh}";
+            action = "CloseTab";
+          }
+          {
+            key = "h";
+            "with" = "${hyper}";
+            action = "SelectPrevTab";
+          }
+          {
+            key = "l";
+            "with" = "${hyper}";
+            action = "SelectNextTab";
+          }
+        ];
+      };
+
       confirm-before-quit = false;
 
       cursor = {
