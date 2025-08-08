@@ -29,23 +29,33 @@
         shiftwidth = 4;
       };
 
+      utility = {
+        yazi-nvim = {
+          enable = true;
+          mappings = {
+            openYazi = "<leader>cc";
+            openYaziDir = "<leader>cd";
+            yaziToggle = "<leader>cl";
+          };
+          setupOpts = {
+            open_for_directories = true;
+          };
+        };
+      };
+
       git.enable = true;
 
       telescope.enable = true;
-
-      filetree.nvimTree = {
-        enable = true;
-        setupOpts.git.enable = true;
-      };
 
       statusline.lualine = {
         enable = true;
         refresh.statusline = 100;
       };
 
-      autocomplete.nvim-cmp.enable = true;
-
-      utility.icon-picker.enable = true;
+      autocomplete.blink-cmp = {
+        enable = true;
+        sourcePlugins.emoji.enable = true;
+      };
 
       autopairs.nvim-autopairs.enable = true;
 
@@ -110,10 +120,6 @@
         lua
         */
         ''
-          local ipopts = { noremap = true, silent = true }
-
-          vim.keymap.set("i", "<C-s>", "<CMD>IconPickerInsert emoji<CR>", ipopts)
-
           vim.lsp.inlay_hint.enable(not vim.lsp.inlay_hint.is_enabled(), { bufnr })
         '';
     };

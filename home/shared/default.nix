@@ -18,6 +18,7 @@
     ./starship.nix
     ./swaync.nix
     ./waybar.nix
+    ./yazi.nix
   ];
 
   catppuccin.mako.enable = false;
@@ -35,9 +36,6 @@
       playerctl
       ethtool
       dig
-
-      # Management
-      nemo # File manager
 
       # Screenshotting
       hyprshot
@@ -91,6 +89,13 @@
     };
   };
 
+  xdg.portal = {
+    enable = true;
+    extraPortals = [
+      pkgs.xdg-desktop-portal-termfilechooser
+    ];
+  };
+
   gtk = {
     enable = true;
     font.name = "Source Code Pro";
@@ -102,7 +107,7 @@
       };
     };
     iconTheme = {
-      name = "Papirus";
+      name = "Papirus-Dark";
     };
   };
   qt = {

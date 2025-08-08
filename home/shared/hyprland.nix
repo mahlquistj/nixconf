@@ -1,4 +1,5 @@
 {
+  pkgs,
   inputs,
   sysOptions,
   wallpapers,
@@ -76,7 +77,6 @@
     enable = true;
     systemd.enable = true;
     package = null;
-    portalPackage = null;
 
     plugins = [];
 
@@ -91,7 +91,6 @@
 
       # App
       "$terminal" = "rio";
-      "$fileman" = "nemo";
       "$menu" = "rofi -show drun";
       "$browser" = "chromium";
       "$lock" = "hyprlock";

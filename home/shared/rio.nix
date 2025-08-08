@@ -1,12 +1,31 @@
-{
-  sysOptions,
-  inputs,
-  ...
-}: {
+{sysOptions, ...}: let
+  meh = "control | alt | shift";
+in {
   programs.rio = {
     enable = true;
     # package = inputs.rio.packages."${sysOptions.system}".default;
     settings = {
+      bindings = {
+        keys = [
+          {
+            key = "i";
+            "with" = "control | shift";
+            action = "ToggleVIMode";
+            mode = "~vi";
+          }
+          {
+            key = "t";
+            "with" = "${meh}";
+            action = "CreateTab";
+          }
+          {
+            key = "q";
+            "with" = "${meh}";
+            action = "CloseTab";
+          }
+        ];
+      };
+
       confirm-before-quit = false;
 
       cursor = {

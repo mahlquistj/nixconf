@@ -8,7 +8,7 @@
     extraConfig = {
       modes = ["drun" "run"];
       show-icons = true;
-      icon-theme = "Papirus";
+      icon-theme = "Papirus-Dark";
       terminal = "rio";
       drun-display-format = "{icon} {name}";
       hide-scrollbar = true;

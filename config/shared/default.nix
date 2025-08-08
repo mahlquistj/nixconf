@@ -47,6 +47,11 @@
   nixpkgs.config.allowUnfree = true;
 
   environment.sessionVariables = {
+    # Editor should always default to neovim
+    EDITOR = "nvim";
+    VISUAL = "nvim";
+    SUDO_EDITOR = "nvim";
+
     # Hint electron apps to use wayland
     NIXOS_OZONE_WL = 1;
     ELECTRON_OZONE_PLATFORM_HINT = "auto";
