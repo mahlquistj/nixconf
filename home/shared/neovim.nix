@@ -45,7 +45,9 @@
 
       git.enable = true;
 
-      telescope.enable = true;
+      telescope = {
+        enable = true;
+      };
 
       statusline.lualine = {
         enable = true;
