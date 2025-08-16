@@ -9,6 +9,7 @@
   environment.systemPackages = with pkgs; [
     game-devices-udev-rules
     gamescope
+    gamemode
     mangohud
     wine
     clinfo

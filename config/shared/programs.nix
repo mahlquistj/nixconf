@@ -35,6 +35,9 @@
     catppuccin-papirus-folders
     phinger-cursors
 
+    # AI
+    gemini-cli
+
     # Other
     neofetch
     gnome.gvfs # fix for swaync mpris widget
