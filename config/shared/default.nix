@@ -17,6 +17,13 @@
     /etc/nixos/configuration.nix
   ];
 
+  # Cleanup rules
+  nix.gc = {
+    automatic = true;
+    randomizedDelaySec = "14m";
+    options = "--delete-older-than 10d";
+  };
+
   hardware.keyboard.zsa.enable = true;
 
   nixpkgs.overlays = [nurpkgs.overlays.default];
