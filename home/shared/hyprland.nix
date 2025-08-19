@@ -263,6 +263,11 @@
           ", PRINT, exec, hyprshot -m output"
           "$modshift, PRINT, exec, hyprshot -m region"
 
+          # Video recording
+          "$mod, R, exec, ~/.config/hypr/scripts/screen-record.sh area"
+          "$modshift, R, exec, ~/.config/hypr/scripts/screen-record.sh screen"
+          "$mod, S, exec, pkill -INT wf-recorder && notify-send 'Screen Recording' 'Recording stopped.'"
+
           # Audio
           ## Volume mute
           ",XF86AudioMute, exec, wpctl set-mute @DEFAULT_AUDIO_SINK@ toggle"
@@ -300,6 +305,49 @@
 
       env = HYPRSHOT_DIR,screenshots
 
+    '';
+  };
+
+  home.file.".config/hypr/scripts/screen-record.sh" = {
+    executable = true; # Make the script runnable
+    text = ''
+      #!/usr/bin/env bash
+
+      # Directory to save recordings
+      REC_DIR="$HOME/Videos/Screen-Recordings"
+      mkdir -p "$REC_DIR"
+
+      # Filename with timestamp
+      FILENAME="$REC_DIR/rec_$(date +'%Y-%m-%d_%H-%M-%S').mp4"
+
+      # Check if a recording is already in progress
+      if pgrep -x "wf-recorder" > /dev/null; then
+          notify-send "Recording in Progress" "A screen recording is already active."
+          exit 1
+      fi
+
+      # Main logic based on argument
+      case $1 in
+          area)
+              # Select an area and record
+              GEOMETRY=$(slurp)
+              if [ -n "$GEOMETRY" ]; then
+                  notify-send "Screen Recording" "Starting area recording..."
+                  wf-recorder -g "$GEOMETRY" -f "$FILENAME"
+              else
+                  notify-send "Screen Recording" "Selection cancelled."
+              fi
+              ;;
+          screen)
+              # Record the entire screen
+              notify-send "Screen Recording" "Starting full-screen recording..."
+              wf-recorder -f "$FILENAME"
+              ;;
+          *)
+              echo "Usage: $0 {area|screen}"
+              exit 1
+              ;;
+      esac
     '';
   };
 }

@@ -36,9 +36,12 @@
       playerctl
       ethtool
       dig
+      libnotify
 
-      # Screenshotting
+      # Screen-shotting/recording
       hyprshot
+      wf-recorder
+      slurp
 
       # Social
       vesktop

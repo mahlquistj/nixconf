@@ -36,7 +36,7 @@
     phinger-cursors
 
     # AI
-    gemini-cli
+    claude-code
 
     # Other
     neofetch
