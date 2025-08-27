@@ -8,7 +8,6 @@
   programs.fancontrol-gui.enable = true;
 
   home.packages = with pkgs; [
-    cava
     prismlauncher
     rare
     obs-studio

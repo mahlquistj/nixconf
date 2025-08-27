@@ -28,7 +28,6 @@
         {
           profile = {
             name = "docked";
-
             outputs = [
               {
                 criteria = "AOC CU34V5C 1UJQBHA000611";
@@ -37,8 +36,7 @@
               }
               {
                 criteria = "eDP-1";
-                status = "enable";
-                position = "3440,0";
+                status = "disable";
               }
             ];
           };
