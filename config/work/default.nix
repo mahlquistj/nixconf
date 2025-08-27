@@ -21,7 +21,10 @@
       bolt.enable = true;
     };
     xserver.videoDrivers = ["amdgpu"];
-    tailscale.enable = true;
+    tailscale = {
+      enable = true;
+      useRoutingFeatures = "client";
+    };
   };
 
   programs.steam.enable = true;
