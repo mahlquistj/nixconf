@@ -27,7 +27,7 @@
         }
         {
           profile = {
-            name = "docked";
+            name = "docked-work";
             outputs = [
               {
                 criteria = "AOC CU34V5C 1UJQBHA000611";
