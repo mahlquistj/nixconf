@@ -13,6 +13,7 @@
     nixd
     openssl
     keymapp
+    nettools
     wev # Keyboard debugging
     killall
     zip

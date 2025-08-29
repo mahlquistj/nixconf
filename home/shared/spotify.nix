@@ -1,6 +1,7 @@
 {
   pkgs,
   spicetify-nix,
+  lib,
   sysOptions,
   ...
 }: let
@@ -9,8 +10,8 @@ in {
   programs.spicetify = {
     enable = true;
     spotifyPackage = pkgs.spotify;
-    theme = spicePkgs.themes.catppuccin;
-    colorScheme = sysOptions.theme;
+    theme = spicePkgs.themes.text;
+    colorScheme = "Catppuccin" + (pkgs.lib.strings.toSentenceCase sysOptions.theme);
     enabledExtensions = with spicePkgs.extensions; [fullAppDisplay shuffle];
     enabledCustomApps = with spicePkgs.apps; [newReleases];
   };
