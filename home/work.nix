@@ -4,52 +4,55 @@
     wireguard-tools
   ];
 
-  services.kanshi = {
-    enable = true;
-    systemdTarget = "hyprland-session.target";
+  services = {
+    trayscale.enable = true;
+    kanshi = {
+      enable = true;
+      systemdTarget = "hyprland-session.target";
 
-    settings = [
-      {
-        output = {
-          criteria = "eDP-1";
-          scale = 1.0;
-        };
-      }
-      {
-        output = {
-          criteria = "ViewSonic Corporation VG2719-2K V4H212340447";
-          scale = 1.0;
-        };
-      }
-      {
-        profile = {
-          name = "docked";
-
-          outputs = [
-            {
-              criteria = "ViewSonic Corporation VG2719-2K V4H212340447";
-              status = "enable";
-              position = "0,0";
-            }
-            {
-              criteria = "eDP-1";
-              status = "enable";
-              position = "2560,0";
-            }
-          ];
-        };
-      }
-      {
-        profile = {
-          name = "normal";
-          outputs = [
-            {
-              criteria = "eDP-1";
-              status = "enable";
-            }
-          ];
-        };
-      }
-    ];
+      settings = [
+        {
+          output = {
+            criteria = "eDP-1";
+            scale = 1.0;
+            mode = "1920x1200@60.00Hz";
+          };
+        }
+        {
+          output = {
+            criteria = "AOC CU34V5C 1UJQBHA000611";
+            scale = 1.0;
+            mode = "3440x1440@100.00Hz";
+          };
+        }
+        {
+          profile = {
+            name = "docked-work";
+            outputs = [
+              {
+                criteria = "AOC CU34V5C 1UJQBHA000611";
+                status = "enable";
+                position = "0,0";
+              }
+              {
+                criteria = "eDP-1";
+                status = "disable";
+              }
+            ];
+          };
+        }
+        {
+          profile = {
+            name = "normal";
+            outputs = [
+              {
+                criteria = "eDP-1";
+                status = "enable";
+              }
+            ];
+          };
+        }
+      ];
+    };
   };
 }

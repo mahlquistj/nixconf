@@ -13,6 +13,7 @@
     nixd
     openssl
     keymapp
+    nettools
     wev # Keyboard debugging
     killall
     zip
@@ -39,6 +40,7 @@
     claude-code
 
     # Other
+    cava
     neofetch
     gnome.gvfs # fix for swaync mpris widget
   ];

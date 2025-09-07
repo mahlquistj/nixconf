@@ -122,6 +122,14 @@
         "col.active_border" = "$peach";
         "col.inactive_border" = "$base";
       };
+      cursor = {
+        inactive_timeout = 10;
+        hide_on_key_press = true;
+      };
+      ecosystem = {
+        no_update_news = true;
+        no_donation_nag = true;
+      };
       decoration = {
         rounding = 10;
         #rounding_power = 2.5; #TODO: Why doesn't this work?
