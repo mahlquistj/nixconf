@@ -85,9 +85,6 @@
 
       NIXOS_XDG_OPEN_USE_PORTAL = "1";
 
-      VDPAU_DRIVER = "va_gl";
-      LIBVA_DRIVER_NAME = "radeonsi";
-
       DISCORD_SKIP_HOST_GPU_BLOCKLIST = "1";
     };
   };
