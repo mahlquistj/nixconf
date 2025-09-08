@@ -103,6 +103,7 @@
             codeActions = true;
           };
         };
+        yaml.enable = true;
       };
 
       comments.comment-nvim.enable = true;

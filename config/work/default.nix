@@ -1,5 +1,15 @@
-{pkgs, ...}: {
+{
+  pkgs,
+  sysOptions,
+  ...
+}: {
   imports = [../shared];
+
+  # Docker daemon setup
+  virtualisation.docker = {
+    enable = true;
+  };
+  users.users."${sysOptions.user}".extraGroups = ["docker"];
 
   environment.systemPackages = with pkgs; [
     blueman

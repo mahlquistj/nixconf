@@ -25,9 +25,6 @@
     # C
     gcc
 
-    # Lua
-    # dap
-
     # Display management
     brightnessctl
 
@@ -40,13 +37,15 @@
     claude-code
 
     # Other
+    direnv
+    scc
     cava
+    ncspot
     neofetch
     gnome.gvfs # fix for swaync mpris widget
   ];
 
   services = {
-    # OpenSSH
     openssh.enable = true;
   };
 }
