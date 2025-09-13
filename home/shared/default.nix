@@ -7,10 +7,11 @@
   imports = [
     ./btop.nix
     ./chrome.nix
-    ./fish.nix
+    # ./fish.nix
     ./hyprland.nix
     ./kdeconnect.nix
     ./neovim.nix
+    ./nushell.nix
     ./nix.nix
     ./rio.nix
     ./rofi.nix
@@ -32,7 +33,6 @@
     packages = with pkgs; [
       # Utils
       jq # CLI JSON parsing
-      eza # `ls` substitute
       playerctl
       ethtool
       dig
@@ -119,4 +119,118 @@
   };
 
   programs.home-manager.enable = true;
+
+  xdg.configFile = {
+    "octotype/config.toml" = {
+      force = true;
+      text = ''
+        [theme]
+        spinner_color = "Yellow"
+        spinner_symbol = "BrailleSix"
+
+        [theme.text]
+        success = "Green"
+        warning = "Yellow"
+        error = "Red"
+        highlight = "Blue"
+
+        [theme.plot]
+        raw_wpm = "Gray"
+        actual_wpm = "Yellow"
+        accuracy = "Gray"
+        errors = "Red"
+        scatter_symbol = "Dot"
+        line_symbol = "HalfBlock"
+
+        [statistic]
+        save_enabled = true
+        history_limit = 10
+      '';
+    };
+    "octotype/sources/gibberish.toml" = {
+      force = true;
+      text = ''
+        [meta]
+        name = "Quotes API"
+        description = "Supplies random quotes"
+        command = [
+            "sh",
+            "./gibberish.sh",
+            "{word_count}",
+            "{word_length}",
+        ]
+        output = "default"
+        network_required = false
+        required_tools = [
+            "tr",
+            "head",
+            "fold",
+        ]
+
+        [parameters.word_count]
+        min = 1
+        max = 30
+        step = 1
+        default = 10
+
+        [parameters.word_length]
+        min = 2
+        max = 15
+        step = 1
+        default = 5
+      '';
+    };
+    "octotype/sources/pwd.toml" = {
+      force = true;
+      text = ''
+        [meta]
+        name = "PWD"
+        description = "Supplies random quotes"
+        command = [
+            "pwd",
+        ]
+        output = "default"
+        network_required = false
+        required_tools = []
+
+        [parameters.word_count]
+        min = 1
+        max = 30
+        step = 1
+        default = 10
+
+        [parameters.word_length]
+        min = 2
+        max = 15
+        step = 1
+        default = 5
+      '';
+    };
+
+    "octotype/sources/gibberish.sh" = {
+      force = true;
+      text = ''
+        sleep 5 && tr -dc 'a-zA-Z0-9' < /dev/urandom | head -c $(($1 * $2)) | fold -w $2
+      '';
+    };
+    "octotype/modes/wordcount.toml" = {
+      force = true;
+      text = ''
+        [meta]
+        name = "WordCount"
+        description = "Type an amount of correct words"
+
+        [parameters.word_count]
+        min = 10
+        step = 10
+        default = 60
+
+        [conditions]
+        allow_deletions = false
+
+        [conditions.words_typed]
+        String = "{word_count}"
+      '';
+    };
+  };
 }

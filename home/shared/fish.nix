@@ -5,6 +5,15 @@
     fish_greeting = "";
   };
 
+  programs = {
+    yazi.enableFishIntegration = true;
+    starship.enableFishIntegration = true;
+    programs.rio.settings.shell = {
+      program = "fish";
+      args = [];
+    };
+  };
+
   programs.fish = {
     enable = true;
 

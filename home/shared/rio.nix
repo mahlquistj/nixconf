@@ -88,13 +88,8 @@ in {
         divider = 1;
       };
 
-      shell = {
-        program = "fish";
-        args = [];
-      };
-
       title = {
-        content = "{{ TITLE | PROGRAM }}";
+        content = "{{ TITLE || PROGRAM }}";
         placeholder = "Rio";
       };
 

@@ -9,7 +9,6 @@ in {
   programs.starship = {
     enable = true;
     package = pkgs.starship;
-    enableFishIntegration = true;
 
     settings = {
       line_break.disabled = false;
