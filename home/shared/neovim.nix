@@ -30,6 +30,7 @@
       };
 
       utility = {
+        surround.enable = true;
         yazi-nvim = {
           enable = true;
           mappings = {

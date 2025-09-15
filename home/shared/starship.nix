@@ -38,7 +38,7 @@ in {
       nix_shell = {
         format = multiline ''
           [](fg:mantle)
-          [$symbol](bg:mantle fg:crust)
+          [$symbol](bg:mantle fg:sapphire)
           [](fg:mantle)
           [─](fg:surface0)
         '';

@@ -58,6 +58,12 @@
       inputs.nixpkgs.follows = "nixpkgs";
     };
 
+    # Octotype
+    octotype = {
+      url = "github:mahlquistj/octotype";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
+
     fancontrol-gui.url = "github:Maldela/fancontrol-gui";
   };
 

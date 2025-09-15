@@ -8,6 +8,11 @@
     };
   };
 
+  programs.carapace = {
+    enable = true;
+    enableNushellIntegration = true;
+  };
+
   programs.nushell = {
     enable = true;
 
@@ -26,6 +31,7 @@
 
       # Various program aliases
       "top" = "btop";
+      "sudo" = "/run/wrappers/bin/sudo";
 
       # Development
       "dev" = "nix develop . --command \"nu\"";

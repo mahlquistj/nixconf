@@ -2,6 +2,7 @@
   pkgs,
   sysOptions,
   osConfig,
+  inputs,
   ...
 }: {
   imports = [
@@ -37,6 +38,7 @@
       ethtool
       dig
       libnotify
+      alacritty
 
       # Screen-shotting/recording
       hyprshot
@@ -48,6 +50,9 @@
 
       # Usb mounting
       udiskie
+
+      # Other
+      inputs.octotype.packages."${sysOptions.system}".default
     ];
 
     # Files
@@ -125,20 +130,20 @@
       force = true;
       text = ''
         [theme]
-        spinner_color = "Yellow"
+        spinner_color = "#f9e2af"
         spinner_symbol = "BrailleSix"
 
         [theme.text]
-        success = "Green"
-        warning = "Yellow"
-        error = "Red"
-        highlight = "Blue"
+        success = "#a6e3a1"
+        warning = "#f9e2af"
+        error = "#f38ba8"
+        highlight = "#89b4fa"
 
         [theme.plot]
-        raw_wpm = "Gray"
-        actual_wpm = "Yellow"
-        accuracy = "Gray"
-        errors = "Red"
+        raw_wpm = "#cdd6f4"
+        actual_wpm = "#f9e2af"
+        accuracy = "#cdd6f4"
+        errors = "#f38ba8"
         scatter_symbol = "Dot"
         line_symbol = "HalfBlock"
 
@@ -151,13 +156,13 @@
       force = true;
       text = ''
         [meta]
-        name = "Quotes API"
-        description = "Supplies random quotes"
+        name = "Gibberish"
+        description = "Supplies random characters"
         command = [
             "sh",
             "./gibberish.sh",
-            "{word_count}",
-            "{word_length}",
+            "{total words}",
+            "{word length}",
         ]
         output = "default"
         network_required = false
@@ -167,50 +172,55 @@
             "fold",
         ]
 
-        [parameters.word_count]
+        [parameters."total words"]
         min = 1
         max = 30
         step = 1
         default = 10
 
-        [parameters.word_length]
+        [parameters."word length"]
         min = 2
         max = 15
         step = 1
         default = 5
       '';
     };
-    "octotype/sources/pwd.toml" = {
-      force = true;
-      text = ''
-        [meta]
-        name = "PWD"
-        description = "Supplies random quotes"
-        command = [
-            "pwd",
-        ]
-        output = "default"
-        network_required = false
-        required_tools = []
-
-        [parameters.word_count]
-        min = 1
-        max = 30
-        step = 1
-        default = 10
-
-        [parameters.word_length]
-        min = 2
-        max = 15
-        step = 1
-        default = 5
-      '';
-    };
-
     "octotype/sources/gibberish.sh" = {
       force = true;
       text = ''
         sleep 5 && tr -dc 'a-zA-Z0-9' < /dev/urandom | head -c $(($1 * $2)) | fold -w $2
+      '';
+    };
+    "octotype/sources/brownfox.toml" = {
+      force = true;
+      text = ''
+        [meta]
+        name = "BrownFox"
+        description = "The quick brown fox"
+        command = [
+            "echo",
+            "The quick brown fox jumps over the lazy dog"
+        ]
+        required_tools = ["echo"]
+      '';
+    };
+    "octotype/modes/default.toml" = {
+      force = true;
+      text = ''
+        [meta]
+        name = "Default"
+        description = "The default typing trainer experience"
+      '';
+    };
+    "octotype/modes/perfectionism.toml" = {
+      force = true;
+      text = ''
+        [meta]
+        name = "Perfectionism"
+        description = "Don't make any mistakes!"
+
+        [conditions]
+        allow_errors = false
       '';
     };
     "octotype/modes/wordcount.toml" = {
@@ -220,16 +230,13 @@
         name = "WordCount"
         description = "Type an amount of correct words"
 
-        [parameters.word_count]
+        [parameters."words to type"]
         min = 10
         step = 10
         default = 60
 
         [conditions]
-        allow_deletions = false
-
-        [conditions.words_typed]
-        String = "{word_count}"
+        words_typed = "{words to type}"
       '';
     };
   };
