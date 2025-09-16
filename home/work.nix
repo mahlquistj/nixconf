@@ -1,8 +1,19 @@
-{pkgs, ...}: {
+{
+  pkgs,
+  sysOptions,
+  ...
+}: {
   home.packages = with pkgs; [
     slack
-    wireguard-tools
+    awscli2
   ];
+
+  programs.docker-cli = {
+    enable = true;
+    settings = {
+      "credsStore" = "ecr-login";
+    };
+  };
 
   services = {
     trayscale.enable = true;
