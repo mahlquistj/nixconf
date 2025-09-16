@@ -119,11 +119,13 @@
     platformTheme.name = "kvantum";
   };
 
-  xdg.portal = {
-    enable = true;
-    extraPortals = [
-      pkgs.xdg-desktop-portal-termfilechooser
-    ];
+  xdg = {
+    portal = {
+      enable = true;
+      extraPortals = [
+        pkgs.xdg-desktop-portal-termfilechooser
+      ];
+    };
     configFile = {
       "octotype/config.toml" = {
         force = true;
