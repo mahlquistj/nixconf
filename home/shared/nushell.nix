@@ -1,4 +1,4 @@
-{...}: {
+{sysOptions, ...}: {
   programs = {
     yazi.enableNushellIntegration = true;
     starship.enableNushellIntegration = true;
@@ -8,6 +8,7 @@
     };
   };
 
+  # Carapace, since nushell completions for git and alike aren't great
   programs.carapace = {
     enable = true;
     enableNushellIntegration = true;
@@ -18,10 +19,6 @@
 
     configFile.text = ''
       $env.config.show_banner = false
-
-      # Starship
-      mkdir ($nu.data-dir | path join "vendor/autoload")
-      starship init nu | save -f ($nu.data-dir | path join "vendor/autoload/starship.nu")
     '';
 
     shellAliases = {
@@ -29,12 +26,15 @@
       ".." = "cd ..";
       "..." = "cd ../..";
 
-      # Various program aliases
+      # Program aliases
       "top" = "btop";
       "sudo" = "/run/wrappers/bin/sudo";
 
       # Development
       "dev" = "nix develop . --command \"nu\"";
+
+      # Nix
+      "nrb" = "/run/wrappers/bin/sudo nixos-rebuild switch --flake /home/${sysOptions.user}/nixconf/#${sysOptions.name} --impure --upgrade";
     };
   };
 }
