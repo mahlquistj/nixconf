@@ -37,7 +37,6 @@
     claude-code
 
     # Other
-    direnv
     scc
     cava
     ncspot
