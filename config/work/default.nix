@@ -13,6 +13,7 @@
 
   environment.systemPackages = with pkgs; [
     blueman
+    amazon-ecr-credential-helper
   ];
 
   hardware = {
@@ -38,4 +39,13 @@
   };
 
   programs.steam.enable = true;
+
+  networking = {
+    wireguard.enable = true;
+    wg-quick = {
+      interfaces = {
+        wg0-backup.configFile = "/home/${sysOptions.user}/wireguard/wg0-backup.conf";
+      };
+    };
+  };
 }
