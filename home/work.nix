@@ -1,11 +1,8 @@
-{
-  pkgs,
-  sysOptions,
-  ...
-}: {
+{pkgs, ...}: {
   home.packages = with pkgs; [
     slack
     awscli2
+    kubectl
   ];
 
   programs.docker-cli = {
@@ -13,6 +10,10 @@
     settings = {
       "credsStore" = "ecr-login";
     };
+  };
+
+  programs.nushell.shellAliases = {
+    kb = "kubectl";
   };
 
   services = {

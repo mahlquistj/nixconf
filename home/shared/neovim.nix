@@ -85,15 +85,11 @@
         css = {
           enable = true;
           lsp.enable = false; # We don't want LSP as we also use GTK-css, which is a pain when it comes to LSP
-          format.enable = true;
-          treesitter.enable = true;
         };
         markdown = {
           enable = true;
           extensions.render-markdown-nvim.enable = true;
         };
-        nix.enable = true;
-        python.enable = true;
         rust = {
           enable = true;
           format.package = pkgs.rust-bin.stable.latest.rustfmt;
@@ -104,6 +100,10 @@
             codeActions = true;
           };
         };
+
+        ts.enable = true;
+        nix.enable = true;
+        python.enable = true;
         yaml.enable = true;
       };
 
