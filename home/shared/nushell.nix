@@ -2,6 +2,7 @@
   programs = {
     yazi.enableNushellIntegration = true;
     starship.enableNushellIntegration = true;
+    direnv.enableNushellIntegration = true;
     rio.settings.shell = {
       program = "nu";
       args = [];

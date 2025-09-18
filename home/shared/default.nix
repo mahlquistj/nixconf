@@ -23,6 +23,8 @@
     ./yazi.nix
   ];
 
+  programs.direnv.enable = true;
+
   catppuccin.mako.enable = false;
 
   home = {
@@ -94,13 +96,6 @@
     };
   };
 
-  xdg.portal = {
-    enable = true;
-    extraPortals = [
-      pkgs.xdg-desktop-portal-termfilechooser
-    ];
-  };
-
   gtk = {
     enable = true;
     font.name = "Source Code Pro";
@@ -115,6 +110,7 @@
       name = "Papirus-Dark";
     };
   };
+
   qt = {
     enable = true;
 
@@ -123,121 +119,127 @@
     platformTheme.name = "kvantum";
   };
 
-  programs.home-manager.enable = true;
-
-  xdg.configFile = {
-    "octotype/config.toml" = {
-      force = true;
-      text = ''
-        [theme]
-        spinner_color = "#f9e2af"
-        spinner_symbol = "BrailleSix"
-
-        [theme.text]
-        success = "#a6e3a1"
-        warning = "#f9e2af"
-        error = "#f38ba8"
-        highlight = "#89b4fa"
-
-        [theme.plot]
-        raw_wpm = "#cdd6f4"
-        actual_wpm = "#f9e2af"
-        accuracy = "#cdd6f4"
-        errors = "#f38ba8"
-        scatter_symbol = "Dot"
-        line_symbol = "HalfBlock"
-
-        [statistic]
-        save_enabled = true
-        history_limit = 10
-      '';
+  xdg = {
+    portal = {
+      enable = true;
+      extraPortals = [
+        pkgs.xdg-desktop-portal-termfilechooser
+      ];
     };
-    "octotype/sources/gibberish.toml" = {
-      force = true;
-      text = ''
-        [meta]
-        name = "Gibberish"
-        description = "Supplies random characters"
-        command = [
-            "sh",
-            "./gibberish.sh",
-            "{total words}",
-            "{word length}",
-        ]
-        output = "default"
-        network_required = false
-        required_tools = [
-            "tr",
-            "head",
-            "fold",
-        ]
+    configFile = {
+      "octotype/config.toml" = {
+        force = true;
+        text = ''
+          [theme]
+          spinner_color = "#f9e2af"
+          spinner_symbol = "BrailleSix"
 
-        [parameters."total words"]
-        min = 1
-        max = 30
-        step = 1
-        default = 10
+          [theme.text]
+          success = "#a6e3a1"
+          warning = "#f9e2af"
+          error = "#f38ba8"
+          highlight = "#89b4fa"
 
-        [parameters."word length"]
-        min = 2
-        max = 15
-        step = 1
-        default = 5
-      '';
-    };
-    "octotype/sources/gibberish.sh" = {
-      force = true;
-      text = ''
-        sleep 5 && tr -dc 'a-zA-Z0-9' < /dev/urandom | head -c $(($1 * $2)) | fold -w $2
-      '';
-    };
-    "octotype/sources/brownfox.toml" = {
-      force = true;
-      text = ''
-        [meta]
-        name = "BrownFox"
-        description = "The quick brown fox"
-        command = [
-            "echo",
-            "The quick brown fox jumps over the lazy dog"
-        ]
-        required_tools = ["echo"]
-      '';
-    };
-    "octotype/modes/default.toml" = {
-      force = true;
-      text = ''
-        [meta]
-        name = "Default"
-        description = "The default typing trainer experience"
-      '';
-    };
-    "octotype/modes/perfectionism.toml" = {
-      force = true;
-      text = ''
-        [meta]
-        name = "Perfectionism"
-        description = "Don't make any mistakes!"
+          [theme.plot]
+          raw_wpm = "#cdd6f4"
+          actual_wpm = "#f9e2af"
+          accuracy = "#cdd6f4"
+          errors = "#f38ba8"
+          scatter_symbol = "Dot"
+          line_symbol = "HalfBlock"
 
-        [conditions]
-        allow_errors = false
-      '';
-    };
-    "octotype/modes/wordcount.toml" = {
-      force = true;
-      text = ''
-        [meta]
-        name = "WordCount"
-        description = "Type an amount of correct words"
+          [statistic]
+          save_enabled = true
+          history_limit = 10
+        '';
+      };
+      "octotype/sources/gibberish.toml" = {
+        force = true;
+        text = ''
+          [meta]
+          name = "Gibberish"
+          description = "Supplies random characters"
+          command = [
+              "sh",
+              "./gibberish.sh",
+              "{total words}",
+              "{word length}",
+          ]
+          output = "default"
+          network_required = false
+          required_tools = [
+              "tr",
+              "head",
+              "fold",
+          ]
 
-        [parameters."words to type"]
-        min = 10
-        step = 10
-        default = 60
+          [parameters."total words"]
+          min = 1
+          max = 30
+          step = 1
+          default = 10
 
-        [conditions]
-        words_typed = "{words to type}"
-      '';
+          [parameters."word length"]
+          min = 2
+          max = 15
+          step = 1
+          default = 5
+        '';
+      };
+      "octotype/sources/gibberish.sh" = {
+        force = true;
+        text = ''
+          sleep 5 && tr -dc 'a-zA-Z0-9' < /dev/urandom | head -c $(($1 * $2)) | fold -w $2
+        '';
+      };
+      "octotype/sources/brownfox.toml" = {
+        force = true;
+        text = ''
+          [meta]
+          name = "BrownFox"
+          description = "The quick brown fox"
+          command = [
+              "echo",
+              "The quick brown fox jumps over the lazy dog"
+          ]
+          required_tools = ["echo"]
+        '';
+      };
+      "octotype/modes/default.toml" = {
+        force = true;
+        text = ''
+          [meta]
+          name = "Default"
+          description = "The default typing trainer experience"
+        '';
+      };
+      "octotype/modes/perfectionism.toml" = {
+        force = true;
+        text = ''
+          [meta]
+          name = "Perfectionism"
+          description = "Don't make any mistakes!"
+
+          [conditions]
+          allow_errors = false
+        '';
+      };
+      "octotype/modes/wordcount.toml" = {
+        force = true;
+        text = ''
+          [meta]
+          name = "WordCount"
+          description = "Type an amount of correct words"
+
+          [parameters."words to type"]
+          min = 10
+          step = 10
+          default = 60
+
+          [conditions]
+          words_typed = "{words to type}"
+        '';
+      };
     };
   };
 }
