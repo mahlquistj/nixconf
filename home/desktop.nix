@@ -10,7 +10,7 @@
   home.packages = with pkgs; [
     prismlauncher
     rare
-    obs-studio
+    discord
     (lutris.override {
       # Unused for now
       extraLibraries = pkgs: [
