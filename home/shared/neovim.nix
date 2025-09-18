@@ -82,10 +82,6 @@
         enableTreesitter = true;
         enableExtraDiagnostics = true;
 
-        css = {
-          enable = true;
-          lsp.enable = false; # We don't want LSP as we also use GTK-css, which is a pain when it comes to LSP
-        };
         markdown = {
           enable = true;
           extensions.render-markdown-nvim.enable = true;
@@ -101,6 +97,7 @@
           };
         };
 
+        css.enable = true;
         ts.enable = true;
         nix.enable = true;
         python.enable = true;
