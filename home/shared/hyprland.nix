@@ -149,7 +149,6 @@
         kb_layout = "us";
         kb_options = "compose:ralt";
       };
-      gestures = {workspace_swipe = true;};
       animations = {
         enabled = "yes";
         bezier = "myBezier, 0.05, 0.9, 0.1, 1.05";

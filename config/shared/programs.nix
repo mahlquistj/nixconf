@@ -18,6 +18,7 @@
     killall
     zip
     unzip
+    vhs
 
     # DAW
     bitwig-studio
