@@ -107,6 +107,9 @@
       windowrulev2 = [
         # Stop hyprland from stealing mouse in bitwig studio
         "nofocus,class:^$,title:^$,xwayland:1,floating:1,fullscreen:0,pinned:0"
+
+        # Vesktop blur trigger
+        "opacity 0.99 overide 0.99, class:^(Vesktop|vesktop)$"
       ];
 
       # Setttings and styling
@@ -131,9 +134,13 @@
         no_donation_nag = true;
       };
       decoration = {
-        rounding = 10;
-        #rounding_power = 2.5; #TODO: Why doesn't this work?
+        blur = {
+          enabled = true;
+          size = 8;
+          passes = 2;
+        };
 
+        rounding = 10;
         inactive_opacity = 0.8;
         dim_inactive = true;
         dim_strength = 0.1;

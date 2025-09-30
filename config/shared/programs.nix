@@ -37,6 +37,7 @@
     claude-code
 
     # Other
+    dbeaver-bin
     scc
     cava
     ncspot

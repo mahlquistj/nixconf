@@ -8,6 +8,7 @@
   imports = [
     ./btop.nix
     ./chrome.nix
+    ./discord.nix
     # ./fish.nix
     ./hyprland.nix
     ./kdeconnect.nix
@@ -46,9 +47,6 @@
       hyprshot
       wf-recorder
       slurp
-
-      # Social
-      vesktop
 
       # Usb mounting
       udiskie
