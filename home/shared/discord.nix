@@ -28,7 +28,7 @@ _: {
       };
 
       themes = {
-        "custom" = ./themes/vesktop.css;
+        "custom" = ./themes/vesktop-test.css;
       };
     };
   };
