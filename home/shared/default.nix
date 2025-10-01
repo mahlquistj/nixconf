@@ -146,7 +146,7 @@
           accuracy = "#cdd6f4"
           errors = "#f38ba8"
           scatter_symbol = "Dot"
-          line_symbol = "HalfBlock"
+          line_symbol = "Braille"
 
           [statistic]
           save_enabled = true
@@ -199,10 +199,16 @@
           name = "BrownFox"
           description = "The quick brown fox"
           command = [
-              "echo",
-              "The quick brown fox jumps over the lazy dog"
+            "sh",
+            "./brownfox.sh"
           ]
           required_tools = ["echo"]
+        '';
+      };
+      "octotype/sources/brownfox.sh" = {
+        force = true;
+        text = ''
+          sleep 2 && echo "The quick brown fox jumps over the lazy dog, testing my typing speed with every leap, but I'll soon catch up."
         '';
       };
       "octotype/modes/default.toml" = {
