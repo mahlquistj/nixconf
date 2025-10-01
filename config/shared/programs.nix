@@ -1,5 +1,8 @@
 {pkgs, ...}: {
-  nixpkgs.config.allowUnfree = true;
+  nixpkgs.config = {
+    allowUnfree = true;
+    permittedInsecurePackages = ["beekeeper-studio-5.3.4"];
+  };
 
   qt.enable = true;
 
@@ -38,6 +41,7 @@
     claude-code
 
     # Other
+    beekeeper-studio
     scc
     cava
     ncspot

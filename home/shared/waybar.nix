@@ -21,7 +21,7 @@ in {
       target = "hyprland-session.target";
     };
 
-    style = lib.fileContents ./waybar.css;
+    style = lib.fileContents ./themes/waybar.css;
 
     settings = [
       {

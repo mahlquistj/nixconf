@@ -81,6 +81,7 @@
       work = utilities.mkSystem {
         name = "work";
         battery = true;
+        wallpaper = "3440x1440";
       };
 
       desktop = utilities.mkSystem {

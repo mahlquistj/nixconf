@@ -14,6 +14,7 @@
   environment.systemPackages = with pkgs; [
     blueman
     amazon-ecr-credential-helper
+    postgresql
   ];
 
   hardware = {
@@ -44,7 +45,10 @@
     wireguard.enable = true;
     wg-quick = {
       interfaces = {
-        wg0-backup.configFile = "/home/${sysOptions.user}/wireguard/wg0-backup.conf";
+        wg0-backup = {
+          configFile = "/home/${sysOptions.user}/wireguard/wg0-backup.conf";
+          autostart = false;
+        };
       };
     };
   };
