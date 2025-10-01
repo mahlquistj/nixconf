@@ -1,120 +1,202 @@
-/* Catppuccin Mocha (official) + Glass Transparency for Vesktop/Vencord
-   ---------------------------------------------------------------
-   - Imports the official Catppuccin Mocha Discord theme
-   - Makes backgrounds transparent/semi-transparent so Vesktop transparency shows through
-   - Keeps text/input surfaces readable
-   - Tweak opacity by changing rgba(...) alpha values below
+/**
+ * @name midnight (catppuccin mocha)
+ * @description a dark, customizable discord theme. based on catppuccin mocha theme (https://catppuccin.com).
+ * @author refact0r
+ * @version 2.1.1
+ * @invite nz87hXyvcy
+ * @website https://github.com/refact0r/midnight-discord
+ * @source https://github.com/refact0r/midnight-discord/blob/master/themes/flavors/midnight-catppuccin-mocha.theme.css
+ * @authorId 508863359777505290
+ * @authorLink https://www.refact0r.dev
 */
 
-@import url("https://catppuccin.github.io/discord/dist/catppuccin-mocha.theme.css");
+/* import theme modules */
+@import url("https://refact0r.github.io/midnight-discord/build/midnight.css");
+@import url("https://fonts.googleapis.com/css2?family=Source+Code+Pro:ital,wght@0,200..900;1,200..900&display=swap");
 
-/* ---- GLOBAL TRANSPARENCY TOKENS ----
-   Tune these first if you want more/less opacity.
-   Values are the Mocha base/mantle/crust with alpha. */
+body {
+  /* font, change to '' for default discord font */
+  --font: "Source Code Pro"; /* change to '' for default discord font */
+  --code-font: "Source Code Pro"; /* change to '' for default discord font */
+  font-weight: 400 /* normal text font weight. DOES NOT AFFECT BOLD TEXT */;
+
+  /* sizes */
+  --gap: 12px; /* spacing between panels */
+  --divider-thickness: 4px; /* thickness of unread messages divider and highlighted message borders */
+  --border-thickness: 1px; /* thickness of borders around main panels. DOES NOT AFFECT OTHER BORDERS */
+
+  /* animation/transition options */
+  --animations: on; /* off: disable animations/transitions, on: enable animations/transitions */
+  --list-item-transition: 0.2s ease; /* transition for list items */
+  --dms-icon-svg-transition: 0.4s ease; /* transition for the dms icon */
+  --border-hover-transition: 0.2s ease; /* transition for borders when hovered */
+
+  /* top bar options */
+  --top-bar-height: var(
+    --gap
+  ); /* height of the top bar (discord default is 36px, old discord style is 24px, var(--gap) recommended if button position is set to titlebar) */
+  --top-bar-button-position: titlebar; /* off: default position, hide: hide buttons completely, serverlist: move inbox button to server list, titlebar: move inbox button to channel titlebar (will hide title) */
+  --top-bar-title-position: hide; /* off: default centered position, hide: hide title completely, left: left align title (like old discord) */
+  --subtle-top-bar-title: off; /* off: default, on: hide the icon and use subtle text color (like old discord) */
+
+  /* window controls */
+  --custom-window-controls: off; /* off: default window controls, on: custom window controls */
+  --window-control-size: 14px; /* size of custom window controls */
+
+  /* dms button options */
+  --custom-dms-icon: hide; /* off: use default discord icon, hide: remove icon entirely, custom: use custom icon */
+  --dms-icon-svg-url: url("https://refact0r.github.io/midnight-discord/assets/Font_Awesome_5_solid_moon.svg"); /* icon svg url. MUST BE A SVG. */
+  --dms-icon-svg-size: 90%; /* size of the svg (css mask-size property) */
+  --dms-icon-color-before: var(--icon-secondary); /* normal icon color */
+  --dms-icon-color-after: var(
+    --white
+  ); /* icon color when button is hovered/selected */
+  --custom-dms-background: image; /* off to disable, image to use a background image (must set url variable below), color to use a custom color/gradient */
+  --dms-background-image-url: url("https://raw.githubusercontent.com/catppuccin/catppuccin/main/assets/logos/exports/1544x1544_circle.png"); /* url of the background image */
+  --dms-background-image-size: cover; /* size of the background image (css background-size property) */
+  --dms-background-color: linear-gradient(
+    70deg,
+    var(--blue-2),
+    var(--yellow-2),
+    var(--red-2)
+  ); /* fixed color/gradient (css background property) */
+
+  /* background image options */
+  --background-image: off; /* off: no background image, on: enable background image (must set url variable below) */
+  --background-image-url: url(""); /* url of the background image */
+
+  /* transparency/blur options */
+  --transparency-tweaks: on; /* off: no changes, on: remove some elements for better transparency */
+  --remove-bg-layer: on; /* off: no changes, on: remove the base --bg-3 layer for use with window transparency (WILL OVERRIDE BACKGROUND IMAGE) */
+  --panel-blur: on; /* off: no changes, on: blur the background of panels */
+  --blur-amount: 12px; /* amount of blur */
+  --bg-floating: var(
+    --bg-3
+  ); /* set this to a more opaque color if floating panels look too transparent. only applies if panel blur is on  */
+
+  /* chatbar options */
+  --custom-chatbar: separated; /* off: default chatbar, aligned: chatbar aligned with the user panel, separated: chatbar separated from chat */
+  --chatbar-height: 47px; /* height of the chatbar (52px by default, 47px recommended for aligned, 56px recommended for separated) */
+  --chatbar-padding: 8px; /* padding of the chatbar. only applies in aligned mode. */
+
+  /* other options */
+  --small-user-panel: on; /* off: default user panel, on: smaller user panel like in old discord */
+}
+
+/* color options */
 :root {
-  /* Primary surfaces */
-  --background-primary: rgba(24, 24, 37, 0.42) !important; /* base   */
-  --background-secondary: rgba(17, 17, 27, 0.38) !important; /* mantle */
-  --background-secondary-alt: rgba(17, 17, 27, 0.34) !important;
-  --background-tertiary: rgba(12, 12, 20, 0.3) !important; /* crust  */
+  --colors: on; /* off: discord default colors, on: midnight custom colors */
 
-  /* Floating / popouts / modals */
-  --background-floating: rgba(17, 17, 27, 0.55) !important;
-  --modal-background: rgba(17, 17, 27, 0.6) !important;
-  --modal-footer-background: rgba(17, 17, 27, 0.5) !important;
+  /* text colors */
+  --text-0: var(--bg-3); /* text on colored elements */
+  --text-1: hsl(226, 64%, 95%); /* other normally white text */
+  --text-2: #cdd6f4; /* headings and important text */
+  --text-3: #bac2de; /* normal text */
+  --text-4: #7f849c; /* icon buttons and channels */
+  --text-5: #585b70; /* muted channels/chats and timestamps */
 
-  /* Inputs / textareas */
-  --input-background: rgba(17, 17, 27, 0.55) !important;
-  --channeltextarea-background: rgba(17, 17, 27, 0.55) !important;
+  /* background and dark colors */
+  --bg-1: #45475a; /* dark buttons when clicked */
+  --bg-2: #313244; /* dark buttons */
+  --bg-3: #181825; /* spacing, secondary elements */
+  --bg-4: #1e1e2ec8; /* main background color */
+  --hover: hsla(235, 15%, 53%, 0.1); /* channels and buttons when hovered */
+  --active: hsla(
+    235,
+    15%,
+    53%,
+    0.2
+  ); /* channels and buttons when clicked or selected */
+  --active-2: hsla(
+    235,
+    15%,
+    53%,
+    0.3
+  ); /* extra state for transparent buttons */
+  --message-hover: hsla(235, 0%, 0%, 0.1); /* messages when hovered */
 
-  /* Panels / activity cards / legacy tokens */
-  --activity-card-background: rgba(17, 17, 27, 0.45) !important;
-  --deprecated-panel-background: var(--background-tertiary) !important;
+  /* accent colors */
+  --accent-1: var(--peach-1); /* links and other accent text */
+  --accent-2: var(--peach-2); /* small accent elements */
+  --accent-3: var(--peach-3); /* accent buttons */
+  --accent-4: var(--peach-4); /* accent buttons when hovered */
+  --accent-5: var(--peach-5); /* accent buttons when clicked */
+  --accent-new: var(
+    --accent-2
+  ); /* stuff that's normally red like mute/deafen buttons */
+  --mention: linear-gradient(
+    to right,
+    color-mix(in hsl, var(--accent-2), transparent 90%) 40%,
+    transparent
+  ); /* background of messages that mention you */
+  --mention-hover: linear-gradient(
+    to right,
+    color-mix(in hsl, var(--accent-2), transparent 95%) 40%,
+    transparent
+  ); /* background of messages that mention you when hovered */
+  --reply: linear-gradient(
+    to right,
+    color-mix(in hsl, var(--text-3), transparent 90%) 40%,
+    transparent
+  ); /* background of messages that reply to you */
+  --reply-hover: linear-gradient(
+    to right,
+    color-mix(in hsl, var(--text-3), transparent 95%) 40%,
+    transparent
+  ); /* background of messages that reply to you when hovered */
 
-  /* Subtle separators & interaction states (stay faint on glass) */
-  --background-modifier-accent: rgba(255, 255, 255, 0.06) !important;
-  --background-modifier-hover: rgba(255, 255, 255, 0.06) !important;
-  --background-modifier-active: rgba(255, 255, 255, 0.1) !important;
-  --background-modifier-selected: rgba(255, 255, 255, 0.12) !important;
+  /* status indicator colors */
+  --online: var(--green-2); /* change to #43a25a for default */
+  --dnd: var(--red-2); /* change to #d83a42 for default */
+  --idle: var(--yellow-2); /* change to #ca9654 for default */
+  --streaming: var(--purple-2); /* change to #593695 for default */
+  --offline: var(--text-4); /* change to #83838b for default offline color */
 
-  /* Blur strength for glass surfaces that support backdrop-filter */
-  --glass-blur: 14px;
-}
+  /* border colors */
+  --border-light: var(--hover); /* general light border color */
+  --border: var(--active); /* general normal border color */
+  --border-hover: var(--active); /* border color of panels when hovered */
+  --button-border: hsl(
+    235,
+    0%,
+    100%,
+    0.1
+  ); /* neutral border color of buttons */
 
-/* Let the OS/Window effect show through */
-html,
-body,
-[class^="appMount-"],
-[class*=" appMount-"],
-[class^="app-"],
-[class*=" app-"],
-[class^="bg-"],
-[class*=" bg-"] {
-  background: transparent !important;
-}
+  /* base colors */
+  --red-1: hsl(343deg, 81%, 80%);
+  --red-2: hsl(343deg, 81%, 75%);
+  --red-3: hsl(343deg, 81%, 75%);
+  --red-4: hsl(343deg, 81%, 70%);
+  --red-5: hsl(343deg, 81%, 65%);
 
-/* Apply blur on major panes while keeping them see-through */
-[class^="layers-"],
-[class*=" layers-"],
-[class^="layer-"],
-[class*=" layer-"],
-[class^="container-"],
-[class*=" container-"],
-[class^="content-"],
-[class*=" content-"],
-[class^="sidebar-"],
-[class*=" sidebar-"],
-[class^="panels-"],
-[class*=" panels-"],
-[class^="wrapper-"],
-[class*=" wrapper-"],
-[class^="chat-"],
-[class*=" chat-"],
-[class^="chatContent-"],
-[class*=" chatContent-"],
-[class^="noChannel-"],
-[class*=" noChannel-"],
-[class^="standardSidebarView-"],
-[class*=" standardSidebarView-"],
-[class^="titleBar-"],
-[class*=" titleBar-"] {
-  background-color: transparent !important;
-  background: transparent !important;
-  -webkit-backdrop-filter: blur(var(--glass-blur)) saturate(1.1);
-  backdrop-filter: blur(var(--glass-blur)) saturate(1.1);
-}
+  --green-1: hsl(115deg, 54%, 81%);
+  --green-2: hsl(115deg, 54%, 76%);
+  --green-3: hsl(115deg, 54%, 76%);
+  --green-4: hsl(115deg, 54%, 71%);
+  --green-5: hsl(115deg, 54%, 66%);
 
-/* Menus, popouts, tooltips: slightly more opaque for readability */
-[class^="menu-"],
-[class*=" menu-"],
-[class^="submenu-"],
-[class*=" submenu-"],
-[class^="tooltip-"],
-[class*=" tooltip-"],
-[class^="userPopout-"],
-[class*=" userPopout-"],
-[class^="root-"],
-[class*=" root-"],
-[class^="modal-"],
-[class*=" modal-"],
-[class^="keyboardShortcutsModal-"],
-[class*=" keyboardShortcutsModal-"],
-[class^="autocomplete-"],
-[class*=" autocomplete-"],
-[class^="popout-"],
-[class*=" popout-"],
-[class^="select-"],
-[class*=" select-"],
-[class^="option-"],
-[class*=" option-"],
-[class^="container-3ayLPN"] {
-  background: var(--background-floating) !important;
-  -webkit-backdrop-filter: blur(calc(var(--glass-blur) + 3px));
-  backdrop-filter: blur(calc(var(--glass-blur) + 3px));
-}
+  --blue-1: hsl(199deg, 76%, 74%);
+  --blue-2: hsl(199deg, 76%, 69%);
+  --blue-3: hsl(199deg, 76%, 69%);
+  --blue-4: hsl(199deg, 76%, 64%);
+  --blue-5: hsl(199deg, 76%, 59%);
 
-/* Avoid white flashes on theme switches */
-.theme-dark,
-.theme-light {
-  background: transparent !important;
+  --yellow-1: hsl(41deg, 86%, 88%);
+  --yellow-2: hsl(41deg, 86%, 83%);
+  --yellow-3: hsl(41deg, 86%, 83%);
+  --yellow-4: hsl(41deg, 86%, 78%);
+  --yellow-5: hsl(41deg, 86%, 73%);
+
+  --purple-1: hsl(267deg, 84%, 86%);
+  --purple-2: hsl(267deg, 84%, 81%);
+  --purple-3: hsl(267deg, 84%, 81%);
+  --purple-4: hsl(267deg, 84%, 76%);
+  --purple-5: hsl(267deg, 84%, 71%);
+
+  --peach-1: hsl(23deg, 92%, 80%);
+  --peach-2: hsl(23deg, 92%, 75%);
+  --peach-3: hsl(23deg, 92%, 75%);
+  --peach-4: hsl(23deg, 92%, 70%);
+  --peach-5: hsl(23deg, 92%, 65%);
 }

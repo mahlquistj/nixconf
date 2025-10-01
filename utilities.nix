@@ -19,17 +19,13 @@ in {
     wallpaper ? "1920x1080",
     cursorSize ? 24,
     theme ? "mocha",
+    accent ? "peach",
     cpu_thermal_zone ? 0,
     system ? "x86_64-linux",
   }: let
     sysOptions = {inherit name user battery wallpaper cursorSize theme cpu_thermal_zone system;};
 
     wallpapers = "${self}/media/wallpaper";
-
-    pkgs-stable = import stable {
-      inherit system;
-      config.allowUnfree = true;
-    };
 
     default_modules = [
       catppuccin.nixosModules.catppuccin
@@ -44,6 +40,7 @@ in {
         catppuccin = {
           enable = true;
           flavor = "${theme}";
+          accent = "${accent}";
         };
       }
       "${self}/config/shared"
