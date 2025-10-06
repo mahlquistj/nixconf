@@ -20,6 +20,11 @@
 
     configFile.text = ''
       $env.config.show_banner = false
+
+      def dirsize [dir?: path] {
+        let p = $dir | default $env.PWD
+        du $p | select apparent physical | math sum
+      }
     '';
 
     shellAliases = {
