@@ -15,6 +15,13 @@
     blueman
     amazon-ecr-credential-helper
     postgresql
+    (python3.withPackages (python-pkgs:
+      with python-pkgs; [
+        netaddr
+        paramiko
+        pytz
+        psycopg2
+      ]))
   ];
 
   hardware = {

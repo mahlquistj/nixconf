@@ -49,6 +49,7 @@
     gnome.gvfs # fix for swaync mpris widget
   ];
 
+  # SSH
   services = {
     openssh.enable = true;
   };
