@@ -108,8 +108,8 @@
         # Stop hyprland from stealing mouse in bitwig studio
         "nofocus,class:^$,title:^$,xwayland:1,floating:1,fullscreen:0,pinned:0"
 
-        # Vesktop blur trigger
-        "opacity 0.99 overide 0.99, class:^(Vesktop|vesktop)$"
+        # Spotify blur
+        "opacity 0.90, class:(Spotify|spotify)"
       ];
 
       # Setttings and styling
