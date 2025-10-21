@@ -13,8 +13,9 @@
     ./hyprland.nix
     ./kdeconnect.nix
     ./neovim.nix
-    ./nushell.nix
     ./nix.nix
+    ./nushell.nix
+    ./obsidian.nix
     ./rio.nix
     ./rofi.nix
     ./spotify.nix
