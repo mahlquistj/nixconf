@@ -1,12 +1,13 @@
 {
   pkgs,
-  config,
   sysOptions,
   ...
 }: {
   imports = [../shared];
 
   environment.systemPackages = with pkgs; [
+    alsa-scarlett-gui # Focusrite Scarlett GUI
+    scarlett2 # Focusrite Scarlett firmware management
     game-devices-udev-rules
     gamescope
     gamemode
@@ -18,6 +19,8 @@
     cabextract
     lm_sensors
     protonup-qt
+    gpu-viewer
+    vulkan-tools
   ];
 
   users.users."${sysOptions.user}".extraGroups = ["adbusers"];
@@ -82,6 +85,9 @@
       enable = true;
       extraPackages = with pkgs; [
         rocmPackages.clr.icd
+        mesa
+        vulkan-loader
+        vulkan-validation-layers
       ];
     };
   };

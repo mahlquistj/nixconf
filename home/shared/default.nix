@@ -22,6 +22,7 @@
     ./swaync.nix
     ./waybar.nix
     ./yazi.nix
+    ./zed.nix
   ];
 
   programs.direnv.enable = true;

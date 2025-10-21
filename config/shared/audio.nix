@@ -4,7 +4,7 @@
     enable = true;
     wireplumber = {enable = true;};
   };
-  environment.systemPackages = [
-    pkgs.pavucontrol # Audio GUI
+  environment.systemPackages = with pkgs; [
+    pavucontrol # General Audio GUI
   ];
 }
