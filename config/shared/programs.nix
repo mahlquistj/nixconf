@@ -22,6 +22,7 @@
     zip
     unzip
     vhs
+    ripgrep
 
     # DAW
     bitwig-studio
