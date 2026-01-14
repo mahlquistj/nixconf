@@ -246,6 +246,22 @@
           words_typed = "{words to type}"
         '';
       };
+      "octotype/modes/timed.toml" = {
+        force = true;
+        text = ''
+          [meta]
+          name = "Timed"
+          description = "Type the words before the time runs out!"
+
+          [parameters.time]
+          min = 10
+          step = 1
+          default = 30
+
+          [conditions]
+          time = "{time}"
+        '';
+      };
     };
   };
 }

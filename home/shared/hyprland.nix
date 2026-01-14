@@ -16,24 +16,24 @@
         };
 
         listener = [
-          {
-            timeout = 300; # 5 min
-            on-timeout = "brightnessctl -s set 10";
-            on-resume = "brightnessctl -r";
-          }
-          {
-            timeout = 600; # 10 min
-            on-timeout = "loginctl lock-session";
-          }
-          {
-            timeout = 630; # 10 min, 30 sec
-            on-timeout = "hyprctl dispatch dpms off";
-            on-resume = "hyprctl dispatch dpms on && brightnessctl -r";
-          }
-          {
-            timeout = 1800; # 30 min
-            on-timeout = "systemctl suspend";
-          }
+          # {
+          #   timeout = 300; # 5 min
+          #   on-timeout = "brightnessctl -s set 10";
+          #   on-resume = "brightnessctl -r";
+          # }
+          # {
+          #   timeout = 600; # 10 min
+          #   on-timeout = "loginctl lock-session";
+          # }
+          # {
+          #   timeout = 630; # 10 min, 30 sec
+          #   on-timeout = "hyprctl dispatch dpms off";
+          #   on-resume = "hyprctl dispatch dpms on && brightnessctl -r";
+          # }
+          # {
+          #   timeout = 1800; # 30 min
+          #   on-timeout = "systemctl suspend";
+          # }
         ];
       };
     };
