@@ -27,6 +27,7 @@
     unzip
     vhs
     vlc
+    ripgrep
 
     # DAW
     bitwig-studio
