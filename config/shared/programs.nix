@@ -1,4 +1,8 @@
-{pkgs, ...}: {
+{
+  pkgs,
+  inputs,
+  ...
+}: {
   nixpkgs.config = {
     allowUnfree = true;
     permittedInsecurePackages = ["beekeeper-studio-5.3.4"];
@@ -22,6 +26,7 @@
     zip
     unzip
     vhs
+    vlc
 
     # DAW
     bitwig-studio
@@ -39,6 +44,7 @@
 
     # AI
     claude-code
+    codex
 
     # Other
     beekeeper-studio
@@ -48,6 +54,9 @@
     neofetch
     gnome.gvfs # fix for swaync mpris widget
   ];
+
+  # Flatpak
+  services.flatpak.enable = true;
 
   # SSH
   services = {

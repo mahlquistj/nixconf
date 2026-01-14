@@ -1,6 +1,7 @@
 {
   pkgs,
   sysOptions,
+  inputs,
   ...
 }: {
   imports = [../shared];
@@ -21,12 +22,33 @@
     protonup-qt
     gpu-viewer
     vulkan-tools
+    icu
+    inputs.hytale.packages.${system}.hytale-launcher
   ];
 
   users.users."${sysOptions.user}".extraGroups = ["adbusers"];
   programs.adb.enable = true;
   services.udev.packages = with pkgs; [
     android-udev-rules
+  ];
+
+  programs.nix-ld.enable = true;
+  programs.nix-ld.libraries = with pkgs; [
+    icu
+    libglvnd
+    mesa
+    # common runtime deps for games:
+    xorg.libX11
+    xorg.libXcursor
+    xorg.libXi
+    xorg.libXrandr
+    wayland
+    libxkbcommon
+    vulkan-loader
+    alsa-lib
+    zlib
+    openssl
+    stdenv.cc.cc.lib
   ];
 
   programs.steam.enable = true;

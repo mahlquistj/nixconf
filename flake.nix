@@ -65,6 +65,14 @@
     };
 
     fancontrol-gui.url = "github:Maldela/fancontrol-gui";
+
+    nix-citizen.url = "github:LovingMelody/nix-citizen";
+
+    # Optional - updates underlying without waiting for nix-citizen to update
+    nix-gaming.url = "github:fufexan/nix-gaming";
+    nix-citizen.inputs.nix-gaming.follows = "nix-gaming";
+
+    hytale.url = "github:TNAZEP/HytaleLauncherFlake";
   };
 
   outputs = {

@@ -15,6 +15,7 @@ _: {
         font_family = "SauceCodePro Nerd Font Mono";
       };
 
+      relative_line_numbers = true;
       vim_mode = true;
 
       theme = {

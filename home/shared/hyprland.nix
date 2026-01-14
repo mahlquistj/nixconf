@@ -337,6 +337,9 @@
       # Filename with timestamp
       FILENAME="$REC_DIR/rec_$(date +'%Y-%m-%d_%H-%M-%S').mp4"
 
+      # System audio source (monitor of the default sink)
+      SYSTEM_SOURCE="$(pactl get-default-sink).monitor"
+
       # Check if a recording is already in progress
       if pgrep -x "wf-recorder" > /dev/null; then
           notify-send "Recording in Progress" "A screen recording is already active."
@@ -346,19 +349,19 @@
       # Main logic based on argument
       case $1 in
           area)
-              # Select an area and record
               GEOMETRY=$(slurp)
               if [ -n "$GEOMETRY" ]; then
-                  notify-send "Screen Recording" "Starting area recording..."
-                  wf-recorder -g "$GEOMETRY" -f "$FILENAME"
+                  notify-send "Screen Recording" "Starting area recording with system audio..."
+                  wf-recorder -g "$GEOMETRY" -f "$FILENAME" \
+                      --audio="$SYSTEM_SOURCE"
               else
                   notify-send "Screen Recording" "Selection cancelled."
               fi
               ;;
           screen)
-              # Record the entire screen
-              notify-send "Screen Recording" "Starting full-screen recording..."
-              wf-recorder -f "$FILENAME"
+              notify-send "Screen Recording" "Starting full-screen recording with system audio..."
+              wf-recorder -f "$FILENAME" \
+                  --audio="$SYSTEM_SOURCE"
               ;;
           *)
               echo "Usage: $0 {area|screen}"
