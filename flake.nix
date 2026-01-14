@@ -2,8 +2,8 @@
   description = "My NixOS configurations";
 
   inputs = {
-    nixpkgs.url = "github:nixos/nixpkgs/nixos-unstable";
-    stable.url = "github:nixos/nixpkgs/nixos-25.05";
+    nixpkgs.url = "github:nixos/nixpkgs/nixpkgs-unstable";
+    pkgs-stable.url = "github:nixos/nixpkgs/nixos-25.05";
 
     # Home manager
     home-manager = {

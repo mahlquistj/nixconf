@@ -1,7 +1,13 @@
 {pkgs, ...}: {
   nixpkgs.config = {
     allowUnfree = true;
-    permittedInsecurePackages = ["beekeeper-studio-5.3.4"];
+    permittedInsecurePackages = [
+      "beekeeper-studio-5.3.4"
+
+      # Citrix workspace
+      "libsoup-2.74.3"
+      "libxml2-2.13.8"
+    ];
   };
 
   qt.enable = true;
@@ -21,8 +27,12 @@
     killall
     zip
     unzip
+    unrar
     vhs
+    vlc
     ripgrep
+
+    obs-studio
 
     # DAW
     bitwig-studio
@@ -40,6 +50,7 @@
 
     # AI
     claude-code
+    antigravity
 
     # Other
     beekeeper-studio
