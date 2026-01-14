@@ -24,10 +24,10 @@
     vulkan-tools
     icu
     inputs.hytale.packages.${system}.hytale-launcher
+    android-tools
   ];
 
   users.users."${sysOptions.user}".extraGroups = ["adbusers"];
-  programs.adb.enable = true;
   services.udev.packages = with pkgs; [
     android-udev-rules
   ];
