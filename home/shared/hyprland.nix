@@ -41,7 +41,10 @@
       enable = true;
       settings = {
         preload = ["${wallpapers}/${sysOptions.wallpaper}.png"];
-        wallpaper = [", ${wallpapers}/${sysOptions.wallpaper}.png"];
+        wallpaper = {
+          monitor = "";
+          path = "${wallpapers}/${sysOptions.wallpaper}.png";
+        };
       };
     };
   };

@@ -6,7 +6,7 @@
   nixpkgs.config = {
     allowUnfree = true;
     permittedInsecurePackages = [
-      "beekeeper-studio-5.3.4"
+      "beekeeper-studio-5.5.3"
 
       # Citrix workspace
       "libsoup-2.74.3"
@@ -55,7 +55,6 @@
     codex
 
     # Other
-    beekeeper-studio
     obs-studio
     scc
     cava

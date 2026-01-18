@@ -28,9 +28,6 @@
   ];
 
   users.users."${sysOptions.user}".extraGroups = ["adbusers"];
-  services.udev.packages = with pkgs; [
-    android-udev-rules
-  ];
 
   programs.nix-ld.enable = true;
   programs.nix-ld.libraries = with pkgs; [

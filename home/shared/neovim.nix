@@ -77,6 +77,10 @@
         lspkind.enable = true;
       };
 
+      formatter.conform-nvim = {
+        enable = true;
+      };
+
       languages = {
         enableFormat = true;
         enableTreesitter = true;
@@ -88,13 +92,7 @@
         };
         rust = {
           enable = true;
-          format.package = pkgs.rust-bin.stable.latest.rustfmt;
-          lsp.package = pkgs.rust-bin.stable.latest.rust-analyzer;
-
-          crates = {
-            enable = true;
-            codeActions = true;
-          };
+          extensions.crates-nvim.enable = true;
         };
 
         css.enable = true;
