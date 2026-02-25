@@ -18,17 +18,6 @@
     postgresql
     beekeeper-studio
 
-    (citrix_workspace.overrideAttrs (old: {
-      meta = old.meta // {broken = false;};
-      buildInputs = (old.buildInputs or []) ++ [pkgs.webkitgtk_4_1];
-      autoPatchelfIgnoreMissingDeps =
-        (old.autoPatchelfIgnoreMissingDeps or [])
-        ++ [
-          "libwebkit2gtk-4.0.so.37"
-          "libjavascriptcoregtk-4.0.so.18"
-        ];
-    }))
-
     (python3.withPackages (python-pkgs:
       with python-pkgs; [
         netaddr

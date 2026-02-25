@@ -7,10 +7,6 @@
     allowUnfree = true;
     permittedInsecurePackages = [
       "beekeeper-studio-5.5.3"
-
-      # Citrix workspace
-      "libsoup-2.74.3"
-      "libxml2-2.13.8"
     ];
   };
 
@@ -61,6 +57,7 @@
     ncspot
     neofetch
     gnome.gvfs # fix for swaync mpris widget
+    zulip
   ];
 
   # SSH
