@@ -15,7 +15,10 @@
     prismlauncher
     vintagestory
     rare
-    discord
+    (pkgs.discord.override {
+      withVencord = true;
+    })
+    vencord
     mixxx
     inputs.nix-citizen.packages.${system}.rsi-launcher
     (lutris.override {

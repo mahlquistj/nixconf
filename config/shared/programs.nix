@@ -57,6 +57,7 @@
     codex
 
     # Other
+    easyeffects
     obs-studio
     scc
     cava
