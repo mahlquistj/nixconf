@@ -130,8 +130,8 @@
         mesa
         vulkan-loader
         vulkan-validation-layers
-        vaapiVdpau
-        libvdpai-va-gl
+        libvdpau-va-gl
+        libva-vdpau-driver
       ];
     };
   };

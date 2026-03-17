@@ -63,7 +63,7 @@
     ncspot
     fastfetch
     gnome.gvfs # fix for swaync mpris widget
-    zulip
+    # zulip
   ];
 
   # SSH

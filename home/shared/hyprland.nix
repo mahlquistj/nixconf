@@ -5,6 +5,11 @@
   wallpapers,
   ...
 }: {
+  home.file.".config/hypr/xdph.conf".text = ''
+    screencopy {
+        max_fps = 60
+    }
+  '';
   services = {
     hypridle = {
       enable = true;
@@ -78,7 +83,7 @@
   };
   wayland.windowManager.hyprland = {
     enable = true;
-    systemd.enable = true;
+    systemd.enable = false;
     package = null;
 
     plugins = [];
