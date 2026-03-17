@@ -4,6 +4,7 @@
     enable = true;
     wireplumber.enable = true;
     pulse.enable = true;
+    alsa.enable = true;
   };
   services.jack = {
     jackd.enable = true;
