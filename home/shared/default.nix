@@ -90,8 +90,6 @@
       GTK_CSD = "0";
       GTK_USE_PORTAL = "1";
 
-      NIXOS_XDG_OPEN_USE_PORTAL = "1";
-
       DISCORD_SKIP_HOST_GPU_BLOCKLIST = "1";
     };
   };
@@ -119,13 +117,20 @@
     platformTheme.name = "kvantum";
   };
 
-  xdg = {
-    portal = {
-      enable = true;
-      extraPortals = [
-        pkgs.xdg-desktop-portal-termfilechooser
-      ];
+  xdg.mimeApps = {
+    enable = true;
+    defaultApplications = {
+      "inode/directory" = ["nemo.desktop"];
+      "application/x-gnome-saved-search" = ["nemo.desktop"];
+      "text/html" = ["chromium-browser.desktop"];
+      "x-scheme-handler/http" = ["chromium-browser.desktop"];
+      "x-scheme-handler/https" = ["chromium-browser.desktop"];
+      "x-scheme-handler/about" = ["chromium-browser.desktop"];
+      "x-scheme-handler/unknown" = ["chromium-browser.desktop"];
     };
+  };
+
+  xdg = {
     configFile = {
       "octotype/config.toml" = {
         force = true;

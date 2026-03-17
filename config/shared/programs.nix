@@ -7,6 +7,7 @@
     allowUnfree = true;
     permittedInsecurePackages = [
       "beekeeper-studio-5.5.3"
+      "dotnet-runtime-8.0.23"
 
       # Citrix workspace
       "libsoup-2.74.3"
@@ -25,6 +26,7 @@
     curl
     nixd
     openssl
+    nemo-with-extensions
     keymapp
     nettools
     wev # Keyboard debugging
@@ -59,7 +61,7 @@
     scc
     cava
     ncspot
-    neofetch
+    fastfetch
     gnome.gvfs # fix for swaync mpris widget
   ];
 

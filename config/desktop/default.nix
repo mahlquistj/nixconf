@@ -6,14 +6,28 @@
 }: {
   imports = [../shared];
 
+  security.wrappers = {
+    sniffnet = {
+      owner = "root";
+      group = "root";
+      capabilities = "cap_net_raw,cap_net_admin=eip";
+      source = "${pkgs.sniffnet}/bin/sniffnet";
+    };
+  };
+
   environment.systemPackages = with pkgs; [
     alsa-scarlett-gui # Focusrite Scarlett GUI
     scarlett2 # Focusrite Scarlett firmware management
+    sniffnet
     game-devices-udev-rules
     gamescope
     gamemode
     mangohud
+    fluffychat
+    element-desktop
     wine
+    dotnet-runtime
+    screen
     clinfo
     lact
     winetricks
@@ -25,8 +39,17 @@
     icu
     inputs.hytale.packages.${system}.hytale-launcher
     android-tools
+    sops
+    age
+    age-plugin-yubikey
+    yubikey-manager
   ];
 
+  users.groups.vintagestory = {};
+  users.users.vintagestory = {
+    group = "vintagestory";
+    isSystemUser = true;
+  };
   users.users."${sysOptions.user}".extraGroups = ["adbusers"];
 
   programs.nix-ld.enable = true;

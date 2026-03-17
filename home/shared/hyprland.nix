@@ -107,12 +107,22 @@
       ];
 
       # Window rules
-      windowrulev2 = [
+      windowrule = [
         # Stop hyprland from stealing mouse in bitwig studio
-        "nofocus,class:^$,title:^$,xwayland:1,floating:1,fullscreen:0,pinned:0"
+        # "nofocus,class:^$,title:^$,xwayland:1,floating:1,fullscreen:0,pinned:0"
 
         # Spotify blur
-        "opacity 0.90, class:(Spotify|spotify)"
+        "opacity 0.90, match:class spotify"
+
+        # Bitwig / XWayland input-grab workaround
+        # Adjust class if needed after checking `hyprctl clients`
+        "match:class ^(Bitwig Studio|bitwig-studio|BitwigStudio)$, allows_input on"
+        "match:class ^(Bitwig Studio|bitwig-studio|BitwigStudio)$, stay_focused on"
+        "match:class ^(Bitwig Studio|bitwig-studio|BitwigStudio)$, immediate on"
+
+        # Some XWayland apps create tiny empty-title transient windows during drags/popups.
+        # Prevent those helper windows from stealing interaction.
+        "match:xwayland 1, match:float 1, match:title ^$, no_focus on"
       ];
 
       # Setttings and styling
@@ -122,7 +132,7 @@
 
         border_size = 1;
 
-        resize_on_border = true;
+        resize_on_border = false;
 
         # col.* has to be in quotes
         "col.active_border" = "$peach";
@@ -155,6 +165,9 @@
         kb_layout = "us";
         kb_options = "compose:ralt";
       };
+      binds = {
+        pass_mouse_when_bound = true;
+      };
       animations = {
         enabled = "yes";
         bezier = "myBezier, 0.05, 0.9, 0.1, 1.05";
@@ -169,7 +182,7 @@
       misc = {
         disable_hyprland_logo = true;
         disable_splash_rendering = true;
-        focus_on_activate = true;
+        focus_on_activate = false;
       };
       master = {
         orientation = "center";

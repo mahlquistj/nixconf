@@ -13,8 +13,10 @@
 
   home.packages = with pkgs; [
     prismlauncher
+    vintagestory
     rare
     discord
+    mixxx
     inputs.nix-citizen.packages.${system}.rsi-launcher
     (lutris.override {
       # Unused for now

@@ -9,13 +9,21 @@
     };
   };
 
-  # # Also enable xdg-portals for hyprland to run properly
-  # xdg.portal = {
-  #   enable = true;
-  #   xdgOpenUsePortal = true;
-  #   wlr.enable = false;
-  #   extraPortals = [
-  #     pkgs.xdg-desktop-portal-gtk
-  #   ];
-  # };
+  # Enable portals for Wayland screen sharing and file chooser integration.
+  xdg.portal = {
+    enable = true;
+    xdgOpenUsePortal = false;
+    config = {
+      common = {
+        default = ["gtk" "hyprland"];
+      };
+      hyprland = {
+        default = ["gtk" "hyprland"];
+      };
+    };
+    extraPortals = [
+      pkgs.xdg-desktop-portal-hyprland
+      pkgs.xdg-desktop-portal-gtk
+    ];
+  };
 }

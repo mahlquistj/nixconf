@@ -11,7 +11,7 @@
          RUN+="${pkgs.systemd}/bin/loginctl lock-sessions"
       '';
     };
-    pcscd.enable = false;
+    pcscd.enable = true;
   };
 
   programs.gnupg.agent = {
@@ -21,6 +21,8 @@
 
   environment.systemPackages = with pkgs; [
     yubioath-flutter
+    yubikey-manager
+    pcsc-tools
   ];
 
   programs.ssh.enableAskPassword = true;
