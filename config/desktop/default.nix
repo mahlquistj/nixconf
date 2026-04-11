@@ -76,7 +76,6 @@
   services.wivrn = {
     enable = true;
     openFirewall = true;
-    defaultRuntime = true;
 
     # Run WiVRn as a systemd service on startup
     autoStart = true;

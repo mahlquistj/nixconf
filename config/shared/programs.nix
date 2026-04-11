@@ -37,6 +37,7 @@
     vhs
     vlc
     ripgrep
+    zenity
 
     # DAW
     bitwig-studio
@@ -64,6 +65,8 @@
     ncspot
     fastfetch
     gnome.gvfs # fix for swaync mpris widget
+    webkitgtk_6_0
+    ffmpeg-full
     # zulip
   ];
 

@@ -1,13 +1,16 @@
 {
   pkgs,
   nurpkgs,
+  wallpapers,
+  sysOptions,
   ...
 }: {
   imports = [
     ./audio.nix
     ./display_manager.nix
     ./fonts.nix
-    ./hyprland.nix
+    # ./hyprland.nix
+    ./niri.nix
     ./network.nix
     ./programs.nix
     ./shell.nix
@@ -16,6 +19,11 @@
     /etc/nixos/hardware-configuration.nix
     /etc/nixos/configuration.nix
   ];
+
+  environment.variables = {
+    WALLPAPER = "${wallpapers}/${sysOptions.wallpaper}.png";
+    WALLPAPERS_DIR = "${wallpapers}";
+  };
 
   # Cleanup rules
   nix.gc = {
@@ -64,8 +72,8 @@
     ELECTRON_OZONE_PLATFORM_HINT = "auto";
     GDK_SCALE = 1;
 
-    XDG_CURRENT_DESKTOP = "Hyprland";
-    XDG_SESSION_DESKTOP = "Hyprland";
-    XDG_SESSION_TYPE = "wayland";
+    # XDG_CURRENT_DESKTOP = "Hyprland";
+    # XDG_SESSION_DESKTOP = "Hyprland";
+    # XDG_SESSION_TYPE = "wayland";
   };
 }

@@ -10,7 +10,8 @@
     ./chrome.nix
     ./discord.nix
     # ./fish.nix
-    ./hyprland.nix
+    # ./hyprland.nix
+    ./niri.nix
     ./kdeconnect.nix
     ./neovim.nix
     ./nix.nix

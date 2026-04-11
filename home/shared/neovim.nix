@@ -27,6 +27,7 @@
       options = {
         tabstop = 4;
         shiftwidth = 4;
+        exrc = true;
       };
 
       utility = {

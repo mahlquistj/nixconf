@@ -1,15 +1,14 @@
 {
-  pkgs,
   inputs,
   sysOptions,
   wallpapers,
   ...
 }: {
-  home.file.".config/hypr/xdph.conf".text = ''
-    screencopy {
-        max_fps = 60
-    }
-  '';
+  # home.file.".config/hypr/xdph.conf".text = ''
+  #   screencopy {
+  #       max_fps = 60
+  #   }
+  # '';
   services = {
     hypridle = {
       enable = true;
@@ -83,7 +82,7 @@
   };
   wayland.windowManager.hyprland = {
     enable = true;
-    systemd.enable = false;
+    systemd.enable = true;
     package = null;
 
     plugins = [];
@@ -105,8 +104,6 @@
 
       # Startup
       exec-once = [
-        "systemctl --user import-environment WAYLAND_DISPLAY XDG_CURRENT_DESKTOP XDG_SESSION_TYPE XDG_SESSION_DESKTOP "
-        "dbus-update-activation-environment --systemd --all WAYLAND_DISPLAY XDG_CURRENT_DESKTOP XDG_SESSION_TYPE XDG_SESSION_DESKTOP"
         "swaync"
         "udiskie"
       ];

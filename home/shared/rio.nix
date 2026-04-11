@@ -65,7 +65,7 @@ in {
       };
 
       navigation = {
-        mode = "Bookmark";
+        mode = "Tab";
         color-automation = [
           {
             program = "nvim";
