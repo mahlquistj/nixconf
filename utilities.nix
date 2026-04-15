@@ -53,6 +53,7 @@ in {
       spicetify-nix.homeManagerModules.spicetify
       nvf.homeManagerModules.default
       sops-nix.homeManagerModules.sops
+      walker.homeManagerModules.default
       {
         catppuccin = {
           enable = true;

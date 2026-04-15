@@ -40,6 +40,7 @@
     hardware = {
       bolt.enable = true;
     };
+    xserver.updateDbusEnvironment = true;
     xserver.videoDrivers = ["amdgpu"];
     tailscale = {
       enable = true;

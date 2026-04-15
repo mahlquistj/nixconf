@@ -78,6 +78,13 @@
     nix-citizen.inputs.nix-gaming.follows = "nix-gaming";
 
     hytale.url = "github:TNAZEP/HytaleLauncherFlake";
+
+    # Walker
+    elephant.url = "github:abenz1267/elephant";
+    walker = {
+      url = "github:abenz1267/walker";
+      inputs.elephant.follows = "elephant";
+    };
   };
 
   outputs = {

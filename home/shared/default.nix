@@ -20,7 +20,7 @@
     ./obsidian.nix
     ./rio.nix
     ./rofi.nix
-    # ./walker.nix
+    ./walker.nix
     ./spotify.nix
     ./starship.nix
     ./swaync.nix
