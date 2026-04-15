@@ -56,6 +56,7 @@
         #------- Spawners -------#
         "Mod+Return".action.spawn = "rio";
         "Mod+Space".action.spawn = ["rofi" "-show" "drun"];
+        "Mod+N".action.spawn = ["swaync-client" "-t"];
 
         #------- Actions -------#
         "Mod+Q".action.close-window = {};
