@@ -1,9 +1,4 @@
-{
-  pkgs,
-  sysOptions,
-  wallpapers,
-  ...
-}: {
+{pkgs, ...}: {
   services.swww.enable = true;
   home.packages = with pkgs; [
     xwayland-satellite
@@ -52,19 +47,24 @@
         }
       ];
 
+      gestures.hot-corners.enable = false;
+
       binds = {
         #------- Spawners -------#
         "Mod+Return".action.spawn = "rio";
         "Mod+Space".action.spawn = ["rofi" "-show" "drun"];
+        # "Mod+Space".action.spawn = "walker";
         "Mod+N".action.spawn = ["swaync-client" "-t"];
 
         #------- Actions -------#
+        "Mod+Escape".action.spawn = ["swaylock" "-f"];
         "Mod+Q".action.close-window = {};
         "Print".action.screenshot = {};
         "Alt+Print".action.screenshot-window = {};
         "Ctrl+Print".action.screenshot-screen = {};
         "Mod+Shift+E".action.quit = {};
         "Ctrl+Alt+Delete".action.quit = {};
+        "Mod+Shift+Tab".action.toggle-overview = {};
 
         # System volume up/down
         "XF86AudioRaiseVolume".action.spawn = ["wpctl" "set-volume" "-l" "1.25" "@DEFAULT_AUDIO_SINK@" "5%+"];

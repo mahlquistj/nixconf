@@ -38,6 +38,9 @@
     vlc
     ripgrep
     zenity
+    sops
+    whois
+    exfat
 
     # DAW
     bitwig-studio

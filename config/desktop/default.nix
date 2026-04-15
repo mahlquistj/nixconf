@@ -37,6 +37,7 @@
     gpu-viewer
     vulkan-tools
     icu
+    powershell
     inputs.hytale.packages.${system}.hytale-launcher
     android-tools
     sops

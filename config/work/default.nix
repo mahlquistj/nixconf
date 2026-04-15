@@ -17,6 +17,7 @@
     amazon-ecr-credential-helper
     postgresql
     beekeeper-studio
+    openvpn
 
     (python3.withPackages (python-pkgs:
       with python-pkgs; [

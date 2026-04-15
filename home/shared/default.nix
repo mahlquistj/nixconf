@@ -11,6 +11,7 @@
     ./discord.nix
     # ./fish.nix
     # ./hyprland.nix
+    ./swaylock.nix
     ./niri.nix
     ./kdeconnect.nix
     ./neovim.nix
@@ -19,6 +20,7 @@
     ./obsidian.nix
     ./rio.nix
     ./rofi.nix
+    # ./walker.nix
     ./spotify.nix
     ./starship.nix
     ./swaync.nix
