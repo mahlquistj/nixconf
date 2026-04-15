@@ -32,7 +32,7 @@
         }
         {
           output = {
-            criteria = "AOC CU34V5C 1UJQBHA000611";
+            criteria = "DP-2";
             scale = 1.0;
             mode = "3440x1440@100.00Hz";
           };
@@ -42,7 +42,7 @@
             name = "docked-work";
             outputs = [
               {
-                criteria = "AOC CU34V5C 1UJQBHA000611";
+                criteria = "DP-2";
                 status = "enable";
                 position = "0,0";
               }
