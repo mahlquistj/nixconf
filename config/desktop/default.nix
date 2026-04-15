@@ -1,5 +1,6 @@
 {
   pkgs,
+  pkgs-stable,
   sysOptions,
   inputs,
   ...
@@ -57,7 +58,6 @@
   programs.nix-ld.libraries = with pkgs; [
     icu
     libglvnd
-    mesa
     # common runtime deps for games:
     xorg.libX11
     xorg.libXcursor
@@ -117,17 +117,18 @@
 
   # AMD GPU
   boot.initrd.kernelModules = ["amdgpu"];
-  boot.kernelPackages = pkgs.linuxPackages_latest;
+  boot.kernelPackages = pkgs-stable.linuxPackages_latest;
 
   hardware = {
     steam-hardware.enable = true;
     bluetooth.enable = true;
     graphics = {
       enable = true;
+      package = pkgs-stable.mesa;
+      package32 = pkgs-stable.pkgsi686Linux.mesa;
       enable32Bit = true; # For 32 bit applications
       extraPackages = with pkgs; [
         rocmPackages.clr.icd
-        mesa
         vulkan-loader
         vulkan-validation-layers
         libvdpau-va-gl
