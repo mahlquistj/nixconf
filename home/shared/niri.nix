@@ -1,8 +1,10 @@
 {pkgs, ...}: {
   services.swww.enable = true;
-  home.packages = with pkgs; [
-    xwayland-satellite
-  ];
+  home = {
+    packages = with pkgs; [
+      xwayland-satellite
+    ];
+  };
   programs.niri = {
     settings = {
       prefer-no-csd = true;

@@ -81,20 +81,6 @@
       package = pkgs.phinger-cursors;
       size = sysOptions.cursorSize;
     };
-
-    sessionVariables = {
-      PROTON_LOG = "1";
-      PROTON_LOG_DIR = "/home/maj/";
-
-      NIXOS_OZONE_WL = "1";
-
-      MOZ_ENABLE_WAYLAND = "1";
-
-      GTK_CSD = "0";
-      GTK_USE_PORTAL = "1";
-
-      DISCORD_SKIP_HOST_GPU_BLOCKLIST = "1";
-    };
   };
 
   gtk = {
