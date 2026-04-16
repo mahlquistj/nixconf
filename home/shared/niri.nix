@@ -18,7 +18,10 @@
         focus-follows-mouse.enable = true;
 
         keyboard = {
-          xkb.layout = "us";
+          xkb = {
+            layout = "us";
+            options = "compose:ralt";
+          };
         };
       };
 

@@ -96,6 +96,7 @@
           extensions.crates-nvim.enable = true;
         };
 
+        qml.enable = true;
         css.enable = true;
         ts.enable = true;
         nix.enable = true;

@@ -5,15 +5,21 @@
     kubectl
   ];
 
-  programs.docker-cli = {
-    enable = true;
-    settings = {
-      "credsStore" = "ecr-login";
+  programs = {
+    docker-cli = {
+      enable = true;
+      settings = {
+        "credsStore" = "ecr-login";
+      };
     };
-  };
-
-  programs.nushell.shellAliases = {
-    kb = "kubectl";
+    nushell.shellAliases = {
+      kb = "kubectl";
+    };
+    niri.settings = {
+      spawn-at-startup = [
+        {command = ["kanshi"];}
+      ];
+    };
   };
 
   services = {

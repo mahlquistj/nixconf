@@ -27,6 +27,7 @@
     ./waybar.nix
     ./yazi.nix
     ./zed.nix
+    ./quickshell.nix
   ];
 
   programs.direnv.enable = true;
