@@ -12,25 +12,8 @@ PanelWindow {
   implicitHeight: 30
 
   Text {
-    id: clock
-
+    text: "Today is " + DateTime.day + " " + DateTime.date + " and the time is " + DateTime.time
     // center the bar in its parent component (the window)
     anchors.centerIn: parent
-
-    Process {
-        id: getDate
-        command: ["date"]
-        running: true
-        stdout: StdioCollector {
-            onStreamFinished: clock.text = this.text;
-        }
-    }
-
-    Timer {
-        interval: 1000
-        running: true
-        repeat: true
-        onTriggered: getDate.running = true
-    }
   }
 }
