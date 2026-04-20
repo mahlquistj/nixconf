@@ -34,6 +34,12 @@
 
   catppuccin.mako.enable = false;
 
+  dconf.settings = {
+    "org/gnome/desktop/interface" = {
+      color-scheme = "prefer-dark";
+    };
+  };
+
   home = {
     inherit (osConfig.system) stateVersion;
 
