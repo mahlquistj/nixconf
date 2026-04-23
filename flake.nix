@@ -108,6 +108,11 @@
         name = "desktop";
         wallpaper = "3440x1440";
       };
+
+      laptop = utilities.mkSystem {
+        name = "laptop";
+        wallpaper = "1920x1080";
+      };
     };
   };
 }
