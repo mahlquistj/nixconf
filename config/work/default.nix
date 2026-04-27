@@ -4,7 +4,9 @@
   sysOptions,
   ...
 }: {
-  imports = [../shared];
+  imports = [
+    ../shared
+  ];
 
   # Docker daemon setup
   virtualisation.docker = {
@@ -26,6 +28,8 @@
         pytz
         psycopg2
       ]))
+
+    (pkgs.callPackage ./pg_user.nix {})
   ];
 
   hardware = {
