@@ -12,6 +12,7 @@
       spawn-at-startup = [
         {command = ["swaync"];}
         {command = ["udiskie"];}
+        {command = ["solaar" "-w" "hide"];}
       ];
 
       input = {

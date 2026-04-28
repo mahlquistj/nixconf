@@ -9,6 +9,7 @@
     ./audio.nix
     ./display_manager.nix
     ./fonts.nix
+    ./logitech.nix
     # ./hyprland.nix
     ./niri.nix
     ./network.nix

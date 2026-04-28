@@ -11,6 +11,7 @@
     extensions = [
       {id = "fdjamakpfbbddfjaooikfcpapjohcfmg";} # Dashlane
       {id = "dbepggeogbaibhgnhhndojpepiihcmeb";} # Vimium
+      {id = "leohhkagdnmgbpfbnflhjmnpcjpcjmgm";} # Vimium new tab
       {id = "cjpalhdlnbpafiamejdnhcphjbkeiagm";} # uBlock Origin
     ];
   };
