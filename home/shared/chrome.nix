@@ -1,7 +1,7 @@
-{pkgs, ...}: {
+{pkgs-stable, ...}: {
   programs.chromium = {
     enable = true;
-    package = pkgs.chromium.override {enableWideVine = true;};
+    package = pkgs-stable.chromium.override {enableWideVine = true;};
 
     commandLineArgs = [
       "--enable-features=UseOzonePlatform"

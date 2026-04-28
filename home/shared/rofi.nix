@@ -4,9 +4,9 @@
 
     location = "center";
     font = "SauceCodePro Nerd Font Mono";
+    modes = ["drun" "run"];
 
     extraConfig = {
-      modes = ["drun" "run"];
       show-icons = true;
       icon-theme = "Papirus-Dark";
       terminal = "rio";
