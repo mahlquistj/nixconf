@@ -39,6 +39,10 @@
         };
       };
 
+      blur = {
+        passes = 2;
+      };
+
       window-rules = [
         {
           opacity = 0.98;
@@ -50,6 +54,9 @@
           };
           clip-to-geometry = true;
           draw-border-with-background = false;
+          background-effect = {
+            blur = true;
+          };
         }
       ];
 
