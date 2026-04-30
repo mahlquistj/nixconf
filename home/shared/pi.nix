@@ -11,6 +11,7 @@ in {
           apiKey = "ollama";
           models = [
             {id = "gemma4:26b";}
+            {id = "gemma4:e4b";}
           ];
         };
       };
