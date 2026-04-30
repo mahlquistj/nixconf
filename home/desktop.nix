@@ -51,13 +51,13 @@
     vencord
     mixxx
     inputs.nix-citizen.packages.${system}.rsi-launcher
-    (lutris.override {
-      # Unused for now
-      extraLibraries = pkgs: [
-      ];
-      # Unused for now
-      extraPkgs = pkgs: [
-      ];
-    })
+    # (lutris.override {
+    #   # Unused for now
+    #   extraLibraries = pkgs: [
+    #   ];
+    #   # Unused for now
+    #   extraPkgs = pkgs: [
+    #   ];
+    # })
   ];
 }
