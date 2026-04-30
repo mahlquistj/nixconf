@@ -1,6 +1,7 @@
 {
   sysOptions,
   pkgs,
+  lib,
   ...
 }: {
   programs = {
@@ -30,6 +31,9 @@
 
     configFile.text = ''
       $env.config.show_banner = false
+
+      # load env from user file
+      source-env /home/${sysOptions.user}/.env.nu
 
       # Ensure SSH agent environment variables are set (fallback)
       if ($env.SSH_AUTH_SOCK? | is-empty) {
@@ -134,4 +138,8 @@
       "nrb" = "/run/wrappers/bin/sudo nixos-rebuild switch --flake /home/${sysOptions.user}/nixconf/#${sysOptions.name} --impure --upgrade";
     };
   };
+
+  home.activation.createLocalEnvNu = lib.hm.dag.entryAfter ["writeBoundary"] ''
+    [ -f "$HOME/.env.nu" ] || touch "$HOME/.env.nu"
+  '';
 }

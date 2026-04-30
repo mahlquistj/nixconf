@@ -18,6 +18,8 @@
     ./nix.nix
     ./nushell.nix
     ./obsidian.nix
+    ./ollama.nix
+    ./pi.nix
     ./rio.nix
     ./rofi.nix
     ./walker.nix

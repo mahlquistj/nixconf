@@ -42,7 +42,6 @@
     whois
     exfat
     pi-coding-agent
-    ollama
 
     # DAW
     bitwig-studio
