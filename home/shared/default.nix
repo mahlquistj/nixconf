@@ -15,6 +15,7 @@
     ./niri.nix
     ./kdeconnect.nix
     ./neovim.nix
+    ./nodejs.nix
     ./nix.nix
     ./nushell.nix
     ./obsidian.nix
