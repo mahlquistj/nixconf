@@ -3,7 +3,6 @@
 in {
   programs.rio = {
     enable = true;
-    # package = inputs.rio.packages."${sysOptions.system}".default;
     settings = {
       bindings = {
         keys = [
@@ -37,6 +36,7 @@ in {
 
       fonts = {
         size = 18;
+        use-drawable-chars = true;
 
         regular = {
           family = "SauceCodePro Nerd Font Mono";
@@ -80,7 +80,6 @@ in {
 
       renderer = {
         performance = "High";
-        backend = "Automatic";
       };
 
       scroll = {

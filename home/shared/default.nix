@@ -6,6 +6,7 @@
   ...
 }: {
   imports = [
+    ./alacritty.nix
     ./btop.nix
     ./chrome.nix
     ./discord.nix
@@ -20,7 +21,7 @@
     ./obsidian.nix
     ./ollama.nix
     ./pi.nix
-    ./rio.nix
+    # ./rio.nix
     ./rofi.nix
     ./walker.nix
     ./spotify.nix
@@ -80,6 +81,10 @@
       ".wallpapers/" = {
         source = ../../media/wallpaper;
         recursive = true;
+      };
+      # Profile picture for SDDM
+      ".face.icon" = {
+        source = ../../media/.face.icon;
       };
     };
 

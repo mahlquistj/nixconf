@@ -8,7 +8,7 @@
       app = {
         vimMode = true;
       };
-      themes = [(pkgs.callPackage ./themes/obsidian-catppuccin.nix {})];
+      # themes = [(pkgs.callPackage ./themes/obsidian-catppuccin.nix {})];
       appearance = {
         cssTheme = "Catppuccin";
         theme = "obsidian";

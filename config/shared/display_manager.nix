@@ -1,43 +1,41 @@
-{
-  pkgs,
-  sysOptions,
-  wallpapers,
-  ...
-}: {
-  # Disable catppuccin for SDDM
-  catppuccin.sddm.enable = false;
-
-  # environment.systemPackages = [
-  #   (pkgs.where-is-my-sddm-theme.override {
-  #     themeConfig.General = {
-  #       background = "${wallpapers}/${sysOptions.wallpaper}-login.png";
-  #       backgroundMode = "fill";
-  #
-  #       passwordMask = true;
-  #       passwordInputBackground = "rgba(0, 0, 0, 0.8)";
-  #       passwordInputRadius = 15;
-  #       passwordInputVisibleCursor = false;
-  #     };
-  #   })
-  # ];
-
+{pkgs, wallpapers, sysOptions, ...}: {
   environment.variables.QT_QPA_PLATFORM = "wayland";
 
-  services.displayManager.gdm.enable = true;
+  services.xserver.enable = true;
 
-  # services.displayManager.ly = {
-  #   enable = true;
-  # };
+  services.accounts-daemon.enable = true;
 
-  # services.displayManager.sddm = {
-  #   enable = true;
-  #   wayland.enable = true;
-  #   theme = "where_is_my_sddm_theme";
-  #   settings = {
-  #     Theme = {
-  #       CursorTheme = "phinger-cursors-light";
-  #       CursorSize = sysOptions.cursorSize;
-  #     };
-  #   };
-  # };
+  services.displayManager.sddm = {
+    enable = true;
+    wayland.enable = false;
+    settings = {
+      Theme = {
+        CursorTheme = "phinger-cursors-light";
+        CursorSize = sysOptions.cursorSize;
+      };
+      Users = {
+        RememberLastUser = true;
+      };
+    };
+  };
+
+  catppuccin.sddm = {
+    enable = true;
+    background = "${wallpapers}/${sysOptions.wallpaper}-login.png";
+    loginBackground = true;
+    clockEnabled = true;
+    userIcon = true;
+  };
+
+  # Make the face icon accessible to SDDM
+  systemd.tmpfiles.rules = [
+    "C+ /var/lib/AccountsService/icons/${sysOptions.user} - - - - ${../../media/.face.icon}"
+  ];
+
+  # Tell AccountsService to use the icon and show the user
+  environment.etc."AccountsService/users/${sysOptions.user}".text = ''
+    [User]
+    Icon=/var/lib/AccountsService/icons/${sysOptions.user}
+    SystemAccount=false
+  '';
 }

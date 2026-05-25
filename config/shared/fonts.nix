@@ -1,7 +1,7 @@
 {pkgs, ...}: {
   fonts = {
     packages = with pkgs; [
-      twemoji-color-font
+      noto-fonts-color-emoji
       google-fonts
       nerd-fonts.sauce-code-pro
       jetbrains-mono
@@ -11,7 +11,10 @@
       defaultFonts = {
         sansSerif = ["Product Sans"];
         monospace = ["SauceCodePro Nerd Font Mono"];
+        emoji = ["Noto Color Emoji"];
       };
+
+      useEmbeddedBitmaps = true;
     };
 
     enableDefaultPackages = true;

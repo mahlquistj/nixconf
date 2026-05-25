@@ -1,6 +1,7 @@
 {
   pkgs,
   inputs,
+  sysOptions,
   ...
 }: {
   # wayland.windowManager.hyprland = {
@@ -50,7 +51,7 @@
     })
     vencord
     mixxx
-    inputs.nix-citizen.packages.${system}.rsi-launcher
+    rsi-launcher
     # (lutris.override {
     #   # Unused for now
     #   extraLibraries = pkgs: [

@@ -39,7 +39,7 @@
     vulkan-tools
     icu
     powershell
-    inputs.hytale.packages.${system}.hytale-launcher
+    inputs.hytale.packages.${sysOptions.system}.hytale-launcher
     android-tools
     sops
     age
@@ -79,7 +79,7 @@
     openFirewall = true;
 
     # Run WiVRn as a systemd service on startup
-    autoStart = true;
+    autoStart = false;
 
     # Config for WiVRn (https://github.com/WiVRn/WiVRn/blob/master/docs/configuration.md)
     config = {
