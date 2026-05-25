@@ -12,10 +12,11 @@
     ./discord.nix
     # ./fish.nix
     # ./hyprland.nix
-    ./swaylock.nix
+    ./git.nix
     ./niri.nix
     ./kdeconnect.nix
     ./neovim.nix
+    ./nodejs.nix
     ./nix.nix
     ./nushell.nix
     ./obsidian.nix
@@ -26,6 +27,7 @@
     ./walker.nix
     ./spotify.nix
     ./starship.nix
+    ./swaylock.nix
     ./swaync.nix
     ./waybar.nix
     ./yazi.nix

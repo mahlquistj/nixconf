@@ -12,28 +12,28 @@ Singleton {
 
     Process {
         id: getDate
-        command: ["date", "+'%Y-%m-%d'"]
+        command: ["date", "+%Y-%m-%d"]
         running: true
         stdout: StdioCollector {
-            onStreamFinished: root.date = this.text
+            onStreamFinished: root.date = this.text.replace(/\n/g, "").replace(/\r/g, "")
         }
     }
 
     Process {
         id: getTime
-        command: ["date", "+'%H:%M'"]
+        command: ["date", "+%H:%M"]
         running: true
         stdout: StdioCollector {
-            onStreamFinished: root.time = this.text
+            onStreamFinished: root.time = this.text.replace(/\n/g, "").replace(/\r/g, "")
         }
     }
 
     Process {
         id: getDay
-        command: ["date", "+'%A'"]
+        command: ["date", "+%A"]
         running: true
         stdout: StdioCollector {
-            onStreamFinished: root.day = this.text
+            onStreamFinished: root.day = this.text.replace(/\n/g, "").replace(/\r/g, "")
         }
     }
 

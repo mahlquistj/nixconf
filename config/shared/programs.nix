@@ -45,7 +45,6 @@
     sops
     whois
     exfat
-    pi-coding-agent
 
     # DAW
     bitwig-studio
