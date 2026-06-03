@@ -70,6 +70,7 @@ in {
       nvf.homeManagerModules.default
       sops-nix.homeManagerModules.sops
       vicinae.homeManagerModules.default
+      nix-index-database.homeModules.default
       {
         catppuccin = {
           enable = true;

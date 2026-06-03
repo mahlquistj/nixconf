@@ -36,7 +36,10 @@
     ./quickshell.nix
   ];
 
-  programs.direnv.enable = true;
+  programs = {
+    direnv.enable = true;
+    nix-index-database.comma.enable = true;
+  };
 
   catppuccin.mako.enable = false;
 
@@ -59,7 +62,6 @@
       ethtool
       dig
       libnotify
-      alacritty
 
       # Screen-shotting/recording
       hyprshot
