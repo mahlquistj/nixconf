@@ -6,14 +6,14 @@
 
     firewall = {
       enable = true;
-      allowedTCPPorts = [42420];
+      allowedTCPPorts = [42420 7777];
       allowedTCPPortRanges = [
         {
           from = 1714;
           to = 1764;
         }
       ];
-      allowedUDPPorts = [42420];
+      allowedUDPPorts = [42420 7777];
       allowedUDPPortRanges = [
         {
           from = 1714;

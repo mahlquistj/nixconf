@@ -13,6 +13,7 @@
         {command = ["swaync"];}
         {command = ["udiskie"];}
         {command = ["solaar" "-w" "hide"];}
+        {command = ["wayscriber" "-d"];}
       ];
 
       input = {
@@ -68,6 +69,7 @@
         # "Mod+Space".action.spawn = ["rofi" "-show" "drun"];
         "Mod+Space".action.spawn = "walker";
         "Mod+N".action.spawn = ["swaync-client" "-t"];
+        "Mod+D".action.spawn = ["wayscriber" "--daemon-toggle"];
 
         #------- Actions -------#
         "Mod+Escape".action.spawn = ["swaylock" "-f"];

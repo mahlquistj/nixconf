@@ -65,6 +65,9 @@
       wf-recorder
       slurp
 
+      # Screen drawing
+      wayscriber
+
       # Usb mounting
       udiskie
 
