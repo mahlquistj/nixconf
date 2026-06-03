@@ -1,4 +1,8 @@
-{pkgs, ...}: {
+{
+  pkgs,
+  inputs,
+  ...
+}: {
   services.awww.enable = true;
   home = {
     packages = with pkgs; [
@@ -45,7 +49,7 @@
 
       window-rules = [
         {
-          opacity = 0.98;
+          opacity = 0.95;
           geometry-corner-radius = {
             top-left = 10.0;
             top-right = 10.0;
@@ -56,6 +60,20 @@
           draw-border-with-background = false;
           background-effect = {
             blur = true;
+            xray = false;
+          };
+        }
+      ];
+
+      layer-rules = [
+        {
+          matches = [
+            {namespace = "^vicinae$";}
+          ];
+          opacity = 0.95;
+          background-effect = {
+            blur = true;
+            xray = false;
           };
         }
       ];
