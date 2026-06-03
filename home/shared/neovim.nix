@@ -98,7 +98,7 @@
 
         qml.enable = true;
         css.enable = true;
-        ts.enable = true;
+        typescript.enable = true;
         nix.enable = true;
         python.enable = true;
         yaml.enable = true;

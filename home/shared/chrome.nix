@@ -13,6 +13,7 @@
       {id = "dbepggeogbaibhgnhhndojpepiihcmeb";} # Vimium
       {id = "leohhkagdnmgbpfbnflhjmnpcjpcjmgm";} # Vimium new tab
       {id = "cjpalhdlnbpafiamejdnhcphjbkeiagm";} # uBlock Origin
+      {id = "kcmipingpfbohfjckomimmahknoddnke";} # Vicinae
     ];
   };
 

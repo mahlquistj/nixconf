@@ -1,5 +1,9 @@
-{pkgs, ...}: {
-  services.swww.enable = true;
+{
+  pkgs,
+  inputs,
+  ...
+}: {
+  services.awww.enable = true;
   home = {
     packages = with pkgs; [
       xwayland-satellite
@@ -46,7 +50,7 @@
 
       window-rules = [
         {
-          opacity = 0.98;
+          opacity = 0.95;
           geometry-corner-radius = {
             top-left = 10.0;
             top-right = 10.0;
@@ -57,6 +61,20 @@
           draw-border-with-background = false;
           background-effect = {
             blur = true;
+            xray = false;
+          };
+        }
+      ];
+
+      layer-rules = [
+        {
+          matches = [
+            {namespace = "^vicinae$";}
+          ];
+          opacity = 0.95;
+          background-effect = {
+            blur = true;
+            xray = false;
           };
         }
       ];
@@ -67,7 +85,7 @@
         #------- Spawners -------#
         "Mod+Return".action.spawn = "alacritty";
         # "Mod+Space".action.spawn = ["rofi" "-show" "drun"];
-        "Mod+Space".action.spawn = "walker";
+        "Mod+O".action.spawn = ["vicinae" "toggle"];
         "Mod+N".action.spawn = ["swaync-client" "-t"];
         "Mod+D".action.spawn = ["wayscriber" "--daemon-toggle"];
 

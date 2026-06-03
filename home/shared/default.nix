@@ -24,18 +24,22 @@
     ./pi.nix
     # ./rio.nix
     ./rofi.nix
-    ./walker.nix
+    # ./walker.nix
     ./spotify.nix
     ./starship.nix
     ./swaylock.nix
     ./swaync.nix
+    ./vicinae.nix
     ./waybar.nix
     ./yazi.nix
     ./zed.nix
     ./quickshell.nix
   ];
 
-  programs.direnv.enable = true;
+  programs = {
+    direnv.enable = true;
+    nix-index-database.comma.enable = true;
+  };
 
   catppuccin.mako.enable = false;
 
@@ -58,7 +62,6 @@
       ethtool
       dig
       libnotify
-      alacritty
 
       # Screen-shotting/recording
       hyprshot
