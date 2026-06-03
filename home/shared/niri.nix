@@ -1,5 +1,5 @@
 {pkgs, ...}: {
-  services.swww.enable = true;
+  services.awww.enable = true;
   home = {
     packages = with pkgs; [
       xwayland-satellite
@@ -66,7 +66,7 @@
         #------- Spawners -------#
         "Mod+Return".action.spawn = "alacritty";
         # "Mod+Space".action.spawn = ["rofi" "-show" "drun"];
-        "Mod+Space".action.spawn = "walker";
+        "Mod+O".action.spawn = ["vicinae" "toggle"];
         "Mod+N".action.spawn = ["swaync-client" "-t"];
 
         #------- Actions -------#

@@ -40,8 +40,14 @@ in {
           # Fix nix-citizen's dxvk: withSdl2/withGlfw pull in dependencies that
           # don't support Windows when cross-compiling via mingw32/mingwW64
           (final: prev: {
-            dxvk-w32 = prev.dxvk-w32.override { withSdl2 = false; withGlfw = false; };
-            dxvk-w64 = prev.dxvk-w64.override { withSdl2 = false; withGlfw = false; };
+            dxvk-w32 = prev.dxvk-w32.override {
+              withSdl2 = false;
+              withGlfw = false;
+            };
+            dxvk-w64 = prev.dxvk-w64.override {
+              withSdl2 = false;
+              withGlfw = false;
+            };
           })
         ];
         home-manager = {
@@ -63,7 +69,7 @@ in {
       spicetify-nix.homeManagerModules.spicetify
       nvf.homeManagerModules.default
       sops-nix.homeManagerModules.sops
-      walker.homeManagerModules.default
+      vicinae.homeManagerModules.default
       {
         catppuccin = {
           enable = true;

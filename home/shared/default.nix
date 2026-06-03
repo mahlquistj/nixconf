@@ -24,11 +24,12 @@
     ./pi.nix
     # ./rio.nix
     ./rofi.nix
-    ./walker.nix
+    # ./walker.nix
     ./spotify.nix
     ./starship.nix
     ./swaylock.nix
     ./swaync.nix
+    ./vicinae.nix
     ./waybar.nix
     ./yazi.nix
     ./zed.nix

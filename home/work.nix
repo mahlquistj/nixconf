@@ -3,7 +3,7 @@
     slack
     awscli2
     kubectl
-    citrix_workspace
+    #citrix_workspace
   ];
 
   programs = {
