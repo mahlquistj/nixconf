@@ -24,7 +24,6 @@
   environment.variables = {
     WALLPAPER = "${wallpapers}/${sysOptions.wallpaper}.png";
     WALLPAPERS_DIR = "${wallpapers}";
-    PROTON_LOG = "1";
     PROTON_LOG_DIR = "/home/maj/";
 
     NIXOS_OZONE_WL = "1";
