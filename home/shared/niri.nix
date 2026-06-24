@@ -18,6 +18,7 @@
         {command = ["udiskie"];}
         {command = ["solaar" "-w" "hide"];}
         {command = ["wayscriber" "-d"];}
+        {command = ["quickshell"];}
       ];
 
       input = {
