@@ -24,45 +24,45 @@ Item {
 
         // Shut down
         PowerButton {
-            iconText: "\uf011"
+            iconText: ""
             iconColor: Colors.red
             tooltipText: "Shut down"
             onClicked: {
-                cmdProcess.command = ["shutdown", "now"]
-                cmdProcess.startDetached()
+                cmdProcess.command = ["shutdown", "now"];
+                cmdProcess.startDetached();
             }
         }
 
         // Logout
         PowerButton {
-            iconText: "\uf0e4"
+            iconText: "󰗼"
             iconColor: Colors.text
             tooltipText: "Logout"
             onClicked: {
-                cmdProcess.command = ["niri", "msg", "action", "quit"]
-                cmdProcess.startDetached()
+                cmdProcess.command = ["niri", "msg", "action", "quit"];
+                cmdProcess.startDetached();
             }
         }
 
         // Lock
         PowerButton {
-            iconText: "\uf023"
+            iconText: "󰍁"
             iconColor: Colors.text
             tooltipText: "Lock"
             onClicked: {
-                cmdProcess.command = ["swaylock"]
-                cmdProcess.startDetached()
+                cmdProcess.command = ["swaylock"];
+                cmdProcess.startDetached();
             }
         }
 
         // Reboot
         PowerButton {
-            iconText: "\uf0e2"
+            iconText: "󰜉"
             iconColor: Colors.text
             tooltipText: "Reboot"
             onClicked: {
-                cmdProcess.command = ["reboot"]
-                cmdProcess.startDetached()
+                cmdProcess.command = ["reboot"];
+                cmdProcess.startDetached();
             }
         }
     }

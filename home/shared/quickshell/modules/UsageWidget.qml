@@ -12,15 +12,17 @@ Item {
     implicitWidth: childrenRect.width
 
     function stateClass(pct, crit, warn) {
-        if (pct >= crit) return Colors.red
-        if (pct >= warn) return Colors.yellow
-        return Colors.green
+        if (pct >= crit)
+            return Colors.red;
+        if (pct >= warn)
+            return Colors.yellow;
+        return Colors.green;
     }
 
     function barIcon(pct) {
-        var idx = Math.min(Math.floor(pct / 11.1), 8)
-        var icons = ["\uf10c", "\uf09e", "\uf09f", "\uf0a0", "\uf0a1", "\uf0a2", "\uf0a3", "\uf0a4", "\uf0a5"]
-        return icons[idx]
+        var idx = Math.min(Math.floor(pct / 11.1), 8);
+        var icons = ["", "󰪞", "󰪟", "󰪠", "󰪡", "󰪢", "󰪣", "󰪤", "󰪥"];
+        return icons[idx];
     }
 
     Row {
@@ -34,9 +36,8 @@ Item {
 
             Text {
                 id: memIcon
-                text: "\ue7c5" // 
+                text: "" // 
                 color: Colors.text
-                font.pixelSize: 11
                 font.family: "SauceCodePro Nerd Font Mono"
                 font.bold: true
             }
@@ -44,12 +45,11 @@ Item {
             Text {
                 id: memPct
                 property int pct: 0
-                font.pixelSize: 11
                 font.family: "SauceCodePro Nerd Font Mono"
                 font.bold: true
 
                 function refresh() {
-                    memProc.running = true
+                    memProc.running = true;
                 }
 
                 Process {
@@ -59,8 +59,9 @@ Item {
 
                     stdout: StdioCollector {
                         onStreamFinished: {
-                            var val = parseInt(this.text)
-                            if (!isNaN(val)) memPct.pct = val
+                            var val = parseInt(this.text);
+                            if (!isNaN(val))
+                                memPct.pct = val;
                         }
                     }
                 }
@@ -78,16 +79,6 @@ Item {
             }
         }
 
-        // Separator
-        Text {
-            text: "|"
-            color: Colors.surface2
-            font.pixelSize: 10
-            font.family: "SauceCodePro Nerd Font Mono"
-            font.bold: true
-            anchors.verticalCenter: parent.verticalCenter
-        }
-
         // CPU
         Row {
             spacing: 3
@@ -97,7 +88,6 @@ Item {
                 id: cpuIcon
                 text: "\uf2db" // 
                 color: Colors.text
-                font.pixelSize: 11
                 font.family: "SauceCodePro Nerd Font Mono"
                 font.bold: true
             }
@@ -105,12 +95,11 @@ Item {
             Text {
                 id: cpuPct
                 property int pct: 0
-                font.pixelSize: 11
                 font.family: "SauceCodePro Nerd Font Mono"
                 font.bold: true
 
                 function refresh() {
-                    cpuProc.running = true
+                    cpuProc.running = true;
                 }
 
                 Process {
@@ -120,8 +109,9 @@ Item {
 
                     stdout: StdioCollector {
                         onStreamFinished: {
-                            var val = parseInt(this.text)
-                            if (!isNaN(val)) cpuPct.pct = val
+                            var val = parseInt(this.text);
+                            if (!isNaN(val))
+                                cpuPct.pct = val;
                         }
                     }
                 }
