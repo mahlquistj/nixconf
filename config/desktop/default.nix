@@ -103,6 +103,11 @@
     };
   };
 
+  services.udev.extraRules = ''
+    # Disable Sony DualSense (PS5) Touchpad acting as a mouse over USB
+    ACTION=="add|change", KERNEL=="event[0-9]*", ATTRS{name}=="Sony Interactive Entertainment DualSense Wireless Controller Touchpad", ENV{LIBINPUT_IGNORE_DEVICE}="1", ENV{ID_INPUT_TOUCHPAD}="", ENV{ID_INPUT_MOUSE}=""
+  '';
+
   # OBS
   programs.obs-studio = {
     enable = true;
