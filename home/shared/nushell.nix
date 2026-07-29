@@ -24,6 +24,9 @@
     enable = true;
 
     loginFile.text = ''
+      # Wine prefix
+      $env.WINEPREFIX = "/home/maj/.wine64"
+
       # Set up SSH agent environment variables
       $env.SSH_AUTH_SOCK = $"($env.XDG_RUNTIME_DIR)/gnupg/S.gpg-agent.ssh"
       $env.SSH_ASKPASS = "${pkgs.x11_ssh_askpass}/libexec/x11-ssh-askpass"

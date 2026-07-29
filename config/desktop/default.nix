@@ -52,7 +52,7 @@
     group = "vintagestory";
     isSystemUser = true;
   };
-  users.users."${sysOptions.user}".extraGroups = ["adbusers"];
+  users.users."${sysOptions.user}".extraGroups = ["adbusers" "audio"];
 
   programs.nix-ld.enable = true;
   programs.nix-ld.libraries = with pkgs; [

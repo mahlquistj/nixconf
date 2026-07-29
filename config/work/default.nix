@@ -11,7 +11,7 @@
   virtualisation.docker = {
     enable = true;
   };
-  users.users."${sysOptions.user}".extraGroups = ["docker"];
+  users.users."${sysOptions.user}".extraGroups = ["docker" "audio"];
 
   environment.systemPackages = with pkgs; [
     blueman
