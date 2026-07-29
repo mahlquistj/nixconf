@@ -30,7 +30,8 @@
     ./swaylock.nix
     ./swaync.nix
     ./vicinae.nix
-    ./waybar.nix
+    # ./waybar.nix
+    # ./yabridge.nix
     ./yazi.nix
     ./zed.nix
     ./quickshell.nix
