@@ -31,6 +31,7 @@
     ./swaync.nix
     ./vicinae.nix
     # ./waybar.nix
+    # ./yabridge.nix
     ./yazi.nix
     ./zed.nix
     ./quickshell.nix

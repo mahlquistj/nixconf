@@ -10,4 +10,26 @@
     pavucontrol # General Audio GUI
     pulseaudio # Audio CLI controller
   ];
+
+  # Allow audio group to lock memory and use realtime priority
+  security.pam.loginLimits = [
+    {
+      domain = "@audio";
+      item = "memlock";
+      type = "-";
+      value = "256000";
+    }
+    {
+      domain = "@audio";
+      item = "rtprio";
+      type = "-";
+      value = "95";
+    }
+    {
+      domain = "@audio";
+      item = "nice";
+      type = "-";
+      value = "-11";
+    }
+  ];
 }
