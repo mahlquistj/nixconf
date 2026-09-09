@@ -4,7 +4,7 @@
   inputs,
   ...
 }: {
-  imports = [../shared "gpu.nix"];
+  imports = [../shared ./gpu.nix];
 
   boot = {
     kernelPackages = pkgs.linuxPackages_latest;
