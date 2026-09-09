@@ -3,16 +3,16 @@
   pkgs-stable,
   ...
 }: {
-  boot = {
-    initrd.kernelModules = ["amdgpu"];
-    kernelParams = ["amdgpu.ppfeaturemask=0xfffd3fff"]; # Unlocks voltage control
-  };
+  boot.initrd.kernelModules = ["amdgpu"];
 
   # LACT daemon
   services.lact.enable = true;
 
   hardware = {
-    amdgpu.opencl.enable = true;
+    amdgpu = {
+      opencl.enable = true;
+      overdrive.enable = true;
+    };
     graphics = {
       enable = true;
       package = pkgs-stable.mesa;
