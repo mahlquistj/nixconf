@@ -18,6 +18,20 @@ in {
               models = [
                 {id = "gemma4:26b";}
                 {id = "gemma4:e4b";}
+                {
+                  id = "batiai/qwen3.5-27b:iq4";
+                  capabilities = ["read" "write" "edit" "bash"];
+                  tools = true;
+                  forceJsonFormat = false;
+                  response_format = "text";
+                }
+                {
+                  id = "qwen3.5:9b";
+                  capabilities = ["read" "write" "edit" "bash"];
+                  tools = true;
+                  forceJsonFormat = false;
+                  response_format = "text";
+                }
               ];
             };
           };

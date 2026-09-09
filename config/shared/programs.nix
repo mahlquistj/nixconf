@@ -3,19 +3,6 @@
   inputs,
   ...
 }: let
-  # Wrap reaper with yabridge/Wine environment variables
-  reaper-wrapped = pkgs.symlinkJoin {
-    name = "reaper";
-    paths = [pkgs.reaper];
-    nativeBuildInputs = [pkgs.makeWrapper];
-    postBuild = ''
-      wrapProgram $out/bin/reaper \
-        --set WINELOADER "${pkgs.wineWowPackages.stable}/bin/wine" \
-        --set DISPLAY ":1" \
-        --unset WAYLAND_DISPLAY
-    '';
-  };
-
   # Wrap chiaki-ng to prevent kvantum QML style crash
   # Kvantum provides a QtWidgets style plugin but no QML module,
   # causing chiaki-ng (a Qt Quick app) to fail loading Main.qml
@@ -45,7 +32,37 @@ in {
   qt.enable = true;
 
   programs = {
-    nix-ld.enable = true;
+    nix-ld = {
+      enable = true;
+
+      libraries = with pkgs; [
+        stdenv.cc.cc.lib
+
+        xorg.libSM
+        xorg.libICE
+        xorg.libX11
+        xorg.libXext
+
+        freetype
+        libxcb
+
+        xcbutil
+        xcbutilkeysyms
+        xcb-util-cursor
+
+        libxkbcommon
+
+        glib
+        cairo
+        pango
+        harfbuzz
+        fontconfig
+        expat
+
+        curl
+        zstd
+      ];
+    };
   };
 
   # System packages
@@ -75,13 +92,9 @@ in {
 
     # DAW
     bitwig-studio
-    reaper-wrapped
+    reaper
     yabridge
     yabridgectl
-
-    # Wine (for Windows VSTs via yabridge)
-    wineWowPackages.stable
-    winetricks
 
     # C
     gcc
@@ -90,7 +103,6 @@ in {
     brightnessctl
 
     # Theming
-    magnetic-catppuccin-gtk
     catppuccin-papirus-folders
     phinger-cursors
 

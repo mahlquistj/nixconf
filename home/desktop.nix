@@ -52,13 +52,13 @@
     vencord
     mixxx
     rsi-launcher
-    # (lutris.override {
-    #   # Unused for now
-    #   extraLibraries = pkgs: [
-    #   ];
-    #   # Unused for now
-    #   extraPkgs = pkgs: [
-    #   ];
-    # })
+    (lutris.override {
+      # Unused for now
+      extraLibraries = pkgs: [
+      ];
+      # Unused for now
+      extraPkgs = pkgs: [
+      ];
+    })
   ];
 }

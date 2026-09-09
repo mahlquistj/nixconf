@@ -66,7 +66,8 @@
     };
 
     extensions = with inputs.vicinae-extensions.packages.${pkgs.stdenv.hostPlatform.system}; [
-      bluetooth
+      # Removed cause it fails on the main branch of the vicinae-extension repo
+      # bluetooth
       nix
       wifi-commander
       niri

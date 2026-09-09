@@ -1,11 +1,25 @@
 {
   pkgs,
-  pkgs-stable,
   sysOptions,
   inputs,
   ...
 }: {
-  imports = [../shared];
+  imports = [../shared "gpu.nix"];
+
+  boot = {
+    kernelPackages = pkgs.linuxPackages_latest;
+
+    # Star Citizen compatability options
+    kernel.sysctl = {
+      "vm.max_map_count" = 16777216;
+      "fs.file-max" = 524288;
+    };
+  };
+
+  hardware = {
+    steam-hardware.enable = true;
+    bluetooth.enable = true;
+  };
 
   security.wrappers = {
     sniffnet = {
@@ -30,7 +44,6 @@
     dotnet-runtime
     screen
     clinfo
-    lact
     winetricks
     cabextract
     lm_sensors
@@ -47,108 +60,83 @@
     yubikey-manager
   ];
 
-  users.groups.vintagestory = {};
-  users.users.vintagestory = {
-    group = "vintagestory";
-    isSystemUser = true;
-  };
-  users.users."${sysOptions.user}".extraGroups = ["adbusers" "audio"];
-
-  programs.nix-ld.enable = true;
-  programs.nix-ld.libraries = with pkgs; [
-    icu
-    libglvnd
-    # common runtime deps for games:
-    xorg.libX11
-    xorg.libXcursor
-    xorg.libXi
-    xorg.libXrandr
-    wayland
-    libxkbcommon
-    vulkan-loader
-    alsa-lib
-    zlib
-    openssl
-    stdenv.cc.cc.lib
-  ];
-
-  programs.steam.enable = true;
-
-  services.wivrn = {
-    enable = true;
-    openFirewall = true;
-
-    # Run WiVRn as a systemd service on startup
-    autoStart = false;
-
-    # Config for WiVRn (https://github.com/WiVRn/WiVRn/blob/master/docs/configuration.md)
-    config = {
-      enable = true;
-      json = {
-        # 1.0x foveation scaling
-        scale = 1.0;
-        # 100 Mb/s
-        bitrate = 100000000;
-        encoders = [
-          {
-            encoder = "vaapi";
-            codec = "h265";
-            width = 1.0;
-            height = 1.0;
-            offset_x = 0.0;
-            offset_y = 0.0;
-          }
-        ];
+  users = {
+    groups.vintagestory = {};
+    users = {
+      vintagestory = {
+        group = "vintagestory";
+        isSystemUser = true;
       };
+
+      "${sysOptions.user}".extraGroups = ["adbusers" "audio"];
     };
   };
 
-  services.udev.extraRules = ''
-    # Disable Sony DualSense (PS5) Touchpad acting as a mouse over USB
-    ACTION=="add|change", KERNEL=="event[0-9]*", ATTRS{name}=="Sony Interactive Entertainment DualSense Wireless Controller Touchpad", ENV{LIBINPUT_IGNORE_DEVICE}="1", ENV{ID_INPUT_TOUCHPAD}="", ENV{ID_INPUT_MOUSE}=""
-  '';
-
-  # OBS
-  programs.obs-studio = {
-    enable = true;
-    enableVirtualCamera = true;
-  };
-
-  # Star Citizen compatability options
-  boot.kernel.sysctl = {
-    "vm.max_map_count" = 16777216;
-    "fs.file-max" = 524288;
-  };
-
-  # AMD GPU
-  boot.initrd.kernelModules = ["amdgpu"];
-  boot.kernelPackages = pkgs-stable.linuxPackages_latest;
-
-  hardware = {
-    steam-hardware.enable = true;
-    bluetooth.enable = true;
-    graphics = {
+  programs = {
+    nix-ld = {
       enable = true;
-      package = pkgs-stable.mesa;
-      package32 = pkgs-stable.pkgsi686Linux.mesa;
-      enable32Bit = true; # For 32 bit applications
-      extraPackages = with pkgs; [
-        rocmPackages.clr.icd
+      libraries = with pkgs; [
+        icu
+        libglvnd
+        # common runtime deps for games:
+        xorg.libX11
+        xorg.libXcursor
+        xorg.libXi
+        xorg.libXrandr
+        wayland
+        libxkbcommon
         vulkan-loader
-        vulkan-validation-layers
-        libvdpau-va-gl
-        libva-vdpau-driver
+        alsa-lib
+        zlib
+        openssl
+        stdenv.cc.cc.lib
       ];
     };
+
+    steam.enable = true;
+
+    # OBS
+    obs-studio = {
+      enable = true;
+      enableVirtualCamera = true;
+    };
   };
 
-  services.blueman.enable = true;
+  services = {
+    wivrn = {
+      enable = true;
+      openFirewall = true;
 
-  systemd = {
-    packages = with pkgs; [lact];
-    services.lactd.wantedBy = ["multi-user.target"];
-    tmpfiles.rules = [
-      "L+    /opt/rocm/hip   -    -    -     -    ${pkgs.rocmPackages.clr}"
-    ];
+      # Run WiVRn as a systemd service on startup
+      autoStart = false;
+
+      # Config for WiVRn (https://github.com/WiVRn/WiVRn/blob/master/docs/configuration.md)
+      config = {
+        enable = true;
+        json = {
+          # 1.0x foveation scaling
+          scale = 1.0;
+          # 100 Mb/s
+          bitrate = 100000000;
+          encoders = [
+            {
+              encoder = "vaapi";
+              codec = "h265";
+              width = 1.0;
+              height = 1.0;
+              offset_x = 0.0;
+              offset_y = 0.0;
+            }
+          ];
+        };
+      };
+    };
+
+    blueman.enable = true;
+
+    udev.extraRules = ''
+      # Disable Sony DualSense (PS5) Touchpad acting as a mouse over USB
+      ACTION=="add|change", KERNEL=="event[0-9]*", ATTRS{name}=="Sony Interactive Entertainment DualSense Wireless Controller Touchpad", ENV{LIBINPUT_IGNORE_DEVICE}="1", ENV{ID_INPUT_TOUCHPAD}="", ENV{ID_INPUT_MOUSE}=""
+    '';
   };
 }
