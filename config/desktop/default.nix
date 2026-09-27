@@ -8,6 +8,14 @@
 
   boot = {
     kernelPackages = pkgs.linuxPackages_latest;
+    kernelModules = ["uinput"];
+    kernelPatches = [
+      {
+        # Make my unofficial receiver work for my GH guitar
+        name = "xpad-unofficial-wireless-receiver-presence";
+        patch = ./patches/xpad-unofficial-receiver.patch;
+      }
+    ];
 
     # Star Citizen compatability options
     kernel.sysctl = {
@@ -19,6 +27,8 @@
   hardware = {
     steam-hardware.enable = true;
     bluetooth.enable = true;
+    opentabletdriver.enable = true;
+    uinput.enable = true;
   };
 
   security.wrappers = {
@@ -33,10 +43,11 @@
   environment.systemPackages = with pkgs; [
     alsa-scarlett-gui # Focusrite Scarlett GUI
     scarlett2 # Focusrite Scarlett firmware management
+    osu-lazer-bin
+    clonehero
     sniffnet
     game-devices-udev-rules
     gamescope
-    gamemode
     mangohud
     fluffychat
     element-desktop
@@ -68,7 +79,7 @@
         isSystemUser = true;
       };
 
-      "${sysOptions.user}".extraGroups = ["adbusers" "audio"];
+      "${sysOptions.user}".extraGroups = ["adbusers" "audio" "gamemode"];
     };
   };
 
@@ -92,6 +103,8 @@
         stdenv.cc.cc.lib
       ];
     };
+
+    gamemode.enable = true;
 
     steam.enable = true;
 

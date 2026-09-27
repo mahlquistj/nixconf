@@ -1,0 +1,19 @@
+--- a/drivers/input/joystick/xpad.c
++++ b/drivers/input/joystick/xpad.c
+@@ -1014,6 +1014,16 @@
+ 	if (data[1] != 0x1)
+ 		return;
+ 
++    /*
++	 * Some unofficial Xbox 360 wireless receivers forward valid
++	 * controller data without sending the expected presence packet.
++	 */
++	if (!xpad->pad_present) {
++		xpad->pad_present = true;
++		schedule_work(&xpad->work);
++		return;
++	}
++
+ 	rcu_read_lock();
+ 	dev = rcu_dereference(xpad->x360w_dev);
+ 	if (dev)
