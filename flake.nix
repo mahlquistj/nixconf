@@ -87,7 +87,7 @@
 
     # Vicinae
     vicinae = {
-      url = "github:vicinaehq/vicinae";
+      url = "github:vicinaehq/vicinae/v0.29.0";
       inputs.nixpkgs.follows = "nixpkgs";
     };
     vicinae-extensions = {
