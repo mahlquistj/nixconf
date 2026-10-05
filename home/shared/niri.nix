@@ -84,7 +84,7 @@
 
       binds = {
         #------- Spawners -------#
-        "Mod+Return".action.spawn = "alacritty";
+        "Mod+Return".action.spawn = "kitty";
         # "Mod+Space".action.spawn = ["rofi" "-show" "drun"];
         "Mod+O".action.spawn = ["vicinae" "toggle"];
         "Mod+N".action.spawn = ["swaync-client" "-t"];

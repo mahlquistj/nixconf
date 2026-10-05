@@ -6,13 +6,13 @@
   ...
 }: {
   imports = [
-    ./alacritty.nix
     ./btop.nix
     ./chrome.nix
     ./discord.nix
     # ./fish.nix
     # ./hyprland.nix
     ./git.nix
+    ./kitty.nix
     ./niri.nix
     ./kdeconnect.nix
     ./neovim.nix

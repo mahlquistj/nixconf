@@ -40,7 +40,7 @@ in {
       "${pi-dir}/agent/settings.json" = {
         force = true;
         text = builtins.toJSON {
-          packages = ["npm:context-mode" "npm:pi-ask-user"];
+          packages = ["npm:pi-ask-user"];
           quietStartup = true;
           theme = "dark";
           editorPaddingX = 2;
@@ -48,16 +48,15 @@ in {
           defaultModel = "big-pickle";
           defaultThinkingLevel = "medium";
           enableInstallTelemetry = false;
+          defaultTools = [
+            "+codemode"
+          ];
         };
       };
       "${pi-dir}/agent/mcp.json" = {
         force = true;
         text = builtins.toJSON {
-          mcpServers = {
-            context-mode = {
-              command = "context-mode";
-            };
-          };
+          mcpServers = {};
         };
       };
     };

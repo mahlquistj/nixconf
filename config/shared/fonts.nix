@@ -4,6 +4,7 @@
       noto-fonts-color-emoji
       google-fonts
       nerd-fonts.sauce-code-pro
+      nerd-fonts.jetbrains-mono
       jetbrains-mono
     ];
 

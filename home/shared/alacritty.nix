@@ -3,15 +3,15 @@
     enable = true;
     settings = {
       font = {
-        size = 18.0;
-        offset = { x = 1; y = 0; };
+        size = 14.0;
+
         normal = {
           family = "SauceCodePro Nerd Font Mono";
-          style = "Normal";
+          style = "Regular";
         };
         bold = {
           family = "SauceCodePro Nerd Font Mono";
-          style = "Normal";
+          style = "Bold";
         };
         italic = {
           family = "SauceCodePro Nerd Font Mono";
@@ -19,7 +19,7 @@
         };
         bold_italic = {
           family = "SauceCodePro Nerd Font Mono";
-          style = "Italic";
+          style = "Bold Italic";
         };
       };
 

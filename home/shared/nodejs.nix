@@ -4,7 +4,7 @@
     file.".npmrc" = {
       force = true;
       text = ''
-        prefix=~/.npm-dir
+        prefix=''${HOME}/.npm-dir
       '';
     };
     sessionPath = [
