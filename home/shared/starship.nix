@@ -42,7 +42,7 @@ in {
           [](fg:mantle)
           [─](fg:surface0)
         '';
-        symbol = "❄️";
+        symbol = "";
       };
 
       username = {
@@ -100,17 +100,17 @@ in {
       };
 
       git_status = {
-        conflicted = " 🚨";
-        ahead = " 🏎";
-        behind = " 😰";
-        diverged = " 😵";
-        up_to_date = "[ ✓](bold fg:green bg:surface0)";
-        untracked = " 🤷";
-        stashed = " 📦";
-        modified = " 📝";
+        conflicted = " [](fg:red bg:surface0)";
+        ahead = " [](fg:teal bg:surface0)";
+        behind = " [](fg:peach bg:surface0)";
+        diverged = " [](fg:yellow bg:surface0)";
+        up_to_date = "[ ](bold fg:green bg:surface0)";
+        untracked = " [](fg:overlay2 bg:surface0)";
+        stashed = " [](fg:mauve bg:surface0)";
+        modified = " [](fg:yellow bg:surface0)";
         staged = "[ +$count](fg:green bg:surface0)";
-        renamed = " 👅";
-        deleted = " 🗑";
+        renamed = " [](fg:blue bg:surface0)";
+        deleted = " [](fg:red bg:surface0)";
 
         format = multiline ''
           [$conflicted$stashed$deleted$renamed$modified$typechanged$untracked$staged$ahead_behind](bg:surface0)
@@ -119,49 +119,49 @@ in {
       };
 
       rust = {
-        symbol = "🦀";
+        symbol = "";
         format = multiline ''
           [─](fg:surface0)
           [](fg:mantle)
-          [$symbol](bg:mantle)
+          [$symbol](bg:mantle fg:peach)
           [](fg:mantle bg:surface0)
-          [ $version](bold bg:surface0)
+          [ $version](bg:surface0)
           [](fg:surface0)
         '';
       };
 
       perl = {
-        symbol = "🐪";
+        symbol = "";
         format = multiline ''
           [─](fg:surface0)
           [](fg:mantle)
-          [$symbol](bg:mantle)
+          [$symbol](bg:mantle fg:teal)
           [](fg:mantle bg:surface0)
-          [ $version](bold bg:surface0)
+          [ $version](bg:surface0)
           [](fg:surface0)
         '';
       };
 
       php = {
-        symbol = "🐘";
+        symbol = "";
         format = multiline ''
           [─](fg:surface0)
           [](fg:mantle)
-          [$symbol](bg:mantle)
+          [$symbol](bg:mantle fg:lavender)
           [](fg:mantle bg:surface0)
-          [ $version](bold bg:surface0)
+          [ $version](bg:surface0)
           [](fg:surface0)
         '';
       };
 
       python = {
-        symbol = "🐍";
+        symbol = "";
         format = multiline ''
           [─](fg:surface0)
           [](fg:mantle)
-          [$symbol](bg:mantle)
+          [$symbol](bg:mantle fg:blue)
           [](fg:mantle bg:surface0)
-          [ $pyenv_prefix$version(\($virtualenv\))](bold bg:surface0)
+          [ $pyenv_prefix$version(\($virtualenv\))](bg:surface0)
           [](fg:surface0)
         '';
         pyenv_prefix = "pyenv-";

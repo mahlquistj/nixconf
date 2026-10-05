@@ -1,18 +1,18 @@
 {pkgs, ...}: {
+  nixpkgs.config.joypixels.acceptLicense = true;
   fonts = {
     packages = with pkgs; [
-      noto-fonts-color-emoji
+      twitter-color-emoji
+      joypixels
       google-fonts
       nerd-fonts.sauce-code-pro
-      nerd-fonts.jetbrains-mono
-      jetbrains-mono
     ];
 
     fontconfig = {
       defaultFonts = {
         sansSerif = ["Product Sans"];
-        monospace = ["SauceCodePro Nerd Font Mono"];
-        emoji = ["Noto Color Emoji"];
+        monospace = ["Source Code Pro"];
+        emoji = ["JoyPixels"];
       };
 
       useEmbeddedBitmaps = true;
