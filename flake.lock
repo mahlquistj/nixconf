@@ -1,5 +1,25 @@
 {
   "nodes": {
+    "artcraft": {
+      "inputs": {
+        "nixpkgs": [
+          "nixpkgs"
+        ]
+      },
+      "locked": {
+        "lastModified": 1791690269,
+        "narHash": "sha256-ECN6N6eXRqd94PsfajiFzUo66ZxkFa9tKS3C+FZs+CI=",
+        "owner": "mahlquistj",
+        "repo": "artcraft-flake",
+        "rev": "74cfb0497a41fb9c8d88ad5e0011f045728cdd4a",
+        "type": "github"
+      },
+      "original": {
+        "owner": "mahlquistj",
+        "repo": "artcraft-flake",
+        "type": "github"
+      }
+    },
     "catppuccin": {
       "inputs": {
         "nixpkgs": [
@@ -883,6 +903,7 @@
     },
     "root": {
       "inputs": {
+        "artcraft": "artcraft",
         "catppuccin": "catppuccin",
         "fancontrol-gui": "fancontrol-gui",
         "home-manager": "home-manager",

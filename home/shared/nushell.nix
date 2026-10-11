@@ -105,7 +105,7 @@
           $stale | each { |b| print $"  - ($b)" }
 
           if not $yes {
-              let reply = (input "Proceed? [y/N]: " | str trim | str downcase)
+              let reply = (input "Proceed? [y/N]: " | str trim | str lowercase)
               if not ($reply in ["y", "yes"]) {
                   print "Aborted. Nothing deleted."
                   return

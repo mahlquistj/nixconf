@@ -40,12 +40,12 @@ in {
       "${pi-dir}/agent/settings.json" = {
         force = true;
         text = builtins.toJSON {
-          packages = ["npm:pi-ask-user"];
+          packages = ["npm:pi-ask-user" "npm:pi-web-access"];
           quietStartup = true;
           theme = "dark";
           editorPaddingX = 2;
-          defaultProvider = "opencode";
-          defaultModel = "big-pickle";
+          defaultProvider = "opencode-go";
+          defaultModel = "qwen3.8-flash";
           defaultThinkingLevel = "medium";
           enableInstallTelemetry = false;
           defaultTools = [

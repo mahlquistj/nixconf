@@ -40,7 +40,10 @@
     };
   };
 
-  programs.fancontrol-gui.enable = true;
+  programs = {
+    fancontrol-gui.enable = true;
+    artcraft.enable = true;
+  };
 
   home.packages = with pkgs; [
     prismlauncher
