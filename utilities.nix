@@ -71,7 +71,7 @@ in {
       sops-nix.homeManagerModules.sops
       vicinae.homeManagerModules.default
       nix-index-database.homeModules.default
-      artcraft.homeModules.artcraft
+      artcraft.homeModules.default
       {
         catppuccin = {
           enable = true;

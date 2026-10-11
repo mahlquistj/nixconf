@@ -7,11 +7,11 @@
         ]
       },
       "locked": {
-        "lastModified": 1791690269,
-        "narHash": "sha256-ECN6N6eXRqd94PsfajiFzUo66ZxkFa9tKS3C+FZs+CI=",
+        "lastModified": 1791730809,
+        "narHash": "sha256-e/ocUagMdrJcAYIADM5Qzgh1xt5PNdjmKr/mblDwjRU=",
         "owner": "mahlquistj",
         "repo": "artcraft-flake",
-        "rev": "74cfb0497a41fb9c8d88ad5e0011f045728cdd4a",
+        "rev": "3fa1871ce2e08915a61f93ffee1e201942f5ba0b",
         "type": "github"
       },
       "original": {

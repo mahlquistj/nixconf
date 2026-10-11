@@ -43,6 +43,7 @@
   programs = {
     fancontrol-gui.enable = true;
     artcraft.enable = true;
+    photocraft.enable = true;
   };
 
   home.packages = with pkgs; [
