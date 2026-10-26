@@ -83,7 +83,7 @@
     nix-gaming.url = "github:fufexan/nix-gaming";
     nix-citizen.inputs.nix-gaming.follows = "nix-gaming";
 
-    hytale.url = "github:TNAZEP/HytaleLauncherFlake";
+    hytale.url = "github:JPyke3/hytale-launcher-nix";
 
     # Vicinae
     vicinae = {

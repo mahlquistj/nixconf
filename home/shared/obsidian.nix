@@ -5,9 +5,12 @@
       notes = {};
     };
     defaultSettings = {
-      # Pinned from GitHub release assets; see ./obsidian-plugins/*.nix
-      # (team-relay.nix is deprecated and intentionally not listed here)
-      communityPlugins = [ (pkgs.callPackage ./obsidian-plugins/relay.nix { }) ];
+      # Pinned from GitHub release assets; add a file per plugin in
+      # ./obsidian-plugins/*.nix (team-relay.nix is deprecated, deliberately not listed)
+      communityPlugins = map (p: pkgs.callPackage p { }) [
+        ./obsidian-plugins/excalidraw.nix
+        ./obsidian-plugins/relay.nix
+      ];
       app = {
         vimMode = true;
       };

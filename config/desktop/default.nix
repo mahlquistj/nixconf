@@ -63,7 +63,7 @@
     vulkan-tools
     icu
     powershell
-    inputs.hytale.packages.${sysOptions.system}.hytale-launcher
+    inputs.hytale.packages.${sysOptions.system}.default
     android-tools
     sops
     age
