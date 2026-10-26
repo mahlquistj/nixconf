@@ -13,7 +13,7 @@
       {
         # Make my unofficial receiver work for my GH guitar
         name = "xpad-unofficial-wireless-receiver-presence";
-        patch = ./patches/xpad-unofficial-receiver.patch;
+        patch = ../shared/patches/xpad-unofficial-receiver.patch;
       }
     ];
 

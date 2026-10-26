@@ -40,7 +40,7 @@ in {
       "${pi-dir}/agent/settings.json" = {
         force = true;
         text = builtins.toJSON {
-          packages = ["npm:pi-ask-user" "npm:pi-web-access"];
+          packages = ["npm:pi-ask-user-question" "npm:pi-web-access" "npm:pi-observational-memory" "npm:@ff-labs/pi-fff"];
           quietStartup = true;
           theme = "dark";
           editorPaddingX = 2;
@@ -51,6 +51,14 @@ in {
           defaultTools = [
             "+codemode"
           ];
+
+          observational-memory = {
+            model = {
+              provider = "opencode-go";
+              id = "deepseek-v4.1-flash";
+              thinking = "low";
+            };
+          };
         };
       };
       "${pi-dir}/agent/mcp.json" = {
